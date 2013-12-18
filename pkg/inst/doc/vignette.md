@@ -158,81 +158,6 @@ print(p)
 ![plot of chunk sotkanetData](figure/sotkanetData.png) 
 
 
-### Indicators on the Finnish map
-
-Combine SOTKAnet-indicator data with [geographic maps](Maanmittauslaitos):
-[indicator 178](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu/metadata?type=I&indicator=178) (Net migration / 1000 people; (C) THL):
-
-
-```r
-# Get Data from SOTKAnet unique(subset(sotkanet.indicators,
-# indicator.organization %in% c(2,30))[, 1:2])
-selected.indicators <- "Nettomuutto / 1000 asukasta"
-selected.inds <- sotkanet.indicators$indicator[match(selected.indicators, sotkanet.indicators$indicator.title.fi)]
-print(selected.inds)
-```
-
-```
-## [1] NA
-```
-
-```r
-
-dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c("total"))
-```
-
-```
-## Error: cannot open the connection
-```
-
-```r
-
-# Pick indicator name and source
-indicator.name <- as.character(unique(dat$indicator.title.fi))
-indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
-
-# Load MML municipality map data (C) MML 2011
-library(sorvi)
-sp <- LoadMML(data.id = "kunta4_p", resolution = "4_5_milj_shape_etrs-tm35fin")
-```
-
-```
-## Error: unused argument (resolution = "4_5_milj_shape_etrs-tm35fin")
-```
-
-```r
-
-# Match municipality names between shape (map) object and indicator data
-# and add indicator data to the shape object
-sp[["indicator"]] <- dat[match(sp@data$Kunta.FI, dat$region.title.fi), "primary.value"]
-```
-
-```
-## Error: object 'sp' not found
-```
-
-```r
-
-# Replace NAs by 0
-sp[["indicator"]][is.na(sp[["indicator"]])] <- 0
-```
-
-```
-## Error: object 'sp' not found
-```
-
-```r
-
-# Visualize the indicator on Finnish map Restrict the limits to +/-30 to
-# keep contrast
-q <- PlotShape(sp, "indicator", main = paste(indicator.name, indicator.source, 
-    sep = "/"), type = "twoway", at = seq(-30, 30, 1))
-```
-
-```
-## Error: object 'sp' not found
-```
-
 
 ### Effect of municipality size
 
@@ -331,7 +256,7 @@ This work can be freely used, modified and distributed under the
 license](http://en.wikipedia.org/wiki/BSD\_licenses). Kindly cite the
 R package as 'Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona
 Lehtomäki (2013). sotkanet R package. URL:
-http://ropengov.github.io/sotkanet)'.
+http://ropengov.github.io/sotkanet'.
 
 
 ### Session info
@@ -357,22 +282,17 @@ sessionInfo()
 ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] splines   grid      stats     graphics  grDevices utils     datasets 
-## [8] methods   base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] RColorBrewer_1.0-5 sorvi_0.4.14       spdep_0.5-56      
-##  [4] coda_0.16-1        deldir_0.0-22      maptools_0.8-23   
-##  [7] foreign_0.8-54     nlme_3.1-109       MASS_7.3-26       
-## [10] Matrix_1.0-12      lattice_0.20-15    boot_1.3-9        
-## [13] sp_1.0-9           RCurl_1.95-4.1     bitops_1.0-5      
-## [16] pxR_0.29           stringr_0.6.2      ggplot2_0.9.3.1   
-## [19] sotkanet_0.9.01    rjson_0.2.12       knitr_1.2         
+## [1] ggplot2_0.9.3.1 sotkanet_0.9.01 rjson_0.2.12    knitr_1.2      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] colorspace_1.2-2 dichromat_2.0-0  digest_0.6.3     evaluate_0.4.3  
-##  [5] formatR_0.7      gtable_0.1.2     labeling_0.1     LearnBayes_2.12 
-##  [9] munsell_0.4      plyr_1.8         proto_0.3-10     reshape2_1.2.2  
-## [13] scales_0.2.3     tools_3.0.1
+##  [1] colorspace_1.2-2   dichromat_2.0-0    digest_0.6.3      
+##  [4] evaluate_0.4.3     formatR_0.7        grid_3.0.1        
+##  [7] gtable_0.1.2       labeling_0.1       MASS_7.3-26       
+## [10] munsell_0.4        plyr_1.8           proto_0.3-10      
+## [13] RColorBrewer_1.0-5 reshape2_1.2.2     scales_0.2.3      
+## [16] stringr_0.6.2      tools_3.0.1
 ```
 
