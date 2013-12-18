@@ -80,37 +80,6 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-### Indicators on the Finnish map
-
-Combine SOTKAnet-indicator data with [geographic maps](Maanmittauslaitos):
-[indicator 178](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu/metadata?type=I&indicator=178) (Net migration / 1000 people; (C) THL):
-
-```{r sotkanetVisu2, warning=FALSE, message=FALSE}
-# Get Data from SOTKAnet
-#unique(subset(sotkanet.indicators, indicator.organization %in% c(2,30))[, 1:2])
-selected.indicators <- "Nettomuutto / 1000 asukasta"; selected.inds <- sotkanet.indicators$indicator[match(selected.indicators, sotkanet.indicators$indicator.title.fi)]; print(selected.inds)
-
-dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
-
-# Pick indicator name and source
-indicator.name <- as.character(unique(dat$indicator.title.fi))
-indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
-
-# Load MML municipality map data (C) MML 2011
-library(sorvi)
-sp <- LoadMML(data.id = "kunta4_p", resolution = "4_5_milj_shape_etrs-tm35fin")
-
-# Match municipality names between shape (map) object and indicator data
-# and add indicator data to the shape object
-sp[["indicator"]] <- dat[match(sp@data$Kunta.FI, dat$region.title.fi), "primary.value"]
-
-# Replace NAs by 0
-sp[["indicator"]][is.na(sp[["indicator"]])] <- 0
-
-# Visualize the indicator on Finnish map
-# Restrict the limits to +/-30 to keep contrast
-q <- PlotShape(sp, "indicator", main = paste(indicator.name, indicator.source, sep = "/"), type = "twoway", at = seq(-30, 30, 1))
-```
 
 ### Effect of municipality size
 
@@ -185,7 +154,7 @@ This work can be freely used, modified and distributed under the
 license](http://en.wikipedia.org/wiki/BSD\_licenses). Kindly cite the
 R package as 'Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona
 Lehtomäki (2013). sotkanet R package. URL:
-http://ropengov.github.io/sotkanet)'.
+http://ropengov.github.io/sotkanet'.
 
 
 ### Session info
