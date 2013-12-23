@@ -6,7 +6,7 @@
 Sotkanet API R tools
 ===========
 
-This is an [rOpenGov](http://ropengov.github.com/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) providing over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF).
+This is the [sotkanet](http://ropengov.github.com/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF). This package is part of [rOpenGov](http://ropengov.github.com/).
 
 
 ### Installation
@@ -29,10 +29,6 @@ library(devtools)
 install_github("sotkanet", "ropengov")
 library(sotkanet)
 ```
-
-
-Further installation and development instructions at the [home
-page](http://ropengov.github.com/sotkanet).
 
 
 ### Listing available indicators
@@ -161,34 +157,19 @@ print(p)
 
 ### Effect of municipality size
 
-Smaller municipalities have more random variation. Unemployment rate is indicated by colors.
+Smaller municipalities have more random variation.
 
 
 ```r
-selected.indicators <- c("Väestö 31.12.", "Nettomuutto / 1000 asukasta", "Työttömät, % työvoimasta")
+selected.indicators <- c("Väestö 31.12.", "Kuntien välinen nettomuutto / 1 000 asukasta")
 selected.inds <- sotkanet.indicators$indicator[match(selected.indicators, sotkanet.indicators$indicator.title.fi)]
 dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c("total"))
-```
-
-```
-## Error: cannot open the connection
-```
-
-```r
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
 dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", 
     direction = "wide")
-names(dw) <- c("Kunta", "Asukasluku", "Nettomuutto", "Työttömyys")
-```
-
-```
-## Error: 'names' attribute [4] must be the same length as the vector [2]
-```
-
-```r
-p <- ggplot(dw, aes(x = log10(Asukasluku), y = Nettomuutto, color = Työttömyys)) + 
-    geom_point(size = 3)
-p <- p + ggtitle("Kunnan asukasluku, nettomuutto ja työllisyys")
+names(dw) <- c("Municipality", "Population", "Migration")
+p <- ggplot(dw, aes(x = log10(Population), y = Migration)) + geom_point(size = 3)
+p <- p + ggtitle("Migration vs. population size")
 p <- p + theme(title = element_text(size = 15))
 p <- p + theme(axis.title.x = element_text(size = 20))
 p <- p + theme(axis.title.y = element_text(size = 20))
@@ -196,9 +177,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-```
-## Error: object 'Asukasluku' not found
-```
+![plot of chunk sotkanetVisu3](figure/sotkanetVisu3.png) 
 
 
 
@@ -212,23 +191,24 @@ use. Save the data on your local dissk for further work.
 
 ```r
 # These indicators have problems with R routines:
-probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
+probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 
+    2033, 2050, 3386, 3443)
 
 # Get data for all indicators
 datlist <- list()
-for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators) {
-  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, years = 1990:2013, genders = c('female', 'male', 'total'))
+for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
+    datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, years = 1990:2013, 
+        genders = c("female", "male", "total"))
 }
 
-# Combine tables (this may require considerable time and memory 
-# for the full data set)
+# Combine tables (this may require considerable time and memory for the
+# full data set)
 dat <- do.call("rbind", datlist)
 ```
 
 
 For further usage examples, see
-[Louhos-blog](http://louhos.wordpress.com) and
-[Datawiki](https://github.com/louhos/sorvi/wiki/Data), and
+[Louhos-blog](http://louhos.wordpress.com), and
 [takomo](https://github.com/louhos/takomo/tree/master/Sotkanet).
 
 
