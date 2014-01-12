@@ -1,3 +1,0 @@
-export(GetDataSotkanet)
-export(SotkanetIndicators)
-export(SotkanetRegions)
