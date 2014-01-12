@@ -1,3 +1,11 @@
+sotkanet
+========
+
+R Tools for the Sotkanet demographics indicator database (covering
+Finland and Europe).
+
+Build the R package by running [build.sh](build.sh)
+
 ### Overview
 
 This is an [rOpenGov](http://ropengov.github.com/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) providing over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF).
