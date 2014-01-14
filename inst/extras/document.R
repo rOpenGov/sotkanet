@@ -1,3 +1,3 @@
 library(devtools)
-document("sotkanet")
+document("../../")
 

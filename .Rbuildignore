@@ -1,13 +1,11 @@
 # Extra material related but not to be included in the package
-inst/extras/
+./inst/extras/..Rcheck
+./inst/extras/*
 
 # Git related
-.git
-.gitignore
+./.git*
 
 # Travis scripts
 travis-tool.sh
 .travis.yml
 
-# Misc
-*~
