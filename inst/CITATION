@@ -1,0 +1,20 @@
+citHeader("Kindly cite the sotkanet R package as follows:")
+
+citEntry(entry="misc",
+         title = "sotkanet R package",
+         author = personList(
+	   person(given ="Leo", family="Lahti", email = "leo.lahti@iki.fi"),
+	   person(given ="Einari", family="Happonen"),
+	   person(given ="Juuso", family="Parkkinen"),
+	   person(given ="Joona", family="Lehtomaki")
+         ),
+	 journal = "",
+	 year = "2013",
+         textVersion =
+         paste("(C) Leo Lahti, Einari Happonen, Juuso Parkkinen and
+Joona Lehtomaki 2013.",
+               "sotkanet: Sotkanet R Tools",
+               sep=" ")
+         )
+
+citFooter("\nMany thanks for all contributors! For more info, see: http://ropengov.github.com/")

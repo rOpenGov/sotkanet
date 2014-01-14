@@ -1,0 +1,27 @@
+\name{sotkanet.json_query}
+\alias{sotkanet.json_query}
+\title{Description:
+retrieves Sotkanet data from the query url}
+\usage{
+  sotkanet.json_query(url)
+}
+\arguments{
+  \item{url}{Sotkanet JSON url
+
+  Returns:}
+}
+\value{
+  sotkanet json query
+}
+\description{
+  Arguments:
+}
+\author{
+  Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet
+  \email{louhos@googlegroups.com}
+}
+\references{
+  See citation("sotkanet")
+}
+\keyword{utilities}
+
