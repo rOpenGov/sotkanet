@@ -102,7 +102,7 @@ print(p)
 ### Fetch all SOTKAnet indicators
 
 This takes for a long time and is not recommended for regular
-use. Save the data on your local dissk for further work.
+use. Save the data on your local disk for further work.
 
 
 ```{r sotkanetDataAll, warning=FALSE, message=FALSE, eval=FALSE}
