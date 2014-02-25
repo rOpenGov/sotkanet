@@ -27,12 +27,12 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
   * submit suggestions and bug-reports at: https://github.com/ropengov/sotkanet/issues
   * send a pull request on: https://github.com/ropengov/sotkanet/
   * compose a friendly e-mail to: louhos@googlegroups.com
-  * join our IRC channels at !louhos@IRCnet (Finland) and ropengov@Freenode (international)
+  * join our IRC channels at !louhos@IRCnet (Finland) and #ropengov@Freenode (international)
 
 ### Developers
 
   We are greatful to a number of
-  [http://louhos.github.com/contact.html](contributors)! The main
+  [contributors](http://louhos.github.com/contact.html)! The main
   admins are Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomäki.
 
 
