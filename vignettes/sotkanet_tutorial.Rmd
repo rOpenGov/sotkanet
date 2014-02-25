@@ -82,8 +82,7 @@ print(p)
 Smaller municipalities have more random variation.
 
 ```{r sotkanetVisu3, warning=FALSE, message=FALSE}
-selected.indicators <- c("Väestö 31.12.", "Kuntien välinen nettomuutto / 1 000 asukasta"); 
-selected.inds <- sotkanet.indicators$indicator[match(selected.indicators, sotkanet.indicators$indicator.title.fi)]
+selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
 dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", direction = "wide")
@@ -148,8 +147,8 @@ This work can be freely used, modified and distributed under the
 [Two-clause FreeBSD
 license](http://en.wikipedia.org/wiki/BSD\_licenses). Kindly cite the
 R package as 'Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona
-Lehtomäki (2013). sotkanet R package. URL:
-http://ropengov.github.io/sotkanet'.
+Lehtomaki (2013). sotkanet R package. URL:
+http://www.github.com/ropengov/sotkanet'.
 
 
 ### Session info
