@@ -15,11 +15,6 @@ Depends:
     methods,
     rjson
 LazyLoad: yes
-Collate:
-    'sotkanet.R'
-    'firstlib.R'
-    'sotkanet-package.R'
-    'internal.R'
 VignetteBuilder: knitr
 Suggests:
     knitr

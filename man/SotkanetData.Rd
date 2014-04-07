@@ -5,7 +5,7 @@ SotkanetData retrieves Sotkanet data from
 http://www.sotkanet.fi/rest/1.0/data/csv?
 according to the query arguments.}
 \usage{
-  SotkanetData(indicator, years, genders)
+SotkanetData(indicator, years, genders)
 }
 \arguments{
   \item{indicator}{Dataset identifier}
@@ -18,20 +18,20 @@ according to the query arguments.}
   Returns:}
 }
 \value{
-  sotkanet json query
+sotkanet json query
 }
 \description{
-  Arguments:
+Arguments:
 }
 \examples{
 #
 }
 \author{
-  Einari Happonen / Opasnet / Louhos. Maintainer:
-  Louhos/Opasnet \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet / Louhos. Maintainer:
+Louhos/Opasnet \email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 

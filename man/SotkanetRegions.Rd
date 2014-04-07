@@ -4,7 +4,7 @@
 SotkanetRegions retrieves Sotkanet regions data from
 http://www.sotkanet.fi/rest/1.1/regions}
 \usage{
-  SotkanetRegions(type = "table")
+SotkanetRegions(type = "table")
 }
 \arguments{
   \item{type}{Return format ("table" or "raw")
@@ -12,20 +12,20 @@ http://www.sotkanet.fi/rest/1.1/regions}
   Returns:}
 }
 \value{
-  sotkanet json query in selected format
+sotkanet json query in selected format
 }
 \description{
-  Arguments:
+Arguments:
 }
 \examples{
 # sotkanet.regions <- SotkanetRegions(type = "table")
 }
 \author{
-  Einari Happonen / Opasnet / Louhos. Maintainer:
-  Louhos/Opasnet \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet / Louhos. Maintainer:
+Louhos/Opasnet \email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 

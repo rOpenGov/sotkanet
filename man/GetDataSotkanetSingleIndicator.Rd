@@ -5,9 +5,8 @@ GetDataSotkanetSingleIndicator retrieves Sotkanet data
 for given indicator according to the query arguments and combines
 indicator, region, and overall data into one table}
 \usage{
-  GetDataSotkanetSingleIndicator(indicator,
-    years = 1990:2013, genders = "total", regions = NULL,
-    region.category = NULL)
+GetDataSotkanetSingleIndicator(indicator, years = 1990:2013,
+  genders = "total", regions = NULL, region.category = NULL)
 }
 \arguments{
   \item{indicator}{Dataset identifier}
@@ -29,20 +28,20 @@ indicator, region, and overall data into one table}
   Returns:}
 }
 \value{
-  sotkanet data table
+sotkanet data table
 }
 \description{
-  Arguments:
+Arguments:
 }
 \examples{
 #
 }
 \author{
-  Einari Happonen / Opasnet / Louhos. Maintainer:
-  Louhos/Opasnet \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet / Louhos. Maintainer:
+Louhos/Opasnet \email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 

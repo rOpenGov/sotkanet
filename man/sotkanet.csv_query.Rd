@@ -3,7 +3,7 @@
 \title{Description:
 retrieves Sotkanet data from the query url}
 \usage{
-  sotkanet.csv_query(url)
+sotkanet.csv_query(url)
 }
 \arguments{
   \item{url}{Sotkanet CSV url
@@ -11,17 +11,17 @@ retrieves Sotkanet data from the query url}
   Returns:}
 }
 \value{
-  sotkanet CSV query
+sotkanet CSV query
 }
 \description{
-  Arguments:
+Arguments:
 }
 \author{
-  Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet
-  \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet
+\email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 

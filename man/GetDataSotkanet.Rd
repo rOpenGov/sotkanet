@@ -5,9 +5,8 @@ GetDataSotkanet retrieves Sotkanet data
 according to the query arguments and combines
 indicator, region, and overall data into one table}
 \usage{
-  GetDataSotkanet(indicators, years = 1990:2013,
-    genders = c("total"), regions = NULL,
-    region.category = NULL, verbose = TRUE)
+GetDataSotkanet(indicators, years = 1990:2013, genders = c("total"),
+  regions = NULL, region.category = NULL, verbose = TRUE)
 }
 \arguments{
   \item{indicators}{Dataset identifier}
@@ -32,10 +31,10 @@ indicator, region, and overall data into one table}
   Returns:}
 }
 \value{
-  sotkanet data table
+sotkanet data table
 }
 \description{
-  Arguments:
+Arguments:
 }
 \examples{
 # dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
@@ -43,11 +42,11 @@ indicator, region, and overall data into one table}
 	     #	       region = "Suomi")
 }
 \author{
-  Einari Happonen / Opasnet / Louhos. Maintainer:
-  Louhos/Opasnet \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet / Louhos. Maintainer:
+Louhos/Opasnet \email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 

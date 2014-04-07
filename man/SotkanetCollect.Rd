@@ -3,7 +3,7 @@
 \title{Description:
 SotkanetCollect converts the list object from Sotkanet to a data.frame}
 \usage{
-  SotkanetCollect(x, name)
+SotkanetCollect(x, name)
 }
 \arguments{
   \item{x}{input data (from SotkanetIndicators or
@@ -15,17 +15,17 @@ SotkanetCollect converts the list object from Sotkanet to a data.frame}
   Returns:}
 }
 \value{
-  sotkanet data table
+sotkanet data table
 }
 \description{
-  Arguments:
+Arguments:
 }
 \author{
-  Einari Happonen / Opasnet. Maintainer: Louhos
-  \email{louhos@googlegroups.com}
+Einari Happonen / Opasnet. Maintainer: Louhos
+\email{louhos@googlegroups.com}
 }
 \references{
-  See citation("sotkanet")
+See citation("sotkanet")
 }
 \keyword{utilities}
 
