@@ -5,7 +5,10 @@ R Tools for the Sotkanet demographics indicator database (covering
 Finland and Europe), associated with
 [rOpenGov](http://ropengov.github.com/sotkanet).
 
-[![Build Status](https://api.travis-ci.org/rOpenGov/govdat.png)](https://travis-ci.org/rOpenGov/sotkanet)
+[![Build
+Status](https://api.travis-ci.org/rOpenGov/helsinki.png)](https://travis-ci.org/rOpenGov/helsinki)
+[![Stories in
+Ready](https://badge.waffle.io/ropengov/helsinki.png?label=TODO)](http://waffle.io/ropengov/helsinki)
 
 
 
@@ -43,5 +46,5 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
 
   See the DESCRIPTION file
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/fdfcd0ee746a540299b8f7be2833b93f "githalytics.com")](http://githalytics.com/louhos/sorvi)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/fdfcd0ee746a540299b8f7be2833b93f"githalytics.com")](http://githalytics.com/louhos/sorvi)
 
