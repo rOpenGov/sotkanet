@@ -1,7 +1,7 @@
 [![Build
-Status](https://api.travis-ci.org/rOpenGov/helsinki.png)](https://travis-ci.org/rOpenGov/helsinki)
+Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
 [![Stories in
-Ready](https://badge.waffle.io/ropengov/helsinki.png?label=TODO)](http://waffle.io/ropengov/helsinki)
+Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=TODO)](http://waffle.io/ropengov/sotkanet)
 
 
 
