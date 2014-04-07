@@ -5,6 +5,9 @@ R Tools for the Sotkanet demographics indicator database (covering
 Finland and Europe), associated with
 [rOpenGov](http://ropengov.github.com/sotkanet).
 
+[![Build Status](https://api.travis-ci.org/rOpenGov/govdat.png)](https://travis-ci.org/rOpenGov/sotkanet)
+
+
 
 ### Overview
 
