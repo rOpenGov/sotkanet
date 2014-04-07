@@ -1,15 +1,17 @@
+[![Build
+Status](https://api.travis-ci.org/rOpenGov/helsinki.png)](https://travis-ci.org/rOpenGov/helsinki)
+[![Stories in
+Ready](https://badge.waffle.io/ropengov/helsinki.png?label=TODO)](http://waffle.io/ropengov/helsinki)
+
+
+
+
 sotkanet
 ========
 
 R Tools for the Sotkanet demographics indicator database (covering
 Finland and Europe), associated with
 [rOpenGov](http://ropengov.github.com/sotkanet).
-
-[![Build
-Status](https://api.travis-ci.org/rOpenGov/helsinki.png)](https://travis-ci.org/rOpenGov/helsinki)
-[![Stories in
-Ready](https://badge.waffle.io/ropengov/helsinki.png?label=TODO)](http://waffle.io/ropengov/helsinki)
-
 
 
 ### Overview
