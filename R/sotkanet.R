@@ -1,8 +1,8 @@
-# This file is a part of rOpenGOv (http://ropengov.github.com/sotkanet/)
+# This file is a part of rOpenGov (https://github.com/ropengov/sotkanet)
 
 # Contributed by Einari Happonen and Opasnet:
 # http://fi.opasnet.org/fi/Etusivu
-# Copyright (C) 2013 Einari Happonen and Leo Lahti 
+# Copyright (C) 2013-2014 Einari Happonen and Leo Lahti 
 # <ropengov.github.com>. All rights reserved.
 
 # This program is open source software; you can redistribute it and/or modify 

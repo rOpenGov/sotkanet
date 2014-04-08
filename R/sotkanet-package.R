@@ -4,7 +4,7 @@
 #' Package: \tab sotkanet\cr
 #' Type: \tab Package\cr
 #' Version: \tab See sessionInfo() or DESCRIPTION file\cr
-#' Date: \tab 2013\cr
+#' Date: \tab 2014\cr
 #' License: \tab FreeBSD\cr
 #' LazyLoad: \tab yes\cr
 #' }
@@ -19,7 +19,7 @@
 #' @author Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki \email{louhos@@googlegroups.com}
 #' @references
 #' See citation("sotkanet")
-#' \url{http://ropengov.github.com/sotkanet}
+#' \url{https://github.com/ropengov/sotkanet}
 #' @examples library(sotkanet)
 #' @keywords package
 NULL

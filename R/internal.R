@@ -1,4 +1,4 @@
-# This file is a part of rOpenGOv (http://ropengov.github.com/sotkanet/)
+# This file is a part of rOpenGov (https://github.com/ropengov/sotkanet)
 
 # Contributed by Einari Happonen and Opasnet:
 # http://fi.opasnet.org/fi/Etusivu
@@ -198,3 +198,4 @@ SotkanetCollect <- function(x, name) {
 
   return(out)
 }
+
