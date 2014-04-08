@@ -1,4 +1,4 @@
-# This file is a part of rOpenGov (http://ropengov.github.com/sotkanet/)
+# This file is a part of rOpenGov (https://github.com/ropengov/sotkanet)
 
 # Copyright (C) 2013-2014 Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki <ropengov.github.com>. 
 # All rights reserved.
