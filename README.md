@@ -4,23 +4,23 @@ Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/
 Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=TODO)](http://waffle.io/ropengov/sotkanet)
 
 
-
-
 sotkanet
 ========
 
-R Tools for the Sotkanet demographics indicator database (covering
-Finland and Europe), associated with
-[rOpenGov](http://ropengov.github.com/sotkanet).
+R Tools for the Sotkanet demographics indicator database (Finland and
+Europe) maintained by the [National Institute for Health and
+Welfare (THL)](http://www.thl.fi).
+
+This R package is associated with
+[rOpenGov](http://ropengov.github.io).
 
 
 ### Overview
 
-R package to access data from the [Sotkanet
+The [Sotkanet
 portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu)
-providing over 2000 demographic indicators across Finland and Europe,
-maintained by the National Institute for Health and Welfare (THL). For
-more information, see [Sotkanet indicator
+provides over 2000 demographic indicators across Finland and
+Europe. For more information, see [Sotkanet indicator
 database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta)
 and [API
 description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF).
