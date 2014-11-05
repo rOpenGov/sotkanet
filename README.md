@@ -48,5 +48,3 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
 
   See the DESCRIPTION file
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/aa4ae1a81c808b627617631e6e6f5fa3 "githalytics.com")](http://githalytics.com/rOpenGov/sotkanet)
-
