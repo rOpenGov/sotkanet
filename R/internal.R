@@ -92,6 +92,7 @@ GetDataSotkanetSingleIndicator <- function (indicator, years = 1990:2013, gender
 #' Returns:
 #'   @return sotkanet json query
 #'
+#' @importFrom RCurl url.exists
 #' @references
 #' See citation("sotkanet") 
 #' @author Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
