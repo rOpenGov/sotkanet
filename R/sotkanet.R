@@ -1,22 +1,5 @@
-# This file is a part of rOpenGov (https://github.com/ropengov/sotkanet)
-
-# Contributed by Einari Happonen and Opasnet:
-# http://fi.opasnet.org/fi/Etusivu
-# Copyright (C) 2013-2014 Einari Happonen and Leo Lahti 
-# <ropengov.github.com>. All rights reserved.
-
-# This program is open source software; you can redistribute it and/or modify 
-# it under the terms of the FreeBSD License (keep this notice): 
-# http://en.wikipedia.org/wiki/BSD_licenses
-
-# This program is distributed in the hope that it will be useful, 
-# but WITHOUT ANY WARRANTY; without even the implied warranty of 
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-#' Description:
-#' SotkanetIndicators retrieves Sotkanet data corresponding to a
-#' specified data identifier from
-#' http://www.sotkanet.fi/rest/1.1/indicators
+#' @description SotkanetIndicators retrieves Sotkanet data corresponding to a
+#' specified data identifier from http://www.sotkanet.fi/rest/1.1/indicators
 #'
 #' Arguments:
 #'   @param id Dataset identifier
@@ -28,7 +11,7 @@
 #' @export
 #' @references
 #' See citation("sotkanet") 
-#' @author Einari Happonen / Opasnet / Louhos. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @author Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # sotkanet.indicators <- SotkanetIndicators(type = "table")
 #' @keywords utilities
 
@@ -37,7 +20,7 @@ SotkanetIndicators <- function(id = NULL, type = "table")
 
   url <- 'http://www.sotkanet.fi/rest/1.1/indicators'
 
-  if (! is.null(id))
+  if (!is.null(id))
     url <- paste(url, id, sep='/')
 
   res <- sotkanet.json_query(url)

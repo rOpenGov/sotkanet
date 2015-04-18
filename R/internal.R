@@ -1,22 +1,3 @@
-# This file is a part of rOpenGov (https://github.com/ropengov/sotkanet)
-
-# Contributed by Einari Happonen and Opasnet:
-# http://fi.opasnet.org/fi/Etusivu
-# Copyright (C) 2013-2014 Einari Happonen and Leo Lahti 
-# <ropengov.github.com>. All rights reserved.
-
-# This program is open source software; you can redistribute it and/or modify 
-# it under the terms of the FreeBSD License (keep this notice): 
-# http://en.wikipedia.org/wiki/BSD_licenses
-
-# This program is distributed in the hope that it will be useful, 
-# but WITHOUT ANY WARRANTY; without even the implied warranty of 
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-#' @import ggplot2
-#' @import rjson
-NULL
-
 #' Description:
 #' SotkanetData retrieves Sotkanet data from
 #' http://www.sotkanet.fi/rest/1.0/data/csv?
@@ -118,16 +99,21 @@ GetDataSotkanetSingleIndicator <- function (indicator, years = 1990:2013, gender
 
 sotkanet.json_query <- function(url)
 {
-        response <- rjson::fromJSON(
-                        paste(
-                                        readLines(url),
-                                        collapse = ""
-                        )
-        )
 
-        if (is.null(response)) stop("Sotkanet server is not responding! Unable to query!")
+  # Check that the URL exists
+  if (!url.exists(url)) 
+    warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
+    return(NULL)
 
-        return(response)
+  # Retrieve the data
+  response <- rjson::fromJSON(
+    paste(readLines(url), collapse = "")
+  )
+
+  if (is.null(response)) 
+    stop("Sotkanet server is not responding! Unable to query!")
+
+  return(response)
 }
 
 
