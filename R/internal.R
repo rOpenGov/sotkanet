@@ -1,6 +1,6 @@
 #' Description:
 #' SotkanetData retrieves Sotkanet data from
-#' \url{http://www.sotkanet.fi/rest/1.1/data/csv?}
+#' \url{http://www.sotkanet.fi/rest/1.0/data/csv?}
 #' according to the query arguments.
 #'
 #' Arguments:

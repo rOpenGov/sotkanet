@@ -3,6 +3,9 @@
 ./inst/extras/*
 ./inst/extras/.*
 ./vignettes/figure
+./vignettes/figure*
+./vignettes/figure/
+./vignettes/figure/*
 ./vignettes/main.R
 inst/extras/.RData
 
