@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+%\VignetteIndexEntry{sotkanet R vignette}
 -->
 
 Sotkanet API R tools
@@ -84,7 +84,9 @@ Smaller municipalities have more random variation.
 ```{r sotkanetVisu3, warning=FALSE, message=FALSE}
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
+# Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
+datf <- datf[!duplicated(datf),]
 dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", direction = "wide")
 names(dw) <- c("Municipality", "Population", "Migration")
 p <- ggplot(dw, aes(x = log10(Population), y = Migration)) + geom_point(size = 3)

@@ -108,7 +108,7 @@ sotkanet.json_query <- function(url)
 
   # Retrieve the data
   response <- rjson::fromJSON(
-    paste(readLines(url), collapse = "")
+    paste(readLines(url, warn = FALSE), collapse = "")
   )
 
   if (is.null(response)) 
@@ -129,18 +129,24 @@ sotkanet.json_query <- function(url)
 #'
 #' @references
 #' See citation("sotkanet") 
-#' @author Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @keywords utilities
 
 sotkanet.csv_query <- function(url)
 {
-        csv <- readLines(url)
+  # Check that the URL exists
+  if (!url.exists(url)) 
+    warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
+    return(NULL)
 
-        if (is.null(csv)) {
-	  stop("Sotkanet server is not responding! Unable to query!")
-	}
+  csv <- readLines(url, warn = FALSE)
 
-        return(read.table(file = textConnection(csv), header = TRUE, sep=';'))
+  if (is.null(csv)) {
+    stop("Sotkanet server is not responding! Unable to query!")
+  }
+
+  return(read.table(file = textConnection(csv), header = TRUE, sep = ';'))
+
 }
 
 

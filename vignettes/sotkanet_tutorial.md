@@ -48,13 +48,13 @@ head(sotkanet.indicators)
 ## 4         7
 ## 5        74
 ## 6       127
-##                                                                            indicator.title.fi
-## 1  Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä
-## 2                   Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä
-## 3 Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1000 vastaavanikäistä
-## 4                                                                 0 - 6-vuotiaat, % väestöstä
-## 5                                                      Yksinhuoltajaperheet, % lapsiperheistä
-## 6                                                                               Väestö 31.12.
+##                                                                             indicator.title.fi
+## 1   Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä
+## 2                    Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä
+## 3 Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä
+## 4                                                                  0 - 6-vuotiaat, % väestöstä
+## 5                                                       Yksinhuoltajaperheet, % lapsiperheistä
+## 6                                                                                Väestö 31.12.
 ##   indicator.organization        indicator.organization.title.fi
 ## 1                      2 Terveyden ja hyvinvoinnin laitos (THL)
 ## 2                      2 Terveyden ja hyvinvoinnin laitos (THL)
@@ -148,7 +148,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetData](figure/sotkanetData.png) 
+![plot of chunk sotkanetData](figure/sotkanetData-1.png) 
 
 
 ### Effect of municipality size
@@ -171,7 +171,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetVisu3](figure/sotkanetVisu3.png) 
+![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
 
 
 
@@ -240,7 +240,7 @@ sessionInfo()
 ```
 
 ```
-## R version 3.1.0 (2014-04-10)
+## R version 3.1.2 (2014-10-31)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## 
 ## locale:
@@ -255,11 +255,11 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] knitr_1.6       sotkanet_0.9.05 rjson_0.2.13    ggplot2_1.0.0  
+## [1] sotkanet_0.9.05 rjson_0.2.15    ggplot2_1.0.0   knitr_1.9      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] colorspace_1.2-4 digest_0.6.4     evaluate_0.5.5   formatR_0.10    
-##  [5] grid_3.1.0       gtable_0.1.2     labeling_0.2     MASS_7.3-33     
-##  [9] munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.1     
-## [13] reshape2_1.4     scales_0.2.4     stringr_0.6.2    tools_3.1.0
+##  [1] colorspace_1.2-6 digest_0.6.8     evaluate_0.5.5   formatR_1.0     
+##  [5] grid_3.1.2       gtable_0.1.2     labeling_0.3     MASS_7.3-39     
+##  [9] munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.5     
+## [13] reshape2_1.4.1   scales_0.2.4     stringr_0.6.2    tools_3.1.2
 ```

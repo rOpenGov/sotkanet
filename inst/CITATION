@@ -11,10 +11,9 @@ citEntry(entry="misc",
 	 journal = "",
 	 year = "2013",
          textVersion =
-         paste("(C) Leo Lahti, Einari Happonen, Juuso Parkkinen and
-Joona Lehtomaki 2013.",
+         paste("(C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki 2013-2015.",
                "sotkanet: Sotkanet R Tools",
                sep=" ")
          )
 
-citFooter("\nMany thanks for all contributors! For more info, see: http://ropengov.github.com/")
+citFooter("\n For more info, see: https://github.com/ropengov/sotkanet/")
