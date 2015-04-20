@@ -28,7 +28,7 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
 
 ### Contact
   
-  [Homepage](http://louhos.github.com/contact.html)
+  [Homepage](http://ropengov.github.io)
 
   You are welcome to:
   
@@ -40,11 +40,12 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
 ### Developers
 
   We are greatful to a number of
-  [contributors](http://louhos.github.com/contact.html)! The main
-  admins are Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomäki.
+  [contributors](http://ropengov.github.io)! The main developers are
+  [Leo Lahti](https://github.com/antagomir/), Einari Happonen, Juuso
+  Parkkinen and Joona Lehtomaki.
 
 
 ### License
 
-  See the DESCRIPTION file
+  See the [DESCRIPTION file](https://github.com/rOpenGov/sotkanet/blob/master/DESCRIPTION)
 

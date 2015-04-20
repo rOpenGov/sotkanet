@@ -29,12 +29,14 @@ library(sotkanet)
 
 ### Listing available indicators
 
-List available Sotkanet indicators:
+List available Sotkanet indicators and print as a table:
 
 ```{r sotkanetIndicators, warning=FALSE, message=FALSE}
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
-head(sotkanet.indicators)
+
+library(knitr)
+kable(head(sotkanet.indicators))
 ```
 
 List geographical regions with available indicators:
@@ -56,14 +58,18 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 		       region.category = "EUROOPPA", region = "Suomi")
 
 # Investigate the first lines in the data
-head(dat)
+knitr::kable(head(dat))
+```
 
+Visualize the data:
+
+```{r sotkanetDataVisu, warning=FALSE, message=FALSE}
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
 
 # Visualize
-library(ggplot2, quietly=TRUE)
+library(ggplot2)
 theme_set(theme_bw(20)); 
 p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
 p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
@@ -82,13 +88,16 @@ Smaller municipalities have more random variation.
 
 ```{r sotkanetVisu3, warning=FALSE, message=FALSE}
 selected.inds <- c(127, 178)
-dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
+dat <- GetDataSotkanet(indicators = selected.inds, 
+       			years = 2011, genders = c('total'))
 # Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
 datf <- datf[!duplicated(datf),]
-dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", direction = "wide")
+dw <- reshape(datf, idvar = "region.title.fi", 
+      		    timevar = "indicator.title.fi", direction = "wide")
 names(dw) <- c("Municipality", "Population", "Migration")
-p <- ggplot(dw, aes(x = log10(Population), y = Migration)) + geom_point(size = 3)
+p <- ggplot(dw, aes(x = log10(Population), y = Migration)) 
+p <- p + geom_point(size = 3)
 p <- p + ggtitle("Migration vs. population size") 
 p <- p + theme(title = element_text(size = 15))
 p <- p + theme(axis.title.x = element_text(size = 20))
@@ -104,7 +113,6 @@ print(p)
 This takes for a long time and is not recommended for regular
 use. Save the data on your local disk for further work.
 
-
 ```{r sotkanetDataAll, warning=FALSE, message=FALSE, eval=FALSE}
 # These indicators have problems with R routines:
 probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
@@ -112,7 +120,8 @@ probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001,
 # Get data for all indicators
 datlist <- list()
 for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
-  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, years = 1990:2013, genders = c('female', 'male', 'total'))
+  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
+  		years = 1990:2013, genders = c('female', 'male', 'total'))
 }
 
 # Combine tables (this may require considerable time and memory 
@@ -153,7 +162,6 @@ http://www.github.com/ropengov/sotkanet'.
 
 
 ### Session info
-
 
 This vignette was created with
 

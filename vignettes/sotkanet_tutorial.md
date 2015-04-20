@@ -31,38 +31,27 @@ library(sotkanet)
 
 ### Listing available indicators
 
-List available Sotkanet indicators:
+List available Sotkanet indicators and print as a table:
 
 
 ```r
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
-head(sotkanet.indicators)
+
+library(knitr)
+kable(head(sotkanet.indicators))
 ```
 
-```
-##   indicator
-## 1         4
-## 2         5
-## 3         6
-## 4         7
-## 5        74
-## 6       127
-##                                                                             indicator.title.fi
-## 1   Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä
-## 2                    Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä
-## 3 Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä
-## 4                                                                  0 - 6-vuotiaat, % väestöstä
-## 5                                                       Yksinhuoltajaperheet, % lapsiperheistä
-## 6                                                                                Väestö 31.12.
-##   indicator.organization        indicator.organization.title.fi
-## 1                      2 Terveyden ja hyvinvoinnin laitos (THL)
-## 2                      2 Terveyden ja hyvinvoinnin laitos (THL)
-## 3                      2 Terveyden ja hyvinvoinnin laitos (THL)
-## 4                      3                          Tilastokeskus
-## 5                      3                          Tilastokeskus
-## 6                      3                          Tilastokeskus
-```
+
+
+| indicator|indicator.title.fi                                                                           | indicator.organization|indicator.organization.title.fi        |
+|---------:|:--------------------------------------------------------------------------------------------|----------------------:|:--------------------------------------|
+|         4|Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä   |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         5|Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä                    |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         6|Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         7|0 - 6-vuotiaat, % väestöstä                                                                  |                      3|Tilastokeskus                          |
+|        74|Yksinhuoltajaperheet, % lapsiperheistä                                                       |                      3|Tilastokeskus                          |
+|       127|Väestö 31.12.                                                                                |                      3|Tilastokeskus                          |
 
 List geographical regions with available indicators:
 
@@ -102,32 +91,22 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 		       region.category = "EUROOPPA", region = "Suomi")
 
 # Investigate the first lines in the data
-head(dat)
+knitr::kable(head(dat))
 ```
 
-```
-##            region region.title.fi region.code region.category indicator
-## 10013.1139   1022           Suomi         246        EUROOPPA     10013
-## 10013.1140   1022           Suomi         246        EUROOPPA     10013
-## 10013.1141   1022           Suomi         246        EUROOPPA     10013
-## 10013.1142   1022           Suomi         246        EUROOPPA     10013
-## 10013.1143   1022           Suomi         246        EUROOPPA     10013
-## 10013.1144   1022           Suomi         246        EUROOPPA     10013
-##                    indicator.title.fi year gender primary.value
-## 10013.1139 (EU) Nuorisotyöttömyysaste 1991  total          16.3
-## 10013.1140 (EU) Nuorisotyöttömyysaste 2010   male          23.8
-## 10013.1141 (EU) Nuorisotyöttömyysaste 1996   male          29.5
-## 10013.1142 (EU) Nuorisotyöttömyysaste 2000  total          21.4
-## 10013.1143 (EU) Nuorisotyöttömyysaste 1995  total          29.7
-## 10013.1144 (EU) Nuorisotyöttömyysaste 1998   male          22.8
-##            absolute.value                indicator.organization.title.fi
-## 10013.1139             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-## 10013.1140             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-## 10013.1141             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-## 10013.1142             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-## 10013.1143             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-## 10013.1144             NA Euroopan yhteisöjen tilastotoimisto (Eurostat)
-```
+
+
+|           | region|region.title.fi |region.code |region.category | indicator|indicator.title.fi         | year|gender | primary.value| absolute.value|indicator.organization.title.fi                |
+|:----------|------:|:---------------|:-----------|:---------------|---------:|:--------------------------|----:|:------|-------------:|--------------:|:----------------------------------------------|
+|10013.1139 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1991|total  |          16.3|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1140 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2010|male   |          23.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1141 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1996|male   |          29.5|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1142 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2000|total  |          21.4|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1995|total  |          29.7|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1998|male   |          22.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+
+Visualize the data:
+
 
 ```r
 # Pick indicator name
@@ -135,7 +114,7 @@ indicator.name <- as.character(unique(dat$indicator.title.fi))
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
 
 # Visualize
-library(ggplot2, quietly=TRUE)
+library(ggplot2)
 theme_set(theme_bw(20)); 
 p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
 p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
@@ -147,7 +126,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetData](figure/sotkanetData-1.png) 
+![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png) 
 
 
 ### Effect of municipality size
@@ -157,13 +136,16 @@ Smaller municipalities have more random variation.
 
 ```r
 selected.inds <- c(127, 178)
-dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
+dat <- GetDataSotkanet(indicators = selected.inds, 
+       			years = 2011, genders = c('total'))
 # Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
 datf <- datf[!duplicated(datf),]
-dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", direction = "wide")
+dw <- reshape(datf, idvar = "region.title.fi", 
+      		    timevar = "indicator.title.fi", direction = "wide")
 names(dw) <- c("Municipality", "Population", "Migration")
-p <- ggplot(dw, aes(x = log10(Population), y = Migration)) + geom_point(size = 3)
+p <- ggplot(dw, aes(x = log10(Population), y = Migration)) 
+p <- p + geom_point(size = 3)
 p <- p + ggtitle("Migration vs. population size") 
 p <- p + theme(title = element_text(size = 15))
 p <- p + theme(axis.title.x = element_text(size = 20))
@@ -182,7 +164,6 @@ This takes for a long time and is not recommended for regular
 use. Save the data on your local disk for further work.
 
 
-
 ```r
 # These indicators have problems with R routines:
 probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
@@ -190,7 +171,8 @@ probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001,
 # Get data for all indicators
 datlist <- list()
 for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
-  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, years = 1990:2013, genders = c('female', 'male', 'total'))
+  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
+  		years = 1990:2013, genders = c('female', 'male', 'total'))
 }
 
 # Combine tables (this may require considerable time and memory 
@@ -231,7 +213,6 @@ http://www.github.com/ropengov/sotkanet'.
 
 
 ### Session info
-
 
 This vignette was created with
 
