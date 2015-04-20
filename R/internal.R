@@ -1,24 +1,6 @@
-
-#' Base url to the Sotkanet API
-#'
-#' Arguments:
-#'   @param ... Arguments to be passed
-#'
-#' Returns:
-#'   @return sotkanet API base url
-#'
-#' @references
-#' See citation("sotkanet") 
-#' @author Leo Lahti \email{louhos@@googlegroups.com}
-#' @examples sotkanet::base_url()
-#' @keywords utilities
-base_url <- function (...) {
-  'http://www.sotkanet.fi/rest/1.1/'
-}
-
 #' Description:
 #' SotkanetData retrieves Sotkanet data from
-#' http://www.sotkanet.fi/rest/1.0/data/csv?
+#' \url{http://www.sotkanet.fi/rest/1.1/data/csv?}
 #' according to the query arguments.
 #'
 #' Arguments:
@@ -34,13 +16,14 @@ base_url <- function (...) {
 #' @author Einari Happonen / Opasnet / Louhos. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # 
 #' @keywords utilities
-
 SotkanetData <- function(indicator, years, genders)
 {
 
-  base.url <- base_url()
-  #url <- 'http://www.sotkanet.fi/rest/1.0/data/csv?'
-  url <- paste(base.url, 'data/csv?', sep = "")
+  #base.url <- base_url()
+  #url <- paste(base.url, 'data/csv?', sep = "")
+  # Here the older url is in use for some reason:
+  url <- 'http://www.sotkanet.fi/rest/1.0/data/csv?'
+
   url <- paste(url, 'indicator=',indicator, '&years=', 
       	 	    paste(years, collapse='&years='), 
 		    '&genders=', paste(genders, 
@@ -72,7 +55,6 @@ SotkanetData <- function(indicator, years, genders)
 #' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # 
 #' @keywords utilities
-
 GetDataSotkanetSingleIndicator <- function (indicator, years = 1990:2013, genders = "total", regions = NULL, region.category = NULL) {
 
   # FIXME: is it possible to specify already in query which regions we select
@@ -130,9 +112,10 @@ sotkanet.json_query <- function(url)
 {
 
   # Check that the URL exists
-  if (!url.exists(url)) 
+  if (!url.exists(url)) {
     warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
     return(NULL)
+  }
 
   # Retrieve the data
   response <- rjson::fromJSON(
@@ -162,10 +145,12 @@ sotkanet.json_query <- function(url)
 
 sotkanet.csv_query <- function(url)
 {
+
   # Check that the URL exists
-  if (!url.exists(url)) 
+  if (!url.exists(url)) {
     warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
     return(NULL)
+  }
 
   csv <- readLines(url, warn = FALSE)
 
@@ -173,7 +158,9 @@ sotkanet.csv_query <- function(url)
     stop("Sotkanet server is not responding! Unable to query!")
   }
 
-  return(read.table(file = textConnection(csv), header = TRUE, sep = ';'))
+  tab <- read.table(file = textConnection(csv), header = TRUE, sep = ';')
+
+  return(tab)
 
 }
 

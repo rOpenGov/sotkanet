@@ -1,21 +1,36 @@
+#' Base url to the Sotkanet API
+#'
+#' Arguments:
+#'   @param ... Arguments to be passed
+#'
+#' Returns:
+#'   @return sotkanet API base url
+#'
+#' @references
+#' See citation("sotkanet") 
+#' @author Leo Lahti \email{louhos@@googlegroups.com}
+#' @examples base_url()
+#' @export
+#' @keywords utilities
+base_url <- function (...) {
+  'http://www.sotkanet.fi/rest/1.1/'
+}
+
+
+#' @title SotkanetIndicators
 #' @description SotkanetIndicators retrieves Sotkanet data corresponding to a
 #' specified data identifier from 
 #' \url{http://www.sotkanet.fi/rest/1.1/indicators}
 #'
-#' Arguments:
-#'   @param id Dataset identifier
-#'   @param type output format ("table" or "raw")
-#'
-#' Returns:
-#'   @return sotkanet json query in selected output format
+#' @param id Dataset identifier
+#' @param type output format ("table" or "raw")
+#' @return sotkanet json query in selected output format
 #'
 #' @export
-#' @references
-#' See citation("sotkanet") 
+#' @references See citation("sotkanet") 
 #' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # sotkanet.indicators <- SotkanetIndicators(type = "table")
 #' @keywords utilities
-
 SotkanetIndicators <- function(id = NULL, type = "table")
 {
 

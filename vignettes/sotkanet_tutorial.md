@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{An R Markdown Vignette made with knitr}
+%\VignetteIndexEntry{sotkanet R vignette}
 -->
 
 Sotkanet API R tools
@@ -25,7 +25,7 @@ Development version for developers:
 ```r
 install.packages("devtools")
 library(devtools)
-install_github("sotkanet", "ropengov")
+install_github("ropengov/sotkanet")
 library(sotkanet)
 ```
 
@@ -99,8 +99,7 @@ Get the [indicator 10013](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hak
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
-		       region.category = "EUROOPPA", 
-		       region = "Suomi")
+		       region.category = "EUROOPPA", region = "Suomi")
 
 # Investigate the first lines in the data
 head(dat)
@@ -159,7 +158,9 @@ Smaller municipalities have more random variation.
 ```r
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, years = 2011, genders = c('total'))
+# Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
+datf <- datf[!duplicated(datf),]
 dw <- reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", direction = "wide")
 names(dw) <- c("Municipality", "Population", "Migration")
 p <- ggplot(dw, aes(x = log10(Population), y = Migration)) + geom_point(size = 3)
@@ -225,7 +226,7 @@ This work can be freely used, modified and distributed under the
 [Two-clause FreeBSD
 license](http://en.wikipedia.org/wiki/BSD\_licenses). Kindly cite the
 R package as 'Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona
-Lehtomaki (2013). sotkanet R package. URL:
+Lehtomaki (2013-2015). sotkanet R package. URL:
 http://www.github.com/ropengov/sotkanet'.
 
 
@@ -255,7 +256,8 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] sotkanet_0.9.05 rjson_0.2.15    ggplot2_1.0.0   knitr_1.9      
+## [1] sotkanet_0.9.07 rjson_0.2.15    RCurl_1.95-4.5  bitops_1.0-6   
+## [5] ggplot2_1.0.0   knitr_1.9      
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] colorspace_1.2-6 digest_0.6.8     evaluate_0.5.5   formatR_1.0     

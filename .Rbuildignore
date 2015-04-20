@@ -14,4 +14,9 @@ inst/extras/.RData
 # Misc
 ./.*~
 ./*~
-
+^.*\.Rproj$
+^\.Rproj\.user$
+^packrat/
+^\.Rprofile$
+^NEWS.md$
+^cran-comments\.md$
