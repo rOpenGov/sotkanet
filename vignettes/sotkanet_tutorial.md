@@ -198,13 +198,31 @@ Central points:
 
 ### SOTKAnet R package
 
-This work can be freely used, modified and distributed under the
-[Two-clause FreeBSD
-license](http://en.wikipedia.org/wiki/BSD\_licenses). Kindly cite the
-R package as 'Leo Lahti, Einari Happonen, Juuso Parkkinen ja Joona
-Lehtomaki (2013-2015). sotkanet R package. URL:
-http://www.github.com/ropengov/sotkanet'.
+This work can be freely used, modified and distributed under the 
+[Two-clause BSD license](http://en.wikipedia.org/wiki/BSD\_licenses).
 
+
+```r
+citation("sotkanet")
+```
+
+```
+## 
+## Kindly cite the sotkanet R package as follows:
+## 
+##   (C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona
+##   Lehtomaki 2013-2015. sotkanet: Sotkanet R Tools
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Misc{,
+##     title = {sotkanet R package},
+##     author = {Leo Lahti and Einari Happonen and Juuso Parkkinen and Joona Lehtomaki},
+##     year = {2013},
+##   }
+## 
+## For more info, see: https://github.com/ropengov/sotkanet/
+```
 
 ### Session info
 
