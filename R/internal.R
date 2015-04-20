@@ -1,3 +1,21 @@
+
+#' Base url to the Sotkanet API
+#'
+#' Arguments:
+#'   @param ... Arguments to be passed
+#'
+#' Returns:
+#'   @return sotkanet API base url
+#'
+#' @references
+#' See citation("sotkanet") 
+#' @author Leo Lahti \email{louhos@@googlegroups.com}
+#' @examples sotkanet::base_url()
+#' @keywords utilities
+base_url <- function (...) {
+  'http://www.sotkanet.fi/rest/1.1/'
+}
+
 #' Description:
 #' SotkanetData retrieves Sotkanet data from
 #' http://www.sotkanet.fi/rest/1.0/data/csv?
@@ -19,8 +37,14 @@
 
 SotkanetData <- function(indicator, years, genders)
 {
-  url <- 'http://www.sotkanet.fi/rest/1.0/data/csv?'
-  url <- paste(url, 'indicator=',indicator, '&years=', paste(years, collapse='&years='), '&genders=', paste(genders, collapse='&genders='), sep='')
+
+  base.url <- base_url()
+  #url <- 'http://www.sotkanet.fi/rest/1.0/data/csv?'
+  url <- paste(base.url, 'data/csv?', sep = "")
+  url <- paste(url, 'indicator=',indicator, '&years=', 
+      	 	    paste(years, collapse='&years='), 
+		    '&genders=', paste(genders, 
+		    collapse='&genders='), sep='')
   return(sotkanet.csv_query(url))
 }
 
@@ -34,14 +58,18 @@ SotkanetData <- function(indicator, years, genders)
 #'   @param years vector of years c(2010, 2012, ... )
 #'   @param genders vector of genders ('male' | 'female' | 'total')
 #'   @param regions return selected regions only
-#'   @param region.category return selected regions category (for options, see: unique(SotkanetRegions(type = "table")$region.category)); "ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", "SEUTUKUNTA", "SUURALUE"   
+#'   @param region.category return selected regions category (for options, see:
+#'          unique(SotkanetRegions(type = "table")$region.category)); 
+#'	    "ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", 
+#'	    "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
+#'	    "SEUTUKUNTA", "SUURALUE"   
 #'
 #' Returns:
 #'   @return sotkanet data table
 #'
 #' @references
 #' See citation("sotkanet") 
-#' @author Einari Happonen / Opasnet / Louhos. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # 
 #' @keywords utilities
 
