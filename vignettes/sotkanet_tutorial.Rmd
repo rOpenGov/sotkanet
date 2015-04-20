@@ -43,7 +43,7 @@ List geographical regions with available indicators:
 
 ```{r sotkanetRegions, warning=FALSE, message=FALSE}
 sotkanet.regions <- SotkanetRegions(type = "table")
-head(sotkanet.regions)
+knitr::kable(head(sotkanet.regions))
 ```
 
 

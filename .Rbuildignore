@@ -3,6 +3,7 @@
 ./inst/extras/*
 ./inst/extras/.*
 ./vignettes/figure
+./vignettes/main.R
 inst/extras/.RData
 
 # Git related

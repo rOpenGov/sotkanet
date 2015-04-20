@@ -58,25 +58,19 @@ List geographical regions with available indicators:
 
 ```r
 sotkanet.regions <- SotkanetRegions(type = "table")
-head(sotkanet.regions)
+knitr::kable(head(sotkanet.regions))
 ```
 
-```
-##   region                 region.title.fi region.code     region.category
-## 1    833          Etelä-Suomen AVIn alue           1 ALUEHALLINTOVIRASTO
-## 2    834        Lounais-Suomen AVIn alue           2 ALUEHALLINTOVIRASTO
-## 3    835            Itä-Suomen AVIn alue           3 ALUEHALLINTOVIRASTO
-## 4    836 Länsi- ja Sisä-Suomen AVIn alue           4 ALUEHALLINTOVIRASTO
-## 5    837        Pohjois-Suomen AVIn alue           5 ALUEHALLINTOVIRASTO
-## 6    838                 Lapin AVIn alue           6 ALUEHALLINTOVIRASTO
-##                           region.uri
-## 1 http://www.yso.fi/onto/kunnat/ahv1
-## 2 http://www.yso.fi/onto/kunnat/ahv2
-## 3 http://www.yso.fi/onto/kunnat/ahv3
-## 4 http://www.yso.fi/onto/kunnat/ahv4
-## 5 http://www.yso.fi/onto/kunnat/ahv5
-## 6 http://www.yso.fi/onto/kunnat/ahv6
-```
+
+
+| region|region.title.fi                 |region.code |region.category     |region.uri                         |
+|------:|:-------------------------------|:-----------|:-------------------|:----------------------------------|
+|    833|Etelä-Suomen AVIn alue          |1           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv1 |
+|    834|Lounais-Suomen AVIn alue        |2           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv2 |
+|    835|Itä-Suomen AVIn alue            |3           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv3 |
+|    836|Länsi- ja Sisä-Suomen AVIn alue |4           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv4 |
+|    837|Pohjois-Suomen AVIn alue        |5           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv5 |
+|    838|Lapin AVIn alue                 |6           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv6 |
 
 
 ### Querying SOTKAnet indicators
