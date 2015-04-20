@@ -9,7 +9,7 @@ There were 2 NOTEs:
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Leo Lahti <louhos@googlegroups.com>’
-Version contains leading zeroes (0.9.07)
+Version contains leading zeroes (0.9.09)
 Components with restrictions and base license permitting such:
   BSD_2_clause + file LICENSE
 File 'LICENSE':
@@ -18,8 +18,13 @@ File 'LICENSE':
 * checking package dependencies ... NOTE
   No repository set, so cyclic dependency check skipped
 
+
 ## Resubmission
 This is a resubmission. In this version I have:
+
+* Removed the vignettes/figure directory
+
+* Fixed URLs in the documentation
 
 * Improved URL download error handling to avoid unintended failures in 
   function examples and vignette

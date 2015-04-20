@@ -1,13 +1,10 @@
-# Extra material related but not to be included in the package
-./inst/extras/..Rcheck
+vignettes/figure
+vignettes/main.R
 ./inst/extras/*
 ./inst/extras/.*
-./vignettes/figure
-./vignettes/figure*
-./vignettes/figure/
-./vignettes/figure/*
-./vignettes/main.R
 inst/extras/.RData
+inst/extras
+inst/blog
 
 # Git related
 ./.git*
@@ -24,3 +21,5 @@ inst/extras/.RData
 ^\.Rprofile$
 ^NEWS.md$
 ^cran-comments\.md$
+
+./inst/extras/..Rcheck
