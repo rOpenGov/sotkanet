@@ -2,8 +2,8 @@
 ./inst/extras/..Rcheck
 ./inst/extras/*
 ./inst/extras/.*
+./vignettes/figure
 inst/extras/.RData
-
 
 # Git related
 ./.git*
