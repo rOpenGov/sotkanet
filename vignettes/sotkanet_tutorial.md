@@ -234,8 +234,9 @@ sessionInfo()
 ```
 
 ```
-## R version 3.1.2 (2014-10-31)
-## Platform: x86_64-pc-linux-gnu (64-bit)
+## R version 3.2.0 (2015-04-16)
+## Platform: x86_64-unknown-linux-gnu (64-bit)
+## Running under: Ubuntu 14.10
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -249,12 +250,12 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] sotkanet_0.9.09 rjson_0.2.15    RCurl_1.95-4.5  bitops_1.0-6   
+## [1] sotkanet_0.9.10 rjson_0.2.15    RCurl_1.95-4.5  bitops_1.0-6   
 ## [5] ggplot2_1.0.1   knitr_1.9      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] colorspace_1.2-6 digest_0.6.8     evaluate_0.6     formatR_1.1     
-##  [5] grid_3.1.2       gtable_0.1.2     labeling_0.3     MASS_7.3-40     
-##  [9] munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.5     
-## [13] reshape2_1.4.1   scales_0.2.4     stringr_0.6.2    tools_3.1.2
+##  [1] Rcpp_0.11.5      digest_0.6.8     MASS_7.3-40      grid_3.2.0      
+##  [5] plyr_1.8.1       gtable_0.1.2     formatR_1.1      evaluate_0.6    
+##  [9] scales_0.2.4     reshape2_1.4.1   labeling_0.3     proto_0.3-10    
+## [13] tools_3.2.0      stringr_0.6.2    munsell_0.4.2    colorspace_1.2-6
 ```
