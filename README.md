@@ -8,11 +8,10 @@ sotkanet
 ========
 
 R Tools for the Sotkanet demographics indicator database (Finland and
-Europe) maintained by the [National Institute for Health and
-Welfare (THL)](http://www.thl.fi).
-
-This R package is associated with
+Europe) maintained by the [National Institute for Health and Welfare
+(THL)](http://www.thl.fi). Part of
 [rOpenGov](http://ropengov.github.io).
+
 
 
 ### Overview
@@ -32,20 +31,18 @@ description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_
 
   You are welcome to:
   
-  * submit suggestions and bug-reports at: https://github.com/ropengov/sotkanet/issues
+  * [send suggestions and bug-reports](https://github.com/ropengov/sotkanet/issues)
   * send a pull request on: https://github.com/ropengov/sotkanet/
-  * compose a friendly e-mail to: louhos@googlegroups.com
-  * join our IRC channels at !louhos@IRCnet (Finland) and #ropengov@Freenode (international)
+  * [contact us](http://ropengov.github.io)
+  * join IRC at !louhos@IRCnet
 
 ### Developers
 
-  We are greatful to a number of
-  [contributors](http://ropengov.github.io)! The main developers are
-  [Leo Lahti](https://github.com/antagomir/), Einari Happonen, Juuso
-  Parkkinen and Joona Lehtomaki.
+  The main developers are [Leo Lahti](https://github.com/antagomir/),
+  Einari Happonen, Juuso Parkkinen and Joona Lehtomaki.
 
 
 ### License
 
-  See the [DESCRIPTION file](https://github.com/rOpenGov/sotkanet/blob/master/DESCRIPTION)
+  See the [DESCRIPTION file](DESCRIPTION)
 
