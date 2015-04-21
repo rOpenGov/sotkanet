@@ -1,12 +1,11 @@
 ## Test environments
-* local ubuntu 14.10, R 3.1.2
+* local ubuntu 14.10, R 3.2.0
 * win-builder (devel and release)
 
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
 
 There were 2 NOTEs:
-
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Leo Lahti <louhos@googlegroups.com>’
 License components with restrictions and base license permitting such:
