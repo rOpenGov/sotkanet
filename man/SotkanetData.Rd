@@ -3,8 +3,7 @@
 \name{SotkanetData}
 \alias{SotkanetData}
 \title{Description:
-SotkanetData retrieves Sotkanet data from
-\url{http://www.sotkanet.fi/rest/1.0/data/csv?}
+SotkanetData retrieves Sotkanet data
 according to the query arguments.}
 \usage{
 SotkanetData(indicator, years, genders)

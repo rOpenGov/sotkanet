@@ -255,7 +255,7 @@ sessionInfo()
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.11.5      digest_0.6.8     MASS_7.3-40      grid_3.2.0      
-##  [5] plyr_1.8.1       gtable_0.1.2     formatR_1.1      evaluate_0.6    
+##  [5] plyr_1.8.1       gtable_0.1.2     formatR_1.2      evaluate_0.7    
 ##  [9] scales_0.2.4     reshape2_1.4.1   labeling_0.3     proto_0.3-10    
 ## [13] tools_3.2.0      stringr_0.6.2    munsell_0.4.2    colorspace_1.2-6
 ```

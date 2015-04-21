@@ -9,15 +9,13 @@ There were 2 NOTEs:
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Leo Lahti <louhos@googlegroups.com>’
-Version contains leading zeroes (0.9.09)
-Components with restrictions and base license permitting such:
+License components with restrictions and base license permitting such:
   BSD_2_clause + file LICENSE
-File 'LICENSE':
-  YEAR: 2010-2013
-  COPYRIGHT HOLDER: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomäki
+  File 'LICENSE':
+    YEAR: 2010-2015
+      COPYRIGHT HOLDER: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 * checking package dependencies ... NOTE
   No repository set, so cyclic dependency check skipped
-
 
 ## Resubmission
 This is a resubmission. In this version I have:
