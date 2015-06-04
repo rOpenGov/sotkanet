@@ -23,10 +23,8 @@ Development version for developers:
 
 
 ```r
-install.packages("devtools")
 library(devtools)
 install_github("ropengov/sotkanet")
-library(sotkanet)
 ```
 
 ### Listing available indicators
@@ -58,7 +56,7 @@ List geographical regions with available indicators:
 
 ```r
 sotkanet.regions <- SotkanetRegions(type = "table")
-knitr::kable(head(sotkanet.regions))
+kable(head(sotkanet.regions))
 ```
 
 
@@ -85,7 +83,7 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 		       region.category = "EUROOPPA", region = "Suomi")
 
 # Investigate the first lines in the data
-knitr::kable(head(dat))
+kable(head(dat))
 ```
 
 
@@ -99,7 +97,31 @@ knitr::kable(head(dat))
 |10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1995|total  |          29.7|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 |10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1998|male   |          22.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 
-Visualize the data:
+### Fetch all SOTKAnet indicators
+
+This takes for a long time and is not recommended for regular
+use. Save the data on your local disk for further work.
+
+
+```r
+# These indicators have problems with R routines:
+probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
+
+# Get data for all indicators
+datlist <- list()
+for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
+  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
+  		years = 1990:2013, genders = c('female', 'male', 'total'))
+}
+
+# Combine tables (this may require considerable time and memory 
+# for the full data set)
+dat <- do.call("rbind", datlist)
+```
+
+## Visualization
+
+Download and visualize time series:
 
 
 ```r
@@ -123,9 +145,9 @@ print(p)
 ![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png) 
 
 
-### Effect of municipality size
-
-Smaller municipalities have more random variation.
+Investigate the effect of municipality size on demographic
+variation. Smaller municipalities show more random variation as
+expected by statistical arguments:
 
 
 ```r
@@ -151,28 +173,6 @@ print(p)
 ![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
 
 
-
-### Fetch all SOTKAnet indicators
-
-This takes for a long time and is not recommended for regular
-use. Save the data on your local disk for further work.
-
-
-```r
-# These indicators have problems with R routines:
-probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
-
-# Get data for all indicators
-datlist <- list()
-for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
-  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
-  		years = 1990:2013, genders = c('female', 'male', 'total'))
-}
-
-# Combine tables (this may require considerable time and memory 
-# for the full data set)
-dat <- do.call("rbind", datlist)
-```
 
 For further usage examples, see
 [Louhos-blog](http://louhos.wordpress.com), and
