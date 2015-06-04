@@ -1,2 +1,2 @@
 library(knitr)
-knit("sotkanet_tutorial.Rmd")
+knit("tutorial.Rmd")
