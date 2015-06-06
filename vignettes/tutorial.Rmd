@@ -53,7 +53,7 @@ Get the [indicator 10013](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hak
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
-		       region.category = "EUROOPPA", region = "Suomi")
+		       region.category = "EUROOPPA", regions = "Suomi")
 
 # Investigate the first lines in the data
 kable(head(dat))

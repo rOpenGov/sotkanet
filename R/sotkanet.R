@@ -112,7 +112,7 @@ SotkanetRegions <- function(type = "table")
 #'	     #	       region = "Suomi")
 #' @keywords utilities
 
-GetDataSotkanet <- function (indicators, years = 1990:2013, genders = c("total"), regions = NULL, region.category = NULL, verbose = TRUE) {
+GetDataSotkanet <- function (indicators, years = 1980:2020, genders = c("total"), regions = NULL, region.category = NULL, verbose = TRUE) {
 
   # List all indicators in Sotkanet database
   sotkanet.indicators <- SotkanetIndicators(type = "table")

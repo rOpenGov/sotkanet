@@ -7,7 +7,7 @@ GetDataSotkanet retrieves Sotkanet data
 according to the query arguments and combines
 indicator, region, and overall data into one table}
 \usage{
-GetDataSotkanet(indicators, years = 1990:2013, genders = c("total"),
+GetDataSotkanet(indicators, years = 1980:2020, genders = c("total"),
   regions = NULL, region.category = NULL, verbose = TRUE)
 }
 \arguments{

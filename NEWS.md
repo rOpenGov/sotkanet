@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.9.12 (2015-06-06)
+
+ o tutorial updates
+ 
 CHANGES IN VERSION 0.9.11 (2015-06-04)
 
  o Updated README
