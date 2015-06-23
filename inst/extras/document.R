@@ -3,8 +3,9 @@
 # Documentation, Build and Check
 library(devtools)
 document("../../")
-#library(devtools); devtools::build("../../")
-#check("../../")
+
+# library(devtools); devtools::build("../../")
+# check("../../")
 # run_examples()
 # test() # Run tests
 

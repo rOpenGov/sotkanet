@@ -80,7 +80,7 @@ Get the [indicator 10013](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hak
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
-		       region.category = "EUROOPPA", region = "Suomi")
+		       region.category = "EUROOPPA", regions = "Suomi")
 
 # Investigate the first lines in the data
 kable(head(dat))
@@ -234,7 +234,7 @@ sessionInfo()
 ```
 
 ```
-## R version 3.2.0 (2015-04-16)
+## R version 3.2.1 (2015-06-18)
 ## Platform: x86_64-unknown-linux-gnu (64-bit)
 ## Running under: Ubuntu 15.04
 ## 
@@ -250,14 +250,14 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] sotkanet_0.9.11    rjson_0.2.15       RCurl_1.95-4.6    
-## [4] bitops_1.0-6       ggplot2_1.0.1      knitr_1.10.5      
-## [7] scimapClient_0.2.1
+## [1] ggplot2_1.0.1      sotkanet_0.9.13    RCurl_1.95-4.6    
+## [4] bitops_1.0-6       knitr_1.10.5       scimapClient_0.2.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.11.6      digest_0.6.8     MASS_7.3-40      grid_3.2.0      
-##  [5] plyr_1.8.2       gtable_0.1.2     formatR_1.2      magrittr_1.5    
-##  [9] evaluate_0.7     scales_0.2.4     highr_0.5        stringi_0.4-1   
-## [13] reshape2_1.4.1   labeling_0.3     proto_0.3-10     RJSONIO_1.3-0   
-## [17] tools_3.2.0      stringr_1.0.0    munsell_0.4.2    colorspace_1.2-6
+##  [1] Rcpp_0.11.6      digest_0.6.8     MASS_7.3-41      plyr_1.8.3      
+##  [5] grid_3.2.1       gtable_0.1.2     formatR_1.2      magrittr_1.5    
+##  [9] scales_0.2.5     evaluate_0.7     highr_0.5        stringi_0.5-2   
+## [13] reshape2_1.4.1   labeling_0.3     proto_0.3-10     rjson_0.2.15    
+## [17] RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0    munsell_0.4.2   
+## [21] colorspace_1.2-6
 ```

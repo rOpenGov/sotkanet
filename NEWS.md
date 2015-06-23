@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.9.13 (2015-06-23)
+
+ o base url change into https
+ 
 CHANGES IN VERSION 0.9.12 (2015-06-06)
 
  o tutorial updates

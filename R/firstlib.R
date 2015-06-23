@@ -1,7 +1,3 @@
-#' @import ggplot2
-#' @import rjson
-NULL
-
 .onAttach <- function(lib, pkg)
 {
 
@@ -9,6 +5,6 @@ NULL
   # Sys.setlocale(locale = "UTF-8")
   # Sys.setlocale(locale = "WINDOWS-1252")
 
-  packageStartupMessage("Sotkanet R tools. Copyright (C) 2013-2015 Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki.\n For more information, see https://github.com/ropengov/sotkanet")
+  packageStartupMessage("Sotkanet R tools (C) 2013-2015 rOpenGov\nhttps://github.com/ropengov/sotkanet")
 
 }
