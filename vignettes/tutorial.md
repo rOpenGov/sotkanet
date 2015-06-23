@@ -172,11 +172,16 @@ print(p)
 
 ![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
 
-
+## Further examples
 
 For further usage examples, see
 [Louhos-blog](http://louhos.wordpress.com), and
-[takomo](https://github.com/louhos/takomo/tree/master/Sotkanet).
+[takomo](https://github.com/louhos/takomo/tree/master/Sotkanet). In
+particular the following blog posts are using the package:
+
+ * [Kuntatiedon visualisointi](http://louhos.github.io/news/2015/06/06/kuntakartat/)
+ * [Helsinki Region Infoshare-blogi](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
+
 
 
 # Licensing and Citations
