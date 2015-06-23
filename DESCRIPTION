@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Tools for Sotkanet Open Data Portal
-Version: 0.9.12
-Date: 2015-06-06
+Version: 0.9.13
+Date: 2015-06-23
 Author: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 Maintainer: Leo Lahti <louhos@googlegroups.com>
 Description: Tools to download data from the Sotkanet open data portal.
