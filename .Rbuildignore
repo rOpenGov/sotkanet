@@ -20,6 +20,6 @@ inst/blog
 ^packrat/
 ^\.Rprofile$
 ^NEWS.md$
-^cran-comments\.md$
+cran-comments.md
 
 ./inst/extras/..Rcheck
