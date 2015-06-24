@@ -20,7 +20,7 @@ specified data identifier from
 \url{http://www.sotkanet.fi/rest/1.1/indicators}
 }
 \examples{
-# sotkanet.indicators <- SotkanetIndicators(type = "table")
+\dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}
 }
 \author{
 Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@googlegroups.com}

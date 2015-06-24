@@ -11,7 +11,7 @@ This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access
 
 ### Installation
 
-Release version for general users:
+Release version:
 
 
 ```r
@@ -19,7 +19,7 @@ install.packages("sotkanet")
 library(sotkanet)
 ```
 
-Development version for developers:
+Development version (for the adventurous ones):
 
 
 ```r
@@ -40,17 +40,6 @@ library(knitr)
 kable(head(sotkanet.indicators))
 ```
 
-
-
-| indicator|indicator.title.fi                                                                           | indicator.organization|indicator.organization.title.fi        |
-|---------:|:--------------------------------------------------------------------------------------------|----------------------:|:--------------------------------------|
-|         4|Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä   |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         5|Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä                    |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         6|Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         7|0 - 6-vuotiaat, % väestöstä                                                                  |                      3|Tilastokeskus                          |
-|        74|Yksinhuoltajaperheet, % lapsiperheistä                                                       |                      3|Tilastokeskus                          |
-|       127|Väestö 31.12.                                                                                |                      3|Tilastokeskus                          |
-
 List geographical regions with available indicators:
 
 
@@ -58,17 +47,6 @@ List geographical regions with available indicators:
 sotkanet.regions <- SotkanetRegions(type = "table")
 kable(head(sotkanet.regions))
 ```
-
-
-
-| region|region.title.fi                 |region.code |region.category     |region.uri                         |
-|------:|:-------------------------------|:-----------|:-------------------|:----------------------------------|
-|    833|Etelä-Suomen AVIn alue          |1           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv1 |
-|    834|Lounais-Suomen AVIn alue        |2           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv2 |
-|    835|Itä-Suomen AVIn alue            |3           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv3 |
-|    836|Länsi- ja Sisä-Suomen AVIn alue |4           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv4 |
-|    837|Pohjois-Suomen AVIn alue        |5           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv5 |
-|    838|Lapin AVIn alue                 |6           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv6 |
 
 
 ### Querying SOTKAnet indicators
@@ -85,17 +63,6 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 # Investigate the first lines in the data
 kable(head(dat))
 ```
-
-
-
-|           | region|region.title.fi |region.code |region.category | indicator|indicator.title.fi         | year|gender | primary.value| absolute.value|indicator.organization.title.fi                |
-|:----------|------:|:---------------|:-----------|:---------------|---------:|:--------------------------|----:|:------|-------------:|--------------:|:----------------------------------------------|
-|10013.1139 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1991|total  |          16.3|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1140 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2010|male   |          23.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1141 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1996|male   |          29.5|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1142 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2000|total  |          21.4|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1995|total  |          29.7|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1998|male   |          22.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 
 ### Fetch all SOTKAnet indicators
 
@@ -142,8 +109,6 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png) 
-
 
 Investigate the effect of municipality size on demographic
 variation. Smaller municipalities show more random variation as
@@ -169,8 +134,6 @@ p <- p + theme(axis.title.y = element_text(size = 20))
 p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
-
-![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
 
 ## Further examples
 
@@ -255,14 +218,9 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] ggplot2_1.0.1      sotkanet_0.9.13    RCurl_1.95-4.6    
-## [4] bitops_1.0-6       knitr_1.10.5       scimapClient_0.2.1
+## [1] knitr_1.10.5       scimapClient_0.2.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.11.6      digest_0.6.8     MASS_7.3-41      plyr_1.8.3      
-##  [5] grid_3.2.1       gtable_0.1.2     formatR_1.2      magrittr_1.5    
-##  [9] scales_0.2.5     evaluate_0.7     highr_0.5        stringi_0.5-2   
-## [13] reshape2_1.4.1   labeling_0.3     proto_0.3-10     rjson_0.2.15    
-## [17] RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0    munsell_0.4.2   
-## [21] colorspace_1.2-6
+## [1] magrittr_1.5  formatR_1.2   tools_3.2.1   RJSONIO_1.3-0 stringi_0.5-2
+## [6] stringr_1.0.0 evaluate_0.7
 ```

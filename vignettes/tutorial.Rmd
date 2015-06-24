@@ -11,14 +11,14 @@ This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access
 
 ### Installation
 
-Release version for general users:
+Release version:
 
 ```{r install, eval=FALSE}
 install.packages("sotkanet")
 library(sotkanet)
 ```
 
-Development version for developers:
+Development version (for the adventurous ones):
 
 ```{r install2, eval=FALSE}
 library(devtools)
@@ -29,7 +29,7 @@ install_github("ropengov/sotkanet")
 
 List available Sotkanet indicators and print as a table:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE}
+```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
 
@@ -39,7 +39,7 @@ kable(head(sotkanet.indicators))
 
 List geographical regions with available indicators:
 
-```{r sotkanetRegions, warning=FALSE, message=FALSE}
+```{r sotkanetRegions, warning=FALSE, message=FALSE, eval=FALSE}
 sotkanet.regions <- SotkanetRegions(type = "table")
 kable(head(sotkanet.regions))
 ```
@@ -49,7 +49,7 @@ kable(head(sotkanet.regions))
 
 Get the [indicator 10013](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu/metadata?type=I&indicator=10013) from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
 
-```{r sotkanetData, warning=FALSE, message=FALSE}
+```{r sotkanetData, warning=FALSE, message=FALSE, eval=FALSE}
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
@@ -84,7 +84,7 @@ dat <- do.call("rbind", datlist)
 
 Download and visualize time series:
 
-```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=7}
+```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=7, eval=FALSE}
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
@@ -107,7 +107,7 @@ Investigate the effect of municipality size on demographic
 variation. Smaller municipalities show more random variation as
 expected by statistical arguments:
 
-```{r sotkanetVisu3, warning=FALSE, message=FALSE}
+```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=FALSE}
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, 
        			years = 2011, genders = c('total'))

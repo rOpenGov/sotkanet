@@ -28,7 +28,7 @@ File 'LICENSE':
 ## Resubmission
 This is a resubmission. In this version I have:
 
- * Updated the base URLs
- * Improved the file structure
+ * Fixed vignette URL errors
+
  
 

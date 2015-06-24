@@ -10,7 +10,7 @@
 #' @export
 #' @references See citation("sotkanet") 
 #' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
-#' @examples # sotkanet.indicators <- SotkanetIndicators(type = "table")
+#' @examples \dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}
 #' @keywords utilities
 SotkanetIndicators <- function(id = NULL, type = "table")
 {
