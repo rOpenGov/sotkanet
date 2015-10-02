@@ -13,7 +13,7 @@
 #' @export
 #' @keywords utilities
 base_url <- function (...) {
-  'https://www.sotkanet.fi/rest/1.1/'
+  'http://www.sotkanet.fi/rest/1.1/'
 }
 
 

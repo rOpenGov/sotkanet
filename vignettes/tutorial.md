@@ -221,6 +221,6 @@ sessionInfo()
 ## [1] knitr_1.10.5       scimapClient_0.2.1
 ## 
 ## loaded via a namespace (and not attached):
-## [1] magrittr_1.5  formatR_1.2   tools_3.2.1   RJSONIO_1.3-0 stringi_0.5-2
+## [1] magrittr_1.5  formatR_1.2   tools_3.2.1   RJSONIO_1.3-0 stringi_0.5-5
 ## [6] stringr_1.0.0 evaluate_0.7
 ```
