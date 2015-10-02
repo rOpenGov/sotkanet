@@ -16,7 +16,6 @@ Release version:
 
 ```r
 install.packages("sotkanet")
-library(sotkanet)
 ```
 
 Development version (for the adventurous ones):
@@ -40,6 +39,17 @@ library(knitr)
 kable(head(sotkanet.indicators))
 ```
 
+
+
+| indicator|indicator.title.fi                                                                           | indicator.organization|indicator.organization.title.fi        |
+|---------:|:--------------------------------------------------------------------------------------------|----------------------:|:--------------------------------------|
+|         4|Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä   |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         5|Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä                    |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         6|Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
+|         7|0 - 6-vuotiaat, % väestöstä                                                                  |                      3|Tilastokeskus                          |
+|        74|Yksinhuoltajaperheet, % lapsiperheistä                                                       |                      3|Tilastokeskus                          |
+|       127|Väestö 31.12.                                                                                |                      3|Tilastokeskus                          |
+
 List geographical regions with available indicators:
 
 
@@ -47,6 +57,17 @@ List geographical regions with available indicators:
 sotkanet.regions <- SotkanetRegions(type = "table")
 kable(head(sotkanet.regions))
 ```
+
+
+
+| region|region.title.fi                 |region.code |region.category     |region.uri                         |
+|------:|:-------------------------------|:-----------|:-------------------|:----------------------------------|
+|    833|Etelä-Suomen AVIn alue          |1           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv1 |
+|    834|Lounais-Suomen AVIn alue        |2           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv2 |
+|    835|Itä-Suomen AVIn alue            |3           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv3 |
+|    836|Länsi- ja Sisä-Suomen AVIn alue |4           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv4 |
+|    837|Pohjois-Suomen AVIn alue        |5           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv5 |
+|    838|Lapin AVIn alue                 |6           |ALUEHALLINTOVIRASTO |http://www.yso.fi/onto/kunnat/ahv6 |
 
 
 ### Querying SOTKAnet indicators
@@ -63,6 +84,17 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 # Investigate the first lines in the data
 kable(head(dat))
 ```
+
+
+
+|           | region|region.title.fi |region.code |region.category | indicator|indicator.title.fi         | year|gender | primary.value| absolute.value|indicator.organization.title.fi                |
+|:----------|------:|:---------------|:-----------|:---------------|---------:|:--------------------------|----:|:------|-------------:|--------------:|:----------------------------------------------|
+|10013.1139 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1996|male   |          29.5|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1140 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2005|male   |          20.6|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1141 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2008|female |          15.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1142 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1994|male   |          37.2|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2009|female |          19.0|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2011|total  |          20.1|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 
 ### Fetch all SOTKAnet indicators
 
@@ -94,86 +126,22 @@ Download and visualize time series:
 ```r
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
-```
-
-```
-## Error in unique(dat$indicator.title.fi): object 'dat' not found
-```
-
-```r
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
-```
 
-```
-## Error in unique(dat$indicator.organization.title.fi): object 'dat' not found
-```
-
-```r
 # Visualize
 library(ggplot2)
 theme_set(theme_bw(20)); 
 p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
-```
-
-```
-## Error in ggplot(dat, aes(x = year, y = primary.value, group = gender, : object 'dat' not found
-```
-
-```r
 p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + xlab("Year") + ylab("Value") 
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(title = element_text(size = 10))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(axis.title.x = element_text(size = 20))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(axis.title.y = element_text(size = 20))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(legend.title = element_text(size = 15))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 print(p)
 ```
 
-```
-## Error in print(p): object 'p' not found
-```
+![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png) 
 
 
 Investigate the effect of municipality size on demographic
@@ -185,109 +153,23 @@ expected by statistical arguments:
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, 
        			years = 2011, genders = c('total'))
-```
-
-```
-## Error in eval(expr, envir, enclos): could not find function "GetDataSotkanet"
-```
-
-```r
 # Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'dat' not found
-```
-
-```r
 datf <- datf[!duplicated(datf),]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'datf' not found
-```
-
-```r
 dw <- reshape(datf, idvar = "region.title.fi", 
       		    timevar = "indicator.title.fi", direction = "wide")
-```
-
-```
-## Error in reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", : object 'datf' not found
-```
-
-```r
 names(dw) <- c("Municipality", "Population", "Migration")
-```
-
-```
-## Error in names(dw) <- c("Municipality", "Population", "Migration"): object 'dw' not found
-```
-
-```r
 p <- ggplot(dw, aes(x = log10(Population), y = Migration)) 
-```
-
-```
-## Error in ggplot(dw, aes(x = log10(Population), y = Migration)): object 'dw' not found
-```
-
-```r
 p <- p + geom_point(size = 3)
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + ggtitle("Migration vs. population size") 
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(title = element_text(size = 15))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(axis.title.x = element_text(size = 20))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(axis.title.y = element_text(size = 20))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 p <- p + theme(legend.title = element_text(size = 15))
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
-
-```r
 print(p)
 ```
 
-```
-## Error in print(p): object 'p' not found
-```
+![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
 
 ## Further examples
 
@@ -372,12 +254,14 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] ggplot2_1.0.1      knitr_1.10.5       scimapClient_0.2.1
+## [1] ggplot2_1.0.1      knitr_1.10.5       sotkanet_0.9.20   
+## [4] RCurl_1.95-4.6     bitops_1.0-6       scimapClient_0.2.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.0      digest_0.6.8     MASS_7.3-41      grid_3.2.1      
-##  [5] plyr_1.8.3       gtable_0.1.2     formatR_1.2      magrittr_1.5    
-##  [9] evaluate_0.7     scales_0.2.5     stringi_0.5-5    reshape2_1.4.1  
-## [13] proto_0.3-10     RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0   
-## [17] munsell_0.4.2    colorspace_1.2-6
+##  [1] Rcpp_0.12.0      digest_0.6.8     MASS_7.3-41      plyr_1.8.3      
+##  [5] grid_3.2.1       gtable_0.1.2     formatR_1.2      magrittr_1.5    
+##  [9] scales_0.2.5     evaluate_0.7     highr_0.5        stringi_0.5-5   
+## [13] reshape2_1.4.1   labeling_0.3     proto_0.3-10     rjson_0.2.15    
+## [17] RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0    munsell_0.4.2   
+## [21] colorspace_1.2-6
 ```

@@ -15,7 +15,6 @@ Release version:
 
 ```{r install, eval=FALSE}
 install.packages("sotkanet")
-library(sotkanet)
 ```
 
 Development version (for the adventurous ones):
@@ -29,7 +28,7 @@ install_github("ropengov/sotkanet")
 
 List available Sotkanet indicators and print as a table:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
+```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=TRUE}
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
 
@@ -39,7 +38,7 @@ kable(head(sotkanet.indicators))
 
 List geographical regions with available indicators:
 
-```{r sotkanetRegions, warning=FALSE, message=FALSE, eval=FALSE}
+```{r sotkanetRegions, warning=FALSE, message=FALSE, eval=TRUE}
 sotkanet.regions <- SotkanetRegions(type = "table")
 kable(head(sotkanet.regions))
 ```
@@ -49,7 +48,7 @@ kable(head(sotkanet.regions))
 
 Get the [indicator 10013](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu/metadata?type=I&indicator=10013) from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
 
-```{r sotkanetData, warning=FALSE, message=FALSE, eval=FALSE}
+```{r sotkanetData, warning=FALSE, message=FALSE, eval=TRUE}
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
