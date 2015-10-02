@@ -84,7 +84,7 @@ dat <- do.call("rbind", datlist)
 
 Download and visualize time series:
 
-```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=7, eval=FALSE}
+```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=7, eval=TRUE}
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
@@ -107,7 +107,7 @@ Investigate the effect of municipality size on demographic
 variation. Smaller municipalities show more random variation as
 expected by statistical arguments:
 
-```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=FALSE}
+```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=TRUE}
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, 
        			years = 2011, genders = c('total'))

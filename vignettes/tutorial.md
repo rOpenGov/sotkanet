@@ -94,19 +94,85 @@ Download and visualize time series:
 ```r
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
-indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
+```
 
+```
+## Error in unique(dat$indicator.title.fi): object 'dat' not found
+```
+
+```r
+indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
+```
+
+```
+## Error in unique(dat$indicator.organization.title.fi): object 'dat' not found
+```
+
+```r
 # Visualize
 library(ggplot2)
 theme_set(theme_bw(20)); 
 p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
+```
+
+```
+## Error in ggplot(dat, aes(x = year, y = primary.value, group = gender, : object 'dat' not found
+```
+
+```r
 p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + xlab("Year") + ylab("Value") 
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(title = element_text(size = 10))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(axis.title.x = element_text(size = 20))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(axis.title.y = element_text(size = 20))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(legend.title = element_text(size = 15))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 print(p)
+```
+
+```
+## Error in print(p): object 'p' not found
 ```
 
 
@@ -119,20 +185,108 @@ expected by statistical arguments:
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, 
        			years = 2011, genders = c('total'))
+```
+
+```
+## Error in eval(expr, envir, enclos): could not find function "GetDataSotkanet"
+```
+
+```r
 # Pick necessary fields and remove duplicates
 datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'dat' not found
+```
+
+```r
 datf <- datf[!duplicated(datf),]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'datf' not found
+```
+
+```r
 dw <- reshape(datf, idvar = "region.title.fi", 
       		    timevar = "indicator.title.fi", direction = "wide")
+```
+
+```
+## Error in reshape(datf, idvar = "region.title.fi", timevar = "indicator.title.fi", : object 'datf' not found
+```
+
+```r
 names(dw) <- c("Municipality", "Population", "Migration")
+```
+
+```
+## Error in names(dw) <- c("Municipality", "Population", "Migration"): object 'dw' not found
+```
+
+```r
 p <- ggplot(dw, aes(x = log10(Population), y = Migration)) 
+```
+
+```
+## Error in ggplot(dw, aes(x = log10(Population), y = Migration)): object 'dw' not found
+```
+
+```r
 p <- p + geom_point(size = 3)
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + ggtitle("Migration vs. population size") 
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(title = element_text(size = 15))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(axis.title.x = element_text(size = 20))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(axis.title.y = element_text(size = 20))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 p <- p + theme(legend.title = element_text(size = 15))
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'p' not found
+```
+
+```r
 print(p)
+```
+
+```
+## Error in print(p): object 'p' not found
 ```
 
 ## Further examples
@@ -218,9 +372,12 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] knitr_1.10.5       scimapClient_0.2.1
+## [1] ggplot2_1.0.1      knitr_1.10.5       scimapClient_0.2.1
 ## 
 ## loaded via a namespace (and not attached):
-## [1] magrittr_1.5  formatR_1.2   tools_3.2.1   RJSONIO_1.3-0 stringi_0.5-5
-## [6] stringr_1.0.0 evaluate_0.7
+##  [1] Rcpp_0.12.0      digest_0.6.8     MASS_7.3-41      grid_3.2.1      
+##  [5] plyr_1.8.3       gtable_0.1.2     formatR_1.2      magrittr_1.5    
+##  [9] evaluate_0.7     scales_0.2.5     stringi_0.5-5    reshape2_1.4.1  
+## [13] proto_0.3-10     RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0   
+## [17] munsell_0.4.2    colorspace_1.2-6
 ```
