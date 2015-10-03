@@ -8,18 +8,17 @@ retrieves Sotkanet data from the query url}
 sotkanet.csv_query(url)
 }
 \arguments{
-\item{url}{Sotkanet CSV url
-
-Returns:}
+\item{url}{Sotkanet CSV url}
 }
 \value{
 sotkanet CSV query
 }
 \description{
-Arguments:
+Description:
+retrieves Sotkanet data from the query url
 }
 \author{
-Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@googlegroups.com}
+Einari Happonen. Maintainer: Louhos \email{louhos@googlegroups.com}
 }
 \references{
 See citation("sotkanet")

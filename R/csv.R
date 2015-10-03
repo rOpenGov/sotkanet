@@ -1,15 +1,13 @@
 #' Description:
 #' retrieves Sotkanet data from the query url
 #'
-#' Arguments:
-#'   @param url Sotkanet CSV url
-#'
-#' Returns:
-#'   @return sotkanet CSV query
+#' @param url Sotkanet CSV url
+#' @return sotkanet CSV query
+#' @importFrom utils read.table
 #'
 #' @references
 #' See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @author Einari Happonen. Maintainer: Louhos \email{louhos@@googlegroups.com}
 #' @keywords utilities
 
 sotkanet.csv_query <- function(url)
