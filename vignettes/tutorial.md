@@ -141,7 +141,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png) 
+![plot of chunk sotkanetDataVisu](figure/sotkanetDataVisu-1.png)
 
 
 Investigate the effect of municipality size on demographic
@@ -169,7 +169,7 @@ p <- p + theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png) 
+![plot of chunk sotkanetVisu3](figure/sotkanetVisu3-1.png)
 
 ## Further examples
 
@@ -238,9 +238,9 @@ sessionInfo()
 ```
 
 ```
-## R version 3.2.1 (2015-06-18)
-## Platform: x86_64-unknown-linux-gnu (64-bit)
-## Running under: Ubuntu 15.04
+## R version 3.3.1 (2016-06-21)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 16.04 LTS
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -254,14 +254,13 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] ggplot2_1.0.1      knitr_1.10.5       sotkanet_0.9.20   
-## [4] RCurl_1.95-4.6     bitops_1.0-6       scimapClient_0.2.1
+## [1] ggplot2_2.1.0   sotkanet_0.9.22 RCurl_1.95-4.8  bitops_1.0-6   
+## [5] knitr_1.14     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.0      digest_0.6.8     MASS_7.3-41      plyr_1.8.3      
-##  [5] grid_3.2.1       gtable_0.1.2     formatR_1.2      magrittr_1.5    
-##  [9] scales_0.2.5     evaluate_0.7     highr_0.5        stringi_0.5-5   
-## [13] reshape2_1.4.1   labeling_0.3     proto_0.3-10     rjson_0.2.15    
-## [17] RJSONIO_1.3-0    tools_3.2.1      stringr_1.0.0    munsell_0.4.2   
-## [21] colorspace_1.2-6
+##  [1] Rcpp_0.12.7      digest_0.6.10    plyr_1.8.4       grid_3.3.1      
+##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.9    
+##  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    labeling_0.3    
+## [13] rjson_0.2.15     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
+## [17] colorspace_1.2-6
 ```

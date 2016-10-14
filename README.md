@@ -3,8 +3,9 @@ sotkanet
 
 [![Build Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
 [![Stories in Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=Ready)](http://waffle.io/ropengov/sotkanet)
-[![DOI](https://zenodo.org/badge/4203/rOpenGov/sotkanet.png)](https://github.com/rOpenGov/sotkanet)
-[SNM](http://scisoft-net-map.isri.cmu.edu/application/sotkanet)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](http://cran.r-project.org/package=sotkanet)
+[![Cranlogs Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](http://cran.r-project.org/package=sotkanet)
+<!--[SNM](http://scisoft-net-map.isri.cmu.edu/application/sotkanet)-->
 
 
 R Tools for the Sotkanet demographics indicator database (Finland and
