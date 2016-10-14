@@ -1,19 +1,12 @@
-#' Description:
-#' retrieves Sotkanet data from the query url
-#'
-#' Arguments:
-#'   @param url Sotkanet JSON url
-#'
-#' Returns:
-#'   @return sotkanet json query
-#'
+#' @title Retrieves Sotkanet Data
+#' @description Retrieves Sotkanet data from the query URL.
+#' @param url Sotkanet JSON url
+#' @return sotkanet json query
 #' @importFrom RCurl url.exists
 #' @importFrom rjson fromJSON
-#' @references
-#' See citation("sotkanet") 
-#' @author Einari Happonen / Opasnet. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @references See citation("sotkanet") 
+#' @author Einari Happonen. Maintainer: \email{leo.lahti@@iki.fi}
 #' @keywords utilities
-
 sotkanet.json_query <- function(url)
 {
 
@@ -27,6 +20,7 @@ sotkanet.json_query <- function(url)
   con <- url(url, method = "libcurl")
   txt <- suppressWarnings(readLines(con, warn = FALSE))
   close(con)
+  
   response <- fromJSON(paste(txt, collapse = ""))
   
   if (is.null(response)) 

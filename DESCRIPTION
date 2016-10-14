@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
-Title: Tools for Sotkanet Open Data Portal
-Version: 0.9.21
-Date: 2015-10-03
+Title: Sotkanet Open Data Access and Analysis
+Version: 0.9.22
+Date: 2016-10-14
 Author: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 Maintainer: Leo Lahti <louhos@googlegroups.com>
 Description: Tools to download data from the Sotkanet open data portal.
@@ -18,4 +18,4 @@ Suggests:
     ggplot2,
     knitr
 VignetteBuilder: knitr
-
+RoxygenNote: 5.0.1

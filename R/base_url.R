@@ -1,14 +1,9 @@
-#' Base url to the Sotkanet API
-#'
-#' Arguments:
-#'   @param ... Arguments to be passed
-#'
-#' Returns:
-#'   @return sotkanet API base url
-#'
-#' @references
-#' See citation("sotkanet") 
-#' @author Leo Lahti \email{louhos@@googlegroups.com}
+#' @title Sotkanet Base URL
+#' @description Base URL for Sotkanet API.
+#' @param ... Arguments to be passed
+#' @return sotkanet API base url
+#' @references See citation("sotkanet") 
+#' @author Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples base_url()
 #' @export
 #' @keywords utilities

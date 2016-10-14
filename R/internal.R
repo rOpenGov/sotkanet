@@ -1,19 +1,12 @@
-
-#' Description:
-#' SotkanetCollect converts the list object from Sotkanet to a data.frame
-#'
-#' Arguments:
-#'   @param x input data (from SotkanetIndicators or SotkanetRegions etc.)
-#'   @param name name for the column ("indicator", "region", etc.)
-#'
-#' Returns:
-#'   @return sotkanet data table
-#'
+#' @title Convert Sotkanet Data from list to data.frame
+#' @description Converts Sotkanet list object to data.frame.
+#' @param x input data (from SotkanetIndicators or SotkanetRegions etc.)
+#' @param name name for the column ("indicator", "region", etc.)
+#' @return sotkanet data table
 #' @references
 #' See citation("sotkanet") 
-#' @author Einari Happonen / Opasnet. Maintainer: Louhos \email{louhos@@googlegroups.com}
+#' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @keywords utilities
-
 SotkanetCollect <- function(x, name) {
 
   if (length(x$id) == 1) {
@@ -33,10 +26,9 @@ SotkanetCollect <- function(x, name) {
       indicator.title.fi = sapply(x, function (xi) {xi$title[["fi"]]}),
       indicator.organization = sapply(x, function (xi) {xi$organization$id}),
       indicator.organization.title.fi = sapply(x, function (xi) {xi$organization$title[["fi"]]})
-      #indicator.last.update = gsub("NULL", "", sapply(x, function (xi) {xi[["data-update"]]}))
     ))
   }
 
-  return(out)
+  out
 }
 
