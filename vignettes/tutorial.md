@@ -178,7 +178,6 @@ For further usage examples, see
 [takomo](https://github.com/louhos/takomo/tree/master/Sotkanet). In
 particular the following blog posts are using the package:
 
- * [Kuntatiedon visualisointi](http://louhos.github.io/news/2015/06/06/kuntakartat/)
  * [Helsinki Region Infoshare-blogi](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 
@@ -259,8 +258,8 @@ sessionInfo()
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.7      digest_0.6.10    plyr_1.8.4       grid_3.3.1      
-##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.9    
+##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.10   
 ##  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    labeling_0.3    
 ## [13] rjson_0.2.15     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
-## [17] colorspace_1.2-6
+## [17] colorspace_1.2-7
 ```

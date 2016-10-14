@@ -83,7 +83,7 @@ dat <- do.call("rbind", datlist)
 
 Download and visualize time series:
 
-```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=7, eval=TRUE}
+```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=5, eval=TRUE}
 # Pick indicator name
 indicator.name <- as.character(unique(dat$indicator.title.fi))
 indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
@@ -106,7 +106,7 @@ Investigate the effect of municipality size on demographic
 variation. Smaller municipalities show more random variation as
 expected by statistical arguments:
 
-```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=TRUE}
+```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=TRUE, fig.width=10, fig.height=5}
 selected.inds <- c(127, 178)
 dat <- GetDataSotkanet(indicators = selected.inds, 
        			years = 2011, genders = c('total'))
@@ -133,7 +133,6 @@ For further usage examples, see
 [takomo](https://github.com/louhos/takomo/tree/master/Sotkanet). In
 particular the following blog posts are using the package:
 
- * [Kuntatiedon visualisointi](http://louhos.github.io/news/2015/06/06/kuntakartat/)
  * [Helsinki Region Infoshare-blogi](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 

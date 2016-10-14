@@ -2,9 +2,9 @@ sotkanet
 =====
 
 [![Build Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
-[![Stories in Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=Ready)](http://waffle.io/ropengov/sotkanet)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](http://cran.r-project.org/package=sotkanet)
 [![Cranlogs Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](http://cran.r-project.org/package=sotkanet)
+<!--[![Stories in Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=Ready)](http://waffle.io/ropengov/sotkanet)-->
 <!--[SNM](http://scisoft-net-map.isri.cmu.edu/application/sotkanet)-->
 
 
@@ -25,9 +25,9 @@ Authors: See the [DESCRIPTION file](DESCRIPTION). Part of [rOpenGov](http://rope
 
 You are welcome to:
   
-  * [submit feedback and bug reports](https://github.com/ropengov/sotkanet/issues)
-  * [send a pull request](https://github.com/ropengov/sotkanet/)
-  * join (or follow) the community [Finland](http://louhos.github.io/contact.html); [International](http://ropengov.github.io/contribute/)
+  * [Submit feedback and bug reports](https://github.com/ropengov/sotkanet/issues)
+  * [Send a pull request](https://github.com/ropengov/sotkanet/)
+  * [Contact us](http://ropengov.github.io/contribute/)
 
 
 
