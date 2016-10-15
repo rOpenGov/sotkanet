@@ -17,6 +17,7 @@ Release version:
 install.packages("sotkanet")
 ```
 
+
 Development version (for the adventurous ones):
 
 ```{r install2, eval=FALSE}

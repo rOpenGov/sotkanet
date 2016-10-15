@@ -8,10 +8,8 @@ inst/blog
 
 # Git related
 ./.git*
-
 # Travis scripts
 .travis.yml
-
 # Misc
 ./.*~
 ./*~
@@ -21,5 +19,6 @@ inst/blog
 ^\.Rprofile$
 ^NEWS.md$
 cran-comments.md
-
 ./inst/extras/..Rcheck
+^README\.Rmd$
+^README-.*\.png$
