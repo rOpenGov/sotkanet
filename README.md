@@ -12,8 +12,6 @@ sotkanet
 [![Build Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](http://cran.r-project.org/package=sotkanet)
 [![Cranlogs Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](http://cran.r-project.org/package=sotkanet)
-<!--[![Stories in Ready](https://badge.waffle.io/ropengov/sotkanet.png?label=Ready)](http://waffle.io/ropengov/sotkanet)-->
-<!--[SNM](http://scisoft-net-map.isri.cmu.edu/application/sotkanet)-->
 
 
 This R package is designed to access and manipulate data from the
@@ -49,15 +47,12 @@ sotkanet.indicators <- SotkanetIndicators()
 For further usage instructions, check the [tutorial page](https://github.com/rOpenGov/sotkanet/blob/master/vignettes/tutorial.md). 
 
 
-### Authors
+## Meta
 
-The package authors are listed in the [DESCRIPTION file](DESCRIPTION). Part of [rOpenGov](http://ropengov.github.io/). 
+The package authors are listed in the [DESCRIPTION file](DESCRIPTION). Part of [rOpenGov](http://ropengov.github.io/).
 
-
-You are welcome to:
-  
-  * [Submit feedback and bug reports](https://github.com/ropengov/sotkanet/issues)
-  * [Send a pull request](https://github.com/ropengov/sotkanet/)
-  * [Contact us](http://ropengov.github.io/contribute/)
-
-
+* Please [report any issues or bugs](https://github.com/ropengov/sotkanet/issues).
+* License: BSD-2-clause
+* Get citation information in R with `citation('sotkanet')`
+* [Contact](http://ropengov.github.io/contribute/)
+* [Pull requests](https://github.com/ropengov/sotkanet/)
