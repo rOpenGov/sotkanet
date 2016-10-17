@@ -1,3 +1,4 @@
+#' @noRd
 #' @title Convert Sotkanet Data from list to data.frame
 #' @description Converts Sotkanet list object to data.frame.
 #' @param x input data (from SotkanetIndicators or SotkanetRegions etc.)

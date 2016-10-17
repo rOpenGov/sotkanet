@@ -1,3 +1,4 @@
+#' @noRd
 #' @title Retrieves Sotkanet Data
 #' @description Retrieves Sotkanet data from the query URL.
 #' @param url Sotkanet JSON url

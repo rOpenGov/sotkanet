@@ -1,3 +1,4 @@
+#' @noRd
 #' @title Get Sotkanet Data for Single Indicator 
 #' @description: GetDataSotkanetSingleIndicator retrieves Sotkanet data 
 #' for given indicator according to the query arguments and combines
@@ -11,9 +12,9 @@
 #'	    "ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", 
 #'	    "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
 #'	    "SEUTUKUNTA", "SUURALUE"   
-#' @return sotkanet data table
+#' @return data.table
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
+#' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples # 
 #' @keywords utilities
 GetDataSotkanetSingleIndicator <- function (indicator, years = 1990:2000, genders = "total", regions = NULL, region.category = NULL) {
