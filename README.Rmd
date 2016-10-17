@@ -39,7 +39,7 @@ install.packages("sotkanet")
 
 List available indicators in the Sotkanet data portal:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=TRUE}
+```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators()
 ```
