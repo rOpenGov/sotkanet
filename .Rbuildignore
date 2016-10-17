@@ -22,3 +22,4 @@ cran-comments.md
 ./inst/extras/..Rcheck
 ^README\.Rmd$
 ^README-.*\.png$
+^CONDUCT\.md$

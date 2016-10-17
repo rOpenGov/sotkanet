@@ -1,4 +1,4 @@
-#' @title Retrieve Sotkanet Daata.
+#' @title Retrieve Sotkanet Data
 #' @description Retrieve Sotkanet data according to the query arguments.
 #' @param indicator Dataset identifier
 #' @param years vector of years c(2010, 2012, ... )

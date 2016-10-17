@@ -4,9 +4,8 @@
 #' @param type Return format ("table" or "raw")
 #' @return sotkanet json query in selected format
 #' @export
-#' @references
-#' See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: \email{leo.lahti@@iki.fi}
+#' @references See citation("sotkanet") 
+#' @author Einari Happonen and Leo Lahti. Maintainer: \email{leo.lahti@@iki.fi}
 #' @examples \dontrun{sotkanet.regions <- SotkanetRegions(type = "table")}
 #' @keywords utilities
 SotkanetRegions <- function(type = "table")

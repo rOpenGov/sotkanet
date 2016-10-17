@@ -12,8 +12,7 @@
 #'	    "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
 #'	    "SEUTUKUNTA", "SUURALUE"   
 #' @return sotkanet data table
-#' @references
-#' See citation("sotkanet") 
+#' @references See citation("sotkanet") 
 #' @author Einari Happonen. Maintainer: Louhos/Opasnet \email{louhos@@googlegroups.com}
 #' @examples # 
 #' @keywords utilities

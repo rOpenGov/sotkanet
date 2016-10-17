@@ -1,5 +1,5 @@
 #' @title Retrieve Sotkanet Data
-#' @description Retrieves Sotkanet data according to the query arguments
+#' @description Retrieves Sotkanet data according to the query arguments.
 #' and combines the indicator, region, and overall data into a single table.
 #' @param indicators Dataset identifier(s)
 #' @param years vector of years c(2010, 2012, ... )
@@ -13,8 +13,7 @@
 #' @param verbose verbose
 #' @return data.frame
 #' @export
-#' @references
-#' See citation("sotkanet") 
+#' @references See citation("sotkanet") 
 #' @author Einari Happonen. Maintainer: Louhos \email{louhos@@googlegroups.com}
 #' @examples \dontrun{dat <- GetDataSotkanet(indicators = 10013)}
 #' @keywords utilities

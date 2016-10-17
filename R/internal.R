@@ -3,8 +3,7 @@
 #' @param x input data (from SotkanetIndicators or SotkanetRegions etc.)
 #' @param name name for the column ("indicator", "region", etc.)
 #' @return sotkanet data table
-#' @references
-#' See citation("sotkanet") 
+#' @references See citation("sotkanet") 
 #' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @keywords utilities
 SotkanetCollect <- function(x, name) {
