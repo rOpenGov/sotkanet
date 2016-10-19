@@ -17,7 +17,7 @@ inst/blog
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
-^NEWS.md$
+NEWS # NEWS in .gitignore but not NEWS.md
 cran-comments.md
 ./inst/extras/..Rcheck
 ^README\.Rmd$
