@@ -6,7 +6,6 @@ notifications:
 
 warnings_are_errors: false
 
-
 r_github_packages:
   - jimhester/covr
   

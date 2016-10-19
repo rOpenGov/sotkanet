@@ -1,3 +1,3 @@
 library(testthat)
-library(eurostat)
-test_check("eurostat")
+library(sotkanet)
+test_check("sotkanet")
