@@ -1,11 +1,12 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.30
+Version: 0.9.31
 Date: 2016-10-20
 Author: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 Maintainer: Leo Lahti <louhos@googlegroups.com>
-Description: Tools to download data from the Sotkanet open data portal.
+Description: Access data from the Sotkanet open data portal at
+        https://www.sotkanet.fi/sotkanet/fi/index
 License: BSD_2_clause + file LICENSE
 URL: https://github.com/ropengov/sotkanet,
         http://cran.r-project.org/package=sotkanet
