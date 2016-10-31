@@ -13,7 +13,7 @@ Brief summary of the sotkanet package
 Package: \tab sotkanet\cr
 Type: \tab Package\cr
 Version: \tab See sessionInfo() or DESCRIPTION file\cr
-Date: \tab 2015\cr
+Date: \tab 2014-2016\cr
 License: \tab FreeBSD\cr
 LazyLoad: \tab yes\cr
 }
@@ -24,7 +24,7 @@ R Tools for Sotkanet API
 library(sotkanet)
 }
 \author{
-Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki \email{louhos@googlegroups.com}
+Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki \email{leo.lahti@iki.fi}
 }
 \references{
 See citation("sotkanet")

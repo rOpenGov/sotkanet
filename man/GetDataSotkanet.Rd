@@ -28,7 +28,7 @@ GetDataSotkanet(indicators, years = 1991:2015, genders = c("total"),
 data.frame
 }
 \description{
-Retrieves Sotkanet data according to the query arguments
+Retrieves Sotkanet data according to the query arguments.
 and combines the indicator, region, and overall data into a single table.
 }
 \examples{

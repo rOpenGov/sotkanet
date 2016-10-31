@@ -20,7 +20,7 @@ SotkanetRegions retrieves Sotkanet regions data from
 \dontrun{sotkanet.regions <- SotkanetRegions(type = "table")}
 }
 \author{
-Einari Happonen. Maintainer: \email{leo.lahti@iki.fi}
+Einari Happonen and Leo Lahti. Maintainer: \email{leo.lahti@iki.fi}
 }
 \references{
 See citation("sotkanet")
