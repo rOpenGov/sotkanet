@@ -9,6 +9,8 @@ Sotkanet API R tools
 This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF). This package is part of [rOpenGov](http://ropengov.github.com/).
 
 
+
+
 ### Installation
 
 Release version:
@@ -17,6 +19,7 @@ Release version:
 ```r
 install.packages("sotkanet")
 ```
+
 
 Development version (for the adventurous ones):
 
@@ -207,24 +210,21 @@ This work can be freely used, modified and distributed under the
 
 ```r
 citation("sotkanet")
-```
-
-```
-## 
-## Kindly cite the sotkanet R package as follows:
-## 
-##   (C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona
-##   Lehtomaki 2013-2015. sotkanet: Sotkanet R Tools
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Misc{,
-##     title = {sotkanet R package},
-##     author = {Leo Lahti and Einari Happonen and Juuso Parkkinen and Joona Lehtomaki},
-##     year = {2013},
-##   }
-## 
-## For more info, see: https://github.com/ropengov/sotkanet/
+#> 
+#> Kindly cite the sotkanet R package as follows:
+#> 
+#>   (C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona
+#>   Lehtomaki 2013-2015. sotkanet: Sotkanet R Tools
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Misc{,
+#>     title = {sotkanet R package},
+#>     author = {Leo Lahti and Einari Happonen and Juuso Parkkinen and Joona Lehtomaki},
+#>     year = {2013},
+#>   }
+#> 
+#> For more info, see: https://github.com/ropengov/sotkanet/
 ```
 
 ### Session info
@@ -234,32 +234,29 @@ This vignette was created with
 
 ```r
 sessionInfo()
-```
-
-```
-## R version 3.3.1 (2016-06-21)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 16.04 LTS
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] ggplot2_2.1.0   sotkanet_0.9.22 RCurl_1.95-4.8  bitops_1.0-6   
-## [5] knitr_1.14     
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.7      digest_0.6.10    plyr_1.8.4       grid_3.3.1      
-##  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.10   
-##  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    labeling_0.3    
-## [13] rjson_0.2.15     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
-## [17] colorspace_1.2-7
+#> R version 3.3.1 (2016-06-21)
+#> Platform: x86_64-pc-linux-gnu (64-bit)
+#> Running under: Ubuntu 16.04 LTS
+#> 
+#> locale:
+#>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+#>  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+#>  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+#>  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+#>  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+#> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+#> 
+#> attached base packages:
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
+#> 
+#> other attached packages:
+#> [1] ggplot2_2.1.0   sotkanet_0.9.22 RCurl_1.95-4.8  bitops_1.0-6   
+#> [5] knitr_1.14     
+#> 
+#> loaded via a namespace (and not attached):
+#>  [1] Rcpp_0.12.7      digest_0.6.10    plyr_1.8.4       grid_3.3.1      
+#>  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.10   
+#>  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    labeling_0.3    
+#> [13] rjson_0.2.15     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
+#> [17] colorspace_1.2-7
 ```

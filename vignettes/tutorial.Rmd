@@ -9,6 +9,11 @@ Sotkanet API R tools
 This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF). This package is part of [rOpenGov](http://ropengov.github.com/).
 
 
+```{r, echo = FALSE}
+# HW preferred defaults for displaying code
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
 ### Installation
 
 Release version:
