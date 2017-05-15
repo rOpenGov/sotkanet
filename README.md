@@ -6,9 +6,9 @@ sotkanet
 =====
 
 [![Build Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](http://cran.r-project.org/package=sotkanet)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
 [![codecov.io](https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/sotkanet?branch=master)
-[![Cranlogs Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](http://cran.r-project.org/package=sotkanet)
+[![Cranlogs Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
 
 
 R package to access and manipulate data from the Sotkanet demographics
