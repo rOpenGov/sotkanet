@@ -32,16 +32,12 @@ install_github("ropengov/sotkanet")
 
 ### Listing available indicators
 
-List available Sotkanet indicators and print as a table:
+List available Sotkanet indicators:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=TRUE}
+```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
 library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
-
-library(knitr)
-if (!is.null(sotkanet.indicators)) {
-  kable(head(sotkanet.indicators))
-}
+# kable(head(sotkanet.indicators))
 ```
 
 List geographical regions with available indicators:
