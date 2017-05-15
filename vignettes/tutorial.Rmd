@@ -30,12 +30,16 @@ library(devtools)
 install_github("ropengov/sotkanet")
 ```
 
+```{r loadlib, warning=FALSE, message=FALSE, echo=FALSE, eval=TRUE}
+library(sotkanet) 
+```
+
+
 ### Listing available indicators
 
 List available Sotkanet indicators:
 
 ```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
-library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
 # kable(head(sotkanet.indicators))
 ```
