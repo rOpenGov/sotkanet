@@ -1,11 +1,11 @@
 #' @noRd
 #' @title Sotkanet CSV Query
-#' @description Retrieves Sotkanet data from the query URL.
+#' @description Retrieve data from the query url.
 #' @param url Sotkanet CSV url
 #' @return sotkanet CSV query
 #' @importFrom utils read.table
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @keywords utilities
 sotkanet.csv_query <- function(url)
 {

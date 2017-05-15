@@ -2,7 +2,7 @@
 % Please edit documentation in R/SotkanetIndicators.R
 \name{SotkanetIndicators}
 \alias{SotkanetIndicators}
-\title{SotkanetIndicators}
+\title{Sotkanet Indicators}
 \usage{
 SotkanetIndicators(id = NULL, type = "table")
 }
@@ -12,21 +12,19 @@ SotkanetIndicators(id = NULL, type = "table")
 \item{type}{output format ("table" or "raw")}
 }
 \value{
-sotkanet json query in selected output format
+json query in selected output format
 }
 \description{
-SotkanetIndicators retrieves Sotkanet data corresponding to a
-specified data identifier from 
-\url{http://www.sotkanet.fi/rest/1.1/indicators}
+Retrieve data for a specific data id.
+  \url{http://www.sotkanet.fi/rest/1.1/indicators}.
 }
 \examples{
 \dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}
 }
-\author{
-Einari Happonen. Maintainer: Leo Lahti\email{leo.lahti@iki.fi}
-}
 \references{
 See citation("sotkanet")
 }
+\author{
+Leo Lahti\email{leo.lahti@iki.fi} based on the original version by Einari Happonen
+}
 \keyword{utilities}
-

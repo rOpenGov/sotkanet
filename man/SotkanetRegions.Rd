@@ -2,7 +2,7 @@
 % Please edit documentation in R/sotkanet.R
 \name{SotkanetRegions}
 \alias{SotkanetRegions}
-\title{Retrieve Sotkanet Regions}
+\title{Sotkanet Regions}
 \usage{
 SotkanetRegions(type = "table")
 }
@@ -13,17 +13,18 @@ SotkanetRegions(type = "table")
 sotkanet json query in selected format
 }
 \description{
-SotkanetRegions retrieves Sotkanet regions data from
-\url{http://www.sotkanet.fi/rest/1.1/regions}.
+Retrieves sotkanet regions data.
+}
+\details{
+Data is fetched from \url{http://www.sotkanet.fi/rest/1.1/regions}.
 }
 \examples{
 \dontrun{sotkanet.regions <- SotkanetRegions(type = "table")}
 }
-\author{
-Einari Happonen and Leo Lahti. Maintainer: \email{leo.lahti@iki.fi}
-}
 \references{
 See citation("sotkanet")
 }
+\author{
+Maintainer: \email{leo.lahti@iki.fi}
+}
 \keyword{utilities}
-

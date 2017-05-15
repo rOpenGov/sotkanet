@@ -1,12 +1,12 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2016-10-31
-Version: 0.9.35
+Date: 2017-05-15
+Version: 0.9.37
 Author: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 Maintainer: Leo Lahti <louhos@googlegroups.com>
-Description: Access data from the Sotkanet open data portal at
-        https://www.sotkanet.fi/sotkanet/fi/index
+Description: Access data from the sotkanet open data portal
+        (https://www.sotkanet.fi/sotkanet/fi/index).
 License: BSD_2_clause + file LICENSE
 URL: https://github.com/ropengov/sotkanet,
         http://cran.r-project.org/package=sotkanet
@@ -15,4 +15,4 @@ Depends: R (>= 3.0.2)
 Imports: RCurl, rjson
 Suggests: ggplot2, knitr, testthat, roxygen2
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

@@ -1,5 +1,5 @@
 #' @title Sotkanet Base URL
-#' @description Base URL for Sotkanet API.
+#' @description Base url for sotkanet api.
 #' @param ... Arguments to be passed
 #' @return sotkanet API base url
 #' @references See citation("sotkanet") 

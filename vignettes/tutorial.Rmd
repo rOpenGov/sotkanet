@@ -39,7 +39,9 @@ library(sotkanet)
 sotkanet.indicators <- SotkanetIndicators(type = "table")
 
 library(knitr)
-kable(head(sotkanet.indicators))
+if (!is.null(sotkanet.indicators)) {
+  kable(head(sotkanet.indicators))
+}
 ```
 
 List geographical regions with available indicators:

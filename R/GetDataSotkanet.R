@@ -1,6 +1,5 @@
 #' @title Retrieve Sotkanet Data
-#' @description Retrieves Sotkanet data according to the query arguments.
-#' and combines the indicator, region, and overall data into a single table.
+#' @description Retrieve selected data and combine into a single table.
 #' @param indicators Dataset identifier(s)
 #' @param years vector of years c(2010, 2012, ... )
 #' @param genders vector of genders ('male' | 'female' | 'total')

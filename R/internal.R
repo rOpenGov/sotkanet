@@ -1,11 +1,11 @@
 #' @noRd
-#' @title Convert Sotkanet Data from list to data.frame
-#' @description Converts Sotkanet list object to data.frame.
+#' @title Sotkanet from list to data frame
+#' @description Convert sotkanet list to data frame.
 #' @param x input data (from SotkanetIndicators or SotkanetRegions etc.)
 #' @param name name for the column ("indicator", "region", etc.)
 #' @return sotkanet data table
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @keywords utilities
 SotkanetCollect <- function(x, name) {
 

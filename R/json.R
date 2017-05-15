@@ -1,12 +1,12 @@
 #' @noRd
-#' @title Retrieves Sotkanet Data
-#' @description Retrieves Sotkanet data from the query URL.
+#' @title Retrieve Sotkanet Data
+#' @description Retrieve data from the query url.
 #' @param url Sotkanet JSON url
 #' @return sotkanet json query
 #' @importFrom RCurl url.exists
 #' @importFrom rjson fromJSON
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @keywords utilities
 sotkanet.json_query <- function(url)
 {

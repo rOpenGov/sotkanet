@@ -1,8 +1,6 @@
 #' @noRd
 #' @title Get Sotkanet Data for Single Indicator 
-#' @description: GetDataSotkanetSingleIndicator retrieves Sotkanet data 
-#' for given indicator according to the query arguments and combines
-#' indicator, region, and overall data into one table
+#' @description Retrieve data for given indicator and combine indicator, region, and overall data into one table.
 #' @param indicator Dataset identifier
 #' @param years vector of years c(2010, 2012, ... )
 #' @param genders vector of genders ('male' | 'female' | 'total')

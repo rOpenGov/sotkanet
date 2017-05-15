@@ -39,7 +39,9 @@ library(sotkanet)
 sotkanet.indicators <- SotkanetIndicators(type = "table")
 
 library(knitr)
-kable(head(sotkanet.indicators))
+if (!is.null(sotkanet.indicators)) {
+  kable(head(sotkanet.indicators))
+}
 ```
 
 
@@ -50,8 +52,8 @@ kable(head(sotkanet.indicators))
 |         5|Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä                    |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
 |         6|Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
 |         7|0 - 6-vuotiaat, % väestöstä                                                                  |                      3|Tilastokeskus                          |
-|        74|Yksinhuoltajaperheet, % lapsiperheistä                                                       |                      3|Tilastokeskus                          |
-|       127|Väestö 31.12.                                                                                |                      3|Tilastokeskus                          |
+|        46|0 - 6-vuotiaat, % väestöstä, väestöennuste 2060                                              |                      3|Tilastokeskus                          |
+|        74|Yhden vanhemman perheet, % lapsiperheistä                                                    |                      3|Tilastokeskus                          |
 
 List geographical regions with available indicators:
 
@@ -234,9 +236,9 @@ This vignette was created with
 
 ```r
 sessionInfo()
-#> R version 3.3.1 (2016-06-21)
+#> R version 3.3.2 (2016-10-31)
 #> Platform: x86_64-pc-linux-gnu (64-bit)
-#> Running under: Ubuntu 16.04 LTS
+#> Running under: Ubuntu 17.04
 #> 
 #> locale:
 #>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -250,13 +252,12 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_2.1.0   sotkanet_0.9.22 RCurl_1.95-4.8  bitops_1.0-6   
-#> [5] knitr_1.14     
+#> [1] ggplot2_2.2.1   sotkanet_0.9.36 knitr_1.15.1   
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Rcpp_0.12.7      digest_0.6.10    plyr_1.8.4       grid_3.3.1      
-#>  [5] gtable_0.2.0     formatR_1.4      magrittr_1.5     evaluate_0.10   
-#>  [9] scales_0.4.0     highr_0.6        stringi_1.1.2    labeling_0.3    
-#> [13] rjson_0.2.15     tools_3.3.1      stringr_1.1.0    munsell_0.4.3   
-#> [17] colorspace_1.2-7
+#>  [1] Rcpp_0.12.10     digest_0.6.12    bitops_1.0-6     plyr_1.8.4      
+#>  [5] grid_3.3.2       gtable_0.2.0     magrittr_1.5     evaluate_0.10   
+#>  [9] scales_0.4.1     highr_0.6        stringi_1.1.5    lazyeval_0.2.0  
+#> [13] labeling_0.3     rjson_0.2.15     tools_3.3.2      stringr_1.2.0   
+#> [17] munsell_0.4.3    RCurl_1.95-4.8   colorspace_1.3-2 tibble_1.3.0
 ```

@@ -13,16 +13,15 @@ base_url(...)
 sotkanet API base url
 }
 \description{
-Base URL for Sotkanet API.
+Base url for sotkanet api.
 }
 \examples{
 base_url()
 }
-\author{
-Leo Lahti \email{leo.lahti@iki.fi}
-}
 \references{
 See citation("sotkanet")
 }
+\author{
+Leo Lahti \email{leo.lahti@iki.fi}
+}
 \keyword{utilities}
-

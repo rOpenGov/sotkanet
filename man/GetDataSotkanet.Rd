@@ -28,17 +28,15 @@ GetDataSotkanet(indicators, years = 1991:2015, genders = c("total"),
 data.frame
 }
 \description{
-Retrieves Sotkanet data according to the query arguments.
-and combines the indicator, region, and overall data into a single table.
+Retrieve selected data and combine into a single table.
 }
 \examples{
 \dontrun{dat <- GetDataSotkanet(indicators = 10013)}
 }
-\author{
-Einari Happonen. Maintainer: Louhos \email{louhos@googlegroups.com}
-}
 \references{
 See citation("sotkanet")
 }
+\author{
+Einari Happonen. Maintainer: Louhos \email{louhos@googlegroups.com}
+}
 \keyword{utilities}
-
