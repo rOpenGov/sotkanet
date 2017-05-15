@@ -252,7 +252,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_2.2.1   sotkanet_0.9.37 knitr_1.15.1   
+#> [1] ggplot2_2.2.1   sotkanet_0.9.39 knitr_1.15.1   
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] Rcpp_0.12.10     digest_0.6.12    bitops_1.0-6     plyr_1.8.4      
