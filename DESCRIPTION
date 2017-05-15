@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2017-05-15
-Version: 0.9.48
+Date: 2017-05-16
+Version: 0.9.49
 Author: Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki
 Maintainer: Leo Lahti <louhos@googlegroups.com>
 Description: Access data from the sotkanet open data portal
