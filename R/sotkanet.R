@@ -5,7 +5,7 @@
 #' @return sotkanet json query in selected format
 #' @export
 #' @references See citation("sotkanet") 
-#' @author Maintainer: \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples \dontrun{sotkanet.regions <- SotkanetRegions(type = "table")}
 #' @keywords utilities
 SotkanetRegions <- function(type = "table")

@@ -12,7 +12,7 @@
 #'	    "SEUTUKUNTA", "SUURALUE"   
 #' @return data.table
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples # 
 #' @keywords utilities
 GetDataSotkanetSingleIndicator <- function (indicator, years = 1990:2000, genders = "total", regions = NULL, region.category = NULL) {

@@ -13,7 +13,7 @@
 #' @return data.frame
 #' @export
 #' @references See citation("sotkanet") 
-#' @author Einari Happonen. Maintainer: Louhos \email{louhos@@googlegroups.com}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples \dontrun{dat <- GetDataSotkanet(indicators = 10013)}
 #' @keywords utilities
 GetDataSotkanet <- function (indicators, years = 1991:2015, genders = c("total"), regions = NULL, region.category = NULL, verbose = TRUE) {

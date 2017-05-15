@@ -25,6 +25,6 @@ Data is fetched from \url{http://www.sotkanet.fi/rest/1.1/regions}.
 See citation("sotkanet")
 }
 \author{
-Maintainer: \email{leo.lahti@iki.fi}
+Maintainer: Leo Lahti \email{leo.lahti@iki.fi}
 }
 \keyword{utilities}

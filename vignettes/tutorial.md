@@ -13,7 +13,7 @@ This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access
 
 ### Installation
 
-Release version:
+Release version
 
 
 ```r
@@ -21,7 +21,7 @@ install.packages("sotkanet")
 ```
 
 
-Development version (for the adventurous ones):
+Development version (for the adventurous ones)
 
 
 ```r
@@ -29,31 +29,21 @@ library(devtools)
 install_github("ropengov/sotkanet")
 ```
 
+
+
 ### Listing available indicators
 
-List available Sotkanet indicators and print as a table:
+Load sotkanet and other libraries used in this vignette
+
+
+
+List available Sotkanet indicators:
 
 
 ```r
-library(sotkanet) 
 sotkanet.indicators <- SotkanetIndicators(type = "table")
-
-library(knitr)
-if (!is.null(sotkanet.indicators)) {
-  kable(head(sotkanet.indicators))
-}
+# kable(head(sotkanet.indicators))
 ```
-
-
-
-| indicator|indicator.title.fi                                                                           | indicator.organization|indicator.organization.title.fi        |
-|---------:|:--------------------------------------------------------------------------------------------|----------------------:|:--------------------------------------|
-|         4|Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä   |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         5|Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä                    |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         6|Somaattisen erikoissairaanhoidon hoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä |                      2|Terveyden ja hyvinvoinnin laitos (THL) |
-|         7|0 - 6-vuotiaat, % väestöstä                                                                  |                      3|Tilastokeskus                          |
-|        46|0 - 6-vuotiaat, % väestöstä, väestöennuste 2060                                              |                      3|Tilastokeskus                          |
-|        74|Yhden vanhemman perheet, % lapsiperheistä                                                    |                      3|Tilastokeskus                          |
 
 List geographical regions with available indicators:
 
@@ -164,13 +154,89 @@ datf <- datf[!duplicated(datf),]
 dw <- reshape(datf, idvar = "region.title.fi", 
       		    timevar = "indicator.title.fi", direction = "wide")
 names(dw) <- c("Municipality", "Population", "Migration")
-p <- ggplot(dw, aes(x = log10(Population), y = Migration)) 
-p <- p + geom_point(size = 3)
-p <- p + ggtitle("Migration vs. population size") 
-p <- p + theme(title = element_text(size = 15))
-p <- p + theme(axis.title.x = element_text(size = 20))
-p <- p + theme(axis.title.y = element_text(size = 20))
-p <- p + theme(legend.title = element_text(size = 15))
+p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
+       geom_point(size = 3)
+       ggtitle("Migration vs. population size") 
+#> $title
+#> [1] "Migration vs. population size"
+#> 
+#> $subtitle
+#> NULL
+#> 
+#> attr(,"class")
+#> [1] "labels"
+       theme(title = element_text(size = 15))
+#> List of 1
+#>  $ title:List of 11
+#>   ..$ family       : NULL
+#>   ..$ face         : NULL
+#>   ..$ colour       : NULL
+#>   ..$ size         : num 15
+#>   ..$ hjust        : NULL
+#>   ..$ vjust        : NULL
+#>   ..$ angle        : NULL
+#>   ..$ lineheight   : NULL
+#>   ..$ margin       : NULL
+#>   ..$ debug        : NULL
+#>   ..$ inherit.blank: logi FALSE
+#>   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#>  - attr(*, "class")= chr [1:2] "theme" "gg"
+#>  - attr(*, "complete")= logi FALSE
+#>  - attr(*, "validate")= logi TRUE
+       theme(axis.title.x = element_text(size = 20))
+#> List of 1
+#>  $ axis.title.x:List of 11
+#>   ..$ family       : NULL
+#>   ..$ face         : NULL
+#>   ..$ colour       : NULL
+#>   ..$ size         : num 20
+#>   ..$ hjust        : NULL
+#>   ..$ vjust        : NULL
+#>   ..$ angle        : NULL
+#>   ..$ lineheight   : NULL
+#>   ..$ margin       : NULL
+#>   ..$ debug        : NULL
+#>   ..$ inherit.blank: logi FALSE
+#>   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#>  - attr(*, "class")= chr [1:2] "theme" "gg"
+#>  - attr(*, "complete")= logi FALSE
+#>  - attr(*, "validate")= logi TRUE
+       theme(axis.title.y = element_text(size = 20))
+#> List of 1
+#>  $ axis.title.y:List of 11
+#>   ..$ family       : NULL
+#>   ..$ face         : NULL
+#>   ..$ colour       : NULL
+#>   ..$ size         : num 20
+#>   ..$ hjust        : NULL
+#>   ..$ vjust        : NULL
+#>   ..$ angle        : NULL
+#>   ..$ lineheight   : NULL
+#>   ..$ margin       : NULL
+#>   ..$ debug        : NULL
+#>   ..$ inherit.blank: logi FALSE
+#>   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#>  - attr(*, "class")= chr [1:2] "theme" "gg"
+#>  - attr(*, "complete")= logi FALSE
+#>  - attr(*, "validate")= logi TRUE
+       theme(legend.title = element_text(size = 15))
+#> List of 1
+#>  $ legend.title:List of 11
+#>   ..$ family       : NULL
+#>   ..$ face         : NULL
+#>   ..$ colour       : NULL
+#>   ..$ size         : num 15
+#>   ..$ hjust        : NULL
+#>   ..$ vjust        : NULL
+#>   ..$ angle        : NULL
+#>   ..$ lineheight   : NULL
+#>   ..$ margin       : NULL
+#>   ..$ debug        : NULL
+#>   ..$ inherit.blank: logi FALSE
+#>   ..- attr(*, "class")= chr [1:2] "element_text" "element"
+#>  - attr(*, "class")= chr [1:2] "theme" "gg"
+#>  - attr(*, "complete")= logi FALSE
+#>  - attr(*, "validate")= logi TRUE
 print(p)
 ```
 
@@ -180,11 +246,8 @@ print(p)
 
 For further usage examples, see
 [Louhos-blog](http://louhos.wordpress.com), and
-[takomo](https://github.com/louhos/takomo/tree/master/Sotkanet). In
-particular the following blog posts are using the package:
-
- * [Helsinki Region Infoshare-blogi](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
-
+[takomo](https://github.com/louhos/takomo/tree/master/Sotkanet), and 
+[Helsinki Region Infoshare-blog](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 
 # Licensing and Citations
@@ -252,7 +315,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_2.2.1   sotkanet_0.9.39 knitr_1.15.1   
+#> [1] ggplot2_2.2.1   sotkanet_0.9.44 knitr_1.15.1   
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] Rcpp_0.12.10     digest_0.6.12    bitops_1.0-6     plyr_1.8.4      

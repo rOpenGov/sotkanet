@@ -37,6 +37,6 @@ Retrieve selected data and combine into a single table.
 See citation("sotkanet")
 }
 \author{
-Einari Happonen. Maintainer: Louhos \email{louhos@googlegroups.com}
+Maintainer: Leo Lahti \email{leo.lahti@iki.fi}
 }
 \keyword{utilities}

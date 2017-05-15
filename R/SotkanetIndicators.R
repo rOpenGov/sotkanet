@@ -7,7 +7,7 @@
 #' @return json query in selected output format
 #' @export
 #' @references See citation("sotkanet") 
-#' @author Leo Lahti\email{leo.lahti@@iki.fi} based on the original version by Einari Happonen
+#' @author Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples \dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}
 #' @keywords utilities
 SotkanetIndicators <- function(id = NULL, type = "table")

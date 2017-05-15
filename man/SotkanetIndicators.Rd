@@ -25,6 +25,6 @@ Retrieve data for a specific data id.
 See citation("sotkanet")
 }
 \author{
-Leo Lahti\email{leo.lahti@iki.fi} based on the original version by Einari Happonen
+Leo Lahti \email{leo.lahti@iki.fi}
 }
 \keyword{utilities}
