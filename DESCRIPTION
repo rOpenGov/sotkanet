@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2017-06-28
-Version: 0.9.51
+Date: 2019-05-27
+Version: 0.9.61
 Authors@R: c( person("Leo", "Lahti", email = "louhos@googlegroups.com",
         role = c("aut", "cre")), person("Einari", "Happonen", role =
         "ctb"), person("Joona", "Lehtomaki", role = "ctb"),
