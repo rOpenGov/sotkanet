@@ -1,10 +1,4 @@
 .onAttach <- function(lib, pkg)
 {
-
-  # This may help with encodings in Mac/Linux
-  # Sys.setlocale(locale = "UTF-8")
-  # Sys.setlocale(locale = "WINDOWS-1252")
-
-  packageStartupMessage("Sotkanet R tools (C) 2013-2017 rOpenGov\nhttps://github.com/ropengov/sotkanet")
-
+  packageStartupMessage("Sotkanet R tools (C) 2013-2019 rOpenGov\nhttps://github.com/ropengov/sotkanet")
 }

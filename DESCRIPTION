@@ -1,12 +1,15 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2019-05-27
-Version: 0.9.61
-Authors@R: c( person("Leo", "Lahti", email = "louhos@googlegroups.com",
-        role = c("aut", "cre")), person("Einari", "Happonen", role =
-        "ctb"), person("Joona", "Lehtomaki", role = "ctb"),
-        person("Juuso", "Parkkinen", role = "ctb"))
+Date: 2019-05-28
+Version: 0.9.62
+Encoding: UTF-8
+Authors@R: c(
+  person("Leo", "Lahti", email = "louhos@googlegroups.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5537-637X")),
+  person("Einari", "Happonen", role = "aut"),
+  person("Joona", "Lehtomaki", role = "ctb"),
+  person("Juuso", "Parkkinen", role = "ctb"))
+MailingList: rOpenGov <ropengov-forum@googlegroups.com>
 Description: Access data from the sotkanet open data portal
         <https://www.sotkanet.fi/sotkanet/fi/index>.
 License: BSD_2_clause + file LICENSE
@@ -14,6 +17,8 @@ URL: https://github.com/ropengov/sotkanet
 BugReports: https://github.com/ropengov/sotkanet/issues
 Depends: R (>= 3.0.2)
 Imports: RCurl, rjson
-Suggests: ggplot2, knitr, testthat, roxygen2
+Suggests: devtools, ggplot2, knitr, testthat, roxygen2
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+NeedsCompilation: no
+Repository: CRAN
+RoxygenNote: 6.1.1

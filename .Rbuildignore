@@ -1,3 +1,22 @@
+# pkgdown
+docs
+# Vignette
+./vignettes/2015-RJournal
+./vignettes/2017_RJournal_manuscript/*
+./vignettes/cheatsheet/
+./vignettes/cheatsheet.Rmd
+./vignettes/blogposts.Rmd
+./vignettes/publications.Rmd
+./vignettes/NUTS_2010_60M_SH/*
+./vignettes/NUTS_2010_60M_SH.zip
+./vignettes/NUTS_2010.xls
+./vignettes/zipfile
+./vignettes/figure
+./vignettes/fig
+./vignettes/cheatsheet
+./figure$
+./cache$
+.gitignore
 vignettes/figure
 vignettes/main.R
 ./inst/extras/*
@@ -6,9 +25,10 @@ inst/extras/.RData
 inst/extras
 inst/blog
 # Git related
-./.git*
+.git
 # Travis scripts
 .travis.yml
+./.travis.yml
 # Misc
 ./.*~
 ./*~
@@ -23,3 +43,5 @@ cran-comments.md
 ^README-.*\.png$
 ^CONDUCT\.md$
 inst/paper.md
+
+
