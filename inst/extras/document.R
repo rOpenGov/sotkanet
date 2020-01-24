@@ -4,6 +4,9 @@
 library(devtools)
 document("../../")
 
+library(knitr)
+knit("../../README.Rmd", "../../README.md")
+
 # library(devtools); devtools::build("../../")
 # check("../../")
 # run_examples()
