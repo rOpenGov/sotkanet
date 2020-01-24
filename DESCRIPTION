@@ -1,11 +1,11 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2019-05-28
-Version: 0.9.62
+Date: 2020-01-24
+Version: 0.9.64
 Encoding: UTF-8
 Authors@R: c(
-  person("Leo", "Lahti", email = "louhos@googlegroups.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5537-637X")),
+  person("Leo", "Lahti", email = "leo.lahti@iki.fi", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5537-637X")),
   person("Einari", "Happonen", role = "aut"),
   person("Joona", "Lehtomaki", role = "ctb"),
   person("Juuso", "Parkkinen", role = "ctb"))
@@ -21,4 +21,4 @@ Suggests: devtools, ggplot2, knitr, testthat, roxygen2
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

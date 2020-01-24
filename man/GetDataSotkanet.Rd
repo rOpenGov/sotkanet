@@ -4,8 +4,14 @@
 \alias{GetDataSotkanet}
 \title{Retrieve Sotkanet Data}
 \usage{
-GetDataSotkanet(indicators, years = 1991:2015, genders = c("total"),
-  regions = NULL, region.category = NULL, verbose = TRUE)
+GetDataSotkanet(
+  indicators,
+  years = 1991:2015,
+  genders = c("total"),
+  regions = NULL,
+  region.category = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{indicators}{Dataset identifier(s)}
