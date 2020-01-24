@@ -3,10 +3,11 @@
 %\VignetteIndexEntry{sotkanet R vignette}
 -->
 
+
 Sotkanet API R tools
 ===========
 
-This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF). This package is part of [rOpenGov](http://ropengov.github.com/).
+This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](http://uusi.sotkanet.fi/portal/page/portal/etusivu/hakusivu) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Sotkanet indicator database](http://uusi.sotkanet.fi/portal/page/portal/etusivu/tietoa_palvelusta) and [API description](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=22001.PDF). This package is part of [rOpenGov](http://ropengov.github.com).
 
 
 
@@ -84,12 +85,12 @@ kable(head(dat))
 
 |           | region|region.title.fi |region.code |region.category | indicator|indicator.title.fi         | year|gender | primary.value| absolute.value|indicator.organization.title.fi                |
 |:----------|------:|:---------------|:-----------|:---------------|---------:|:--------------------------|----:|:------|-------------:|--------------:|:----------------------------------------------|
-|10013.1139 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1996|male   |          29.5|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1140 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2005|male   |          20.6|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1141 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2008|female |          15.8|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1142 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1994|male   |          37.2|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2009|female |          19.0|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2011|total  |          20.1|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1139 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1993|female |          30.6|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1140 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2010|female |          19.0|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1141 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2004|total  |          20.7|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1142 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2006|male   |          19.0|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1143 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 1990|female |           8.2|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+|10013.1144 |   1022|Suomi           |246         |EUROOPPA        |     10013|(EU) Nuorisotyöttömyysaste | 2006|total  |          18.7|             NA|Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 
 ### Fetch all SOTKAnet indicators
 
@@ -159,9 +160,6 @@ p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
        ggtitle("Migration vs. population size") 
 #> $title
 #> [1] "Migration vs. population size"
-#> 
-#> $subtitle
-#> NULL
 #> 
 #> attr(,"class")
 #> [1] "labels"
@@ -278,8 +276,8 @@ citation("sotkanet")
 #> 
 #> Kindly cite the sotkanet R package as follows:
 #> 
-#>   (C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona
-#>   Lehtomaki 2013-2015. sotkanet: Sotkanet R Tools
+#>   (C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki
+#>   2013-2015. sotkanet: Sotkanet R Tools
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -299,9 +297,13 @@ This vignette was created with
 
 ```r
 sessionInfo()
-#> R version 3.3.2 (2016-10-31)
+#> R version 3.6.2 (2019-12-12)
 #> Platform: x86_64-pc-linux-gnu (64-bit)
-#> Running under: Ubuntu 17.04
+#> Running under: Ubuntu 19.10
+#> 
+#> Matrix products: default
+#> BLAS:   /home/lemila/bin/R-3.6.2/lib/libRblas.so
+#> LAPACK: /home/lemila/bin/R-3.6.2/lib/libRlapack.so
 #> 
 #> locale:
 #>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -315,12 +317,16 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_2.2.1   sotkanet_0.9.46 knitr_1.15.1   
+#> [1] ggplot2_3.2.1   sotkanet_0.9.64 knitr_1.26     
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Rcpp_0.12.10     digest_0.6.12    bitops_1.0-6     plyr_1.8.4      
-#>  [5] grid_3.3.2       gtable_0.2.0     magrittr_1.5     evaluate_0.10   
-#>  [9] scales_0.4.1     highr_0.6        stringi_1.1.5    lazyeval_0.2.0  
-#> [13] labeling_0.3     rjson_0.2.15     tools_3.3.2      stringr_1.2.0   
-#> [17] munsell_0.4.3    RCurl_1.95-4.8   colorspace_1.3-2 tibble_1.3.0
+#>  [1] Rcpp_1.0.3       magrittr_1.5     tidyselect_0.2.5 munsell_0.5.0   
+#>  [5] colorspace_1.4-1 rjson_0.2.20     R6_2.4.1         rlang_0.4.2     
+#>  [9] stringr_1.4.0    highr_0.8        dplyr_0.8.3      tools_3.6.2     
+#> [13] grid_3.6.2       gtable_0.3.0     xfun_0.11        withr_2.1.2     
+#> [17] digest_0.6.23    assertthat_0.2.1 lazyeval_0.2.2   tibble_2.1.3    
+#> [21] lifecycle_0.1.0  crayon_1.3.4     farver_2.0.1     purrr_0.3.3     
+#> [25] bitops_1.0-6     RCurl_1.95-4.12  glue_1.3.1       evaluate_0.14   
+#> [29] labeling_0.3     stringi_1.4.5    compiler_3.6.2   pillar_1.4.3    
+#> [33] scales_1.1.0     pkgconfig_2.0.3
 ```
