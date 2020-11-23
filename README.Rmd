@@ -1,4 +1,6 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+---
+output: md_document
+---
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -11,11 +13,14 @@ knitr::opts_chunk$set(
 sotkanet
 =====
 
-[![Build Status](https://api.travis-ci.org/rOpenGov/sotkanet.png)](https://travis-ci.org/rOpenGov/sotkanet)
+<!-- badges: start -->
+[![R build status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
 [![codecov.io](https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/sotkanet?branch=master)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
+<!-- badges: end -->
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 R package to access and manipulate data from the Sotkanet demographics
 indicator database. The [Sotkanet data
