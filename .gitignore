@@ -5,3 +5,5 @@ inst/extras/*.Rcheck
 *~
 .RData
 .Rproj.user
+.Rhistory
+*.Rproj

@@ -1,6 +1,6 @@
 #' @title Sotkanet Regions
 #' @description Retrieves sotkanet regions data.
-#' @details Data is fetched from \url{http://www.sotkanet.fi/rest/1.1/regions}.
+#' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
 #' @param type Return format ("table" or "raw")
 #' @return sotkanet json query in selected format
 #' @export

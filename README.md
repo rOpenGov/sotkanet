@@ -1,5 +1,4 @@
-sotkanet
-========
+# sotkanet: Tools for accessing open data on welfare and health in Finland
 
 <!-- badges: start -->
 
@@ -17,7 +16,7 @@ indicator database. The [Sotkanet data
 portal](https://sotkanet.fi/sotkanet/fi/index) provides over 2000
 demographic indicators across Finland and Europe, and is maintained by
 the [National Institute for Health and Welfare
-(THL)](http://www.thl.fi). For more information, see [data
+(THL)](https://thl.fi/fi/). For more information, see [data
 description](https://sotkanet.fi/sotkanet/en/data).
 
 ### Installation
@@ -37,11 +36,11 @@ page](https://github.com/rOpenGov/sotkanet/blob/master/vignettes/tutorial.md).
 ### Meta
 
 The package authors are listed in the [DESCRIPTION file](DESCRIPTION).
-Part of [rOpenGov](http://ropengov.github.io/).
+Part of [rOpenGov](http://ropengov.org/).
 
 -   Please [report any issues or
     bugs](https://github.com/ropengov/sotkanet/issues).
 -   License: BSD-2-clause
 -   Get citation information in R with `citation('sotkanet')`
--   [Contact](http://ropengov.github.io/contribute/)
+-   [Contact](http://ropengov.org/community/)
 -   [Pull requests](https://github.com/ropengov/sotkanet/)

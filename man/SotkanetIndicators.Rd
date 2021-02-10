@@ -16,7 +16,7 @@ json query in selected output format
 }
 \description{
 Retrieve data for a specific data id.
-  \url{http://www.sotkanet.fi/rest/1.1/indicators}.
+  \url{https://sotkanet.fi/rest/1.1/indicators}.
 }
 \examples{
 \dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}

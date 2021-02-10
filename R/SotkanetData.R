@@ -13,7 +13,7 @@ SotkanetData <- function(indicator, years, genders)
 {
 
   # Here the older url is in use for some reason:
-  url <- 'http://www.sotkanet.fi/rest/1.0/data/csv?'
+  url <- 'https://www.sotkanet.fi/rest/1.0/data/csv?'
   url <- paste(url, 'indicator=',indicator, '&years=', 
       	 	    paste(years, collapse='&years='), 
 		    '&genders=', paste(genders, 

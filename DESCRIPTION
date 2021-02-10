@@ -1,24 +1,44 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2020-01-24
-Version: 0.9.64
+Date: 2021-02-10
+Version: 0.9.65
 Encoding: UTF-8
-Authors@R: c(
-  person("Leo", "Lahti", email = "leo.lahti@iki.fi", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5537-637X")),
-  person("Einari", "Happonen", role = "aut"),
-  person("Joona", "Lehtomaki", role = "ctb"),
-  person("Juuso", "Parkkinen", role = "ctb"))
+Authors@R: 
+    c(person(given = "Leo",
+             family = "Lahti",
+             role = c("aut", "cre"),
+             email = "leo.lahti@iki.fi",
+             comment = c(ORCID = "0000-0001-5537-637X")),
+      person(given = "Einari",
+             family = "Happonen",
+             role = "aut"),
+      person(given = "Joona",
+             family = "Lehtomaki",
+             role = "ctb"),
+      person(given = "Juuso",
+             family = "Parkkinen",
+             role = "ctb"))
 MailingList: rOpenGov <ropengov-forum@googlegroups.com>
-Description: Access data from the sotkanet open data portal
-        <https://www.sotkanet.fi/sotkanet/fi/index>.
+Description: Access statistical information on welfare and health in Finland 
+    from the Sotkanet open data portal <https://sotkanet.fi/sotkanet/fi/index>.
 License: BSD_2_clause + file LICENSE
 URL: https://github.com/ropengov/sotkanet
 BugReports: https://github.com/ropengov/sotkanet/issues
 Depends: R (>= 3.0.2)
-Imports: RCurl, rjson
-Suggests: devtools, ggplot2, knitr, testthat, roxygen2
+Imports: 
+    RCurl, 
+    rjson
+Suggests: 
+    devtools, 
+    ggplot2, 
+    knitr, 
+    testthat, 
+    roxygen2,
+    markdown,
+    magrittr,
+    kableExtra
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1

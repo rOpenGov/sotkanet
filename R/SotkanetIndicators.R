@@ -1,7 +1,7 @@
 #' @title Sotkanet Indicators
 #' @description Retrieve data for a specific data id.
 #  @details Data is fetched from 
-#'   \url{http://www.sotkanet.fi/rest/1.1/indicators}.
+#'   \url{https://sotkanet.fi/rest/1.1/indicators}.
 #' @param id Dataset identifier
 #' @param type output format ("table" or "raw")
 #' @return json query in selected output format
