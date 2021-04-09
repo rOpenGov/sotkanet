@@ -1,9 +1,7 @@
-sotkanet 0.9.22 (2016-10-14)
-=========================
+CHANGES IN VERSION 0.9.71 (2021-04-09)
 
-### BUG FIXES
-
-  * Updated roxygen documentation 
+ o Getting rid of RCurl dependencies
+ o Updated roxygen documentation 
 
 
 CHANGES IN VERSION 0.9.13 (2015-06-23)
