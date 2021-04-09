@@ -11,7 +11,10 @@ sotkanet.csv_query <- function(url)
 {
 
   # Check that the URL exists
-  if (!url.exists(url)) {
+  conn<-url(url)
+  doesnotexist<-inherits(try(suppressWarnings(readLines(conn)),silent=TRUE),"try-error")
+  close(conn)
+  if (doesnotexist) {
     warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
     return(NULL)
   }
