@@ -3,7 +3,6 @@
 #' @description Retrieve data from the query url.
 #' @param url Sotkanet JSON url
 #' @return sotkanet json query
-#' @importFrom RCurl url.exists
 #' @importFrom rjson fromJSON
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
@@ -12,7 +11,10 @@ sotkanet.json_query <- function(url)
 {
 
   # Check that the URL exists
-  if (!url.exists(url)) {
+  conn<-url(url)
+  doesnotexist<-inherits(try(suppressWarnings(readLines(conn)),silent=TRUE),"try-error")
+  close(conn)
+  if (doesnotexist) {
     warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
     return(NULL)
   }
