@@ -4,8 +4,12 @@
 library(devtools)
 document("../../")
 
-library(knitr)
-knit("../../README.Rmd", "../../README.md")
+#library(knitr)
+#knit("../../README.Rmd", "../../README.md")
+library(rmarkdown)
+render(input = "../../README.Rmd", output_format = "md_document")
+
+pkgdown::build_site("../../")
 
 # library(devtools); devtools::build("../../")
 # check("../../")
