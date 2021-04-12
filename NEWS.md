@@ -1,4 +1,4 @@
-CHANGES IN VERSION 0.9.71 (2021-04-09)
+CHANGES IN VERSION 0.9.72 (2021-04-12)
 
  o Getting rid of RCurl dependencies
  o Updated roxygen documentation 
