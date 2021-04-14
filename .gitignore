@@ -7,3 +7,4 @@ inst/extras/*.Rcheck
 .Rproj.user
 .Rhistory
 *.Rproj
+.DS_Store
