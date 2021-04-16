@@ -33,14 +33,15 @@ Depends: R (>= 3.0.2)
 Imports: 
     rjson
 Suggests: 
-    devtools, 
-    ggplot2, 
-    knitr, 
-    testthat, 
+    devtools,
+    ggplot2,
+    knitr,
+    testthat,
     roxygen2,
     markdown,
     magrittr,
-    kableExtra
+    kableExtra,
+    rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
