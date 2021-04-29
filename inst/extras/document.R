@@ -13,11 +13,11 @@ pkgdown::build_site("../../")
 
 # library(devtools); devtools::build("../../")
 # check("../../")
-# run_examples()
-# test() # Run tests
+#run_examples()
+#test() # Run tests
 
 # Submissions:
-# build_win("../../") # Windows check
+# check_win_devel() # Windows check
 # release() # Submit to CRAN
 # submit_cran() # Submit to CRAN without all release() questions
 
