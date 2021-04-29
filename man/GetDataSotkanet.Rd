@@ -23,10 +23,10 @@ GetDataSotkanet(
 \item{regions}{pick selected regions only (default: all regions)}
 
 \item{region.category}{return selected regions category (for options, see:
-       unique(SotkanetRegions(type = "table")$region.category)); 
-"ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", 
-"MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
-"SEUTUKUNTA", "SUURALUE"}
+     unique(SotkanetRegions(type = "table")$region.category)); 
+"ALUEHALLINTOVIRASTO, "ELY-KESKUS", "ERVA", "EURALUEET", "EUROOPPA", 
+"HYVINVOINTIALUE", "KUNTA", "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", 
+"SAIRAANHOITOPIIRI", "SEUTUKUNTA", "SUURALUE"}
 
 \item{verbose}{verbose}
 }
@@ -37,7 +37,7 @@ data.frame
 Retrieve selected data and combine into a single table.
 }
 \examples{
-\dontrun{dat <- GetDataSotkanet(indicators = 10013)}
+\dontrun{dat <- GetDataSotkanet(indicators = 165)}
 }
 \references{
 See citation("sotkanet")

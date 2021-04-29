@@ -5,16 +5,16 @@
 #' @param genders vector of genders ('male' | 'female' | 'total')
 #' @param regions pick selected regions only (default: all regions)
 #' @param region.category return selected regions category (for options, see:
-#'    	    unique(SotkanetRegions(type = "table")$region.category)); 
-#'	    "ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", 
-#'	    "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
-#'	    "SEUTUKUNTA", "SUURALUE"   
+#'          unique(SotkanetRegions(type = "table")$region.category)); 
+#'	    "ALUEHALLINTOVIRASTO, "ELY-KESKUS", "ERVA", "EURALUEET", "EUROOPPA", 
+#'	    "HYVINVOINTIALUE", "KUNTA", "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", 
+#'	    "SAIRAANHOITOPIIRI", "SEUTUKUNTA", "SUURALUE"    
 #' @param verbose verbose
 #' @return data.frame
 #' @export
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
-#' @examples \dontrun{dat <- GetDataSotkanet(indicators = 10013)}
+#' @examples \dontrun{dat <- GetDataSotkanet(indicators = 165)}
 #' @keywords utilities
 GetDataSotkanet <- function (indicators, years = 1991:2015, genders = c("total"), regions = NULL, region.category = NULL, verbose = TRUE) {
 

@@ -8,3 +8,6 @@ inst/extras/*.Rcheck
 .Rhistory
 *.Rproj
 .DS_Store
+docs
+/doc/
+/Meta/

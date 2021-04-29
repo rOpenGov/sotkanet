@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Date: 2021-04-12
-Version: 0.9.72
+Date: 2021-04-29
+Version: 0.9.73
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
@@ -21,7 +21,10 @@ Authors@R:
              role = "ctb"),
       person(given = "Vesa",
              family = "Saaristo",
-             role = "ctb")	     
+             role = "ctb"),
+      person(given = "Pyry",
+             family = "Kantanen",
+             role = "ctb")
 	     )	     
 MailingList: rOpenGov <ropengov-forum@googlegroups.com>
 Description: Access statistical information on welfare and health in Finland 

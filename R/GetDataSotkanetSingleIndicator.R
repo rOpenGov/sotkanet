@@ -7,9 +7,9 @@
 #' @param regions return selected regions only
 #' @param region.category return selected regions category (for options, see:
 #'          unique(SotkanetRegions(type = "table")$region.category)); 
-#'	    "ALUEHALLINTOVIRASTO, "ERVA", "EURALUEET", "EUROOPPA", "KUNTA", 
-#'	    "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", "SAIRAANHOITOPIIRI", 
-#'	    "SEUTUKUNTA", "SUURALUE"   
+#'	    "ALUEHALLINTOVIRASTO, "ELY-KESKUS", "ERVA", "EURALUEET", "EUROOPPA", 
+#'	    "HYVINVOINTIALUE", "KUNTA", "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", 
+#'	    "SAIRAANHOITOPIIRI", "SEUTUKUNTA", "SUURALUE"   
 #' @return data.table
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}

@@ -6,13 +6,15 @@ citEntry(entry="misc",
 	   person(given ="Leo", family="Lahti", email = "leo.lahti@iki.fi"),
 	   person(given ="Einari", family="Happonen"),
 	   person(given ="Juuso", family="Parkkinen"),
-	   person(given ="Joona", family="Lehtomaki")
+	   person(given ="Joona", family="Lehtomaki"),
+	   person(given ="Vesa", family="Saaristo"),
+	   person(given ="Pyry", family="Kantanen")
          ),
 	 journal = "",
 	 year = "2013",
          textVersion =
-         paste("(C) Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki 2013-2015.",
-               "sotkanet: Sotkanet R Tools",
+         paste("(C) Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen 2013-2021.",
+               "sotkanet: Sotkanet Open Data Access and Analysis",
                sep=" ")
          )
 

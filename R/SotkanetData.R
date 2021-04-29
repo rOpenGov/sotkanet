@@ -9,7 +9,7 @@
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples \dontrun{d <- SotkanetData(indicator, years, genders)}
 #' @keywords utilities
-SotkanetData <- function(indicator, years, genders)
+SotkanetData <- function(indicator = 165, years = 2015:2016, genders = "total")
 {
 
   # Here the older url is in use for some reason:
