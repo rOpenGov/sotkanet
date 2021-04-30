@@ -32,7 +32,7 @@ List available indicators in the Sotkanet data portal:
     sotkanet.indicators <- SotkanetIndicators()
 
 For further usage instructions, check the [tutorial
-page](https://github.com/rOpenGov/sotkanet/blob/master/vignettes/tutorial.md).
+page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
 
 ### Meta
 

@@ -183,7 +183,7 @@ Central points:
 ### SOTKAnet R package
 
 This work can be freely used, modified and distributed under the 
-[Two-clause BSD license](http://en.wikipedia.org/wiki/BSD\_licenses).
+[Two-clause BSD license](https://en.wikipedia.org/wiki/BSD\_licenses).
 
 ```{r citation, message=FALSE, eval=TRUE}
 citation("sotkanet")
