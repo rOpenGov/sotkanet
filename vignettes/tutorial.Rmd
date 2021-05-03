@@ -73,7 +73,7 @@ kable(head(sotkanet.regions))
 
 ### Querying SOTKAnet indicators
 
-Get the indicator no. 10013 (Unemployment rate of young people aged 16-24 years) from [Sotkanet free-text search](https://sotkanet.fi/sotkanet/en/haku) from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
+Get the indicator no. 10013 (Unemployment rate of young people aged 16-24 years) from Sotkanet, from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
 
 ```{r sotkanetData, warning=FALSE, message=FALSE, eval=TRUE}
 # Get indicator data
@@ -94,7 +94,8 @@ use. Save the data on your local disk for further work.
 
 ```{r sotkanetDataAll, warning=FALSE, message=FALSE, eval=FALSE}
 # These indicators have problems with R routines:
-probematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 2001, 2033, 2050, 3386, 3443)
+problematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 
+                            2001, 2033, 2050, 3386, 3443)
 
 # Get data for all indicators
 datlist <- list()

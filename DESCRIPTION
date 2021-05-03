@@ -24,8 +24,7 @@ Authors@R:
              role = "ctb"),
       person(given = "Pyry",
              family = "Kantanen",
-             role = "ctb")
-	     )	     
+             role = "ctb"))
 MailingList: rOpenGov <ropengov-forum@googlegroups.com>
 Description: Access statistical information on welfare and health in Finland 
     from the Sotkanet open data portal <https://sotkanet.fi/sotkanet/fi/index>.
