@@ -1,35 +1,39 @@
-# News
-
-## CHANGES IN VERSION 0.9.73 (2021-04-29)
+# sotkanet 0.9.75 (2021-04-29)
 
  * Adding rmarkdown to Suggests
+ * Minor fixes before CRAN submission (broken URLs etc.)
+ * NEWS.md template updated to pkgdown-specifications
 
-## CHANGES IN VERSION 0.9.72 (2021-04-12)
+# sotkanet 0.9.72 (2021-04-12)
 
  * Getting rid of RCurl dependencies
  * Updated roxygen documentation 
+ 
+# sotkanet 0.9.48 (2017-05-16)
 
-## CHANGES IN VERSION 0.9.13 (2015-06-23)
+ * CRAN release version
+
+# sotkanet 0.9.13 (2015-06-23)
 
  * base url change into https
  * reorganized R file structure
 
-## CHANGES IN VERSION 0.9.12 (2015-06-06)
+# sotkanet 0.9.12 (2015-06-06)
 
  * tutorial updates
  
-## CHANGES IN VERSION 0.9.11 (2015-06-04)
+# sotkanet 0.9.11 (2015-06-04)
 
  * Updated README
  * Cosmetic changes to vignette
  * Renamed tutorial
 
-## CHANGES IN VERSION 0.9.09 (2015-05-20)
+# sotkanet 0.9.09 (2015-05-20)
 
  * Improved documentation
  * Polished package structure
  * Stabilized erroneous URL handling
  
-## CHANGES IN VERSION 0.9.01 (2013-12-16)
+# sotkanet 0.9.01 (2013-12-16)
 
- * Package separated from sorvi 
+ * Package separated from sorvi

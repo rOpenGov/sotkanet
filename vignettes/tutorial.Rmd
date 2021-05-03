@@ -15,34 +15,28 @@ This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access
 
 
 ```{r, echo = FALSE}
-NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  message = FALSE, 
-  warning = FALSE,
-  purl = NOT_CRAN,
-  eval = NOT_CRAN
+  comment = "#>"
 )
 ```
 
-### Installation
+## Installation
 
-Release version
+Release version from CRAN:
 
 ```{r install, eval=FALSE}
 install.packages("sotkanet")
 ```
 
-
-Development version (for the adventurous ones)
+Development version from GitHub:
 
 ```{r install2, eval=FALSE}
 library(devtools)
 install_github("ropengov/sotkanet")
 ```
 
-
+## Usage
 
 ### Listing available indicators
 
@@ -99,7 +93,7 @@ problematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000,
 
 # Get data for all indicators
 datlist <- list()
-for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
+for (ind in setdiff(sotkanet.indicators$indicator, problematic.indicators)) {
   datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
   		years = 1990:2013, genders = c('female', 'male', 'total'))
 }
@@ -109,7 +103,7 @@ for (ind in setdiff(sotkanet.indicators$indicator, probematic.indicators)) {
 dat <- do.call("rbind", datlist)
 ```
 
-## Visualization
+### Visualization
 
 Download and visualize time series:
 
@@ -156,7 +150,7 @@ p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
 print(p)
 ```
 
-## Further examples
+### Further examples
 
 For further usage examples, see
 [rOpenGov-blog](http://ropengov.org), and
@@ -164,7 +158,7 @@ For further usage examples, see
 [Helsinki Region Infoshare-blog](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 
-# Licensing and Citations
+## Licensing and Citations
 
 ### SOTKAnet data
 

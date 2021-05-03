@@ -12,7 +12,7 @@ Retrieval of sotkanet data.
   Package: \tab sotkanet\cr
   Type: \tab Package\cr
   Version: \tab See sessionInfo() or DESCRIPTION file\cr
-  Date: \tab 2013-2017\cr
+  Date: \tab 2013-2021\cr
   License: \tab FreeBSD\cr
   LazyLoad: \tab yes\cr
 }
@@ -24,6 +24,6 @@ library(sotkanet)
 See citation("sotkanet")
 }
 \author{
-Leo Lahti, Einari Happonen, Juuso Parkkinen and Joona Lehtomaki \email{leo.lahti@iki.fi}
+Leo Lahti, Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen \email{leo.lahti@iki.fi}
 }
 \keyword{package}

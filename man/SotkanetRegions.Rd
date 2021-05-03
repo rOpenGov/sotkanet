@@ -19,7 +19,9 @@ Retrieves sotkanet regions data.
 Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
 }
 \examples{
-\dontrun{sotkanet.regions <- SotkanetRegions(type = "table")}
+\dontrun{
+sotkanet.regions <- SotkanetRegions(type = "table")
+}
 }
 \references{
 See citation("sotkanet")
