@@ -21,6 +21,10 @@ pkgdown::build_site("../../")
 # release() # Submit to CRAN
 # submit_cran() # Submit to CRAN without all release() questions
 
+# usethis::use_github_release()
+#git tag -a v1.0.0 -m "Releasing version v1.0.0"
+#git push --tags
+
 # Utilities:
 #
 # revdep_check("../../")
