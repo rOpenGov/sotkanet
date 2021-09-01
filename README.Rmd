@@ -1,9 +1,8 @@
 ---
-title: sotkanet R package
-output: 
-  html_document: 
-    keep_md: yes
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -23,16 +22,7 @@ sotkanet: Tools for accessing open data on welfare and health in Finland
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
 <!-- badges: end -->
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-R package to access and manipulate data from the Sotkanet demographics
-indicator database. The [Sotkanet data
-portal](https://sotkanet.fi/sotkanet/fi/index)
-provides over 2000 demographic indicators across Finland and Europe,
-and is maintained by the [National Institute for Health and Welfare
-(THL)](https://thl.fi/fi/). For more information, see [data
-description](https://sotkanet.fi/sotkanet/en/data).
-
+R package to access and manipulate data from the Sotkanet demographics indicator database. The [Sotkanet data portal](https://sotkanet.fi/sotkanet/fi/index) provides over 2000 demographic indicators across Finland and Europe, and is maintained by the [National Institute for Health and Welfare (THL)](https://thl.fi/fi/). For more information, see [data description](https://sotkanet.fi/sotkanet/en/data).
 
 ### Installation
 
@@ -40,8 +30,7 @@ description](https://sotkanet.fi/sotkanet/en/data).
 install.packages("sotkanet")
 ```
 
-
-### Simple example
+### Use example
 
 List available indicators in the Sotkanet data portal:
 
@@ -51,7 +40,6 @@ sotkanet.indicators <- SotkanetIndicators()
 ```
 
 For further usage instructions, check the [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html). 
-
 
 ### Meta
 
