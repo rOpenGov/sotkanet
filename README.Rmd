@@ -31,7 +31,7 @@ install.packages("sotkanet")
 ```
 
 ### Use example
- 
+
 List available indicators in the Sotkanet data portal:
 
 ```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
