@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   tutorial: tutorial.html
-last_built: 2021-09-01T12:10Z
+last_built: 2021-09-10T10:30Z
 urls:
   reference: http://ropengov.github.io/sotkanet/reference
   article: http://ropengov.github.io/sotkanet/articles
