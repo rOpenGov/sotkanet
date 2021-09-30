@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://ropengov.github.io/sotkanet/index.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/404.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/reference/GetDataSotkanet.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/CONDUCT.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/reference/SotkanetIndicators.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/reference/SotkanetRegions.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/articles/index.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/reference/base_url.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/articles/tutorial.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/reference/sotkanet-package.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/authors.html</loc>
   </url>
   <url>
-    <loc>http://ropengov.github.io/sotkanet/articles/tutorial.html</loc>
+    <loc>https://ropengov.github.io/sotkanet/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/GetDataSotkanet.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/SotkanetIndicators.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/SotkanetRegions.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/base_url.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/sotkanet-package.html</loc>
   </url>
 </urlset>

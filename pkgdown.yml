@@ -1,10 +1,10 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
-pkgdown_sha: ~
+pkgdown: 1.6.1.9001
+pkgdown_sha: 632889250b23aae88d6b3adcc0afd48160cb17ca
 articles:
   tutorial: tutorial.html
-last_built: 2021-09-10T10:30Z
+last_built: 2021-09-30T11:30Z
 urls:
-  reference: http://ropengov.github.io/sotkanet/reference
-  article: http://ropengov.github.io/sotkanet/articles
+  reference: https://ropengov.github.io/sotkanet/reference
+  article: https://ropengov.github.io/sotkanet/articles
 
