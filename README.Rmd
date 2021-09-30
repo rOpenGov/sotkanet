@@ -4,25 +4,30 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
 ```
 
-sotkanet: Tools for accessing open data on welfare and health in Finland
-=====
+# sotkanet: Tools for accessing open data on welfare and health in Finland
 
 <!-- badges: start -->
+[![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](http://ropengov.org/)
 [![R build status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
-[![codecov.io](https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/sotkanet?branch=master)
-[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
+[![codecov test coverage](https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/sotkanet?branch=master)
+[![Downloads total](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
+[![Downloads monthly](https://cranlogs.r-pkg.org/badges/sotkanet)](https://www.r-pkg.org/pkg/sotkanet)
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Follow on Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)](https://twitter.com/intent/follow?screen_name=ropengov)
 <!-- badges: end -->
 
-R package to access and manipulate data from the Sotkanet demographics indicator database. The [Sotkanet data portal](https://sotkanet.fi/sotkanet/fi/index) provides over 2000 demographic indicators across Finland and Europe, and is maintained by the [National Institute for Health and Welfare (THL)](https://thl.fi/fi/). For more information, see [data description](https://sotkanet.fi/sotkanet/en/data).
+R package to access and manipulate data from the Sotkanet demographics indicator database. The [Sotkanet data portal] provides over 2000 demographic indicators across Finland and Europe, and is maintained by the [National Institute for Health and Welfare (THL)]. For more information, see [data description].
 
 ### Installation
 
@@ -50,3 +55,12 @@ The package authors are listed in the [DESCRIPTION file](DESCRIPTION). Part of [
 * Get citation information in R with `citation('sotkanet')`
 * [Contact](http://ropengov.org/community/)
 * [Pull requests](https://github.com/ropengov/sotkanet/)
+
+[Sotkanet data portal]: https://sotkanet.fi/sotkanet/fi/index
+[National Institute for Health and Welfare (THL)]: https://thl.fi/fi/
+[data description]: https://sotkanet.fi/sotkanet/en/data
+
+[github-watch-badge]: https://img.shields.io/github/watchers/ropengov/sotkanet.svg?style=social
+[github-watch]: https://github.com/ropengov/sotkanet/watchers
+[github-star-badge]: https://img.shields.io/github/stars/ropengov/sotkanet.svg?style=social
+[github-star]: https://github.com/ropengov/sotkanet/stargazers
