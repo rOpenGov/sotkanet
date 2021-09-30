@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sotkanet: Tools for accessing open data on welfare and health in Finland
+# sotkanet: Tools for accessing open data on welfare and health in Finland <a href="https://ropengov.github.io/sotkanet/"><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
