@@ -59,7 +59,6 @@ The package authors are listed in the [DESCRIPTION file](DESCRIPTION). Part of [
 [Sotkanet data portal]: https://sotkanet.fi/sotkanet/fi/index
 [National Institute for Health and Welfare (THL)]: https://thl.fi/fi/
 [data description]: https://sotkanet.fi/sotkanet/en/data
-
 [github-watch-badge]: https://img.shields.io/github/watchers/ropengov/sotkanet.svg?style=social
 [github-watch]: https://github.com/ropengov/sotkanet/watchers
 [github-star-badge]: https://img.shields.io/github/stars/ropengov/sotkanet.svg?style=social
