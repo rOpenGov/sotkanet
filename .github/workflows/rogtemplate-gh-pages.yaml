@@ -10,10 +10,10 @@ on:
   repository_dispatch:
     types: [trigger-pkgdown-workflow]
 
-name: pkgdown
+name: rogtemplate-gh-pages
 
 jobs:
-  pkgdown:
+  rogtemplate-gh-pages:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -28,8 +28,26 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: pkgdown
+          extra-packages: |
+            magick
+            ropengov/rogtemplate
+
           needs: website
+
+      - name: Build logo if not present and prepare template
+        run: |
+          # Check that logo is not present
+          if (isFALSE(file.exists(file.path("man", "figures", "logo.png")) ||
+            file.exists(file.path("man", "figures", "logo.png")))) {
+            rogtemplate::rog_logo()
+          } else {
+
+            message("The package already has a logo")
+          }
+
+          rogtemplate::rog_add_template_pkgdown()
+
+        shell: Rscript {0}
 
       - name: Deploy package
         run: |
