@@ -101,8 +101,7 @@ plot + labs(title = "Yksityisen hammashuollon käynnit",
 
 <img src="man/figures/README-sotkanet_example-1.png" width="80%" />
 
-For more in-depth examples, see the package vignette or online [tutorial
-page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
+For more in-depth examples, see the package vignette or online [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
 
 ### Contributing
 
