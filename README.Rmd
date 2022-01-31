@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "80%"
 )
 ```
 
@@ -59,14 +59,17 @@ sotkanet.indicators <- SotkanetIndicators()
 head(sotkanet.indicators$indicator.title.fi)
 ```
 
-Here is a simple example visualizing the use of private dental care among 0-17 years old between  2015 and 2020.
+Here is a simple example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2020.
 
 ```{r sotkanet_example, eval=TRUE}
 library(ggplot2)
+
 hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2020, genders = "total", region.category = "MAAKUNTA")
 
+# Indicator title tells what this all is about
 unique(hammashoito$indicator.title.fi)
 
+# Some data has to be retrieved separately
 hammashoito_metadata <- SotkanetIndicatorMetadata(id = 1075)
 
 plot_caption <- paste0("Lähde: Sotkanet \n",
@@ -84,7 +87,7 @@ plot + labs(title = "Yksityisen hammashuollon käynnit",
             color = "Maakunta")
 ```
 
-For further usage instructions, check the [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html). 
+For more in-depth examples, see the package vignette or online [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html). 
 
 ### Contributing
 
@@ -101,11 +104,12 @@ We are grateful to all [contributors](https://github.com/ropengov/sotkanet/graph
 
 ### Disclaimer
 
-This package is in no way officially related to or endorsed by Terveyden ja hyvinvoinnin laitos (THL) - The Finnish Institute for Health and Welfare.
+This package is in no way officially related to or endorsed by The Finnish Institute for Health and Welfare (Terveyden ja hyvinvoinnin laitos, THL).
 
 For information about THL's open data license and limitation of liability, please see their website:
-* In English: [THL's open data license and limitation of liability](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability)
-* In Finnish: [THL:n avoimen datan lisenssi ja vastuuvapauslauseke](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke)
+
+  * In English: [THL's open data license and limitation of liability](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability)
+  * In Finnish: [THL:n avoimen datan lisenssi ja vastuuvapauslauseke](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke)
 
 [Sotkanet data portal]: https://sotkanet.fi/sotkanet/fi/index
 [National Institute for Health and Welfare (THL)]: https://thl.fi/fi/
