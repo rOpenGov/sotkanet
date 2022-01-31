@@ -8,6 +8,9 @@ SotkanetIndicatorMetadata(id = NULL, flatten = TRUE)
 }
 \arguments{
 \item{id}{Indicator id}
+
+\item{flatten}{Parameter passed to function handling json files, default 
+is TRUE}
 }
 \value{
 sotkanet indicator metadata as a list object

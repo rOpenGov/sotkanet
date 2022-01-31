@@ -9,8 +9,7 @@ GetDataSotkanet(
   years = 1991:2015,
   genders = c("total"),
   regions = NULL,
-  region.category = NULL,
-  verbose = TRUE
+  region.category = NULL
 )
 }
 \arguments{

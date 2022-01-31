@@ -24,7 +24,7 @@ SotkanetRegions <- function(type = "table")
 
   final_url <- httr::build_url(url_object)
 
-  res <- sotkanet.json_query(final_url)
+  res <- sotkanet.json_query(final_url, flatten = TRUE)
 
   if (type == "table") {
     res <- SotkanetCollect(res, "region")

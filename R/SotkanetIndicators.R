@@ -2,7 +2,9 @@
 #' @description Retrieve Sotkanet indicator metadata
 #' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/indicators}.
 #' @param id Dataset identifier. Default is NULL returning all 
-#' @param flatten Parameter passed to function handling json files, default is TRUE
+#' @param type type output format. Default is "table" which produces a table 
+#'    with columns that are useful in other functions. Any other input produces
+#'    an unfiltered output.
 #' @return json query in data.frame
 #' 
 #' @references See citation("sotkanet") 
@@ -15,7 +17,7 @@
 #' @importFrom httr parse_url build_url
 #' @keywords utilities
 #' @export
-SotkanetIndicators <- function(id = NULL, flatten = TRUE)
+SotkanetIndicators <- function(id = NULL, type = "table")
 {
 
   # Gather URL parts
@@ -32,7 +34,11 @@ SotkanetIndicators <- function(id = NULL, flatten = TRUE)
   url_object$path <- path
   final_url <- httr::build_url(url_object)
   
-  res <- sotkanet.json_query(final_url, flatten)
+  res <- sotkanet.json_query(final_url, flatten = TRUE)
+  
+  if (type == "table") {
+    res <- SotkanetCollect(res, "indicator")
+  }
 
   res
 }

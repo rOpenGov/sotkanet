@@ -55,8 +55,7 @@ GetDataSotkanet <- function(indicators,
                             years = 1991:2015, 
                             genders = c("total"), 
                             regions = NULL, 
-                            region.category = NULL,
-                            verbose = TRUE) {
+                            region.category = NULL) {
 
   # List all indicators in Sotkanet database
   sotkanet_indicators <- SotkanetIndicators(type = "table")
@@ -96,7 +95,7 @@ GetDataSotkanet <- function(indicators,
 
   # Add region and indicator information
   combined_data$indicator.title.fi <- sotkanet_indicators[match(combined_data$indicator, 
-                                                                sotkanet_indicators$id), "title.fi"]
+                                                                sotkanet_indicators$indicator), "indicator.title.fi"]
   combined_data$region.title.fi <- sotkanet_regions[match(combined_data$region, 
                                                           sotkanet_regions$region), "region.title.fi"]
   combined_data$region.code <- sotkanet_regions[match(combined_data$region, 
@@ -104,7 +103,7 @@ GetDataSotkanet <- function(indicators,
   combined_data$region.category <- sotkanet_regions[match(combined_data$region, 
                                                              sotkanet_regions$region), "region.category"]
   combined_data$indicator.organization.title.fi <- sotkanet_indicators[match(combined_data$indicator, 
-                                                                             sotkanet_indicators$id), "organization.title.fi"]
+                                                                             sotkanet_indicators$indicator), "organization.title.fi"]
   
   if (!is.null(regions)){
     if (regions %in% unique(combined_data$region.title.fi)){

@@ -4,28 +4,31 @@
 \alias{SotkanetIndicators}
 \title{Sotkanet Indicators}
 \usage{
-SotkanetIndicators(id = NULL, flatten = TRUE)
+SotkanetIndicators(id = NULL, type = "table")
 }
 \arguments{
 \item{id}{Dataset identifier. Default is NULL returning all}
 
-\item{flatten}{Parameter passed to function handling json files, default is TRUE}
+\item{type}{Parameter passed to function handling json files, default is TRUE}
 }
 \value{
 json query in data.frame
 }
 \description{
-Retrieve data for a specific data id.
- @details Data is fetched from 
-  \url{https://sotkanet.fi/rest/1.1/indicators}.
+Retrieve Sotkanet indicator metadata
+}
+\details{
+Data is fetched from \url{https://sotkanet.fi/rest/1.1/indicators}.
 }
 \examples{
-\dontrun{sotkanet.indicators <- SotkanetIndicators(type = "table")}
+\dontrun{
+sotkanet.indicators <- SotkanetIndicators(type = "table")
+}
 }
 \references{
 See citation("sotkanet")
 }
 \author{
-Leo Lahti \email{leo.lahti@iki.fi}
+Leo Lahti \email{leo.lahti@iki.fi}, Pyry Kantanen
 }
 \keyword{utilities}

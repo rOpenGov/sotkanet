@@ -16,16 +16,16 @@ SotkanetCollect <- function(x, name) {
   if (name == "region") {
     out <- data.frame(list(
       region = x$id,
-      region.title.fi = x$title.fi,
+      region.title.fi = x$title$fi,
       region.code = x$code,
       region.category = x$category,
       region.uri = x$uri))
   } else if (name == "indicator") {
     out <- data.frame(list(
       indicator = x$id,
-      indicator.title.fi = x$title.fi,
+      indicator.title.fi = x$title$fi,
       indicator.organization = x$organization$id,
-      indicator.organization.title.fi = x$organization$title.fi))
+      indicator.organization.title.fi = x$organization$title$fi))
   }
 
   out
