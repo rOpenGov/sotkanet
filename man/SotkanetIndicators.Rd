@@ -4,18 +4,19 @@
 \alias{SotkanetIndicators}
 \title{Sotkanet Indicators}
 \usage{
-SotkanetIndicators(id = NULL, type = "table")
+SotkanetIndicators(id = NULL, flatten = TRUE)
 }
 \arguments{
-\item{id}{Dataset identifier}
+\item{id}{Dataset identifier. Default is NULL returning all}
 
-\item{type}{output format ("table" or "raw")}
+\item{flatten}{Parameter passed to function handling json files, default is TRUE}
 }
 \value{
-json query in selected output format
+json query in data.frame
 }
 \description{
 Retrieve data for a specific data id.
+ @details Data is fetched from 
   \url{https://sotkanet.fi/rest/1.1/indicators}.
 }
 \examples{

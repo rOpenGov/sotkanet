@@ -6,13 +6,13 @@
 \alias{sotkanet}
 \title{Tools for Sotkanet API}
 \description{
-Retrieval of sotkanet data.
+Retrieval of sotkanet data: Statistical information on welfare and health in Finland.
 
 \tabular{ll}{
   Package: \tab sotkanet\cr
   Type: \tab Package\cr
   Version: \tab See sessionInfo() or DESCRIPTION file\cr
-  Date: \tab 2013-2021\cr
+  Date: \tab 2013-2022\cr
   License: \tab FreeBSD\cr
   LazyLoad: \tab yes\cr
 }
@@ -24,6 +24,6 @@ library(sotkanet)
 See citation("sotkanet")
 }
 \author{
-Leo Lahti, Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen \email{leo.lahti@iki.fi}
+Leo Lahti (\email{leo.lahti@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen
 }
 \keyword{package}

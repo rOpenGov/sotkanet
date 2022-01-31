@@ -14,10 +14,17 @@
 SotkanetRegions <- function(type = "table")
 {
 
-  base.url <- base_url()	
-  url <- paste(base.url, 'regions', sep = "")
+  sotkanet_url <- "https://sotkanet.fi/rest"
+  sotkanet_uri <- "/1.1/regions"
+  
+  # Construct URL
+  url_object <- httr::parse_url(sotkanet_url)
+  path <- paste(url_object$path, sotkanet_uri, sep = "")
+  url_object$path <- path
 
-  res <- sotkanet.json_query(url)
+  final_url <- httr::build_url(url_object)
+
+  res <- sotkanet.json_query(final_url)
 
   if (type == "table") {
     res <- SotkanetCollect(res, "region")

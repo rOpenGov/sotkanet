@@ -3,35 +3,20 @@
 #' @description Retrieve data from the query url.
 #' @param url Sotkanet CSV url
 #' @return sotkanet CSV query
-#' @importFrom utils read.table
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
+#' @importFrom utils read.csv2
 #' @keywords utilities
-sotkanet.csv_query <- function(url)
+sotkanet.csv_query <- function(url, ...)
 {
 
-  # Check that the URL exists
-  conn<-url(url)
-  doesnotexist<-inherits(try(suppressWarnings(readLines(conn)),silent=TRUE),"try-error")
-  close(conn)
-  if (doesnotexist) {
-    warning(paste("Sotkanet URL", url, "does not exist - returning NULL!"))
-    return(NULL)
+  # Check that URL fulfills requirements
+  # If not, test_connection returns a message and NULL
+  if (is.null(test_connection(url, ...))) {
+    return(invisible(NULL))
   }
 
-  con <- url(url, method = "libcurl")
-  csv <- readLines(con, warn = FALSE)
-  # txt <- suppressWarnings(readLines(con, warn = FALSE))
-  close(con)
+  tab <- read.csv2(file = url, header = TRUE, sep = ";", dec = ".")
 
-  if (is.null(csv)) {
-    stop("Sotkanet server is not responding! Unable to query!")
-  }
-
-  tab <- read.table(file = textConnection(csv), header = TRUE, sep = ';')
-
-  return(tab)
-
+  tab
 }
-
-

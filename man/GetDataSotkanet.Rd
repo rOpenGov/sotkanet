@@ -20,15 +20,26 @@ GetDataSotkanet(
 
 \item{genders}{vector of genders ('male' | 'female' | 'total')}
 
-\item{regions}{pick selected regions only (default: all regions)}
+\item{regions}{filter by selected regions only (default: all regions)}
 
-\item{region.category}{return selected regions category (for options, see:
-     unique(SotkanetRegions(type = "table")$region.category)); 
-"ALUEHALLINTOVIRASTO, "ELY-KESKUS", "ERVA", "EURALUEET", "EUROOPPA", 
-"HYVINVOINTIALUE", "KUNTA", "MAA", "MAAKUNTA", "NUTS1", "POHJOISMAAT", 
-"SAIRAANHOITOPIIRI", "SEUTUKUNTA", "SUURALUE"}
-
-\item{verbose}{verbose}
+\item{region.category}{filter by one or more of the following 14 valid 
+regions categories (default: all categories)
+   \itemize{
+     \item "ALUEHALLINTOVIRASTO"
+     \item "ELY-KESKUS"
+     \item "ERVA"
+     \item "EURALUEET" (Eurozone)
+     \item "EUROOPPA" (Europe)
+     \item "HYVINVOINTIALUE" (welfare country)
+     \item "KUNTA" (municipality)
+     \item "MAA" (country)
+     \item "MAAKUNTA" (region)
+     \item "NUTS1"
+     \item "POHJOISMAAT" (Nordic countries)
+     \item "SAIRAANHOITOPIIRI (hospital district)
+     \item "SEUTUKUNTA"
+     \item "SUURALUE"
+   }}
 }
 \value{
 data.frame
@@ -36,13 +47,36 @@ data.frame
 \description{
 Retrieve selected data and combine into a single table.
 }
+\details{
+THL's open data license and limitation of liability 
+
+\strong{License}
+
+The open data provided by National Institute for Health and Welfare is 
+licensed under CC BY 4.0. This license defines how open data can be utilized. 
+The licensing is based on a decision made by the Director General.
+
+\strong{Limitation of Liability}
+
+National Institute for Health and Welfare shall not be liable for any loss, 
+legal proceedings, claims, proceedings, demands, costs or damages regardless 
+of their cause or form, which can be directly or indirectly connected to 
+open data or use of open data published by National Institute for Health and 
+Welfare.
+}
 \examples{
 \dontrun{dat <- GetDataSotkanet(indicators = 165)}
 }
 \references{
 See citation("sotkanet")
 }
+\seealso{
+For more information about dataset structure, see THL webpage at
+\url{https://yhteistyotilat.fi/wiki08/pages/viewpage.action?pageId=27557907}
+
+THL open data license website: \url{https://yhteistyotilat.fi/wiki08/x/AAadAg}
+}
 \author{
-Maintainer: Leo Lahti \email{leo.lahti@iki.fi}
+Maintainer: Leo Lahti \email{leo.lahti@iki.fi}, Pyry Kantanen
 }
 \keyword{utilities}

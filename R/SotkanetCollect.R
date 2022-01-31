@@ -15,18 +15,17 @@ SotkanetCollect <- function(x, name) {
 
   if (name == "region") {
     out <- data.frame(list(
-      region = sapply(x, function (xi) {xi$id}),
-      region.title.fi = sapply(x, function (xi) {xi$title[["fi"]]}),
-      region.code = sapply(x, function (xi) {xi$code}),
-      region.category = sapply(x, function (xi) {xi$category}),
-      region.uri = gsub("NULL", "", sapply(x, function (xi) {xi$uri}))))
+      region = x$id,
+      region.title.fi = x$title.fi,
+      region.code = x$code,
+      region.category = x$category,
+      region.uri = x$uri))
   } else if (name == "indicator") {
     out <- data.frame(list(
-      indicator = sapply(x, function (xi) {xi$id}),
-      indicator.title.fi = sapply(x, function (xi) {xi$title[["fi"]]}),
-      indicator.organization = sapply(x, function (xi) {xi$organization$id}),
-      indicator.organization.title.fi = sapply(x, function (xi) {xi$organization$title[["fi"]]})
-    ))
+      indicator = x$id,
+      indicator.title.fi = x$title.fi,
+      indicator.organization = x$organization$id,
+      indicator.organization.title.fi = x$organization$title.fi))
   }
 
   out
