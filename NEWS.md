@@ -1,4 +1,4 @@
-# sotkanet 0.9.76 (2022-01-31)
+# sotkanet 0.9.77 (2022-01-31)
 
 ### NEW FEATURES
  * Functions pointing to external resources (`sotkanet.json_query` and `sotkanet.csv_query`) should now fail gracefully. New internal functions are in graceful_http.R file
@@ -15,7 +15,7 @@
  * Some files in ./R/ folder have been renamed for better legibility: internal.R to SotkanetCollect.R and sotkanet.R to SotkanetRegions.R
  * New alias for downloading indicator metadata: `SotkanetIndicatorMetadata()` (usesSotkanetIndicator(id))
 
-# sotkanet 0.9.75 (2021-04-29)
+# sotkanet 0.9.76 (2021-04-29)
 
  * Adding rmarkdown to Suggests
  * Minor fixes before CRAN submission (broken URLs etc.)

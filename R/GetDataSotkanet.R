@@ -81,10 +81,12 @@ GetDataSotkanet <- function(indicators,
     url_object$query <- all_params
     final_url <- httr::build_url(url_object)
     
-    #df <- data.frame(matrix(ncol = 6, nrow = 0))
-    #x <- c("indicator", "region", "year", "gender", "value", "absValue")
-    #colnames(df) <- x
     y <- sotkanet.csv_query(final_url)
+    
+    if (is.null(y)){
+      message(paste(" There was a problem retrieving indicator from", indicator," "))
+      return(invisible(NULL))
+    }
     
     dats[[as.character(indicator)]] <- y
     

@@ -9,9 +9,9 @@
 #' @keywords utilities
 SotkanetCollect <- function(x, name) {
 
-  if (length(x$id) == 1) {
-    x <- list(x)
-  }
+  # if (length(x$id) == 1) {
+  #   x <- list(x)
+  # }
 
   if (name == "region") {
     out <- data.frame(list(

@@ -19,12 +19,12 @@ knitr::opts_chunk$set(
 [![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](http://ropengov.org/)
 [![R build status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
-[![codecov test coverage](https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master)](https://codecov.io/github/rOpenGov/sotkanet?branch=master)
 [![Downloads total](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
 [![Downloads monthly](https://cranlogs.r-pkg.org/badges/sotkanet)](https://www.r-pkg.org/pkg/sotkanet)
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 [![Follow on Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)](https://twitter.com/intent/follow?screen_name=ropengov)
+[![Codecov test coverage](https://codecov.io/gh/rOpenGov/sotkanet/branch/master/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/sotkanet?branch=master)
 <!-- badges: end -->
 
 R package to access and manipulate data from the Sotkanet demographics indicator database. The [Sotkanet data portal] provides over 2000 demographic indicators across Finland and Europe, and is maintained by the [National Institute for Health and Welfare (THL)]. For more information, see [data description].

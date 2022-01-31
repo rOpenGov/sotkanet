@@ -1,7 +1,7 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.76
+Version: 0.9.77
 Date: 2022-01-31
 Encoding: UTF-8
 Authors@R: 
@@ -41,15 +41,17 @@ Suggests:
     devtools,
     ggplot2,
     knitr,
-    testthat,
+    testthat (>= 3.0.0),
     roxygen2,
     markdown,
     magrittr,
     kableExtra,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
 RoxygenNote: 7.1.2
 X-schema.org-isPartOf: http://ropengov.org/
 X-schema.org-keywords: ropengov
+Config/testthat/edition: 3

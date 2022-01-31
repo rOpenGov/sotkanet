@@ -9,10 +9,13 @@ SotkanetIndicators(id = NULL, type = "table")
 \arguments{
 \item{id}{Dataset identifier. Default is NULL returning all}
 
-\item{type}{Parameter passed to function handling json files, default is TRUE}
+\item{type}{type output format, either 'table' (default) or 'raw'. 
+Default produces a truncated table with strictly defined columns that
+are useful in other functions. 'Raw' produces the full output which might
+be useful for exploratory purposes.}
 }
 \value{
-json query in data.frame
+data.frame or a list
 }
 \description{
 Retrieve Sotkanet indicator metadata

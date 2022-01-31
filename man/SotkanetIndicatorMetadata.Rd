@@ -4,13 +4,13 @@
 \alias{SotkanetIndicatorMetadata}
 \title{Sotkanet Indicator Metadata}
 \usage{
-SotkanetIndicatorMetadata(id = NULL, flatten = TRUE)
+SotkanetIndicatorMetadata(id = NULL, type = "raw")
 }
 \arguments{
 \item{id}{Indicator id}
 
-\item{flatten}{Parameter passed to function handling json files, default 
-is TRUE}
+\item{type}{Parameter passed onto \code{\link{SotkanetIndicators}}. Default
+is 'raw' for the whole output but 'table' is also supported}
 }
 \value{
 sotkanet indicator metadata as a list object
