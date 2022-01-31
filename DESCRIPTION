@@ -47,7 +47,8 @@ Suggests:
     magrittr,
     kableExtra,
     rmarkdown,
-    covr
+    covr,
+    ggrepel
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
