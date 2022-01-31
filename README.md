@@ -8,7 +8,7 @@
 [![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](http://ropengov.org/)
 [![R build
 status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
 [![Downloads
 total](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
 [![Downloads
@@ -74,6 +74,8 @@ indicator describing private dental care use among 0-17 years old in
 
 ``` r
 library(ggplot2)
+#> Warning in register(): Can't find generic `scale_type` in package ggplot2 to
+#> register S3 method.
 
 hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2020, genders = "total", region.category = "MAAKUNTA")
 
@@ -101,18 +103,19 @@ plot + labs(title = "Yksityisen hammashuollon käynnit",
 
 <img src="man/figures/README-sotkanet_example-1.png" width="80%" />
 
-For more in-depth examples, see the package vignette or online [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
+For more in-depth examples, see the package vignette or online [tutorial
+page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
 
 ### Contributing
 
--   [Submit suggestions and bug
+  - [Submit suggestions and bug
     reports](https://github.com/ropengov/sotkanet/issues) (provide the
     output of `sessionInfo()` and `packageVersion("sorvi")` and
     preferably provide a [reproducible
     example](http://adv-r.had.co.nz/Reproducibility.html))
--   [Send a pull request](https://github.com/ropengov/sotkanet/pulls)
--   [Star us on the Github page](https://github.com/ropengov/sotkanet/)
--   [See our website](http://ropengov.org/community/) for additional
+  - [Send a pull request](https://github.com/ropengov/sotkanet/pulls)
+  - [Star us on the Github page](https://github.com/ropengov/sotkanet/)
+  - [See our website](http://ropengov.org/community/) for additional
     contact information
 
 ### Acknowledgements
@@ -126,19 +129,19 @@ sotkanet: Sotkanet Open Data Access and Analysis. R package version
 We are grateful to all
 [contributors](https://github.com/ropengov/sotkanet/graphs/contributors),
 and for the [Sotkanet](https://sotkanet.fi/sotkanet/en/index?)
-Statistics and Indicator Bank! This project is part of
+Statistics and Indicator Bank\! This project is part of
 [rOpenGov](http://ropengov.org).
 
 ### Disclaimer
 
-This package is in no way officially related to or endorsed by Terveyden
-ja hyvinvoinnin laitos (THL) - The Finnish Institute for Health and
-Welfare.
+This package is in no way officially related to or endorsed by The
+Finnish Institute for Health and Welfare (Terveyden ja hyvinvoinnin
+laitos, THL).
 
 For information about THL’s open data license and limitation of
 liability, please see their website:
 
--   In English: [THL’s open data license and limitation of
+  - In English: [THL’s open data license and limitation of
     liability](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability)
--   In Finnish: [THL:n avoimen datan lisenssi ja
+  - In Finnish: [THL:n avoimen datan lisenssi ja
     vastuuvapauslauseke](https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke)
