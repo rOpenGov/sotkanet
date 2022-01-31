@@ -92,30 +92,80 @@
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
+<p>You can install the stable release version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sotkanet"</span><span class="op">)</span></code></pre></div>
+<p>Alternatively, you can install the development version of sotkanet package from GitHub with:</p>
+<pre class="r_github"><code><span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"rOpenGov/sotkanet"</span><span class="op">)</span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="use-example">Use example<a class="anchor" aria-label="anchor" href="#use-example"></a>
+<h3 id="using-the-package">Using the package<a class="anchor" aria-label="anchor" href="#using-the-package"></a>
 </h3>
+<p>Load the package in R:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://ropengov.github.io/sotkanet" class="external-link">sotkanet</a></span><span class="op">)</span></code></pre></div>
 <p>List available indicators in the Sotkanet data portal:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://ropengov.github.io/sotkanet" class="external-link">sotkanet</a></span><span class="op">)</span> 
-<span class="va">sotkanet.indicators</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/SotkanetIndicators.html">SotkanetIndicators</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sotkanet.indicators</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/SotkanetIndicators.html">SotkanetIndicators</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sotkanet.indicators</span><span class="op">$</span><span class="va">indicator.title.fi</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä"             </span>
+<span class="co">#&gt; [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä"                              </span>
+<span class="co">#&gt; [3] "Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä"</span>
+<span class="co">#&gt; [4] "0 - 6-vuotiaat, % väestöstä"                                                                            </span>
+<span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                        </span>
+<span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></code></pre></div>
+<p>Here is a simple example visualizing the use of private dental care among 0-17 years old between 2015 and 2020.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="co">#&gt; Warning in register(): Can't find generic `scale_type` in package ggplot2 to</span>
+<span class="co">#&gt; register S3 method.</span>
+<span class="va">hammashoito</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/GetDataSotkanet.html">GetDataSotkanet</a></span><span class="op">(</span>indicators <span class="op">=</span> <span class="fl">1075</span>, years <span class="op">=</span> <span class="fl">2015</span><span class="op">:</span><span class="fl">2020</span>, genders <span class="op">=</span> <span class="st">"total"</span>, region.category <span class="op">=</span> <span class="st">"MAAKUNTA"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">hammashoito</span><span class="op">$</span><span class="va">indicator.title.fi</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>
+
+<span class="va">hammashoito_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/SotkanetIndicatorMetadata.html">SotkanetIndicatorMetadata</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1075</span><span class="op">)</span>
+
+<span class="va">plot_caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Lähde: Sotkanet \n"</span>,
+                       <span class="st">"Data päivitetty "</span>, <span class="va">hammashoito_metadata</span><span class="op">$</span><span class="va">`data-updated`</span><span class="op">)</span>
+
+<span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">hammashoito</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>,y<span class="op">=</span><span class="va">primary.value</span>,group<span class="op">=</span><span class="va">region.title.fi</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">region.title.fi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">region.title.fi</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Yksityisen hammashuollon käynnit"</span>,
+            subtitle <span class="op">=</span> <span class="st">"0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>,
+            x <span class="op">=</span> <span class="st">"Vuosi"</span>, 
+            y <span class="op">=</span> <span class="st">"Käyntien lkm"</span>,
+            caption <span class="op">=</span> <span class="va">plot_caption</span>,
+            color <span class="op">=</span> <span class="st">"Maakunta"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-sotkanet_example-1.png" width="100%"></p>
 <p>For further usage instructions, check the <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html" class="external-link">tutorial page</a>.</p>
 </div>
 <div class="section level3">
-<h3 id="meta">Meta<a class="anchor" aria-label="anchor" href="#meta"></a>
+<h3 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
 </h3>
-<p>The package authors are listed in the <a href="DESCRIPTION">DESCRIPTION file</a>. Part of <a href="http://ropengov.org/" class="external-link">rOpenGov</a>.</p>
 <ul>
-<li>Please <a href="https://github.com/ropengov/sotkanet/issues" class="external-link">report any issues or bugs</a>.</li>
-<li>License: BSD-2-clause</li>
-<li>Get citation information in R with <code>citation('sotkanet')</code>
-</li>
-<li><a href="http://ropengov.org/community/" class="external-link">Contact</a></li>
-<li><a href="https://github.com/ropengov/sotkanet/" class="external-link">Pull requests</a></li>
+<li>
+<a href="https://github.com/ropengov/sotkanet/issues" class="external-link">Submit suggestions and bug reports</a> (provide the output of <code><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo()</a></code> and <code>packageVersion("sorvi")</code> and preferably provide a <a href="http://adv-r.had.co.nz/Reproducibility.html" class="external-link">reproducible example</a>)</li>
+<li><a href="https://github.com/ropengov/sotkanet/pulls" class="external-link">Send a pull request</a></li>
+<li><a href="https://github.com/ropengov/sotkanet/" class="external-link">Star us on the Github page</a></li>
+<li>
+<a href="http://ropengov.org/community/" class="external-link">See our website</a> for additional contact information</li>
 </ul>
+</div>
+<div class="section level3">
+<h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h3>
+<p><strong>Kindly cite this work</strong> as follows: <a href="https://github.com/antagomir" class="external-link">Leo Lahti</a>, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov 2022). sotkanet: Sotkanet Open Data Access and Analysis. R package version 0.9.77. URL: <a href="https://github.com/rOpenGov/sotkanet" class="external-link uri">https://github.com/rOpenGov/sotkanet</a></p>
+<p>We are grateful to all <a href="https://github.com/ropengov/sotkanet/graphs/contributors" class="external-link">contributors</a>, and for the <a href="https://sotkanet.fi/sotkanet/en/index?" class="external-link">Sotkanet</a> Statistics and Indicator Bank! This project is part of <a href="http://ropengov.org" class="external-link">rOpenGov</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
+</h3>
+<p>This package is in no way officially related to or endorsed by Terveyden ja hyvinvoinnin laitos (THL) - The Finnish Institute for Health and Welfare.</p>
+<p>For information about THL’s open data license and limitation of liability, please see their website: * In English: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability" class="external-link">THL’s open data license and limitation of liability</a> * In Finnish: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke" class="external-link">THL:n avoimen datan lisenssi ja vastuuvapauslauseke</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
