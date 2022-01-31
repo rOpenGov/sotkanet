@@ -115,16 +115,17 @@
 <span class="co">#&gt; [4] "0 - 6-vuotiaat, % väestöstä"                                                                            </span>
 <span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                        </span>
 <span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></code></pre></div>
-<p>Here is a simple example visualizing the use of private dental care among 0-17 years old between 2015 and 2020.</p>
+<p>Here is a simple example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2020.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
-<span class="co">#&gt; Warning in register(): Can't find generic `scale_type` in package ggplot2 to</span>
-<span class="co">#&gt; register S3 method.</span>
+
 <span class="va">hammashoito</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/GetDataSotkanet.html">GetDataSotkanet</a></span><span class="op">(</span>indicators <span class="op">=</span> <span class="fl">1075</span>, years <span class="op">=</span> <span class="fl">2015</span><span class="op">:</span><span class="fl">2020</span>, genders <span class="op">=</span> <span class="st">"total"</span>, region.category <span class="op">=</span> <span class="st">"MAAKUNTA"</span><span class="op">)</span>
 
+<span class="co"># Indicator title tells what this all is about</span>
 <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">hammashoito</span><span class="op">$</span><span class="va">indicator.title.fi</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>
 
+<span class="co"># Some data has to be retrieved separately</span>
 <span class="va">hammashoito_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/SotkanetIndicatorMetadata.html">SotkanetIndicatorMetadata</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1075</span><span class="op">)</span>
 
 <span class="va">plot_caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Lähde: Sotkanet \n"</span>,
@@ -140,8 +141,8 @@
             y <span class="op">=</span> <span class="st">"Käyntien lkm"</span>,
             caption <span class="op">=</span> <span class="va">plot_caption</span>,
             color <span class="op">=</span> <span class="st">"Maakunta"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-sotkanet_example-1.png" width="100%"></p>
-<p>For further usage instructions, check the <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html" class="external-link">tutorial page</a>.</p>
+<p><img src="reference/figures/README-sotkanet_example-1.png" width="80%"></p>
+<p>For more in-depth examples, see the package vignette or online <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html" class="external-link">tutorial page</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
@@ -165,7 +166,13 @@
 <h3 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
 </h3>
 <p>This package is in no way officially related to or endorsed by Terveyden ja hyvinvoinnin laitos (THL) - The Finnish Institute for Health and Welfare.</p>
-<p>For information about THL’s open data license and limitation of liability, please see their website: * In English: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability" class="external-link">THL’s open data license and limitation of liability</a> * In Finnish: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke" class="external-link">THL:n avoimen datan lisenssi ja vastuuvapauslauseke</a></p>
+<p>For information about THL’s open data license and limitation of liability, please see their website:</p>
+<ul>
+<li>In English: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability" class="external-link">THL’s open data license and limitation of liability</a>
+</li>
+<li>In Finnish: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke" class="external-link">THL:n avoimen datan lisenssi ja vastuuvapauslauseke</a>
+</li>
+</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
