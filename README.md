@@ -68,14 +68,14 @@ head(sotkanet.indicators$indicator.title.fi)
 #> [6] "Yhden vanhemman perheet, % lapsiperheistä"
 ```
 
-Here is a simple example of data retrieval and visualization, using
-indicator describing private dental care use among 0-17 years old in
-2015-2020.
+Here is an example of data retrieval and visualization, using indicator
+describing private dental care use among 0-17 years old in 2015-2020.
 
 ``` r
 library(ggplot2)
 #> Warning in register(): Can't find generic `scale_type` in package ggplot2 to
 #> register S3 method.
+library(ggrepel)
 
 hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2020, genders = "total", region.category = "MAAKUNTA")
 
@@ -89,16 +89,37 @@ hammashoito_metadata <- SotkanetIndicatorMetadata(id = 1075)
 plot_caption <- paste0("Lähde: Sotkanet \n",
                        "Data päivitetty ", hammashoito_metadata$`data-updated`)
 
-plot <- ggplot(hammashoito,aes(x=year,y=primary.value,group=region.title.fi))+
+plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title.fi))+
   geom_line(aes(color=region.title.fi)) +
   geom_point(aes(color=region.title.fi))
 
-plot + labs(title = "Yksityisen hammashuollon käynnit",
+plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2020",
             subtitle = "0 - 17-vuotiailla / 1 000 vastaavanikäistä",
             x = "Vuosi", 
             y = "Käyntien lkm",
             caption = plot_caption,
-            color = "Maakunta")
+            color = "Maakunta") +
+  geom_text_repel(
+    aes(color = region.title.fi, label = ifelse(year == 2020, region.title.fi, NA_character_)),
+    xlim = c(2021, 2023),
+    direction = "both",
+    hjust = 0,
+    segment.size = .7,
+    segment.alpha = .5,
+    segment.linetype = "dotted",
+    box.padding = .4,
+    segment.curvature = -0.1,
+    segment.ncp = 3,
+    segment.angle = 20) +
+  theme(legend.position = "none",
+        panel.background = element_rect(fill = "linen")) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    limits = c(2015, 2022), 
+    breaks = seq(2015, 2020))
+#> Warning: Removed 95 rows containing missing values (geom_text_repel).
+#> Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
+#> increasing max.overlaps
 ```
 
 <img src="man/figures/README-sotkanet_example-1.png" width="80%" />
@@ -110,7 +131,7 @@ page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
 
   - [Submit suggestions and bug
     reports](https://github.com/ropengov/sotkanet/issues) (provide the
-    output of `sessionInfo()` and `packageVersion("sorvi")` and
+    output of `sessionInfo()` and `packageVersion("sotkanet")` and
     preferably provide a [reproducible
     example](http://adv-r.had.co.nz/Reproducibility.html))
   - [Send a pull request](https://github.com/ropengov/sotkanet/pulls)
