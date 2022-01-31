@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">sotkanet</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.76</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.77</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,11 +65,14 @@
     <dl><dt>id</dt>
 <dd><p>Dataset identifier. Default is NULL returning all</p></dd>
 <dt>type</dt>
-<dd><p>Parameter passed to function handling json files, default is TRUE</p></dd>
+<dd><p>type output format, either 'table' (default) or 'raw'. 
+Default produces a truncated table with strictly defined columns that
+are useful in other functions. 'Raw' produces the full output which might
+be useful for exploratory purposes.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>json query in data.frame</p>
+    <p>data.frame or a list</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
