@@ -58,7 +58,8 @@ library(sotkanet)
 List available indicators in the Sotkanet data portal:
 
 ``` r
-sotkanet.indicators <- SotkanetIndicators()
+# Pre-defined list of indicators to save bandwidth
+sotkanet.indicators <- SotkanetIndicators(c(4,5,6,7,46,74))
 head(sotkanet.indicators$indicator.title.fi)
 #> [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä"             
 #> [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä"                              
@@ -73,21 +74,19 @@ describing private dental care use among 0-17 years old in 2015-2020.
 
 ``` r
 library(ggplot2)
-#> Warning in register(): Can't find generic `scale_type` in package ggplot2 to
-#> register S3 method.
 library(ggrepel)
 
 hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2020, genders = "total", region.category = "MAAKUNTA")
 
-# Indicator title tells what this all is about
+# Indicator title tells what this indicator is about
 unique(hammashoito$indicator.title.fi)
 #> [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavanikäistä"
 
 # Some data has to be retrieved separately
 hammashoito_metadata <- SotkanetIndicatorMetadata(id = 1075)
 
-plot_caption <- paste0("Lähde: Sotkanet \n",
-                       "Data päivitetty ", hammashoito_metadata$`data-updated`)
+plot_caption <- paste0("Lähde: https://sotkanet.fi / ", hammashoito_metadata$organization$title$fi, "\n",
+                       "Datan päiväys ", hammashoito_metadata$`data-updated`)
 
 plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title.fi))+
   geom_line(aes(color=region.title.fi)) +
@@ -122,7 +121,7 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2020",
 #> increasing max.overlaps
 ```
 
-<img src="man/figures/README-sotkanet_example-1.png" width="80%" />
+<img src="man/figures/README-sotkanet_example-1.png" width="90%" />
 
 For more in-depth examples, see the package vignette or online [tutorial
 page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
