@@ -13,11 +13,13 @@ editor_options:
 
 This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). This package is part of [rOpenGov](http://ropengov.org).
 
-
 ```{r, echo = FALSE}
+NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  purl = NOT_CRAN,
+  eval = NOT_CRAN
 )
 ```
 
@@ -42,7 +44,7 @@ install_github("ropengov/sotkanet")
 
 Load sotkanet and other libraries used in this vignette
 
-```{r loadlib, warning=FALSE, message=FALSE, echo=FALSE, eval=TRUE}
+```{r loadlib, warning=FALSE, message=FALSE, echo=FALSE}
 library(sotkanet)
 library(knitr) 
 library(magrittr)
@@ -51,25 +53,25 @@ library(kableExtra)
 
 List available Sotkanet indicators:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=FALSE}
-sotkanet.indicators <- SotkanetIndicators(type = "table")
-# kable(head(sotkanet.indicators))
+```{r sotkanetIndicators, warning=FALSE, message=FALSE}
+# Using a pre-defined list of indicators for a smaller download
+sotkanet.indicators <- SotkanetIndicators(id = c(4,5,6,7,46,74), type = "table")
+kable(head(sotkanet.indicators))
 ```
 
 List geographical regions with available indicators:
 
-```{r sotkanetRegions, warning=FALSE, message=FALSE, eval=TRUE}
-options(width = 60)
+```{r sotkanetRegions, warning=FALSE, message=FALSE}
+# options(width = 60)
 sotkanet.regions <- SotkanetRegions(type = "table")
 kable(head(sotkanet.regions))
 ```
-
 
 ### Querying SOTKAnet indicators
 
 Get the indicator no. 10013 (Unemployment rate of young people aged 16-24 years) from Sotkanet, from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
 
-```{r sotkanetData, warning=FALSE, message=FALSE, eval=TRUE}
+```{r sotkanetData, warning=FALSE, message=FALSE}
 # Get indicator data
 dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
        		       genders = c('female', 'male', 'total'), 
@@ -79,6 +81,52 @@ dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012,
 kable(head(dat)) %>% 
   kable_styling() %>%
   kableExtra::scroll_box(width = "100%")
+```
+
+### Visualization
+
+Download and visualize time series:
+
+```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=5, out.width = "100%"}
+# Pick indicator name
+indicator.name <- as.character(unique(dat$indicator.title.fi))
+indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
+
+# Visualize
+library(ggplot2)
+theme_set(theme_bw(20)); 
+p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
+p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
+p <- p + labs(x = "Year", y = "Value", caption = "Data source: https://sotkanet.fi")
+p <- p + theme(title = element_text(size = 10))
+p <- p + theme(axis.title.x = element_text(size = 20))
+p <- p + theme(axis.title.y = element_text(size = 20))
+p <- p + theme(legend.title = element_text(size = 15))
+print(p)
+```
+
+Investigate the effect of municipality size on demographic
+variation. Smaller municipalities show more random variation as
+expected by statistical arguments:
+
+```{r sotkanetVisu3, warning=FALSE, message=FALSE, fig.width=10, fig.height=5, out.width = "100%"}
+selected.inds <- c(127, 178)
+dat <- GetDataSotkanet(indicators = selected.inds, 
+       			years = 2011, genders = c('total'))
+# Pick necessary fields and remove duplicates
+datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
+datf <- datf[!duplicated(datf),]
+dw <- reshape(datf, idvar = "region.title.fi", 
+      		    timevar = "indicator.title.fi", direction = "wide")
+names(dw) <- c("Municipality", "Population", "Migration")
+p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
+       geom_point(size = 3)
+       ggtitle("Migration vs. population size") 
+       theme(title = element_text(size = 15))
+       theme(axis.title.x = element_text(size = 20))
+       theme(axis.title.y = element_text(size = 20))
+       theme(legend.title = element_text(size = 15))
+print(p)
 ```
 
 ### Fetch all SOTKAnet indicators
@@ -103,60 +151,12 @@ for (ind in setdiff(sotkanet.indicators$indicator, problematic.indicators)) {
 dat <- do.call("rbind", datlist)
 ```
 
-### Visualization
-
-Download and visualize time series:
-
-```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=5, eval=TRUE, out.width = "100%"}
-# Pick indicator name
-indicator.name <- as.character(unique(dat$indicator.title.fi))
-indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
-
-# Visualize
-library(ggplot2)
-theme_set(theme_bw(20)); 
-p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
-p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
-p <- p + xlab("Year") + ylab("Value") 
-p <- p + theme(title = element_text(size = 10))
-p <- p + theme(axis.title.x = element_text(size = 20))
-p <- p + theme(axis.title.y = element_text(size = 20))
-p <- p + theme(legend.title = element_text(size = 15))
-print(p)
-```
-
-
-Investigate the effect of municipality size on demographic
-variation. Smaller municipalities show more random variation as
-expected by statistical arguments:
-
-```{r sotkanetVisu3, warning=FALSE, message=FALSE, eval=TRUE, fig.width=10, fig.height=5, out.width = "100%"}
-selected.inds <- c(127, 178)
-dat <- GetDataSotkanet(indicators = selected.inds, 
-       			years = 2011, genders = c('total'))
-# Pick necessary fields and remove duplicates
-datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
-datf <- datf[!duplicated(datf),]
-dw <- reshape(datf, idvar = "region.title.fi", 
-      		    timevar = "indicator.title.fi", direction = "wide")
-names(dw) <- c("Municipality", "Population", "Migration")
-p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
-       geom_point(size = 3)
-       ggtitle("Migration vs. population size") 
-       theme(title = element_text(size = 15))
-       theme(axis.title.x = element_text(size = 20))
-       theme(axis.title.y = element_text(size = 20))
-       theme(legend.title = element_text(size = 15))
-print(p)
-```
-
 ### Further examples
 
 For further usage examples, see
 [rOpenGov-blog](http://ropengov.org), and
 [takomo](https://github.com/louhos/takomo/tree/master/Sotkanet), and 
 [Helsinki Region Infoshare-blog](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
-
 
 ## Licensing and Citations
 

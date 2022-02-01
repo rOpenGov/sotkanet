@@ -1,19 +1,24 @@
-# sotkanet 0.9.77 (2022-01-31)
+# sotkanet 0.9.77-0.9.78 (2022-02-01)
 
 ### NEW FEATURES
- * Functions pointing to external resources (`sotkanet.json_query` and `sotkanet.csv_query`) should now fail gracefully. New internal functions are in graceful_http.R file
+ * Functions pointing to external resources (`sotkanet.json_query()` and `sotkanet.csv_query()`) should now fail gracefully. New internal functions are in R/http_funs.R
  * New dependencies / imports: httr package for handling URLs and error messages and curl package for internet connection testing. jsonlite for handling data from json files
+ * Http functions now include information on user agent. The default is "rOpenGov/sotkanet" to help API providers track package usage but it can be changed in relevant functions: `GetDataSotkanet()`, `SotkanetIndicators()` and `SotkanetRegions()`.
  
 ### DEPRECATED AND DEFUNCT
 
  * Removed internal functions: `GetDataSotkanetSingleIndicator` and `SotkanetData`.
  * Removed dependency / import: rjson
+ * Deleted unused function: `base_url`
  
 ### MINOR IMPROVEMENTS
 
- * Functionalities from GetDataSotkanetSingleIndicator and SotkanetData are now embedded in one function, `GetDataSotkanet`.
+ * Functionalities from GetDataSotkanetSingleIndicator and SotkanetData are now embedded in one function, `GetDataSotkanet()`.
  * Some files in ./R/ folder have been renamed for better legibility: internal.R to SotkanetCollect.R and sotkanet.R to SotkanetRegions.R
  * New alias for downloading indicator metadata: `SotkanetIndicatorMetadata()` (usesSotkanetIndicator(id))
+ * To help save bandwidth, when provided with a predefined list of indicators, `SotkanetIndicators()` now downloads metadata individually instead of fetching and subsetting the whole indicator dataset.
+ * Vignette will no longer fetch external resources on CRAN.
+ * Package license clarified: BSD 2-clause instead of FreeBSD
 
 # sotkanet 0.9.76 (2021-04-29)
 
