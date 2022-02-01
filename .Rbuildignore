@@ -53,3 +53,4 @@ inst/paper.md
 ^Meta$
 ^CRAN-RELEASE$
 ^codecov\.yml$
+^CRAN-SUBMISSION$
