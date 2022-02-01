@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>sotkanet R package • sotkanet</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -13,12 +19,15 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="sotkanet R package">
 <meta property="og:description" content="Tools for accessing Sotkanet Open Data">
+<meta property="og:image" content="http://ropengov.github.io/sotkanet/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">sotkanet</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.76</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.79</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -64,7 +67,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ropengov/sotkanet/">
+  <a href="https://github.com/ropengov/sotkanet/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -81,37 +84,117 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="sotkanet-tools-for-accessing-open-data-on-welfare-and-health-in-finland" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#sotkanet-tools-for-accessing-open-data-on-welfare-and-health-in-finland" class="anchor"></a>sotkanet: Tools for accessing open data on welfare and health in Finland</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="sotkanet-tools-for-accessing-open-data-on-welfare-and-health-in-finland-">sotkanet: Tools for accessing open data on welfare and health in Finland <a href="https://ropengov.github.io/sotkanet/" class="external-link"><img src="reference/figures/logo.png" align="right" height="139"></a>
+<a class="anchor" aria-label="anchor" href="#sotkanet-tools-for-accessing-open-data-on-welfare-and-health-in-finland-"></a>
+</h1></div>
 <!-- badges: start -->
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<p>R package to access and manipulate data from the Sotkanet demographics indicator database. The <a href="https://sotkanet.fi/sotkanet/fi/index">Sotkanet data portal</a> provides over 2000 demographic indicators across Finland and Europe, and is maintained by the <a href="https://thl.fi/fi/">National Institute for Health and Welfare (THL)</a>. For more information, see <a href="https://sotkanet.fi/sotkanet/en/data">data description</a>.</p>
-<div id="installation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h3>
+<p>R package to access and manipulate data from the Sotkanet demographics indicator database. The <a href="https://sotkanet.fi/sotkanet/fi/index" class="external-link">Sotkanet data portal</a> provides over 2000 demographic indicators across Finland and Europe, and is maintained by the <a href="https://thl.fi/fi/" class="external-link">National Institute for Health and Welfare (THL)</a>. For more information, see <a href="https://sotkanet.fi/sotkanet/en/data" class="external-link">data description</a>.</p>
+<div class="section level3">
+<h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h3>
+<p>You can install the stable release version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">"sotkanet"</span>)</span></code></pre></div>
+<p>Alternatively, you can install the development version of sotkanet package from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"rOpenGov/sotkanet"</span>)</span></code></pre></div>
 </div>
-<div id="simple-example" class="section level3">
-<h3 class="hasAnchor">
-<a href="#simple-example" class="anchor"></a>Simple example</h3>
+<div class="section level3">
+<h3 id="using-the-package">Using the package<a class="anchor" aria-label="anchor" href="#using-the-package"></a>
+</h3>
+<p>Load the package in R:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">library</span>(sotkanet)</span></code></pre></div>
 <p>List available indicators in the Sotkanet data portal:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">library</span>(sotkanet) </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>sotkanet.indicators &lt;-<span class="st"> </span><span class="kw">SotkanetIndicators</span>()</span></code></pre></div>
-<p>For further usage instructions, check the <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html">tutorial page</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># Pre-defined list of indicators to save bandwidth</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>sotkanet.indicators &lt;-<span class="st"> </span><span class="kw">SotkanetIndicators</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">46</span>,<span class="dv">74</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">head</span>(sotkanet.indicators<span class="op">$</span>indicator.title.fi)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">#&gt; [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavanikäistä"             </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co">#&gt; [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavanikäisestä väestöstä"                              </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="co">#&gt; [3] "Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavanikäistä"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="co">#&gt; [4] "0 - 6-vuotiaat, % väestöstä"                                                                            </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                        </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></span></code></pre></div>
+<p>Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2020.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">library</span>(ggrepel)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>hammashoito &lt;-<span class="st"> </span><span class="kw">GetDataSotkanet</span>(<span class="dt">indicators =</span> <span class="dv">1075</span>, <span class="dt">years =</span> <span class="dv">2015</span><span class="op">:</span><span class="dv">2020</span>, <span class="dt">genders =</span> <span class="st">"total"</span>, <span class="dt">region.category =</span> <span class="st">"MAAKUNTA"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="co"># Indicator title tells what this indicator is about</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="kw">unique</span>(hammashoito<span class="op">$</span>indicator.title.fi)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="co">#&gt; [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="co"># Some data has to be retrieved separately</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>hammashoito_metadata &lt;-<span class="st"> </span><span class="kw">SotkanetIndicatorMetadata</span>(<span class="dt">id =</span> <span class="dv">1075</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>plot_caption &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">"Lähde: https://sotkanet.fi / "</span>, hammashoito_metadata<span class="op">$</span>organization<span class="op">$</span>title<span class="op">$</span>fi, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>                       <span class="st">"Datan päiväys "</span>, hammashoito_metadata<span class="op">$</span><span class="st">`</span><span class="dt">data-updated</span><span class="st">`</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hammashoito, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>primary.value, <span class="dt">group=</span>region.title.fi))<span class="op">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">color=</span>region.title.fi)) <span class="op">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>region.title.fi))</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>plot <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">"Yksityisen hammashuollon käynnit 2015-2020"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>            <span class="dt">subtitle =</span> <span class="st">"0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>            <span class="dt">x =</span> <span class="st">"Vuosi"</span>, </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>            <span class="dt">y =</span> <span class="st">"Käyntien lkm"</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>            <span class="dt">caption =</span> plot_caption,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>            <span class="dt">color =</span> <span class="st">"Maakunta"</span>) <span class="op">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>    <span class="kw">aes</span>(<span class="dt">color =</span> region.title.fi, <span class="dt">label =</span> <span class="kw">ifelse</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2020</span>, region.title.fi, <span class="ot">NA_character_</span>)),</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>    <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">2021</span>, <span class="dv">2023</span>),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>    <span class="dt">direction =</span> <span class="st">"both"</span>,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>    <span class="dt">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>    <span class="dt">segment.size =</span> <span class="fl">.7</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>    <span class="dt">segment.alpha =</span> <span class="fl">.5</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>    <span class="dt">segment.linetype =</span> <span class="st">"dotted"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>    <span class="dt">box.padding =</span> <span class="fl">.4</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>    <span class="dt">segment.curvature =</span> <span class="fl">-0.1</span>,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>    <span class="dt">segment.ncp =</span> <span class="dv">3</span>,</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>    <span class="dt">segment.angle =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true"></a>        <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">"linen"</span>)) <span class="op">+</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true"></a>    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true"></a>    <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2022</span>), </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true"></a>    <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2015</span>, <span class="dv">2020</span>))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true"></a><span class="co">#&gt; Warning: Removed 95 rows containing missing values (geom_text_repel).</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true"></a><span class="co">#&gt; Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true"></a><span class="co">#&gt; increasing max.overlaps</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true"></a><span class="co">#&gt; Warning in grid.Call.graphics(C_xspline, x$x, x$y, x$shape, x$open, x$arrow, :</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true"></a><span class="co">#&gt; semi-transparency is not supported on this device: reported only once per page</span></span></code></pre></div>
+<p><img src="reference/figures/README-sotkanet_example-1.png" width="90%"></p>
+<p>For more in-depth examples, see the package vignette or online <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html">tutorial page</a>.</p>
 </div>
-<div id="meta" class="section level3">
-<h3 class="hasAnchor">
-<a href="#meta" class="anchor"></a>Meta</h3>
-<p>The package authors are listed in the <a href="DESCRIPTION">DESCRIPTION file</a>. Part of <a href="http://ropengov.org/">rOpenGov</a>.</p>
+<div class="section level3">
+<h3 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h3>
 <ul>
-<li>Please <a href="https://github.com/ropengov/sotkanet/issues">report any issues or bugs</a>.</li>
-<li>License: BSD-2-clause</li>
-<li>Get citation information in R with <code><a href="https://rdrr.io/r/utils/citation.html">citation('sotkanet')</a></code>
+<li>
+<a href="https://github.com/ropengov/sotkanet/issues" class="external-link">Submit suggestions and bug reports</a> (provide the output of <code><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo()</a></code> and <code>packageVersion("sotkanet")</code> and preferably provide a <a href="http://adv-r.had.co.nz/Reproducibility.html" class="external-link">reproducible example</a>)</li>
+<li><a href="https://github.com/ropengov/sotkanet/pulls" class="external-link">Send a pull request</a></li>
+<li><a href="https://github.com/ropengov/sotkanet/" class="external-link">Star us on the Github page</a></li>
+<li>
+<a href="http://ropengov.org/community/" class="external-link">See our website</a> for additional contact information</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h3>
+<p><strong>Kindly cite this work</strong> as follows: <a href="https://github.com/antagomir" class="external-link">Leo Lahti</a>, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov 2022). sotkanet: Sotkanet Open Data Access and Analysis. R package version 0.9.77. URL: <a href="https://github.com/rOpenGov/sotkanet" class="external-link uri">https://github.com/rOpenGov/sotkanet</a></p>
+<p>We are grateful to all <a href="https://github.com/ropengov/sotkanet/graphs/contributors" class="external-link">contributors</a>, and for the <a href="https://sotkanet.fi/sotkanet/en/index?" class="external-link">Sotkanet</a> Statistics and Indicator Bank! This project is part of <a href="http://ropengov.org" class="external-link">rOpenGov</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
+</h3>
+<p>This package is in no way officially related to or endorsed by The Finnish Institute for Health and Welfare (Terveyden ja hyvinvoinnin laitos, THL).</p>
+<p>For information about THL’s open data license and limitation of liability, please see their website:</p>
+<ul>
+<li>In English: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%27s+open+data+license+and+limitation+of+liability" class="external-link">THL’s open data license and limitation of liability</a>
 </li>
-<li><a href="http://ropengov.org/community/">Contact</a></li>
-<li><a href="https://github.com/ropengov/sotkanet/">Pull requests</a></li>
+<li>In Finnish: <a href="https://yhteistyotilat.fi/wiki08/display/THLKA/THL%3An+avoimen+datan+lisenssi+ja+vastuuvapauslauseke" class="external-link">THL:n avoimen datan lisenssi ja vastuuvapauslauseke</a>
+</li>
 </ul>
 </div>
 </div>
@@ -119,58 +202,68 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=sotkanet">https://​cloud.r-project.org/​package=sotkanet</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/ropengov/sotkanet/">https://​github.com/​ropengov/​sotkanet/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/ropengov/sotkanet/issues">https://​github.com/​ropengov/​sotkanet/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://opensource.org/licenses/BSD-2-Clause">BSD_2_clause</a> + file <a href="LICENSE-text.html">LICENSE</a>
-</li>
-</ul>
-</div>
-<div class="citation">
-<h2>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html">Citing sotkanet</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Leo Lahti <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5537-637X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Einari Happonen <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=sotkanet" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/ropengov/sotkanet/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ropengov/sotkanet/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/rOpenGov/sotkanet/actions"><img src="https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://cran.r-project.org/package=sotkanet"><img src="http://www.r-pkg.org/badges/version/sotkanet" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://codecov.io/github/rOpenGov/sotkanet?branch=master"><img src="https://codecov.io/github/rOpenGov/sotkanet/coverage.svg?branch=master" alt="codecov.io"></a></li>
-<li><a href="https://cran.r-project.org/package=sotkanet"><img src="http://cranlogs.r-pkg.org/badges/grand-total/sotkanet" alt="Downloads"></a></li>
+<li>
+<a href="https://opensource.org/licenses/BSD-2-Clause" class="external-link">BSD_2_clause</a> + file <a href="LICENSE-text.html">LICENSE</a>
+</li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing sotkanet</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Leo Lahti <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5537-637X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Einari Happonen <br><small class="roles"> Author </small>  </li>
+<li>Pyry Kantanen <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2853-2765" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="http://ropengov.org/" class="external-link"><img src="https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg" alt="rOG-badge"></a></li>
+<li><a href="https://github.com/rOpenGov/sotkanet/actions" class="external-link"><img src="https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://cran.r-project.org/package=sotkanet" class="external-link"><img src="http://www.r-pkg.org/badges/version/sotkanet" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=sotkanet" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/sotkanet" alt="Downloads total"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/sotkanet" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/sotkanet" alt="Downloads monthly"></a></li>
+<li><a href="https://github.com/ropengov/sotkanet/watchers" class="external-link"><img src="https://img.shields.io/github/watchers/ropengov/sotkanet.svg?style=social" alt="Watch on GitHub"></a></li>
+<li><a href="https://github.com/ropengov/sotkanet/stargazers" class="external-link"><img src="https://img.shields.io/github/stars/ropengov/sotkanet.svg?style=social" alt="Star on GitHub"></a></li>
+<li><a href="https://twitter.com/intent/follow?screen_name=ropengov" class="external-link"><img src="https://img.shields.io/twitter/follow/ropengov.svg?style=social" alt="Follow on Twitter"></a></li>
+<li><a href="https://app.codecov.io/gh/rOpenGov/sotkanet?branch=master" class="external-link"><img src="https://codecov.io/gh/rOpenGov/sotkanet/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Leo Lahti, Einari Happonen.</p>
+  <p></p>
+<p>Developed by Leo Lahti, Einari Happonen, Pyry Kantanen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -178,6 +271,8 @@
 
   
 
+
+  
 
   </body>
 </html>

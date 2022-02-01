@@ -9,6 +9,7 @@ citEntry(
   author = personList(
     person(given ="Leo", family="Lahti", email = "leo.lahti@iki.fi"),
     person(given ="Einari", family="Happonen"),
+    person(given ="Joona", family="Lehtomäki"),    
     person(given ="Juuso", family="Parkkinen"),
     person(given ="Joona", family="Lehtomaki"),
     person(given ="Vesa", family="Saaristo"),
