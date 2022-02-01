@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">sotkanet</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.77</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.78</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,17 +57,23 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">SotkanetRegions</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"table"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">SotkanetRegions</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"table"</span>, user.agent <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>type</dt>
-<dd><p>Return format ("table" or "raw")</p></dd>
+<dd><p>type output format, either 'table' (default) or 'raw'. 
+Default produces a truncated table with strictly defined columns that
+are useful in other functions. 'Raw' produces the full output which might
+be useful for exploratory purposes.</p></dd>
+<dt>user.agent</dt>
+<dd><p>"User agent" defined by the user. Default is NULL which
+will then use the package identifier "rOpenGov/sotkanet"</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>sotkanet json query in selected format</p>
+    <p>data.frame</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

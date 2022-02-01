@@ -37,13 +37,16 @@
     <loc>https://ropengov.github.io/sotkanet/reference/SotkanetRegions.html</loc>
   </url>
   <url>
-    <loc>https://ropengov.github.io/sotkanet/reference/base_url.html</loc>
-  </url>
-  <url>
     <loc>https://ropengov.github.io/sotkanet/reference/index.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/sotkanet/reference/sotkanet-package.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/sotkanet.csv_query.html</loc>
+  </url>
+  <url>
+    <loc>https://ropengov.github.io/sotkanet/reference/sotkanet.json_query.html</loc>
   </url>
   <url>
     <loc>https://ropengov.github.io/sotkanet/reference/test_connection.html</loc>
