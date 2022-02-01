@@ -32,7 +32,6 @@ try_GET <- function(url = NULL, timeout = 10) {
 #' @description Constructs a function for trying an URL
 #' @param url URL to query
 #' @param timeout Timeout time in seconds.
-#' @param useragent String giving user agent
 #' @return HTTP response or a conditionMessage
 #' 
 #' @source Gracefully failing HTTP request code (slightly adapted by Pyry 

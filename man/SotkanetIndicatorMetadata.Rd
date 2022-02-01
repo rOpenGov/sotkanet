@@ -4,13 +4,16 @@
 \alias{SotkanetIndicatorMetadata}
 \title{Sotkanet Indicator Metadata}
 \usage{
-SotkanetIndicatorMetadata(id = NULL, type = "raw")
+SotkanetIndicatorMetadata(id = NULL, type = "raw", user.agent = NULL)
 }
 \arguments{
 \item{id}{Indicator id}
 
 \item{type}{Parameter passed onto \code{\link{SotkanetIndicators}}. Default
 is 'raw' for the whole output but 'table' is also supported}
+
+\item{user.agent}{"User agent" defined by the user. Default is NULL which
+will use the default package identifier "rOpenGov/sotkanet"}
 }
 \value{
 sotkanet indicator metadata as a list object

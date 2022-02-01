@@ -1,14 +1,27 @@
-#' @noRd
-#' @title Sotkanet CSV Query
-#' @description Retrieve data from the query url.
+#' @title Retrieve Sotkanet Data (csv)
+#' @description Retrieve data in csv format from given url.
 #' @param url Sotkanet CSV url
-#' @return sotkanet CSV query
+#' @param user.agent User agent defined by the user. Default is 
+#'    "rOpenGov/sotkanet"
+#' @param ... additional parameters to be passed to test_connection, mainly 
+#'    timeout (in seconds, default is 10)
+#'
+#' @return data.frame
 #' @references See citation("sotkanet") 
-#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
+#' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}, Pyry Kantanen
 #' @importFrom utils read.csv2
-#' @keywords utilities
-sotkanet.csv_query <- function(url, ...)
+#' @importFrom httr GET user_agent content
+#' @keywords internal
+#' @export
+sotkanet.csv_query <- function(url, user.agent = NULL, ...)
 {
+  
+  if (is.null(user.agent)) {
+    useragent <- "rOpenGov/sotkanet"
+  } else {
+    # user.agent is defined by the user
+    useragent <- user.agent
+  }
 
   # Check that URL fulfills requirements
   # If not, test_connection returns a message and NULL
@@ -16,7 +29,14 @@ sotkanet.csv_query <- function(url, ...)
     return(invisible(NULL))
   }
 
-  tab <- read.csv2(file = url, header = TRUE, sep = ";", dec = ".")
+  httr_get <- httr::GET(url, httr::user_agent(useragent))
+  csv_file <- httr::content(httr_get, as = "text")
+
+  tab <- read.csv2(text = csv_file, 
+                   header = TRUE, 
+                   sep = ";", 
+                   dec = ".",
+                   encoding = "UTF-8")
 
   tab
 }

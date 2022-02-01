@@ -39,6 +39,8 @@
 #'      \item "SEUTUKUNTA"
 #'      \item "SUURALUE"
 #'    }
+#' @param user.agent "User agent" defined by the user. Default is NULL which
+#'    will then use the package identifier "rOpenGov/sotkanet"
 #' @return data.frame
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}, Pyry Kantanen
@@ -51,14 +53,21 @@
 #' 
 #' @keywords utilities
 #' @export
-GetDataSotkanet <- function(indicators, 
+GetDataSotkanet <- function(indicators = NULL, 
                             years = 1991:2015, 
                             genders = c("total"), 
                             regions = NULL, 
-                            region.category = NULL) {
+                            region.category = NULL,
+                            user.agent = NULL) {
+  
+  if (is.null(indicators)){
+    message("Parameter 'indicators' is NULL. Please provide at least one indicator.")
+    return(invisible(NULL))
+  }
 
   # List all indicators in Sotkanet database
-  sotkanet_indicators <- SotkanetIndicators(type = "table")
+  sotkanet_indicators <- SotkanetIndicators(id = indicators, 
+                                            type = "table")
   sotkanet_regions <- SotkanetRegions(type = "table")
   
   dats <- list()
@@ -81,7 +90,7 @@ GetDataSotkanet <- function(indicators,
     url_object$query <- all_params
     final_url <- httr::build_url(url_object)
     
-    y <- sotkanet.csv_query(final_url)
+    y <- sotkanet.csv_query(final_url, user.agent = user.agent)
     
     if (is.null(y)){
       message(paste(" There was a problem retrieving indicator from", indicator," "))
@@ -105,7 +114,7 @@ GetDataSotkanet <- function(indicators,
   combined_data$region.category <- sotkanet_regions[match(combined_data$region, 
                                                              sotkanet_regions$region), "region.category"]
   combined_data$indicator.organization.title.fi <- sotkanet_indicators[match(combined_data$indicator, 
-                                                                             sotkanet_indicators$indicator), "organization.title.fi"]
+                                                                             sotkanet_indicators$indicator), "indicator.organization.title.fi"]
   
   if (!is.null(regions)){
     if (regions %in% unique(combined_data$region.title.fi)){

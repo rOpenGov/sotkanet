@@ -4,13 +4,19 @@
 \alias{SotkanetRegions}
 \title{Sotkanet Regions}
 \usage{
-SotkanetRegions(type = "table")
+SotkanetRegions(type = "table", user.agent = NULL)
 }
 \arguments{
-\item{type}{Return format ("table" or "raw")}
+\item{type}{type output format, either 'table' (default) or 'raw'. 
+Default produces a truncated table with strictly defined columns that
+are useful in other functions. 'Raw' produces the full output which might
+be useful for exploratory purposes.}
+
+\item{user.agent}{"User agent" defined by the user. Default is NULL which
+will then use the package identifier "rOpenGov/sotkanet"}
 }
 \value{
-sotkanet json query in selected format
+data.frame
 }
 \description{
 Retrieves sotkanet regions data.

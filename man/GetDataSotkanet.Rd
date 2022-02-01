@@ -5,11 +5,12 @@
 \title{Retrieve Sotkanet Data}
 \usage{
 GetDataSotkanet(
-  indicators,
+  indicators = NULL,
   years = 1991:2015,
   genders = c("total"),
   regions = NULL,
-  region.category = NULL
+  region.category = NULL,
+  user.agent = NULL
 )
 }
 \arguments{
@@ -39,6 +40,9 @@ regions categories (default: all categories)
      \item "SEUTUKUNTA"
      \item "SUURALUE"
    }}
+
+\item{user.agent}{"User agent" defined by the user. Default is NULL which
+will then use the package identifier "rOpenGov/sotkanet"}
 }
 \value{
 data.frame

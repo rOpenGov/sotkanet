@@ -4,7 +4,7 @@
 \alias{SotkanetIndicators}
 \title{Sotkanet Indicators}
 \usage{
-SotkanetIndicators(id = NULL, type = "table")
+SotkanetIndicators(id = NULL, type = "table", user.agent = NULL)
 }
 \arguments{
 \item{id}{Dataset identifier. Default is NULL returning all}
@@ -13,9 +13,12 @@ SotkanetIndicators(id = NULL, type = "table")
 Default produces a truncated table with strictly defined columns that
 are useful in other functions. 'Raw' produces the full output which might
 be useful for exploratory purposes.}
+
+\item{user.agent}{"User agent" defined by the user. Default is NULL which
+will then use the package identifier "rOpenGov/sotkanet"}
 }
 \value{
-data.frame or a list
+data.frame (type = "table) or a list (type = "raw")
 }
 \description{
 Retrieve Sotkanet indicator metadata

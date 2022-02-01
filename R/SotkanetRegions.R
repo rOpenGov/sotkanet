@@ -1,8 +1,13 @@
 #' @title Sotkanet Regions
 #' @description Retrieves sotkanet regions data.
 #' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
-#' @param type Return format ("table" or "raw")
-#' @return sotkanet json query in selected format
+#' @param type type output format, either 'table' (default) or 'raw'. 
+#'    Default produces a truncated table with strictly defined columns that
+#'    are useful in other functions. 'Raw' produces the full output which might
+#'    be useful for exploratory purposes.
+#' @param user.agent "User agent" defined by the user. Default is NULL which
+#'    will then use the package identifier "rOpenGov/sotkanet"
+#' @return data.frame
 #' @export
 #' @references See citation("sotkanet") 
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
@@ -11,7 +16,7 @@
 #' sotkanet.regions <- SotkanetRegions(type = "table")
 #' }
 #' @keywords utilities
-SotkanetRegions <- function(type = "table")
+SotkanetRegions <- function(type = "table", user.agent = NULL)
 {
 
   sotkanet_url <- "https://sotkanet.fi/rest"
