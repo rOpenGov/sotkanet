@@ -1,4 +1,4 @@
-# sotkanet 0.9.77-0.9.78 (2022-02-01)
+# sotkanet 0.9.79 (2022-02-01)
 
 ### NEW FEATURES
  * Functions pointing to external resources (`sotkanet.json_query()` and `sotkanet.csv_query()`) should now fail gracefully. New internal functions are in R/http_funs.R

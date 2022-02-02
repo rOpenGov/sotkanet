@@ -44,7 +44,6 @@ cran-comments.md
 ^CONDUCT\.md$
 inst/paper.md
 
-
 ^\.github$
 ^_pkgdown\.yml$
 ^docs$
@@ -54,3 +53,4 @@ inst/paper.md
 ^CRAN-RELEASE$
 ^codecov\.yml$
 ^CRAN-SUBMISSION$
+^CITATION\.cff$
