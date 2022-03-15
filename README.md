@@ -48,6 +48,18 @@ package from GitHub with:
 remotes::install_github("rOpenGov/sotkanet")
 ```
 
+Development version can be also installed using the
+[r-universe](https://ropengov.r-universe.dev):
+
+``` r
+# Enable this universe
+options(repos = c(
+  ropengov = "https://ropengov.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
+install.packages("sotkanet")
+```
+
 ### Using the package
 
 Load the package in R:
