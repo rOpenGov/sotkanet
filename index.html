@@ -98,15 +98,23 @@
 <p>Alternatively, you can install the development version of sotkanet package from GitHub with:</p>
 <pre class="r_github"><code><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"rOpenGov/sotkanet"</span><span class="op">)</span></code></pre>
+<p>Development version can be also installed using the <a href="https://ropengov.r-universe.dev" class="external-link">r-universe</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Enable this universe</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  ropengov <span class="op">=</span> <span class="st">"https://ropengov.r-universe.dev"</span>,
+  CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span>
+<span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sotkanet"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="using-the-package">Using the package<a class="anchor" aria-label="anchor" href="#using-the-package"></a>
 </h3>
 <p>Load the package in R:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/sotkanet/">sotkanet</a></span><span class="op">)</span></code></pre></div>
 <p>List available indicators in the Sotkanet data portal:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Pre-defined list of indicators to save bandwidth</span>
 <span class="va">sotkanet.indicators</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/SotkanetIndicators.html">SotkanetIndicators</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">46</span>,<span class="fl">74</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sotkanet.indicators</span><span class="op">$</span><span class="va">indicator.title.fi</span><span class="op">)</span>
@@ -117,7 +125,7 @@
 <span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                        </span>
 <span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></code></pre></div>
 <p>Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2020.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/slowkow/ggrepel" class="external-link">ggrepel</a></span><span class="op">)</span>
 
