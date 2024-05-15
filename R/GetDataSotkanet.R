@@ -18,7 +18,7 @@
 #' open data or use of open data published by National Institute for Health and 
 #' Welfare.
 #' @param indicators Dataset identifier(s)
-#' @param years vector of years c(2010, 2012, ... )
+#' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`
 #' @param genders vector of genders ('male' | 'female' | 'total')
 #' @param regions filter by selected regions only (default: all regions)
 #' @param region.category filter by one or more of the following 14 valid 
