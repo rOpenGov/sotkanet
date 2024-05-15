@@ -3,7 +3,6 @@
 \docType{package}
 \name{sotkanet-package}
 \alias{sotkanet-package}
-\alias{_PACKAGE}
 \alias{sotkanet}
 \title{sotkanet: Sotkanet Open Data Access and Analysis}
 \description{
