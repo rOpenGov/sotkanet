@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.79
-Date: 2022-02-01
+Version: 0.9.81.9000
+Date: 2024-05-15
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
@@ -51,7 +51,7 @@ Suggests:
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 X-schema.org-isPartOf: http://ropengov.org/
 X-schema.org-keywords: ropengov
 Config/testthat/edition: 3
