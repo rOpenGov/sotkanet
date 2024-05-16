@@ -20,9 +20,17 @@ a Biblatex, bibentry or Bibtex object.
 Crates a bibliography from selected Sotkanet data file.
 }
 \examples{
+\dontrun{
 SotkanetCite(10013, lang = "en", format = "Biblatex")
 SotkanetCite(10012, lang = "fi", format = "Biblatex")
 SotkanetCIte(10011, lang = "sv", format = "Biblatex")
 SotkanetCite(10013, lang = "en", format = "bibentry")
 SotkanetCite(10013, lang = "en", format = "Bibtex")
+}
+}
+\references{
+See citation("sotkanet")
+}
+\seealso{
+[utils::bibentry()] [RefManageR::toBiblatex()]
 }

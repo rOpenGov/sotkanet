@@ -10,12 +10,18 @@
 #'
 #' @return a Biblatex, bibentry or Bibtex object.
 #'
+#' @seealso [utils::bibentry()] [RefManageR::toBiblatex()]
+#'
+#' @references See citation("sotkanet")
+#'
 #' @examples
+#' \dontrun{
 #' SotkanetCite(10013, lang = "en", format = "Biblatex")
 #' SotkanetCite(10012, lang = "fi", format = "Biblatex")
 #' SotkanetCIte(10011, lang = "sv", format = "Biblatex")
 #' SotkanetCite(10013, lang = "en", format = "bibentry")
 #' SotkanetCite(10013, lang = "en", format = "Bibtex")
+#' }
 #' @export
 SotkanetCite <- function(id,
                          lang = "en",
