@@ -17,6 +17,10 @@ SotkanetCite <- function(id,
     stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
   }
 
+  if(!any(id %in% SotkanetIndicators()$indicator)){
+    stop("The id does not match with any of the datasets.")
+  }
+
   info <- SotkanetIndicatorMetadata(id)
 
   urldate <- as.character(Sys.Date())
