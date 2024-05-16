@@ -64,7 +64,7 @@ The `sotkanet` R package aims to make retrieval of sotkanet
   Package: \tab sotkanet\cr
   Type: \tab Package\cr
   Version: \tab See sessionInfo() or DESCRIPTION file\cr
-  Date: \tab 2013-2022\cr
+  Date: \tab 2013-2023\cr
   License: \tab BSD 2-clause License\cr
   LazyLoad: \tab yes\cr
 }

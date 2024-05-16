@@ -16,7 +16,7 @@ GetDataSotkanet(
 \arguments{
 \item{indicators}{Dataset identifier(s)}
 
-\item{years}{vector of years c(2010, 2012, ... )}
+\item{years}{vector of years, for example `2015:2018` or `c(2010, 2012, ...)`}
 
 \item{genders}{vector of genders ('male' | 'female' | 'total')}
 

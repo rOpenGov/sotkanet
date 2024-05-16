@@ -73,13 +73,13 @@ sotkanet.indicators <- SotkanetIndicators(c(4,5,6,7,46,74))
 head(sotkanet.indicators$indicator.title.fi)
 ```
 
-Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2020.
+Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2022.
 
 ```{r sotkanet_example, eval=TRUE}
 library(ggplot2)
 library(ggrepel)
 
-hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2020, genders = "total", region.category = "MAAKUNTA")
+hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2022, genders = "total", region.category = "MAAKUNTA")
 
 # Indicator title tells what this indicator is about
 unique(hammashoito$indicator.title.fi)
@@ -94,15 +94,15 @@ plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title.fi))
   geom_line(aes(color=region.title.fi)) +
   geom_point(aes(color=region.title.fi))
 
-plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2020",
+plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
             subtitle = "0 - 17-vuotiailla / 1 000 vastaavanikäistä",
             x = "Vuosi", 
             y = "Käyntien lkm",
             caption = plot_caption,
             color = "Maakunta") +
   geom_text_repel(
-    aes(color = region.title.fi, label = ifelse(year == 2020, region.title.fi, NA_character_)),
-    xlim = c(2021, 2023),
+    aes(color = region.title.fi, label = ifelse(year == 2022, region.title.fi, NA_character_)),
+    xlim = c(2023, 2025),
     direction = "both",
     hjust = 0,
     segment.size = .7,
@@ -116,8 +116,8 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2020",
         panel.background = element_rect(fill = "linen")) +
   scale_x_continuous(
     expand = c(0, 0),
-    limits = c(2015, 2022), 
-    breaks = seq(2015, 2020))
+    limits = c(2015, 2025), 
+    breaks = seq(2015, 2022))
 ```
 
 For more in-depth examples, see the package vignette or online [tutorial page](http://ropengov.github.io/sotkanet/articles/tutorial.html). 
