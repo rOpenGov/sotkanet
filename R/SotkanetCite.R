@@ -1,15 +1,23 @@
 #' @title Crate a Data Bibliography
 #'
-#' @param id Indicator id
+#' @param id Indicator id.
+#' @param lang Language for the citation. Options are English (en), Finnish (fi) and Swedish (sv).
 #'
-#' @return Biblatex object
+#' @return Biblatex object.
 #'
 #' @examples
-#' SotkanetCite(10013)
+#' SotkanetCite(10013, lang = "en")
+#' SotkanetCite(10012, lang = "fi")
+#' SotkanetCIte(10011, lang = "sv")
 #' @export
-SotkanetCite <- function(id){
-  info <- SotkanetIndicatorMetadata(id)
+SotkanetCite <- function(id,
+                         lang = "en"){
 
+  if(!any(lang %in% c("en", "fi", "sv"))){
+    stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
+  }
+
+  info <- SotkanetIndicatorMetadata(id)
 
   urldate <- as.character(Sys.Date())
 
@@ -18,10 +26,10 @@ SotkanetCite <- function(id){
 
   ref <- RefManageR::BibEntry(
     bibtype = "Misc",
-    title = info$title[[1]],
+    title = info$title[[lang]],
     url = paste0("https://sotkanet.fi/sotkanet/fi/metadata/indicators/",
                  id),
-    organization = info$organization[[2]][1],
+    organization = info$organization[[2]][lang],
     year = last_update_year,
     author = utils::person(given = ""),
     urldate = urldate,

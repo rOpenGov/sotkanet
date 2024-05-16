@@ -4,17 +4,21 @@
 \alias{SotkanetCite}
 \title{Crate a Data Bibliography}
 \usage{
-SotkanetCite(id)
+SotkanetCite(id, lang = "en")
 }
 \arguments{
-\item{id}{Indicator id}
+\item{id}{Indicator id.}
+
+\item{lang}{Language for the citation. Options are English (en), Finnish (fi) and Swedish (sv).}
 }
 \value{
-Biblatex object
+Biblatex object.
 }
 \description{
 Crate a Data Bibliography
 }
 \examples{
-SotkanetCite(10013)
+SotkanetCite(10013, lang = "en")
+SotkanetCite(10012, lang = "fi")
+SotkanetCIte(10011, lang = "sv")
 }
