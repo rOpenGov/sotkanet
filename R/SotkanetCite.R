@@ -31,7 +31,7 @@ SotkanetCite <- function(id,
   ref <- RefManageR::BibEntry(
     bibtype = "Misc",
     title = info$title[[lang]],
-    url = paste0("https://sotkanet.fi/sotkanet/fi/metadata/indicators/",
+    url = paste0("https://sotkanet.fi/sotkanet/", lang, "/metadata/indicators/",
                  id),
     organization = info$organization[[2]][lang],
     year = last_update_year,
