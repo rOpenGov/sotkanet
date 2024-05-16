@@ -47,4 +47,11 @@ test_that("SotkanetCite gives correct results", {
     "Bibtex"
   )
 
+  expect_warning(
+    SotkanetCite(
+      id = 10013,
+      format = "test"
+    )
+  )
+
 })

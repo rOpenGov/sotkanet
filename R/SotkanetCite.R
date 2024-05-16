@@ -21,6 +21,8 @@ SotkanetCite <- function(id,
                          lang = "en",
                          format = "Biblatex"){
 
+  format <- tolower(as.character(format))
+
   if(!any(lang %in% c("en", "fi", "sv"))){
     stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
   }
@@ -29,10 +31,8 @@ SotkanetCite <- function(id,
     stop("The id does not match with any of the datasets.")
   }
 
-  format <- tolower(as.character(format))
-
   if(!format %in% c("bibentry", "bibtex", "biblatex")){
-    warning("The", format, " is not recognized, will return Biblatex as default.")
+    warning("The ", format, " is not recognized, will return Biblatex as default.")
     format <- "biblatex"
   }
 
