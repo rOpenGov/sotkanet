@@ -14,6 +14,9 @@
 #'
 #' @references See citation("sotkanet")
 #'
+#' @importFrom RefManageR toBiblatex
+#' @importFrom utils toBibtex person
+#' @importFrom lubridate ymd year
 #' @examples
 #' \dontrun{
 #' SotkanetCite(10013, lang = "en", format = "Biblatex")
@@ -24,7 +27,7 @@
 #' }
 #' @export
 SotkanetCite <- function(id,
-                         lang = "en",
+                         lang = "fi",
                          format = "Biblatex"){
 
   format <- tolower(as.character(format))
@@ -59,11 +62,9 @@ SotkanetCite <- function(id,
     author = utils::person(given = ""),
     urldate = urldate,
     type = "Dataset",
-    note = stringr::str_glue(
-      paste("Accessed {as.Date(urldate)},",
-            "dataset last updated {as.Date(last_update_date)}")
+    note = paste("Accessed", as.Date(urldate),
+            "dataset last updated", as.Date(last_update_date))
     )
-  )
 
   if(format == "bibtex"){
     ref <- utils::toBibtex(ref)

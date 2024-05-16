@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.79
-Date: 2022-02-01
+Version: 0.9.80.9000
+Date: 2024-05-16
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
@@ -25,7 +25,11 @@ Authors@R:
       person(given = "Pyry",
              family = "Kantanen",
              role = "aut",
-             comment = c(ORCID = "0000-0003-2853-2765")))
+             comment = c(ORCID = "0000-0003-2853-2765")),
+      person(given = "Aleksi",
+             family = "Lahtinen",
+             role = "ctb")
+             )
 Description: Access statistical information on welfare and health in Finland 
     from the Sotkanet open data portal <https://sotkanet.fi/sotkanet/fi/index>.
 License: BSD_2_clause + file LICENSE
@@ -35,7 +39,9 @@ Depends: R (>= 3.2)
 Imports:
     httr,
     curl,
-    jsonlite
+    jsonlite,
+    lubridate,
+    RefManageR
 Suggests: 
     devtools,
     ggplot2,

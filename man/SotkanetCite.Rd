@@ -4,7 +4,7 @@
 \alias{SotkanetCite}
 \title{Crate a Data Bibliography}
 \usage{
-SotkanetCite(id, lang = "en", format = "Biblatex")
+SotkanetCite(id, lang = "fi", format = "Biblatex")
 }
 \arguments{
 \item{id}{Indicator id.}
