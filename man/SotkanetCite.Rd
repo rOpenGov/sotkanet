@@ -4,21 +4,25 @@
 \alias{SotkanetCite}
 \title{Crate a Data Bibliography}
 \usage{
-SotkanetCite(id, lang = "en")
+SotkanetCite(id, lang = "en", format = "Biblatex")
 }
 \arguments{
 \item{id}{Indicator id.}
 
 \item{lang}{Language for the citation. Options are English (en), Finnish (fi) and Swedish (sv).}
+
+\item{format}{Default is "Biblatex", alternatives are "bibentry" or "Bibtex".}
 }
 \value{
-Biblatex object.
+a Biblatex, bibentry or Bibtex object.
 }
 \description{
-Crate a Data Bibliography
+Crates a bibliography from selected Sotkanet data file.
 }
 \examples{
-SotkanetCite(10013, lang = "en")
-SotkanetCite(10012, lang = "fi")
-SotkanetCIte(10011, lang = "sv")
+SotkanetCite(10013, lang = "en", format = "Biblatex")
+SotkanetCite(10012, lang = "fi", format = "Biblatex")
+SotkanetCIte(10011, lang = "sv", format = "Biblatex")
+SotkanetCite(10013, lang = "en", format = "bibentry")
+SotkanetCite(10013, lang = "en", format = "Bibtex")
 }

@@ -1,17 +1,25 @@
 #' @title Crate a Data Bibliography
 #'
+#' @description
+#' Crates a bibliography from selected Sotkanet data file.
+#'
+#'
 #' @param id Indicator id.
 #' @param lang Language for the citation. Options are English (en), Finnish (fi) and Swedish (sv).
+#' @param format Default is "Biblatex", alternatives are "bibentry" or "Bibtex".
 #'
-#' @return Biblatex object.
+#' @return a Biblatex, bibentry or Bibtex object.
 #'
 #' @examples
-#' SotkanetCite(10013, lang = "en")
-#' SotkanetCite(10012, lang = "fi")
-#' SotkanetCIte(10011, lang = "sv")
+#' SotkanetCite(10013, lang = "en", format = "Biblatex")
+#' SotkanetCite(10012, lang = "fi", format = "Biblatex")
+#' SotkanetCIte(10011, lang = "sv", format = "Biblatex")
+#' SotkanetCite(10013, lang = "en", format = "bibentry")
+#' SotkanetCite(10013, lang = "en", format = "Bibtex")
 #' @export
 SotkanetCite <- function(id,
-                         lang = "en"){
+                         lang = "en",
+                         format = "Biblatex"){
 
   if(!any(lang %in% c("en", "fi", "sv"))){
     stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
@@ -19,6 +27,13 @@ SotkanetCite <- function(id,
 
   if(!any(id %in% SotkanetIndicators()$indicator)){
     stop("The id does not match with any of the datasets.")
+  }
+
+  format <- tolower(as.character(format))
+
+  if(!format %in% c("bibentry", "bibtex", "biblatex")){
+    warning("The", format, " is not recognized, will return Biblatex as default.")
+    format <- "biblatex"
   }
 
   info <- SotkanetIndicatorMetadata(id)
@@ -43,5 +58,11 @@ SotkanetCite <- function(id,
             "dataset last updated {as.Date(last_update_date)}")
     )
   )
-  RefManageR::toBiblatex(ref)
+
+  if(format == "bibtex"){
+    ref <- utils::toBibtex(ref)
+  } else if (format == "biblatex"){
+    ref <- RefManageR::toBiblatex(ref)
+  }
+  ref
 }

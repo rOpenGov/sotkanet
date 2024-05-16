@@ -31,4 +31,20 @@ test_that("SotkanetCite gives correct results", {
     SotkanetCite(10013, lang = "ru"
                  ))
 
+  expect_equal(
+    class(
+      SotkanetCite(
+        id = 10013,
+        format = "bibentry"))[2],
+    "bibentry"
+  )
+
+  expect_equal(
+    class(
+      SotkanetCite(
+        id = 10013,
+        format = "bibtex")),
+    "Bibtex"
+  )
+
 })
