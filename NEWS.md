@@ -1,3 +1,8 @@
+# sotkanet 0.9.80.9000 (2024-05-16)
+
+### NEW FEATURES
+* New function: `SotkanetCite()` for citing datasets.
+
 # sotkanet 0.9.79 (2022-02-01)
 
 ### NEW FEATURES
