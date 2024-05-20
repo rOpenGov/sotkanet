@@ -2,6 +2,7 @@
 
 export(GetDataSotkanet)
 export(SotkanetCite)
+export(SotkanetCleanCache)
 export(SotkanetIndicatorMetadata)
 export(SotkanetIndicators)
 export(SotkanetInteractive)
