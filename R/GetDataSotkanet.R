@@ -17,6 +17,7 @@
 #' of their cause or form, which can be directly or indirectly connected to
 #' open data or use of open data published by National Institute for Health and
 #' Welfare.
+#'
 #' @param indicators Dataset identifier(s)
 #' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`
 #' @param genders vector of genders ('male' | 'female' | 'total')
@@ -40,6 +41,11 @@
 #'      \item "SUURALUE"
 #'    }
 #' @param user.agent "User agent" defined by the user. Default is NULL which
+#' @param cache a logical wheter to do caching. Defaults is `TRUE`.
+#' @param cache_dir a path to cache directory. `Null` (default) uses and creates
+#'  "sotkanet" directory in the temporary directory defined by base R [tempdir()]
+#'  function. The user can set the cache directory to an existing directory with this
+#'  argument.
 #'    will then use the package identifier "rOpenGov/sotkanet"
 #' @return data.frame
 #' @references See citation("sotkanet")
@@ -51,6 +57,8 @@
 #'
 #' THL open data license website: \url{https://yhteistyotilat.fi/wiki08/x/AAadAg}
 #'
+#' @importFrom digest digest
+#'
 #' @keywords utilities
 #' @export
 GetDataSotkanet <- function(indicators = NULL,
@@ -59,26 +67,34 @@ GetDataSotkanet <- function(indicators = NULL,
                             regions = NULL,
                             region.category = NULL,
                             user.agent = NULL,
-                            cache = TRUE) {
+                            cache = TRUE,
+                            cache_dir = NULL) {
 
   if (is.null(indicators)){
     message("Parameter 'indicators' is NULL. Please provide at least one indicator.")
     return(invisible(NULL))
   }
 
+  if (cache){
+
   query <- list(
-    list(
       id = indicators,
       years = years,
       genders = genders,
+      regions = regions,
+      region.category = region.category,
       download_date = Sys.Date()
-    ))
+    )
 
   query_hash <- digest::digest(query, algo = "md5")
 
-  cache_dir <- file.path(tempdir(), "sotkanet")
+  if (is.null(cache_dir)){
 
-  cache_dir <- path.expand(cache_dir)
+    cache_dir <- file.path(tempdir(), "sotkanet")
+
+    cache_dir <- path.expand(cache_dir)
+
+  }
 
   if (dir.exists(cache_dir)){
 
@@ -92,8 +108,7 @@ GetDataSotkanet <- function(indicators = NULL,
 
       return(combined_data)
     }
-  }
-
+  }}
 
   # List all indicators in Sotkanet database
   sotkanet_indicators <- SotkanetIndicators(id = indicators,

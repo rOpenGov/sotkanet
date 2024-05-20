@@ -41,7 +41,8 @@ Imports:
     curl,
     jsonlite,
     lubridate,
-    RefManageR
+    RefManageR,
+    digest
 Suggests: 
     devtools,
     ggplot2,

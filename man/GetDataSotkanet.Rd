@@ -10,7 +10,9 @@ GetDataSotkanet(
   genders = c("total"),
   regions = NULL,
   region.category = NULL,
-  user.agent = NULL
+  user.agent = NULL,
+  cache = TRUE,
+  cache_dir = NULL
 )
 }
 \arguments{
@@ -22,7 +24,7 @@ GetDataSotkanet(
 
 \item{regions}{filter by selected regions only (default: all regions)}
 
-\item{region.category}{filter by one or more of the following 14 valid 
+\item{region.category}{filter by one or more of the following 14 valid
 regions categories (default: all categories)
    \itemize{
      \item "ALUEHALLINTOVIRASTO"
@@ -41,8 +43,15 @@ regions categories (default: all categories)
      \item "SUURALUE"
    }}
 
-\item{user.agent}{"User agent" defined by the user. Default is NULL which
-will then use the package identifier "rOpenGov/sotkanet"}
+\item{user.agent}{"User agent" defined by the user. Default is NULL which}
+
+\item{cache}{a logical wheter to do caching. Defaults is `TRUE`.}
+
+\item{cache_dir}{a path to cache directory. `Null` (default) uses and creates
+"sotkanet" directory in the temporary directory defined by base R [tempdir()]
+function. The user can set the cache directory to an existing directory with this
+argument.
+  will then use the package identifier "rOpenGov/sotkanet"}
 }
 \value{
 data.frame
@@ -51,20 +60,20 @@ data.frame
 Retrieve selected data and combine into a single table.
 }
 \details{
-THL's open data license and limitation of liability 
+THL's open data license and limitation of liability
 
 \strong{License}
 
-The open data provided by National Institute for Health and Welfare is 
-licensed under CC BY 4.0. This license defines how open data can be utilized. 
+The open data provided by National Institute for Health and Welfare is
+licensed under CC BY 4.0. This license defines how open data can be utilized.
 The licensing is based on a decision made by the Director General.
 
 \strong{Limitation of Liability}
 
-National Institute for Health and Welfare shall not be liable for any loss, 
-legal proceedings, claims, proceedings, demands, costs or damages regardless 
-of their cause or form, which can be directly or indirectly connected to 
-open data or use of open data published by National Institute for Health and 
+National Institute for Health and Welfare shall not be liable for any loss,
+legal proceedings, claims, proceedings, demands, costs or damages regardless
+of their cause or form, which can be directly or indirectly connected to
+open data or use of open data published by National Institute for Health and
 Welfare.
 }
 \examples{
