@@ -32,12 +32,14 @@ SotkanetCite <- function(id,
 
   format <- tolower(as.character(format))
 
-  if(!any(lang %in% c("en", "fi", "sv"))){
-    stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
+  info <- SotkanetIndicatorMetadata(id)
+
+  if(is.null(info)){
+    stop("The id does not match with any of the datasets")
   }
 
-  if(!any(id %in% SotkanetIndicators()$indicator)){
-    stop("The id does not match with any of the datasets.")
+  if(!any(lang %in% c("en", "fi", "sv"))){
+    stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
   }
 
   if(!format %in% c("bibentry", "bibtex", "biblatex")){
@@ -45,7 +47,7 @@ SotkanetCite <- function(id,
     format <- "biblatex"
   }
 
-  info <- SotkanetIndicatorMetadata(id)
+
 
   urldate <- as.character(Sys.Date())
 
