@@ -104,8 +104,6 @@ GetDataSotkanet <- function(indicators = NULL,
 
       combined_data <- readRDS(cache_file)
 
-      message("Data from cache")
-
       return(combined_data)
     }
   }}
@@ -192,8 +190,6 @@ GetDataSotkanet <- function(indicators = NULL,
     saveRDS(combined_data, file = cache_file, compress = TRUE)
 
   }
-
-  message("Data from call")
 
   combined_data
 }

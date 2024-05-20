@@ -87,7 +87,7 @@ SotkanetInteractive <- function(code = NULL){
         c("male", "female", "total")
       )
 
-      region_selection <- readline(prompt = "Enter the regions (empty for defulat): ")
+      region_selection <- readline(prompt = "Enter the regions (empty for default): ")
 
       region.category_selection <- readline(prompt = "Enter the region.category (empty for default): ")
 
@@ -138,7 +138,7 @@ SotkanetInteractive <- function(code = NULL){
 
   print_code <- switch(
     menu(choices = c("Yes", "No"),
-         title = "Printe code for downloading dataset?") + 1,
+         title = "Print the code for downloading dataset?") + 1,
     return(invisible()),
     TRUE,
     FALSE
