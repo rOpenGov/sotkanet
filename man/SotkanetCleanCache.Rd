@@ -2,7 +2,7 @@
 % Please edit documentation in R/SotkanetCleanCache.R
 \name{SotkanetCleanCache}
 \alias{SotkanetCleanCache}
-\title{Clean Sotkanet Cache}
+\title{Clean sotkanet Cache}
 \usage{
 SotkanetCleanCache(cache_dir = NULL)
 }
@@ -11,7 +11,7 @@ SotkanetCleanCache(cache_dir = NULL)
 temporary cache directory.}
 }
 \description{
-Delete all .rds files from the Sotkanet cache directory.
+Delete all .rds files from the sotkanet cache directory.
 }
 \examples{
 \dontrun{

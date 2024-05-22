@@ -1,7 +1,7 @@
-#' @title Clean Sotkanet Cache
+#' @title Clean sotkanet Cache
 #'
 #' @description
-#' Delete all .rds files from the Sotkanet cache directory.
+#' Delete all .rds files from the sotkanet cache directory.
 #'
 #' @param cache_dir
 #' A path to the cache directory. If `NULL` (default) tries to clean default

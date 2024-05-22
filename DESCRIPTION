@@ -42,7 +42,8 @@ Imports:
     jsonlite,
     lubridate,
     RefManageR,
-    digest
+    digest,
+    frictionless
 Suggests: 
     devtools,
     ggplot2,

@@ -17,8 +17,9 @@
 #' of their cause or form, which can be directly or indirectly connected to
 #' open data or use of open data published by National Institute for Health and
 #' Welfare.
+#'
 #' @param indicators Dataset identifier(s)
-#' @param years vector of years c(2010, 2012, ... )
+#' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`
 #' @param genders vector of genders ('male' | 'female' | 'total')
 #' @param regions filter by selected regions only (default: all regions)
 #' @param region.category filter by one or more of the following 14 valid
@@ -40,29 +41,71 @@
 #'      \item "SUURALUE"
 #'    }
 #' @param user.agent "User agent" defined by the user. Default is NULL which
+#' @param cache a logical whether to do caching. Defaults is `TRUE`.
+#' @param cache_dir a path to cache directory. `Null` (default) uses and creates
+#'  "sotkanet" directory in the temporary directory defined by base R [tempdir()]
+#'  function. The user can set the cache directory to an existing directory with this
+#'  argument.
 #'    will then use the package identifier "rOpenGov/sotkanet"
+#' @param frictionless a logical whether to return a datapackage, with metadata inside,
+#' instead of a data.frame.
 #' @return data.frame
 #' @references See citation("sotkanet")
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}, Pyry Kantanen
-#' @examples \dontrun{dat <- GetDataSotkanet(indicators = 165)}
+#' @examples \dontrun{dat <- get_sotkanet(indicators = 165)}
 #' @seealso
 #' For more information about dataset structure, see THL webpage at
 #' \url{https://yhteistyotilat.fi/wiki08/pages/viewpage.action?pageId=27557907}
 #'
 #' THL open data license website: \url{https://yhteistyotilat.fi/wiki08/x/AAadAg}
 #'
+#' @importFrom digest digest
+#'
 #' @keywords utilities
 #' @export
-GetDataSotkanet <- function(indicators = NULL,
+get_sotkanet <- function(indicators = NULL,
                             years = 1991:2015,
                             genders = c("total"),
                             regions = NULL,
                             region.category = NULL,
-                            user.agent = NULL) {
+                            user.agent = NULL,
+                            cache = TRUE,
+                            cache_dir = NULL,
+                            frictionless = FALSE) {
 
   if (is.null(indicators)){
     message("Parameter 'indicators' is NULL. Please provide at least one indicator.")
     return(invisible(NULL))
+  }
+
+  #Query for caching
+
+  query <- list(
+    id = indicators,
+    years = years,
+    genders = genders,
+    regions = regions,
+    region.category = region.category,
+    download_date = Sys.Date()
+  )
+
+  query_hash <- digest::digest(query, algo = "md5")
+
+  #Check if the data is in cache
+
+  check_cache <- sotkanet_read_cache(cache = cache, cache_dir, query_hash)
+
+  if (!is.null(check_cache)){
+
+    if(frictionless){
+
+      write_frictionless_metadata(indicators, check_cache)
+
+    } else{
+
+    return(check_cache)
+
+    }
   }
 
   # List all indicators in Sotkanet database
@@ -136,8 +179,22 @@ GetDataSotkanet <- function(indicators = NULL,
     }
   }
 
-  combined_data
+  #Write the data into cache
 
+  sotkanet_write_cache(cache, cache_dir, query_hash, combined_data)
+
+  #Return the data in asked format
+
+  if (frictionless){
+
+    write_frictionless_metadata(indicators, combined_data)
+
+  } else {
+
+  return(combined_data)
+
+  }
 }
+
 
 
