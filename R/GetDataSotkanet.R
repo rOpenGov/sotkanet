@@ -117,8 +117,8 @@ GetDataSotkanet <- function(indicators = NULL,
                                                                              sotkanet_indicators$indicator), "indicator.organization.title.fi"]
 
   if (!is.null(regions)){
-    if (regions %in% unique(combined_data$region.title.fi)){
-      combined_data <- combined_data[which(combined_data$region.title.fi == regions),]
+    if (any(regions %in% unique(combined_data$region.title.fi))){
+      combined_data <- combined_data[which(combined_data$region.title.fi %in% regions),]
     } else {
       message(paste("Input for regions not found from dataset:", regions, "\n",
                     "Please check your parameter input for validity and correctness."))
@@ -127,8 +127,8 @@ GetDataSotkanet <- function(indicators = NULL,
   }
 
   if (!is.null(region.category)){
-    if (region.category %in% unique(combined_data$region.category)){
-      combined_data <- combined_data[which(combined_data$region.category == region.category),]
+    if (any(region.category %in% unique(combined_data$region.category))){
+      combined_data <- combined_data[which(combined_data$region.category %in% region.category),]
     } else {
       message(paste("Input for region.categories not found from dataset:", region.category, "\n",
                     "Please check your parameter input for validity and correctness."))
