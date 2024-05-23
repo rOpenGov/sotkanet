@@ -12,7 +12,7 @@
 #' @importFrom digest digest
 #' @importFrom utils menu
 #' @export
-SotkanetInteractive <- function(code = NULL){
+sotkanet_interactive <- function(code = NULL){
 
   lang_selection <- switch(
     menu(c("Finnish", "English", "Swedish"),
@@ -100,7 +100,7 @@ SotkanetInteractive <- function(code = NULL){
       }
 
 
-      sotkanet_data <- GetDataSotkanet(indicators = search_id,
+      sotkanet_data <- get_sotkanet(indicators = search_id,
                                        years = years,
                                        genders = gender_selection,
                                        regions = region_selection,
@@ -109,7 +109,7 @@ SotkanetInteractive <- function(code = NULL){
 
 
     } else if (!manual_selection){
-      sotkanet_data <- GetDataSotkanet(indicators = search_id)
+      sotkanet_data <- get_sotkanet(indicators = search_id)
 
     }
 
@@ -126,7 +126,7 @@ SotkanetInteractive <- function(code = NULL){
   )
 
   if (print_citation){
-    citation <- SotkanetCite(id = search_id,
+    citation <- sotkanet_cite(id = search_id,
                              lang = lang_selection)
     capture.output(cat("#### DATASET CITATION: \n\n"),
                    file = tempfile_for_sink, append = TRUE)
@@ -147,11 +147,13 @@ SotkanetInteractive <- function(code = NULL){
   if (print_code == TRUE && manual_selection == TRUE){
     capture.output(cat("#### DOWNLOAD PARAMETERS: \n\n"),
                    file = tempfile_for_sink, append = TRUE)
+
     capture.output(print(
-      paste0("GetDataSotkanet(indicators = ", search_id,
+      paste0("get_sotkanet(indicators = ", search_id,
              ", years = ", years[1], ":", years[length(years)],
-             ", genders = ", gender_selection, ", regions = ",
-             ifelse(is.null(region_selection), "NULL", region_selection),
+             ", genders = ", paste0("c(", "'",
+                                    paste0(gender_selection, collapse = "', '"), "')")
+             , ", regions = ", ifelse(is.null(region_selection), "NULL", region_selection),
              ", region.category = ",
              ifelse(is.null(region.category_selection), "NULL", region.category_selection), ")")
       ), file = tempfile_for_sink, append = TRUE)
@@ -161,7 +163,7 @@ SotkanetInteractive <- function(code = NULL){
     capture.output(cat("#### DOWNLOAD PARAMETERS: \n\n"),
                    file = tempfile_for_sink, append = TRUE)
     capture.output(print(
-      paste0("GetDataSotkanet(indicators = ", search_id,")")
+      paste0("get_sotkanet(indicators = ", search_id,")")
     ), file = tempfile_for_sink, append = TRUE)
     capture.output(cat("\n"), file = tempfile_for_sink, append = TRUE)
   }
