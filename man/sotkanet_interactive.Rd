@@ -2,7 +2,7 @@
 % Please edit documentation in R/sotkanet_interactive.R
 \name{sotkanet_interactive}
 \alias{sotkanet_interactive}
-\title{Interactive function for GetDataSotkanet}
+\title{Interactive function for get_sotkanet}
 \usage{
 sotkanet_interactive(code = NULL)
 }
@@ -13,5 +13,5 @@ sotkanet_interactive(code = NULL)
 A simple interactive function, that helps with downloading Sotkanet data
 }
 \seealso{
-[GetDataSotkanet()]
+[get_sotkanet()]
 }

@@ -1,4 +1,4 @@
-#' Interactive function for GetDataSotkanet
+#' Interactive function for get_sotkanet
 #'
 #' @description
 #' A simple interactive function, that helps with downloading Sotkanet data
@@ -6,10 +6,9 @@
 #' @param code
 #' A unique identifier for the dataset of interest.
 #'
-#' @seealso [GetDataSotkanet()]
+#' @seealso [get_sotkanet()]
 #'
 #' @importFrom utils capture.output
-#' @importFrom digest digest
 #' @importFrom utils menu
 #' @export
 sotkanet_interactive <- function(code = NULL){
@@ -178,7 +177,7 @@ sotkanet_interactive <- function(code = NULL){
     )
 
     if (print_code){
-      fixity <- digest::digest(sotkanet_data, algo = "md5")
+      fixity <- sotkanet_fixity(sotkanet_data, algorithm = "md5")
       capture.output(cat("#### FIXITY CHECKSUM: \n\n"),
                      file = tempfile_for_sink, append = TRUE)
       capture.output(print(
