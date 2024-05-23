@@ -103,12 +103,14 @@ sotkanet_interactive <- function(code = NULL){
                                        years = years,
                                        genders = gender_selection,
                                        regions = region_selection,
-                                       region.category = region.category_selection)
+                                       region.category = region.category_selection,
+                                       lang = lang_selection)
 
 
 
     } else if (!manual_selection){
-      sotkanet_data <- get_sotkanet(indicators = search_id)
+      sotkanet_data <- get_sotkanet(indicators = search_id,
+                                    lang = lang_selection)
 
     }
 
@@ -154,7 +156,8 @@ sotkanet_interactive <- function(code = NULL){
                                     paste0(gender_selection, collapse = "', '"), "')")
              , ", regions = ", ifelse(is.null(region_selection), "NULL", region_selection),
              ", region.category = ",
-             ifelse(is.null(region.category_selection), "NULL", region.category_selection), ")")
+             ifelse(is.null(region.category_selection), "NULL", region.category_selection),
+             ", lang = ", "'", lang_selection, "'", ")")
       ), file = tempfile_for_sink, append = TRUE)
     capture.output(cat("\n"), file = tempfile_for_sink, append = TRUE)
 
@@ -162,7 +165,8 @@ sotkanet_interactive <- function(code = NULL){
     capture.output(cat("#### DOWNLOAD PARAMETERS: \n\n"),
                    file = tempfile_for_sink, append = TRUE)
     capture.output(print(
-      paste0("get_sotkanet(indicators = ", search_id,")")
+      paste0("get_sotkanet(indicators = ", search_id,
+             ", lang = ", "'", lang_selection, "'", ")")
     ), file = tempfile_for_sink, append = TRUE)
     capture.output(cat("\n"), file = tempfile_for_sink, append = TRUE)
   }

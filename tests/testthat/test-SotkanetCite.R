@@ -1,8 +1,8 @@
-test_that("SotkanetCite gives correct results", {
+test_that("sotkanet_cite gives correct results", {
 
   expect_equal(
     class(
-      SotkanetCite(
+      sotkanet_cite(
         id = 10013,
         lang = "en"
         )),
@@ -11,7 +11,7 @@ test_that("SotkanetCite gives correct results", {
 
   expect_equal(
     class(
-      SotkanetCite(
+      sotkanet_cite(
         id = 10012,
         lang = "fi"
         )),
@@ -20,7 +20,7 @@ test_that("SotkanetCite gives correct results", {
 
   expect_equal(
     class(
-      SotkanetCite(
+      sotkanet_cite(
         id = 10011,
         lang = "sv"
         )),
@@ -28,12 +28,12 @@ test_that("SotkanetCite gives correct results", {
     )
 
   expect_error(
-    SotkanetCite(10013, lang = "ru"
+    sotkanet_cite(10013, lang = "ru"
                  ))
 
   expect_equal(
     class(
-      SotkanetCite(
+      sotkanet_cite(
         id = 10013,
         format = "bibentry"))[2],
     "bibentry"
@@ -41,14 +41,14 @@ test_that("SotkanetCite gives correct results", {
 
   expect_equal(
     class(
-      SotkanetCite(
+      sotkanet_cite(
         id = 10013,
         format = "bibtex")),
     "Bibtex"
   )
 
   expect_warning(
-    SotkanetCite(
+    sotkanet_cite(
       id = 10013,
       format = "test"
     )

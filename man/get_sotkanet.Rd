@@ -10,6 +10,7 @@ get_sotkanet(
   genders = c("total"),
   regions = NULL,
   region.category = NULL,
+  lang = "fi",
   user.agent = NULL,
   cache = TRUE,
   cache_dir = NULL,
@@ -44,6 +45,10 @@ regions categories (default: all categories)
      \item "SUURALUE"
    }}
 
+\item{lang}{Language of the data variables: indicator.title, region.title
+and indicator.organization.title. Default is Finnish ("fi"), the other options being
+English ("en") and Swedish ("sv").}
+
 \item{user.agent}{"User agent" defined by the user. Default is NULL which}
 
 \item{cache}{a logical whether to do caching. Defaults is `TRUE`.}
@@ -58,7 +63,8 @@ argument.
 instead of a data.frame.}
 }
 \value{
-data.frame
+Returns a data.frame when frictionless is `FALSE` and a datapackage
+when frictionless is `TRUE`.
 }
 \description{
 Retrieve selected data and combine into a single table.

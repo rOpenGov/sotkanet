@@ -40,6 +40,9 @@
 #'      \item "SEUTUKUNTA"
 #'      \item "SUURALUE"
 #'    }
+#' @param lang Language of the data variables: indicator.title, region.title
+#' and indicator.organization.title. Default is Finnish ("fi"), the other options being
+#' English ("en") and Swedish ("sv").
 #' @param user.agent "User agent" defined by the user. Default is NULL which
 #' @param cache a logical whether to do caching. Defaults is `TRUE`.
 #' @param cache_dir a path to cache directory. `Null` (default) uses and creates
@@ -49,7 +52,8 @@
 #'    will then use the package identifier "rOpenGov/sotkanet"
 #' @param frictionless a logical whether to return a datapackage, with metadata inside,
 #' instead of a data.frame.
-#' @return data.frame
+#' @return Returns a data.frame when frictionless is `FALSE` and a datapackage
+#' when frictionless is `TRUE`.
 #' @references See citation("sotkanet")
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}, Pyry Kantanen
 #' @examples \dontrun{dat <- get_sotkanet(indicators = 165)}
@@ -58,6 +62,7 @@
 #' \url{https://yhteistyotilat.fi/wiki08/pages/viewpage.action?pageId=27557907}
 #'
 #' THL open data license website: \url{https://yhteistyotilat.fi/wiki08/x/AAadAg}
+#'
 #'
 #' @importFrom digest digest
 #'
@@ -68,6 +73,7 @@ get_sotkanet <- function(indicators = NULL,
                             genders = c("total"),
                             regions = NULL,
                             region.category = NULL,
+                            lang = "fi",
                             user.agent = NULL,
                             cache = TRUE,
                             cache_dir = NULL,
@@ -86,7 +92,8 @@ get_sotkanet <- function(indicators = NULL,
     genders = genders,
     regions = regions,
     region.category = region.category,
-    download_date = Sys.Date()
+    download_date = Sys.Date(),
+    language = lang
   )
 
   query_hash <- digest::digest(query, algo = "md5")
@@ -97,7 +104,13 @@ get_sotkanet <- function(indicators = NULL,
 
   if (!is.null(check_cache)){
 
-    if(frictionless){
+    if (dim(check_cache)[1] == 0){
+
+      warning("The data.frame is empty")
+
+    }
+
+    if (frictionless){
 
       write_frictionless_metadata(indicators, check_cache)
 
@@ -109,9 +122,9 @@ get_sotkanet <- function(indicators = NULL,
   }
 
   # List all indicators in Sotkanet database
-  sotkanet_indicators <- SotkanetIndicators(id = indicators,
-                                            type = "table")
-  sotkanet_regions <- SotkanetRegions(type = "table")
+  sotkanet_indicators <- sotkanet_indicators(id = indicators,
+                                            type = "table", lang = lang)
+  sotkanet_regions <- sotkanet_regions(type = "table", lang = lang)
 
   dats <- list()
 
@@ -148,16 +161,16 @@ get_sotkanet <- function(indicators = NULL,
   combined_data <- do.call("rbind", dats)
 
   # Add region and indicator information
-  combined_data$indicator.title.fi <- sotkanet_indicators[match(combined_data$indicator,
-                                                                sotkanet_indicators$indicator), "indicator.title.fi"]
-  combined_data$region.title.fi <- sotkanet_regions[match(combined_data$region,
-                                                          sotkanet_regions$region), "region.title.fi"]
+  combined_data$indicator.title <- sotkanet_indicators[match(combined_data$indicator,
+                                                                sotkanet_indicators$indicator), "indicator.title"]
+  combined_data$region.title <- sotkanet_regions[match(combined_data$region,
+                                                          sotkanet_regions$region), "region.title"]
   combined_data$region.code <- sotkanet_regions[match(combined_data$region,
                                                       sotkanet_regions$region), "region.code"]
   combined_data$region.category <- sotkanet_regions[match(combined_data$region,
                                                           sotkanet_regions$region), "region.category"]
-  combined_data$indicator.organization.title.fi <- sotkanet_indicators[match(combined_data$indicator,
-                                                                             sotkanet_indicators$indicator), "indicator.organization.title.fi"]
+  combined_data$indicator.organization.title <- sotkanet_indicators[match(combined_data$indicator,
+                                                                             sotkanet_indicators$indicator), "indicator.organization.title"]
 
   if (!is.null(regions)){
     if (regions %in% unique(combined_data$region.title.fi)){
@@ -184,6 +197,12 @@ get_sotkanet <- function(indicators = NULL,
   sotkanet_write_cache(cache, cache_dir, query_hash, combined_data)
 
   #Return the data in asked format
+
+  if (dim(combined_data)[1] == 0){
+
+    warning("The data.frame is empty")
+
+  }
 
   if (frictionless){
 
