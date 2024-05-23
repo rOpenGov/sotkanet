@@ -173,8 +173,8 @@ get_sotkanet <- function(indicators = NULL,
                                                                              sotkanet_indicators$indicator), "indicator.organization.title"]
 
   if (!is.null(regions)){
-    if (regions %in% unique(combined_data$region.title.fi)){
-      combined_data <- combined_data[which(combined_data$region.title.fi == regions),]
+    if (regions %in% unique(combined_data$region.title)){
+      combined_data <- combined_data[which(combined_data$region.title == regions),]
     } else {
       message(paste("Input for regions not found from dataset:", regions, "\n",
                     "Please check your parameter input for validity and correctness."))
