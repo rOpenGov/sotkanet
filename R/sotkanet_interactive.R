@@ -86,24 +86,22 @@ sotkanet_interactive <- function(code = NULL){
         c("male", "female", "total")
       )
 
-      region_selection <- readline(prompt = "Enter the regions (empty for default): ")
-
-      region.category_selection <- readline(prompt = "Enter the region.category (empty for default): ")
-
-      if (region_selection == ""){
-        region_selection <- NULL
-      }
-
-      if (region.category_selection == ""){
-        region.category_selection <- NULL
-      }
+      # region_selection <- readline(prompt = "Enter the regions (empty for default): ")
+      #
+      # region.category_selection <- readline(prompt = "Enter the region.category (empty for default): ")
+      #
+      # if (region_selection == ""){
+      #   region_selection <- NULL
+      # }
+      #
+      # if (region.category_selection == ""){
+      #   region.category_selection <- NULL
+      # }
 
 
       sotkanet_data <- get_sotkanet(indicators = search_id,
                                        years = years,
                                        genders = gender_selection,
-                                       regions = region_selection,
-                                       region.category = region.category_selection,
                                        lang = lang_selection)
 
 
@@ -153,10 +151,8 @@ sotkanet_interactive <- function(code = NULL){
       paste0("get_sotkanet(indicators = ", search_id,
              ", years = ", years[1], ":", years[length(years)],
              ", genders = ", paste0("c(", "'",
-                                    paste0(gender_selection, collapse = "', '"), "')")
-             , ", regions = ", ifelse(is.null(region_selection), "NULL", region_selection),
-             ", region.category = ",
-             ifelse(is.null(region.category_selection), "NULL", region.category_selection),
+                                    paste0(gender_selection, collapse = "', '"), "')"),
+             ", regions = NULL, region.category = NULL",
              ", lang = ", "'", lang_selection, "'", ")")
       ), file = tempfile_for_sink, append = TRUE)
     capture.output(cat("\n"), file = tempfile_for_sink, append = TRUE)
