@@ -26,18 +26,20 @@
 #' SotkanetCite(10013, lang = "en", format = "Bibtex")
 #' }
 #' @export
-SotkanetCite <- function(id,
+sotkanet_cite <- function(id,
                          lang = "fi",
                          format = "Biblatex"){
 
   format <- tolower(as.character(format))
 
-  if(!any(lang %in% c("en", "fi", "sv"))){
-    stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
+  info <- SotkanetIndicatorMetadata(id)
+
+  if(is.null(info)){
+    stop("The id does not match with any of the datasets")
   }
 
-  if(!any(id %in% SotkanetIndicators()$indicator)){
-    stop("The id does not match with any of the datasets.")
+  if(!any(lang %in% c("en", "fi", "sv"))){
+    stop("The supported languages are English (en), Finnish (fi) and Swedish (sv).")
   }
 
   if(!format %in% c("bibentry", "bibtex", "biblatex")){
@@ -45,7 +47,7 @@ SotkanetCite <- function(id,
     format <- "biblatex"
   }
 
-  info <- SotkanetIndicatorMetadata(id)
+
 
   urldate <- as.character(Sys.Date())
 
@@ -62,8 +64,8 @@ SotkanetCite <- function(id,
     author = utils::person(given = ""),
     urldate = urldate,
     type = "Dataset",
-    note = paste("Accessed", as.Date(urldate),
-            "dataset last updated", as.Date(last_update_date))
+    note = paste0("Accessed ", as.Date(urldate),
+            ", dataset last updated ", as.Date(last_update_date))
     )
 
   if(format == "bibtex"){
