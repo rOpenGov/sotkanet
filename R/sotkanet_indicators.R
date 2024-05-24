@@ -9,6 +9,8 @@
 #' @param lang Language of the output.
 #' @param user.agent "User agent" defined by the user. Default is NULL which
 #'    will then use the package identifier "rOpenGov/sotkanet"
+#' @param cache a logical whether to do caching.
+#' @param cache_dir a path to the cache dir.
 #' @return data.frame (type = "table) or a list (type = "raw")
 #'
 #' @references See citation("sotkanet")
@@ -19,14 +21,25 @@
 #' sotkanet.indicators <- sotkanet_indicators(type = "table", lang = "fi")
 #' }
 #' @importFrom httr parse_url build_url
+#' @importFrom digest digest
 #' @keywords utilities
 #' @export
-sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.agent = NULL)
+sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.agent = NULL,
+                                cache = TRUE, cache_dir = NULL)
 {
 
   if (!(type %in% c("table", "raw"))){
     message("Please use valid type input: 'table' or 'raw'")
     return(invisible(NULL))
+  }
+
+  indicator_query <- list(id = id, type = type, lang = lang)
+  indicator_hash <- digest::digest(indicator_query, algo = "md5")
+
+  indicator_cache <- sotkanet_read_cache(cache = cache, cache_dir = cache_dir, indicator_hash)
+
+  if (!is.null(indicator_cache)){
+    return(indicator_cache)
   }
 
   # Gather URL parts
@@ -36,7 +49,7 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
   if (!is.null(id)){
 
     if (length(id) > 1){
-      res <- lapply(id, FUN=sotkanet_indicators, type = type, user.agent = user.agent)
+      res <- lapply(id, FUN=sotkanet_indicators, type = type, lang = lang, user.agent = user.agent)
       res <- res[!is.na(res)]
       if (type == "table"){
         res <- do.call(rbind.data.frame, res)
@@ -56,6 +69,8 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
                                  flatten = TRUE,
                                  user.agent = user.agent)
 
+      sotkanet_write_cache(cache = cache, cache_dir = cache_dir, indicator_hash, res)
+
       return(res)
 
     } else if (type == "table"){
@@ -72,6 +87,8 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
       # res <- res[which(res$id == id),]
 
       res <- sotkanet_collect(res, "indicator", lang = lang)
+
+      sotkanet_write_cache(cache = cache, cache_dir = cache_dir, indicator_hash, res)
 
       return(res)
     }
@@ -90,6 +107,8 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
   if (type == "table") {
     res <- sotkanet_collect(res, "indicator", lang = lang)
   }
+
+  sotkanet_write_cache(cache = cache, cache_dir = cache_dir, indicator_hash, res)
 
   res
 }

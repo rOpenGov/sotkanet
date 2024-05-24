@@ -4,7 +4,13 @@
 \alias{sotkanet_regions}
 \title{Sotkanet Regions}
 \usage{
-sotkanet_regions(type = "table", lang = "fi", user.agent = NULL)
+sotkanet_regions(
+  type = "table",
+  lang = "fi",
+  user.agent = NULL,
+  cache = TRUE,
+  cache_dir = NULL
+)
 }
 \arguments{
 \item{type}{type output format, either 'table' (default) or 'raw'.
@@ -16,6 +22,10 @@ be useful for exploratory purposes.}
 
 \item{user.agent}{"User agent" defined by the user. Default is NULL which
 will then use the package identifier "rOpenGov/sotkanet"}
+
+\item{cache}{a logical whether to do caching.}
+
+\item{cache_dir}{a path to the cache directory.}
 }
 \value{
 data.frame

@@ -4,7 +4,14 @@
 \alias{sotkanet_indicators}
 \title{Sotkanet Indicators}
 \usage{
-sotkanet_indicators(id = NULL, type = "table", lang = "fi", user.agent = NULL)
+sotkanet_indicators(
+  id = NULL,
+  type = "table",
+  lang = "fi",
+  user.agent = NULL,
+  cache = TRUE,
+  cache_dir = NULL
+)
 }
 \arguments{
 \item{id}{Dataset identifier. Default is NULL returning all}
@@ -18,6 +25,10 @@ be useful for exploratory purposes.}
 
 \item{user.agent}{"User agent" defined by the user. Default is NULL which
 will then use the package identifier "rOpenGov/sotkanet"}
+
+\item{cache}{a logical whether to do caching.}
+
+\item{cache_dir}{a path to the cache dir.}
 }
 \value{
 data.frame (type = "table) or a list (type = "raw")
