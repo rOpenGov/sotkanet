@@ -45,7 +45,7 @@ write_frictionless_metadata <- function(indicators, data){
     )
 
     temp_list <- list()
-    temp_list[[paste0("id-", meta$id)]] <- meta_list
+    temp_list[[paste0("sotkanet-", meta$id)]] <- meta_list
 
     combined_data_package <- append(combined_data_package, temp_list)
 
