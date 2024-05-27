@@ -21,7 +21,9 @@
 #' @param indicators Dataset identifier(s)
 #' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
 #' value is `NULL`, which gives the data from all the available years.
-#' @param genders vector of genders ('male' | 'female' | 'total')
+#' @param genders vector of genders ('male' | 'female' | 'total'). Some datasets do not
+#' work with the gender value 'total' and return an empty data.frame. In these situations
+#' it is advised to check out the [eurostat] package instead.
 #' @param regions filter by selected regions only (default: all regions). The
 #' region filter has to be given in Swedish, when using Swedish as the language parameter.
 #' @param region.category filter by one or more of the following 14 valid
