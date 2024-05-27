@@ -22,7 +22,7 @@ write_frictionless_metadata <- function(indicators, data){
 
   for (i in 1:length(indicators)){
 
-    meta <- SotkanetIndicatorMetadata(indicators[i])
+    meta <- sotkanet_indicator_metadata(indicators[i])
 
     sources <- list(meta$organization[2],
                     path = paste0("https://sotkanet.fi/sotkanet/en/metadata/indicators/", meta$id))

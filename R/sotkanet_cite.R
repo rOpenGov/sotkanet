@@ -32,7 +32,7 @@ sotkanet_cite <- function(id,
 
   format <- tolower(as.character(format))
 
-  info <- SotkanetIndicatorMetadata(id)
+  info <- sotkanet_indicator_metadata(id)
 
   if(is.null(info)){
     stop("The id does not match with any of the datasets")

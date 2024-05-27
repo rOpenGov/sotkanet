@@ -24,7 +24,7 @@ sotkanet_interactive <- function(code = NULL){
 
   if(is.null(code)) {
     search_id <- readline(prompt = "Enter search id for the data: ")
-    results <- SotkanetIndicatorMetadata(search_id)
+    results <- sotkanet_indicator_metadata(search_id)
 
 
     if (!is.null(results)){

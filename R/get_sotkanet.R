@@ -105,7 +105,7 @@ get_sotkanet <- function(indicators = NULL,
 
     for (i in indicators){
 
-      ym <- SotkanetIndicatorMetadata(i)
+      ym <- sotkanet_indicator_metadata(i)
 
       years[[j]] <- ym$range[[1]]:ym$range[[2]]
 
