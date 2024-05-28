@@ -31,10 +31,12 @@ sotkanet.csv_query <- function(url, user.agent = NULL, ...){
 
   }
 
-  csv_file <- httr2::request(url) %>% httr2::req_user_agent(useragent) %>%
-    httr2::req_perform() %>% httr2::resp_body_string(encoding = "UTF-8")
+  csv_file <- httr2::request(url) %>%
+    httr2::req_user_agent(useragent) %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_string(encoding = "UTF-8")
 
-  tab <- read.csv2(text = csv_file,
+  tab <- utils::read.csv2(text = csv_file,
                    header = TRUE,
                    sep = ";",
                    dec = ".",

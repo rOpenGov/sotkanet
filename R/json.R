@@ -31,8 +31,10 @@ sotkanet.json_query <- function(url, user.agent = NULL, flatten = TRUE, ...){
 
   }
 
-  response <- httr2::request(url) %>% httr2::req_user_agent(useragent) %>%
-    httr2::req_perform() %>% httr2::resp_body_json(simplifyVector = TRUE)
+  response <- httr2::request(url) %>% 
+    httr2::req_user_agent(useragent) %>%
+    httr2::req_perform() %>% 
+    httr2::resp_body_json(simplifyVector = TRUE)
 
   response
 
