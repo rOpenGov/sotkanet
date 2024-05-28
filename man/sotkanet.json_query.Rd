@@ -9,12 +9,12 @@ sotkanet.json_query(url, user.agent = NULL, flatten = TRUE, ...)
 \arguments{
 \item{url}{Sotkanet JSON url}
 
-\item{user.agent}{"User agent" defined by the user. Default is 
+\item{user.agent}{"User agent" defined by the user. Default is
 "rOpenGov/sotkanet"}
 
 \item{flatten}{parameter to be passed to jsonlite::fromJSON. Default is TRUE}
 
-\item{...}{additional parameters to be passed to test_connection, mainly 
+\item{...}{additional parameters to be passed to test_connection, mainly
 timeout (in seconds, default is 10)}
 }
 \value{

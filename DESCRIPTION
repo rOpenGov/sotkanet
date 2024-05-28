@@ -37,13 +37,13 @@ URL: https://ropengov.github.io/sotkanet/
 BugReports: https://github.com/ropengov/sotkanet/issues
 Depends: R (>= 3.2)
 Imports:
-    httr,
     curl,
-    jsonlite,
     lubridate,
     RefManageR,
     digest,
-    frictionless
+    frictionless,
+    httr2,
+    magrittr
 Suggests: 
     devtools,
     ggplot2,
@@ -51,7 +51,6 @@ Suggests:
     testthat (>= 3.0.0),
     roxygen2,
     markdown,
-    magrittr,
     kableExtra,
     rmarkdown,
     covr,

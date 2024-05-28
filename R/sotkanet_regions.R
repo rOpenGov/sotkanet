@@ -37,11 +37,11 @@ sotkanet_regions <- function(type = "table", lang = "fi",  user.agent = NULL,
   sotkanet_uri <- "/1.1/regions"
 
   # Construct URL
-  url_object <- httr::parse_url(sotkanet_url)
+  url_object <- httr2::url_parse(sotkanet_url)
   path <- paste(url_object$path, sotkanet_uri, sep = "")
   url_object$path <- path
 
-  final_url <- httr::build_url(url_object)
+  final_url <- httr2::url_build(url_object)
 
   res <- sotkanet.json_query(final_url, flatten = TRUE)
 
