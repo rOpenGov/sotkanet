@@ -7,7 +7,7 @@
 get_sotkanet(
   indicators = NULL,
   years = NULL,
-  genders = c("total"),
+  genders = c("male", "female", "total"),
   regions = NULL,
   region.category = NULL,
   lang = "fi",
@@ -24,11 +24,11 @@ get_sotkanet(
 value is `NULL`, which gives the data from all the available years.}
 
 \item{genders}{vector of genders ('male' | 'female' | 'total'). Some datasets do not
-work with the gender value 'total' and return an empty data.frame. In these situations
+work with only the gender value 'total' and return an empty data.frame. In these situations
 it is advised to check out the [eurostat] package instead.}
 
 \item{regions}{filter by selected regions only (default: all regions). The
-region filter has to be given in Swedish, when using Swedish as the language parameter.}
+region filter has to be given in the language used for the language variable.}
 
 \item{region.category}{filter by one or more of the following 14 valid
 regions categories (default: all categories)

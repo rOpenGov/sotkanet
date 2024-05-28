@@ -22,10 +22,10 @@
 #' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
 #' value is `NULL`, which gives the data from all the available years.
 #' @param genders vector of genders ('male' | 'female' | 'total'). Some datasets do not
-#' work with the gender value 'total' and return an empty data.frame. In these situations
+#' work with only the gender value 'total' and return an empty data.frame. In these situations
 #' it is advised to check out the [eurostat] package instead.
 #' @param regions filter by selected regions only (default: all regions). The
-#' region filter has to be given in Swedish, when using Swedish as the language parameter.
+#' region filter has to be given in the language used for the language variable.
 #' @param region.category filter by one or more of the following 14 valid
 #' regions categories (default: all categories)
 #'    \itemize{
@@ -81,7 +81,7 @@
 #' @export
 get_sotkanet <- function(indicators = NULL,
                             years = NULL,
-                            genders = c("total"),
+                            genders = c("male", "female","total"),
                             regions = NULL,
                             region.category = NULL,
                             lang = "fi",
