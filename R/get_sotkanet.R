@@ -76,6 +76,7 @@
 #'
 #'
 #' @importFrom digest digest
+#' @importFrom httr2 url_parse url_build
 #'
 #' @keywords utilities
 #' @export
