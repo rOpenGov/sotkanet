@@ -72,8 +72,8 @@ List available indicators in the Sotkanet data portal:
 
 ``` r
 # Pre-defined list of indicators to save bandwidth
-sotkanet.indicators <- SotkanetIndicators(c(4,5,6,7,46,74))
-head(sotkanet.indicators$indicator.title.fi)
+sotkanet.indicators <- sotkanet_indicators(c(4,5,6,7,46,74))
+head(sotkanet.indicators$indicator.title)
 #> [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavan ikäistä"             
 #> [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä"                              
 #> [3] "Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavan ikäistä"
@@ -89,24 +89,24 @@ describing private dental care use among 0-17 years old in 2015-2022.
 library(ggplot2)
 library(ggrepel)
 
-hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2022, genders = "total", region.category = "MAAKUNTA")
+hammashoito <- get_sotkanet(indicators = 1075, years = 2015:2022, genders = "total", region.category = "MAAKUNTA")
 
 # Indicator title tells what this indicator is about
-unique(hammashoito$indicator.title.fi)
+unique(hammashoito$indicator.title)
 #> [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavan ikäistä"
 ```
 
 ``` r
 
 # Some data has to be retrieved separately
-hammashoito_metadata <- SotkanetIndicatorMetadata(id = 1075)
+hammashoito_metadata <- sotkanet_indicator_metadata(id = 1075)
 
-plot_caption <- paste0("Lähde: https://sotkanet.fi / ", hammashoito_metadata$organization$title$fi, "\n",
+plot_caption <- paste0("Lähde: https://sotkanet.fi / ", hammashoito_metadata$organization$title, "\n",
                        "Datan päiväys ", hammashoito_metadata$`data-updated`)
 
-plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title.fi))+
-  geom_line(aes(color=region.title.fi)) +
-  geom_point(aes(color=region.title.fi))
+plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title))+
+  geom_line(aes(color=region.title)) +
+  geom_point(aes(color=region.title))
 
 plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
             subtitle = "0 - 17-vuotiailla / 1 000 vastaavanikäistä",
@@ -115,7 +115,7 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
             caption = plot_caption,
             color = "Maakunta") +
   geom_text_repel(
-    aes(color = region.title.fi, label = ifelse(year == 2022, region.title.fi, NA_character_)),
+    aes(color = region.title, label = ifelse(year == 2022, region.title, NA_character_)),
     xlim = c(2023, 2025),
     direction = "both",
     hjust = 0,
@@ -132,10 +132,6 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
     expand = c(0, 0),
     limits = c(2015, 2025), 
     breaks = seq(2015, 2022))
-#> Warning: Removed 133 rows containing missing values or values outside the scale range
-#> (`geom_text_repel()`).
-#> Warning: ggrepel: 1 unlabeled data points (too many overlaps). Consider
-#> increasing max.overlaps
 ```
 
 <img src="man/figures/README-sotkanet_example-1.png" width="90%" />

@@ -61,7 +61,7 @@ install.packages("sotkanet")
 
 Load the package in R:
 
-```{r example_load, eval=TRUE, message=FALSE}
+```{r example_load, eval=TRUE, message=FALSE, warning = FALSE}
 library(sotkanet)
 ```
 
@@ -69,30 +69,30 @@ List available indicators in the Sotkanet data portal:
 
 ```{r sotkanetIndicators, warning=FALSE, message=FALSE, eval=TRUE}
 # Pre-defined list of indicators to save bandwidth
-sotkanet.indicators <- SotkanetIndicators(c(4,5,6,7,46,74))
-head(sotkanet.indicators$indicator.title.fi)
+sotkanet.indicators <- sotkanet_indicators(c(4,5,6,7,46,74))
+head(sotkanet.indicators$indicator.title)
 ```
 
 Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2022.
 
-```{r sotkanet_example, eval=TRUE}
+```{r sotkanet_example, eval=TRUE, warning = FALSE}
 library(ggplot2)
 library(ggrepel)
 
-hammashoito <- GetDataSotkanet(indicators = 1075, years = 2015:2022, genders = "total", region.category = "MAAKUNTA")
+hammashoito <- get_sotkanet(indicators = 1075, years = 2015:2022, genders = "total", region.category = "MAAKUNTA")
 
 # Indicator title tells what this indicator is about
-unique(hammashoito$indicator.title.fi)
+unique(hammashoito$indicator.title)
 
 # Some data has to be retrieved separately
-hammashoito_metadata <- SotkanetIndicatorMetadata(id = 1075)
+hammashoito_metadata <- sotkanet_indicator_metadata(id = 1075)
 
-plot_caption <- paste0("Lähde: https://sotkanet.fi / ", hammashoito_metadata$organization$title$fi, "\n",
+plot_caption <- paste0("Lähde: https://sotkanet.fi / ", hammashoito_metadata$organization$title, "\n",
                        "Datan päiväys ", hammashoito_metadata$`data-updated`)
 
-plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title.fi))+
-  geom_line(aes(color=region.title.fi)) +
-  geom_point(aes(color=region.title.fi))
+plot <- ggplot(hammashoito, aes(x=year, y=primary.value, group=region.title))+
+  geom_line(aes(color=region.title)) +
+  geom_point(aes(color=region.title))
 
 plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
             subtitle = "0 - 17-vuotiailla / 1 000 vastaavanikäistä",
@@ -101,7 +101,7 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
             caption = plot_caption,
             color = "Maakunta") +
   geom_text_repel(
-    aes(color = region.title.fi, label = ifelse(year == 2022, region.title.fi, NA_character_)),
+    aes(color = region.title, label = ifelse(year == 2022, region.title, NA_character_)),
     xlim = c(2023, 2025),
     direction = "both",
     hjust = 0,
@@ -131,7 +131,7 @@ For more in-depth examples, see the package vignette or online [tutorial page](h
 
 ### Acknowledgements
 
-**Kindly cite this work** as follows: [Leo Lahti](https://github.com/antagomir), Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov 2022). sotkanet: Sotkanet Open Data Access and Analysis. R package version 0.9.77. URL: https://github.com/rOpenGov/sotkanet
+**Kindly cite this work** as follows: [Leo Lahti](https://github.com/antagomir), Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov 2024). sotkanet: Sotkanet Open Data Access and Analysis. R package version 0.9.77. URL: https://github.com/rOpenGov/sotkanet
 
 We are grateful to all [contributors](https://github.com/ropengov/sotkanet/graphs/contributors), and for the [Sotkanet](https://sotkanet.fi/sotkanet/en/index?) Statistics and Indicator Bank! This project is part of [rOpenGov](http://ropengov.org).
 
