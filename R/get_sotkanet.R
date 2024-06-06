@@ -20,7 +20,8 @@
 #'
 #' @param indicators Dataset identifier(s)
 #' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
-#' value is `NULL`, which gives the data from all the available years.
+#' value is `NULL`, which gives the data from all the available years. You can give indicators
+#' their own year range by giving the years in a list. See examples for demonstration.
 #' @param genders vector of genders ('male' | 'female' | 'total'). Some datasets do not
 #' work with only the gender value 'total' and return an empty data.frame. In these situations
 #' it is advised to check out the [eurostat] package instead.
@@ -67,6 +68,8 @@
 #' dat <- get_sotkanet(indicators = 10012, region.category = c("POHJOISMAAT"))
 #' dat <- get_sotkanet(indicators = 6, lang = "en")
 #' dat <- get_sotkanet(indicators = 10027, frictionless = TRUE)
+#' dat <- get_sotkanet(indicators = c(4,5,6), years = list("4" = 2000:2010,
+#'                                                         "5" = 2010:2015, "6" = 2015:2020))
 #' }
 #' @seealso
 #' For more information about dataset structure, see THL webpage at
@@ -102,15 +105,12 @@ get_sotkanet <- function(indicators = NULL,
 
     years <-list()
 
-    j <- 1
+    for (i in 1:length(indicators)){
 
-    for (i in indicators){
+      ym <- sotkanet_indicator_metadata(indicators[i])
 
-      ym <- sotkanet_indicator_metadata(i)
+      years[[as.character(ym$id)]] <- ym$range[[1]]:ym$range[[2]]
 
-      years[[j]] <- ym$range[[1]]:ym$range[[2]]
-
-      j <- j + 1
     }
 
   }
@@ -162,15 +162,11 @@ get_sotkanet <- function(indicators = NULL,
 
   dats <- list()
 
-  j <- 1
-
   for (indicator in indicators) {
 
     if (is.list(years)){
 
-      years2 <- years[[j]]
-
-      j <- j + 1
+      years2 <- years[[as.character(indicator)]]
 
     } else {
 

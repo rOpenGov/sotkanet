@@ -21,7 +21,8 @@ get_sotkanet(
 \item{indicators}{Dataset identifier(s)}
 
 \item{years}{vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
-value is `NULL`, which gives the data from all the available years.}
+value is `NULL`, which gives the data from all the available years. You can give indicators
+their own year range by giving the years in a list. See examples for demonstration.}
 
 \item{genders}{vector of genders ('male' | 'female' | 'total'). Some datasets do not
 work with only the gender value 'total' and return an empty data.frame. In these situations
@@ -98,6 +99,8 @@ dat <- get_sotkanet(indicators = 10012, regions = c("Suomi", "Ruotsi"))
 dat <- get_sotkanet(indicators = 10012, region.category = c("POHJOISMAAT"))
 dat <- get_sotkanet(indicators = 6, lang = "en")
 dat <- get_sotkanet(indicators = 10027, frictionless = TRUE)
+dat <- get_sotkanet(indicators = c(4,5,6), years = list("4" = 2000:2010,
+                                                        "5" = 2010:2015, "6" = 2015:2020))
 }
 }
 \references{
