@@ -4,7 +4,7 @@ output:
   rmarkdown::html_vignette:
     toc: TRUE
 vignette: >
-  %\VignetteIndexEntry{tutorial_fi}
+  %\VignetteIndexEntry{Sotkanetin avoimen rajapinnan R työkalut}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -139,7 +139,7 @@ print(p)
 Toisessa esimerkissä tarkastellaan Suomen kuntien väkiluvun yhteyttä kunnan koulutustasomittarin arvoon.
 
 ```{r, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
-# Datan hakemin indikaattoreille
+# Datan hakeminen indikaattoreille
 dat <- get_sotkanet(indicators = c(127, 180), 
                     years = 2022, genders = c("total"), region.category = c("KUNTA"))
 # Valitaan mielenkiinnon kohteena olevat sarakkeet ja poistetaan päällekkäisyydet
