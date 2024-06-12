@@ -108,6 +108,11 @@ get_sotkanet <- function(indicators = NULL,
     for (i in 1:length(indicators)){
 
       ym <- sotkanet_indicator_metadata(indicators[i])
+      
+      if (is.null(ym)){
+        message(paste(" There was a problem retrieving indicator from", indicators[i]," "))
+        return(invisible(NULL))
+      }
 
       years[[as.character(ym$id)]] <- ym$range[[1]]:ym$range[[2]]
 

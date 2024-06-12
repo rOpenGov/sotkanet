@@ -12,7 +12,7 @@
 #'
 #' @author Pyry Kantanen (maintainer), Kostas Vasilopoulos
 #'
-#' @importFrom httr2 request req_timeout req_perform
+#' @importFrom httr2 request req_timeout req_perform resp_is_error resp_status resp_status_desc
 #' @importFrom curl has_internet
 #'
 #' @keywords internal
@@ -29,14 +29,15 @@ test_connection <- function(url = NULL, timeout = 10) {
   }
 
 
-  resp <- tryCatch(
-    httr2::request(url) %>% httr2::req_timeout(timeout) %>% httr2::req_perform(),
-    error = function(e) errorCondition(e),
-    warning = function(w) warningCondition(w)
-  )
+  resp <- httr2::request(url) %>%
+      httr2::req_timeout(timeout) %>%
+      httr2::req_error(is_error = function(resp) FALSE) %>%
+      httr2::req_perform()
+  
 
-  if ("error" %in% class(resp)) {
-    message(resp)
+  if (httr2::resp_is_error(resp)) {
+    message(
+      paste0("HTTP ", httr2::resp_status(resp), " ", httr2::resp_status_desc(resp)))
     return(invisible(NULL))
   }
 
