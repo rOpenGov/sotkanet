@@ -1,4 +1,6 @@
 test_that("sotkanet_cite gives correct results", {
+  
+  testthat::skip_on_cran()
 
   expect_equal(
     class(
