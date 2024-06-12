@@ -11,13 +11,19 @@ vignette: >
 
 ```{r, include = FALSE}
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+eval_packages <- requireNamespace(c("kableExtra", "ggplot2"))
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   purl = NOT_CRAN,
-  eval = NOT_CRAN
+  eval = NOT_CRAN && eval_packages
 )
 ```
+
+```{r eval = !eval_packages, echo = FALSE}
+message("Paketit `kableExtra` ja `ggplot2` tarvitaan vignetten rakentamista varten. Koodiosuuksia ei suoriteta.")
+```
+
 
 [Sotkanet](https://github.com/rOpenGov/sotkanet) R-paketti mahdollistaa pääsyn [Sotkanetin avoimen rajapinnan](https://sotkanet.fi/sotkanet/en/index) dataan. [Osallistuminen paketin kehittämiseen](https://ropengov.org/community/) ja [vikailmoitusten tekeminen sekä muu palaute on tervetullutta](https://github.com/rOpenGov/sotkanet).
 

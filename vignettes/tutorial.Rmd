@@ -11,13 +11,20 @@ vignette: >
 
 ```{r, include = FALSE}
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+eval_packages <- requireNamespace(c("kableExtra", "ggplot2"))
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   purl = NOT_CRAN,
-  eval = NOT_CRAN
+  eval = NOT_CRAN && eval_packages
 )
 ```
+
+
+```{r eval = !eval_packages, echo = FALSE}
+message("Packages `kableExtra` and `ggplot2` required for building the vignette. Code chunks will not be evaluated.")
+```
+
 
 This [sotkanet](https://github.com/rOpenGov/sotkanet) R package provides access to data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index). Your [contributions](https://ropengov.org/community/) and [bug reports and other feedback](https://github.com/rOpenGov/sotkanet) are welcome.
 
