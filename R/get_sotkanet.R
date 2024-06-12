@@ -24,7 +24,7 @@
 #' their own year range by giving the years in a list. See examples for demonstration.
 #' @param genders vector of genders ('male' | 'female' | 'total'). Some datasets do not
 #' work with only the gender value 'total' and return an empty data.frame. In these situations
-#' it is advised to check out the [eurostat] package instead.
+#' it is advised to check out some other alternative.
 #' @param regions filter by selected regions only (default: all regions). The
 #' region filter has to be given in the language used for the language variable.
 #' @param region.category filter by one or more of the following 14 valid

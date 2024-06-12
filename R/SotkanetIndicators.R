@@ -52,7 +52,7 @@ SotkanetIndicators <- function(id = NULL, type = "table", user.agent = NULL)
       final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       return(res)
@@ -65,7 +65,7 @@ SotkanetIndicators <- function(id = NULL, type = "table", user.agent = NULL)
       final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       # res <- res[which(res$id == id),]
@@ -83,7 +83,7 @@ SotkanetIndicators <- function(id = NULL, type = "table", user.agent = NULL)
   final_url <- httr2::url_build(url_object)
 
   res <- sotkanet.json_query(final_url,
-                             flatten = TRUE,
+                             simplifyVector = TRUE,
                              user.agent = user.agent)
 
   if (type == "table") {

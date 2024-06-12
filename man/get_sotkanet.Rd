@@ -26,7 +26,7 @@ their own year range by giving the years in a list. See examples for demonstrati
 
 \item{genders}{vector of genders ('male' | 'female' | 'total'). Some datasets do not
 work with only the gender value 'total' and return an empty data.frame. In these situations
-it is advised to check out the [eurostat] package instead.}
+it is advised to check out some other alternative.}
 
 \item{regions}{filter by selected regions only (default: all regions). The
 region filter has to be given in the language used for the language variable.}

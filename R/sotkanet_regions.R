@@ -43,7 +43,7 @@ sotkanet_regions <- function(type = "table", lang = "fi",  user.agent = NULL,
 
   final_url <- httr2::url_build(url_object)
 
-  res <- sotkanet.json_query(final_url, flatten = TRUE)
+  res <- sotkanet.json_query(final_url, simplifyVector = TRUE)
 
   if (type == "table") {
     res <- sotkanet_collect(res, "region", lang = lang)

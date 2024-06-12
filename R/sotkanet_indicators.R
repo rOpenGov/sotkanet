@@ -66,7 +66,7 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
       final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       sotkanet_write_cache(cache = cache, cache_dir = cache_dir, indicator_hash, res)
@@ -81,7 +81,7 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
       final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       # res <- res[which(res$id == id),]
@@ -101,7 +101,7 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
   final_url <- httr2::url_build(url_object)
 
   res <- sotkanet.json_query(final_url,
-                             flatten = TRUE,
+                             simplifyVector = TRUE,
                              user.agent = user.agent)
 
   if (type == "table") {
