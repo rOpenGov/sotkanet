@@ -1,7 +1,21 @@
-# sotkanet 0.9.80.9000 (2024-05-16)
+# sotkanet 0.9.80.9003 (2024-05-30)
 
 ### NEW FEATURES
-* New function: `SotkanetCite()` for citing datasets.
+* New functions: `sotkanet_cite()` for citing datasets and `sotkanet_interactive()` for interactively downloading datasets.
+* New dependency / import: move from using `httr` package to `httr2` package.
+* Added new versions for functions `GetDataSotkanet`, `SotkanetRegions`, `SotkanetIndicators` and `SotkanetIndicatorMetadata`. The new version are called `get_sotkanet`, `sotkanet_regions`, `sotkanet_indicators` and `sotkanet_indicator_metadata`. The old versions of the functions are retained.
+* Functions `get_sotkanet`, `sotkanet_regions`, `sotkanet_indicators` and `sotkanet_indicator_metadata` have support for caching. They also now support English and Swedish in addition to Finnish.
+
+### DEPRECATED AND DEFUNCT
+* Remove dependencies / imports: `httr` and `jsonlite`
+* Removed function `try_GET`
+
+### MINOR IMPROVEMENTS
+* Updated vignette and README to use new versions of the functions. Old vignette is retained.
+* Added Finnish version of the vignette.
+* Moved from using `PascalCase` naming convention to using `snake_case` for new functions. 
+* Function `get_sotkanet()` has default `years` value of `NULL` that gives the data from all the available years for the dataset. The default value for `genders` is now `c("male", "female", "total")`.
+* `get_sotkanet` can return a frictionless datapackage with metadata added in. 
 
 # sotkanet 0.9.79 (2022-02-01)
 

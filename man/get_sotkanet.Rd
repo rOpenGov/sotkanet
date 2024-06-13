@@ -6,8 +6,8 @@
 \usage{
 get_sotkanet(
   indicators = NULL,
-  years = 1991:2015,
-  genders = c("total"),
+  years = NULL,
+  genders = c("male", "female", "total"),
   regions = NULL,
   region.category = NULL,
   lang = "fi",
@@ -20,11 +20,16 @@ get_sotkanet(
 \arguments{
 \item{indicators}{Dataset identifier(s)}
 
-\item{years}{vector of years, for example `2015:2018` or `c(2010, 2012, ...)`}
+\item{years}{vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
+value is `NULL`, which gives the data from all the available years. You can give indicators
+their own year range by giving the years in a list. See examples for demonstration.}
 
-\item{genders}{vector of genders ('male' | 'female' | 'total')}
+\item{genders}{vector of genders ('male' | 'female' | 'total'). Some datasets do not
+work with only the gender value 'total' and return an empty data.frame. In these situations
+it is advised to check out some other alternative.}
 
-\item{regions}{filter by selected regions only (default: all regions)}
+\item{regions}{filter by selected regions only (default: all regions). The
+region filter has to be given in the language used for the language variable.}
 
 \item{region.category}{filter by one or more of the following 14 valid
 regions categories (default: all categories)
@@ -49,15 +54,15 @@ regions categories (default: all categories)
 and indicator.organization.title. Default is Finnish ("fi"), the other options being
 English ("en") and Swedish ("sv").}
 
-\item{user.agent}{"User agent" defined by the user. Default is NULL which}
+\item{user.agent}{"User agent" defined by the user. Default is NULL which
+will then use the package identifier "rOpenGov/sotkanet"}
 
 \item{cache}{a logical whether to do caching. Defaults is `TRUE`.}
 
 \item{cache_dir}{a path to cache directory. `Null` (default) uses and creates
 "sotkanet" directory in the temporary directory defined by base R [tempdir()]
 function. The user can set the cache directory to an existing directory with this
-argument.
-  will then use the package identifier "rOpenGov/sotkanet"}
+argument.}
 
 \item{frictionless}{a logical whether to return a datapackage, with metadata inside,
 instead of a data.frame.}
@@ -87,7 +92,16 @@ open data or use of open data published by National Institute for Health and
 Welfare.
 }
 \examples{
-\dontrun{dat <- get_sotkanet(indicators = 165)}
+\dontrun{
+dat <- get_sotkanet(indicators = 165)
+dat <- get_sotkanet(indicators = c(4,5), genders = c("male", "female"))
+dat <- get_sotkanet(indicators = 10012, regions = c("Suomi", "Ruotsi"))
+dat <- get_sotkanet(indicators = 10012, region.category = c("POHJOISMAAT"))
+dat <- get_sotkanet(indicators = 6, lang = "en")
+dat <- get_sotkanet(indicators = 10027, frictionless = TRUE)
+dat <- get_sotkanet(indicators = c(4,5,6), years = list("4" = 2000:2010,
+                                                        "5" = 2010:2015, "6" = 2015:2020))
+}
 }
 \references{
 See citation("sotkanet")

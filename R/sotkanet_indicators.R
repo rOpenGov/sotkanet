@@ -20,7 +20,7 @@
 #' \dontrun{
 #' sotkanet.indicators <- sotkanet_indicators(type = "table", lang = "fi")
 #' }
-#' @importFrom httr parse_url build_url
+#' @importFrom httr2 url_parse url_build
 #' @importFrom digest digest
 #' @keywords utilities
 #' @export
@@ -60,13 +60,13 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
     if (type == "raw"){
       sotkanet_uri <- paste(sotkanet_uri, id, sep = "/")
 
-      url_object <- httr::parse_url(sotkanet_url)
+      url_object <- httr2::url_parse(sotkanet_url)
       path <- paste(url_object$path, sotkanet_uri, sep = "")
       url_object$path <- path
-      final_url <- httr::build_url(url_object)
+      final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       sotkanet_write_cache(cache = cache, cache_dir = cache_dir, indicator_hash, res)
@@ -75,13 +75,13 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
 
     } else if (type == "table"){
       sotkanet_uri <- paste(sotkanet_uri, id, sep = "/")
-      url_object <- httr::parse_url(sotkanet_url)
+      url_object <- httr2::url_parse(sotkanet_url)
       path <- paste(url_object$path, sotkanet_uri, sep = "")
       url_object$path <- path
-      final_url <- httr::build_url(url_object)
+      final_url <- httr2::url_build(url_object)
 
       res <- sotkanet.json_query(final_url,
-                                 flatten = TRUE,
+                                 simplifyVector = TRUE,
                                  user.agent = user.agent)
 
       # res <- res[which(res$id == id),]
@@ -95,13 +95,13 @@ sotkanet_indicators <- function(id = NULL, type = "table", lang = "fi", user.age
   }
 
   # Construct URL
-  url_object <- httr::parse_url(sotkanet_url)
+  url_object <- httr2::url_parse(sotkanet_url)
   path <- paste(url_object$path, sotkanet_uri, sep = "")
   url_object$path <- path
-  final_url <- httr::build_url(url_object)
+  final_url <- httr2::url_build(url_object)
 
   res <- sotkanet.json_query(final_url,
-                             flatten = TRUE,
+                             simplifyVector = TRUE,
                              user.agent = user.agent)
 
   if (type == "table") {

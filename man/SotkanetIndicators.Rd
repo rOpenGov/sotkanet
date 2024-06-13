@@ -9,7 +9,7 @@ SotkanetIndicators(id = NULL, type = "table", user.agent = NULL)
 \arguments{
 \item{id}{Dataset identifier. Default is NULL returning all}
 
-\item{type}{type output format, either 'table' (default) or 'raw'. 
+\item{type}{type output format, either 'table' (default) or 'raw'.
 Default produces a truncated table with strictly defined columns that
 are useful in other functions. 'Raw' produces the full output which might
 be useful for exploratory purposes.}

@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.80.9002
-Date: 2024-05-23
+Version: 0.9.80.9003
+Date: 2024-05-30
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
@@ -37,13 +37,13 @@ URL: https://ropengov.github.io/sotkanet/
 BugReports: https://github.com/ropengov/sotkanet/issues
 Depends: R (>= 3.2)
 Imports:
-    httr,
     curl,
-    jsonlite,
     lubridate,
     RefManageR,
     digest,
-    frictionless
+    frictionless,
+    httr2,
+    magrittr
 Suggests: 
     devtools,
     ggplot2,
@@ -51,7 +51,6 @@ Suggests:
     testthat (>= 3.0.0),
     roxygen2,
     markdown,
-    magrittr,
     kableExtra,
     rmarkdown,
     covr,
@@ -59,7 +58,7 @@ Suggests:
 VignetteBuilder: knitr
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 7.3.1.9000
+RoxygenNote: 7.3.1
 X-schema.org-isPartOf: http://ropengov.org/
 X-schema.org-keywords: ropengov
 Config/testthat/edition: 3

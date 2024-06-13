@@ -1,7 +1,7 @@
 #' @noRd
 #' @title Sotkanet from list to data frame
 #' @description Convert sotkanet list to data frame.
-#' @param x input data (from SotkanetIndicators or SotkanetRegions etc.)
+#' @param x input data (from sotkanet_indicators or sotkanet_regions etc.)
 #' @param name name for the column ("indicator", "region", etc.)
 #' @param lang language of the variables
 #' @return sotkanet data table

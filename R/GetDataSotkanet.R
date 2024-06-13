@@ -84,11 +84,11 @@ GetDataSotkanet <- function(indicators = NULL,
     all_params <- as.list(all_params)
 
     # Construct URL
-    url_object <- httr::parse_url(sotkanet_url)
+    url_object <- httr2::url_parse(sotkanet_url)
     path <- paste(url_object$path, sotkanet_uri, sep = "")
     url_object$path <- path
     url_object$query <- all_params
-    final_url <- httr::build_url(url_object)
+    final_url <- httr2::url_build(url_object)
 
     y <- sotkanet.csv_query(final_url, user.agent = user.agent)
 

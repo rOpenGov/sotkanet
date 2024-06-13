@@ -19,9 +19,14 @@
 #' Welfare.
 #'
 #' @param indicators Dataset identifier(s)
-#' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`
-#' @param genders vector of genders ('male' | 'female' | 'total')
-#' @param regions filter by selected regions only (default: all regions)
+#' @param years vector of years, for example `2015:2018` or `c(2010, 2012, ...)`. Default
+#' value is `NULL`, which gives the data from all the available years. You can give indicators
+#' their own year range by giving the years in a list. See examples for demonstration.
+#' @param genders vector of genders ('male' | 'female' | 'total'). Some datasets do not
+#' work with only the gender value 'total' and return an empty data.frame. In these situations
+#' it is advised to check out some other alternative.
+#' @param regions filter by selected regions only (default: all regions). The
+#' region filter has to be given in the language used for the language variable.
 #' @param region.category filter by one or more of the following 14 valid
 #' regions categories (default: all categories)
 #'    \itemize{
@@ -44,19 +49,28 @@
 #' and indicator.organization.title. Default is Finnish ("fi"), the other options being
 #' English ("en") and Swedish ("sv").
 #' @param user.agent "User agent" defined by the user. Default is NULL which
+#' will then use the package identifier "rOpenGov/sotkanet"
 #' @param cache a logical whether to do caching. Defaults is `TRUE`.
 #' @param cache_dir a path to cache directory. `Null` (default) uses and creates
 #'  "sotkanet" directory in the temporary directory defined by base R [tempdir()]
 #'  function. The user can set the cache directory to an existing directory with this
 #'  argument.
-#'    will then use the package identifier "rOpenGov/sotkanet"
 #' @param frictionless a logical whether to return a datapackage, with metadata inside,
 #' instead of a data.frame.
 #' @return Returns a data.frame when frictionless is `FALSE` and a datapackage
 #' when frictionless is `TRUE`.
 #' @references See citation("sotkanet")
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}, Pyry Kantanen
-#' @examples \dontrun{dat <- get_sotkanet(indicators = 165)}
+#' @examples \dontrun{
+#' dat <- get_sotkanet(indicators = 165)
+#' dat <- get_sotkanet(indicators = c(4,5), genders = c("male", "female"))
+#' dat <- get_sotkanet(indicators = 10012, regions = c("Suomi", "Ruotsi"))
+#' dat <- get_sotkanet(indicators = 10012, region.category = c("POHJOISMAAT"))
+#' dat <- get_sotkanet(indicators = 6, lang = "en")
+#' dat <- get_sotkanet(indicators = 10027, frictionless = TRUE)
+#' dat <- get_sotkanet(indicators = c(4,5,6), years = list("4" = 2000:2010,
+#'                                                         "5" = 2010:2015, "6" = 2015:2020))
+#' }
 #' @seealso
 #' For more information about dataset structure, see THL webpage at
 #' \url{https://yhteistyotilat.fi/wiki08/pages/viewpage.action?pageId=27557907}
@@ -65,12 +79,13 @@
 #'
 #'
 #' @importFrom digest digest
+#' @importFrom httr2 url_parse url_build
 #'
 #' @keywords utilities
 #' @export
 get_sotkanet <- function(indicators = NULL,
-                            years = 1991:2015,
-                            genders = c("total"),
+                            years = NULL,
+                            genders = c("male", "female","total"),
                             regions = NULL,
                             region.category = NULL,
                             lang = "fi",
@@ -83,6 +98,28 @@ get_sotkanet <- function(indicators = NULL,
     message("Parameter 'indicators' is NULL. Please provide at least one indicator.")
     return(invisible(NULL))
   }
+
+  #Check if years is NULL
+
+  if (is.null(years)){
+
+    years <-list()
+
+    for (i in 1:length(indicators)){
+
+      ym <- sotkanet_indicator_metadata(indicators[i])
+      
+      if (is.null(ym)){
+        message(paste(" There was a problem retrieving indicator from", indicators[i]," "))
+        return(invisible(NULL))
+      }
+
+      years[[as.character(ym$id)]] <- ym$range[[1]]:ym$range[[2]]
+
+    }
+
+  }
+
 
   #Query for caching
 
@@ -123,28 +160,42 @@ get_sotkanet <- function(indicators = NULL,
 
   # List all indicators in Sotkanet database
   sotkanet_indicators <- sotkanet_indicators(id = indicators,
-                                            type = "table", lang = lang)
-  sotkanet_regions <- sotkanet_regions(type = "table", lang = lang)
+                                            type = "table", lang = lang,
+                                            cache = cache, cache_dir = cache_dir)
+  sotkanet_regions <- sotkanet_regions(type = "table", lang = lang, cache = cache,
+                                       cache_dir = cache_dir)
 
   dats <- list()
 
   for (indicator in indicators) {
+
+    if (is.list(years)){
+
+      years2 <- years[[as.character(indicator)]]
+
+    } else {
+
+      years2 <- years
+
+    }
+
+
     # Gather URL parts
     # parsing the csv file is more straightforward in this context
     sotkanet_url <- "https://sotkanet.fi/rest"
     sotkanet_uri <- "/1.1/csv"
-    all_params <- c(indicator, years, genders)
+    all_params <- c(indicator, years2, genders)
     names(all_params) <- c("indicator",
-                           rep("years", length(years)),
+                           rep("years", length(years2)),
                            rep("genders", length(genders)))
     all_params <- as.list(all_params)
 
     # Construct URL
-    url_object <- httr::parse_url(sotkanet_url)
+    url_object <- httr2::url_parse(sotkanet_url)
     path <- paste(url_object$path, sotkanet_uri, sep = "")
     url_object$path <- path
     url_object$query <- all_params
-    final_url <- httr::build_url(url_object)
+    final_url <- httr2::url_build(url_object)
 
     y <- sotkanet.csv_query(final_url, user.agent = user.agent)
 
@@ -173,20 +224,28 @@ get_sotkanet <- function(indicators = NULL,
                                                                              sotkanet_indicators$indicator), "indicator.organization.title"]
 
   if (!is.null(regions)){
-    if (regions %in% unique(combined_data$region.title)){
-      combined_data <- combined_data[which(combined_data$region.title == regions),]
+    region_check <- regions %in% unique(combined_data$region.title)
+    if (all(region_check)){
+      combined_data <- combined_data[which(combined_data$region.title %in% regions),]
     } else {
-      message(paste("Input for regions not found from dataset:", regions, "\n",
+      message(paste("Input for regions not found from dataset:",
+                    paste0(
+                      ifelse(region_check, "", regions)[!region_check], collapse = ", "
+                    ), "\n",
                     "Please check your parameter input for validity and correctness."))
       return(invisible(NULL))
     }
   }
 
   if (!is.null(region.category)){
-    if (region.category %in% unique(combined_data$region.category)){
-      combined_data <- combined_data[which(combined_data$region.category == region.category),]
+    region.category_check <- region.category %in% unique(combined_data$region.category)
+    if (all(region.category_check)){
+      combined_data <- combined_data[which(combined_data$region.category %in% region.category),]
     } else {
-      message(paste("Input for region.categories not found from dataset:", region.category, "\n",
+      message(paste("Input for region.categories not found from dataset:",
+                    paste0(
+                      ifelse(region.category_check, "", region.category)[!region.category_check],
+                      collapse = ", "), "\n",
                     "Please check your parameter input for validity and correctness."))
       return(invisible(NULL))
     }
