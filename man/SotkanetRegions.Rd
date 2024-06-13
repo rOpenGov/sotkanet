@@ -2,7 +2,7 @@
 % Please edit documentation in R/SotkanetRegions.R
 \name{SotkanetRegions}
 \alias{SotkanetRegions}
-\title{Sotkanet Regions}
+\title{Sotkanet Regions (old version)}
 \usage{
 SotkanetRegions(type = "table", user.agent = NULL)
 }
@@ -19,7 +19,8 @@ will then use the package identifier "rOpenGov/sotkanet"}
 data.frame
 }
 \description{
-Retrieves sotkanet regions data.
+Retrieves sotkanet regions data. (This is an older version of the function. 
+ It is advised to use the new [sotkanet_regions()] function instead.)
 }
 \details{
 Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
