@@ -54,3 +54,4 @@ inst/paper.md
 ^codecov\.yml$
 ^CRAN-SUBMISSION$
 ^CITATION\.cff$
+^vignettes/articles$

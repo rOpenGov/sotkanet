@@ -1,27 +1,17 @@
 ---
 title: "Sotkanetin avoimen rajapinnan R työkalut"
+editor_options:
+  chunk_output_type: inline
 output:
-  rmarkdown::html_vignette:
+  html_document:
     toc: TRUE
-vignette: >
-  %\VignetteIndexEntry{Sotkanetin avoimen rajapinnan R työkalut}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
-NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
-eval_packages <- requireNamespace(c("kableExtra", "ggplot2"))
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  purl = NOT_CRAN,
-  eval = NOT_CRAN && eval_packages
+  comment = "#>"
 )
-```
-
-```{r eval = !eval_packages, echo = FALSE}
-message("Paketit `kableExtra` ja `ggplot2` tarvitaan vignetten rakentamista varten. Koodiosuuksia ei suoriteta.")
 ```
 
 
