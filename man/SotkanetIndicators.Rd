@@ -2,7 +2,7 @@
 % Please edit documentation in R/SotkanetIndicators.R
 \name{SotkanetIndicators}
 \alias{SotkanetIndicators}
-\title{Sotkanet Indicators}
+\title{Sotkanet Indicators (old version)}
 \usage{
 SotkanetIndicators(id = NULL, type = "table", user.agent = NULL)
 }
@@ -21,7 +21,8 @@ will then use the package identifier "rOpenGov/sotkanet"}
 data.frame (type = "table) or a list (type = "raw")
 }
 \description{
-Retrieve Sotkanet indicator metadata
+Retrieve Sotkanet indicator metadata. (This is an older version of the function. 
+ It is advised to use the new [sotkanet_indicators()] function instead.)
 }
 \details{
 Data is fetched from \url{https://sotkanet.fi/rest/1.1/indicators}.

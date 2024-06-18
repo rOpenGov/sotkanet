@@ -11,7 +11,7 @@ editor_options:
   chunk_output_type: inline
 ---
 
-This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). This package is part of [rOpenGov](http://ropengov.org).
+This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). This package is part of [rOpenGov](https://ropengov.org).
 
 ```{r, include = FALSE}
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
@@ -159,9 +159,9 @@ dat <- do.call("rbind", datlist)
 ### Further examples
 
 For further usage examples, see
-[rOpenGov-blog](http://ropengov.org), and
+[rOpenGov-blog](https://ropengov.org), and
 [takomo](https://github.com/louhos/takomo/tree/master/Sotkanet), and 
-[Helsinki Region Infoshare-blog](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
+[Helsinki Region Infoshare-blog](https://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 ## Licensing and Citations
 

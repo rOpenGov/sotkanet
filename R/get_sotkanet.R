@@ -251,6 +251,10 @@ get_sotkanet <- function(indicators = NULL,
     }
   }
 
+  #Remove rownames
+  
+  rownames(combined_data) <- NULL
+  
   #Write the data into cache
 
   sotkanet_write_cache(cache, cache_dir, query_hash, combined_data)

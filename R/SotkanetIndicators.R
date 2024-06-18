@@ -1,5 +1,6 @@
-#' @title Sotkanet Indicators
-#' @description Retrieve Sotkanet indicator metadata
+#' @title Sotkanet Indicators (old version)
+#' @description Retrieve Sotkanet indicator metadata. (This is an older version of the function. 
+#'  It is advised to use the new [sotkanet_indicators()] function instead.)
 #' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/indicators}.
 #' @param id Dataset identifier. Default is NULL returning all
 #' @param type type output format, either 'table' (default) or 'raw'.
@@ -23,6 +24,8 @@
 SotkanetIndicators <- function(id = NULL, type = "table", user.agent = NULL)
 {
 
+  message("This is an old version of the function.\nIt is advised to use the new sotkanet_indicators function instead.")
+  
   if (!(type %in% c("table", "raw"))){
     message("Please use valid type input: 'table' or 'raw'")
     return(invisible(NULL))

@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](http://ropengov.org/)
+[![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](https://ropengov.org/)
 [![R build
 status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
@@ -18,8 +18,8 @@ monthly](https://cranlogs.r-pkg.org/badges/sotkanet)](https://www.r-pkg.org/pkg/
 GitHub](https://img.shields.io/github/watchers/ropengov/sotkanet.svg?style=social)](https://github.com/ropengov/sotkanet/watchers)
 [![Star on
 GitHub](https://img.shields.io/github/stars/ropengov/sotkanet.svg?style=social)](https://github.com/ropengov/sotkanet/stargazers)
-[![Follow on
-Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)](https://twitter.com/intent/follow?screen_name=ropengov)
+\[![Follow on
+Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)\]
 [![Codecov test
 coverage](https://codecov.io/gh/rOpenGov/sotkanet/branch/master/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/sotkanet?branch=master)
 <!-- badges: end -->
@@ -43,7 +43,7 @@ install.packages("sotkanet")
 Alternatively, you can install the development version of sotkanet
 package from GitHub with:
 
-``` r_github
+``` r
 # install.packages("remotes")
 remotes::install_github("rOpenGov/sotkanet")
 ```
@@ -125,7 +125,8 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
     box.padding = .4,
     segment.curvature = -0.1,
     segment.ncp = 3,
-    segment.angle = 20) +
+    segment.angle = 20,
+    size = 3)+
   theme(legend.position = "none",
         panel.background = element_rect(fill = "linen")) +
   scale_x_continuous(
@@ -148,22 +149,22 @@ page](http://ropengov.github.io/sotkanet/articles/tutorial.html).
   example](http://adv-r.had.co.nz/Reproducibility.html))
 - [Send a pull request](https://github.com/ropengov/sotkanet/pulls)
 - [Star us on the Github page](https://github.com/ropengov/sotkanet/)
-- [See our website](http://ropengov.org/community/) for additional
+- [See our website](https://ropengov.org/community/) for additional
   contact information
 
 ### Acknowledgements
 
 **Kindly cite this work** as follows: [Leo
 Lahti](https://github.com/antagomir), Einari Happonen, Juuso Parkkinen,
-Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov 2022).
-sotkanet: Sotkanet Open Data Access and Analysis. R package version
-0.9.77. URL: <https://github.com/rOpenGov/sotkanet>
+Joona Lehtomaki, Vesa Saaristo, Aleksi Lahtinen and Pyry Kantanen
+(rOpenGov 2024). sotkanet: Sotkanet Open Data Access and Analysis. R
+package version 0.9.80. URL: <https://github.com/rOpenGov/sotkanet>
 
 We are grateful to all
 [contributors](https://github.com/ropengov/sotkanet/graphs/contributors),
 and for the [Sotkanet](https://sotkanet.fi/sotkanet/en/index?)
 Statistics and Indicator Bank! This project is part of
-[rOpenGov](http://ropengov.org).
+[rOpenGov](https://ropengov.org).
 
 ### Disclaimer
 

@@ -1,6 +1,7 @@
-#' @title Retrieve Sotkanet Data
+#' @title Retrieve Sotkanet Data (old version)
 #' @description
-#' Retrieve selected data and combine into a single table.
+#' Retrieve selected data and combine into a single table. (This is an older version
+#'  of the function. It is advised to use the new [get_sotkanet()] function instead.)
 #' @details
 #' THL's open data license and limitation of liability
 #'
@@ -60,15 +61,17 @@ GetDataSotkanet <- function(indicators = NULL,
                             region.category = NULL,
                             user.agent = NULL) {
 
+  message("This is an old version of the function.\nIt is advised to use the new get_sotkanet function instead.")
+  
   if (is.null(indicators)){
     message("Parameter 'indicators' is NULL. Please provide at least one indicator.")
     return(invisible(NULL))
   }
 
   # List all indicators in Sotkanet database
-  sotkanet_indicators <- SotkanetIndicators(id = indicators,
-                                            type = "table")
-  sotkanet_regions <- SotkanetRegions(type = "table")
+  sotkanet_indicators <- suppressMessages(SotkanetIndicators(id = indicators,
+                                            type = "table"))
+  sotkanet_regions <- suppressMessages(SotkanetRegions(type = "table"))
 
   dats <- list()
 

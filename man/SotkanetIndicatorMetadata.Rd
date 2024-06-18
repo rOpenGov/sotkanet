@@ -2,7 +2,7 @@
 % Please edit documentation in R/SotkanetIndicatorMetadata.R
 \name{SotkanetIndicatorMetadata}
 \alias{SotkanetIndicatorMetadata}
-\title{Sotkanet Indicator Metadata}
+\title{Sotkanet Indicator Metadata. (old version)}
 \usage{
 SotkanetIndicatorMetadata(id = NULL, type = "raw", user.agent = NULL)
 }
@@ -19,7 +19,8 @@ will use the default package identifier "rOpenGov/sotkanet"}
 sotkanet indicator metadata as a list object
 }
 \description{
-Retrieves sotkanet indicator metadata.
+Retrieves sotkanet indicator metadata. (This is an older version of the function. 
+ It is advised to use the new [sotkanet_indicator_metadata()] function instead.)
 }
 \details{
 Data is fetched from \preformatted{https://sotkanet.fi/rest/1.1/indicators/<id>}

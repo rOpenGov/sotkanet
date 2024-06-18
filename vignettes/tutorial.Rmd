@@ -32,7 +32,7 @@ This [sotkanet](https://github.com/rOpenGov/sotkanet) R package provides access 
 
 The Sotkanet portal provides over 2000 demographic indicators across Finland and Europe. It is maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). 
 
-The `sotkanet` R package enables access to the Sotkanet API using R facilitating the use of the data from the API. This package is part of [rOpenGov](ropengov.org).
+The `sotkanet` R package enables access to the Sotkanet API using R facilitating the use of the data from the API. This package is part of [rOpenGov](https://ropengov.org).
 
 
 ## Installation
@@ -134,7 +134,7 @@ p <- ggplot(dat, aes(x = year, y = primary.value,
                      group = region.title, color = region.title)) + 
   geom_line() + ggtitle(paste0(indicator_name, " \n", indicator_source)) +
   labs(x = "Year", y = "Value",caption = paste0(
-    "Data source: https://sotkanet.fi",  "\n", "Data date: ", dat_meta$`data-updated`)) +
+    "Data source: https://sotkanet.fi/sotkanet",  "\n", "Data date: ", dat_meta$`data-updated`)) +
   scale_x_continuous(breaks = seq(2000,2010, by = 1)) +
   theme(title = element_text(size = 10)) +
   theme(axis.title.x = element_text(size = 15)) +
@@ -161,7 +161,7 @@ names(dw) <- c("Municipality", "Population", "Education_level")
 p <- ggplot(dw, aes(x = log(Population), y = Education_level)) + geom_point(size = 3) +
   ggtitle("Education level vs. population size") +
     theme(title = element_text(size = 10)) +
-  labs(y = "Education level", caption = "Data source: https://sotkanet.fi") +
+  labs(y = "Education level", caption = "Data source: https://sotkanet.fi/sotkanet") +
   theme(axis.title.x = element_text(size = 15)) +
   theme(axis.title.y = element_text(size = 15)) +
   theme(legend.title = element_text(size = 15))
@@ -173,7 +173,7 @@ plot(p)
 
 ### Sotkanet data
 
-Cite Sotkanet and link to [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/fi/index). Also mention indicator provider.
+Cite Sotkanet and link to [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/). Also mention indicator provider.
 
 * [Full license and terms of use](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta).
 

@@ -1,5 +1,6 @@
-#' @title Sotkanet Regions
-#' @description Retrieves sotkanet regions data.
+#' @title Sotkanet Regions (old version)
+#' @description Retrieves sotkanet regions data. (This is an older version of the function. 
+#'  It is advised to use the new [sotkanet_regions()] function instead.)
 #' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
 #' @param type type output format, either 'table' (default) or 'raw'.
 #'    Default produces a truncated table with strictly defined columns that
@@ -19,6 +20,8 @@
 SotkanetRegions <- function(type = "table", user.agent = NULL)
 {
 
+  message("This is an old version of the function.\nIt is advised to use the new sotkanet_regions function instead.")
+  
   sotkanet_url <- "https://sotkanet.fi/rest"
   sotkanet_uri <- "/1.1/regions"
 

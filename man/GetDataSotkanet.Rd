@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetDataSotkanet.R
 \name{GetDataSotkanet}
 \alias{GetDataSotkanet}
-\title{Retrieve Sotkanet Data}
+\title{Retrieve Sotkanet Data (old version)}
 \usage{
 GetDataSotkanet(
   indicators = NULL,
@@ -48,7 +48,8 @@ will then use the package identifier "rOpenGov/sotkanet"}
 data.frame
 }
 \description{
-Retrieve selected data and combine into a single table.
+Retrieve selected data and combine into a single table. (This is an older version
+ of the function. It is advised to use the new [get_sotkanet()] function instead.)
 }
 \details{
 THL's open data license and limitation of liability
