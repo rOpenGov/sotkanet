@@ -55,3 +55,4 @@ inst/paper.md
 ^CRAN-SUBMISSION$
 ^CITATION\.cff$
 ^vignettes/articles$
+^cran-comments\.md$

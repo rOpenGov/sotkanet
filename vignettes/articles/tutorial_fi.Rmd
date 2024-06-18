@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 Sotkanetin avoin rajapinta mahdollistaa pääsyn yli kahteen tuhanteen väestöindikaattoriin Suomesta ja Euroopasta. Palvelua ylläpitää Terveyden ja hyvinvoinnin laitos (THL). Lisätietoa [palvelusta](https://sotkanet.fi/sotkanet/fi/tietoa-palvelusta) ja kuvaus [avoimesta rajapinnasta](https://sotkanet.fi/sotkanet/fi/ohje/74).
 
-Tämän `sotkanet` paketin avulla R pystyy yhdistämään Sotkanetin avoimeen rajapintaan ja käyttämään sen dataa. Paketti on osa [rOpenGov](ropengov.org) yhteisöä.
+Tämän `sotkanet` paketin avulla R pystyy yhdistämään Sotkanetin avoimeen rajapintaan ja käyttämään sen dataa. Paketti on osa [rOpenGov](https://ropengov.org) yhteisöä.
 
 
 ## Paketin asennus

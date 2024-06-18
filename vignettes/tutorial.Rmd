@@ -32,7 +32,7 @@ This [sotkanet](https://github.com/rOpenGov/sotkanet) R package provides access 
 
 The Sotkanet portal provides over 2000 demographic indicators across Finland and Europe. It is maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). 
 
-The `sotkanet` R package enables access to the Sotkanet API using R facilitating the use of the data from the API. This package is part of [rOpenGov](ropengov.org).
+The `sotkanet` R package enables access to the Sotkanet API using R facilitating the use of the data from the API. This package is part of [rOpenGov](https://ropengov.org).
 
 
 ## Installation
