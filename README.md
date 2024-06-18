@@ -43,7 +43,7 @@ install.packages("sotkanet")
 Alternatively, you can install the development version of sotkanet
 package from GitHub with:
 
-``` r_github
+``` r
 # install.packages("remotes")
 remotes::install_github("rOpenGov/sotkanet")
 ```
@@ -125,7 +125,8 @@ plot + labs(title = "Yksityisen hammashuollon käynnit 2015-2022",
     box.padding = .4,
     segment.curvature = -0.1,
     segment.ncp = 3,
-    segment.angle = 20) +
+    segment.angle = 20,
+    size = 3)+
   theme(legend.position = "none",
         panel.background = element_rect(fill = "linen")) +
   scale_x_continuous(

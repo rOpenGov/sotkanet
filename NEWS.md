@@ -1,4 +1,4 @@
-# sotkanet 0.9.80.9004 (2024-06-17)
+# sotkanet 0.9.80.9004 (2024-06-18)
 
 ### NEW FEATURES
 * New functions: `sotkanet_cite()` for citing datasets and `sotkanet_interactive()` for interactively downloading datasets.
