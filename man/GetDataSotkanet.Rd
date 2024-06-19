@@ -22,7 +22,7 @@ GetDataSotkanet(
 
 \item{regions}{filter by selected regions only (default: all regions)}
 
-\item{region.category}{filter by one or more of the following 14 valid
+\item{region.category}{filter by one or more of the following 15 valid
 regions categories (default: all categories)
    \itemize{
      \item "ALUEHALLINTOVIRASTO"
@@ -39,6 +39,7 @@ regions categories (default: all categories)
      \item "SAIRAANHOITOPIIRI (hospital district)
      \item "SEUTUKUNTA"
      \item "SUURALUE"
+     \item "YTA"
    }}
 
 \item{user.agent}{"User agent" defined by the user. Default is NULL which
