@@ -1,8 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.80
-Date: 2024-06-18
+Version: 0.10.0
+Date: 2024-06-19
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
