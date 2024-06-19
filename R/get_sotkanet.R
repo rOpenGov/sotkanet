@@ -100,7 +100,7 @@ get_sotkanet <- function(indicators = NULL,
     return(invisible(NULL))
   }
 
-  #Check if years is NULL
+  # Check if years is NULL
 
   if (is.null(years)){
 
@@ -122,7 +122,7 @@ get_sotkanet <- function(indicators = NULL,
   }
 
 
-  #Query for caching
+  # Query for caching
 
   query <- list(
     id = indicators,
@@ -136,7 +136,7 @@ get_sotkanet <- function(indicators = NULL,
 
   query_hash <- digest::digest(query, algo = "md5")
 
-  #Check if the data is in cache
+  # Check if the data is in cache
 
   check_cache <- sotkanet_read_cache(cache = cache, cache_dir, query_hash)
 
@@ -252,15 +252,45 @@ get_sotkanet <- function(indicators = NULL,
     }
   }
 
-  #Remove rownames
+  # Remove rownames
   
   rownames(combined_data) <- NULL
   
-  #Write the data into cache
+  # Check that region.code is right length
+  
+  width1 <- c("ALLUEHALLINTOVIRRSTO", "ERVA", "NUTS1", "SUURALUE", "YTA")
+  
+  width2 <- c("HYVINVOINTIALUE", "SAIRAANHOITOPIIRI", "MAAKUNTA", "ELY-KESKUS", "EURALUEET")
+  
+  width3 <- c("KUNTA", "SEUTUKUNTA", "MAA", "POHJOISMAAT")
+  
+  width_not_ok <- c()
+  
+  if (!all(nchar(y[y$region.category %in% width1,]$region.code) == 1)){
+    width_not_ok <- c(width_not_ok, TRUE)
+  } 
+  
+  if (!all(nchar(y[y$region.category %in% width2,]$region.code) == 2)){
+    width_not_ok <- c(width_not_ok, TRUE)
+  } 
+  
+  if (!all(nchar(y[y$region.category %in% width3,]$region.code) == 3)){
+    width_not_ok <- c(width_not_ok, TRUE)
+  } 
+  
+  if (!all(nchar(y[y$region.category %in% "EUROOPPA",]$region.code) %in% c(1,2,3))){
+    width_not_ok <- c(width_not_ok, TRUE)
+  }
+  
+  if(any(width_not_ok)){
+    message("There seems to be a problem with region codes.\nSome of them are not the right length.")
+  }
+  
+  # Write the data into cache
 
   sotkanet_write_cache(cache, cache_dir, query_hash, combined_data)
 
-  #Return the data in asked format
+  # Return the data in asked format
 
   if (dim(combined_data)[1] == 0){
 
@@ -278,6 +308,4 @@ get_sotkanet <- function(indicators = NULL,
 
   }
 }
-
-
 
