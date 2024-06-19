@@ -31,7 +31,7 @@ it is advised to check out some other alternative.}
 \item{regions}{filter by selected regions only (default: all regions). The
 region filter has to be given in the language used for the language variable.}
 
-\item{region.category}{filter by one or more of the following 14 valid
+\item{region.category}{filter by one or more of the following 15 valid
 regions categories (default: all categories)
    \itemize{
      \item "ALUEHALLINTOVIRASTO"
@@ -48,6 +48,7 @@ regions categories (default: all categories)
      \item "SAIRAANHOITOPIIRI (hospital district)
      \item "SEUTUKUNTA"
      \item "SUURALUE"
+     \item "YTA"
    }}
 
 \item{lang}{Language of the data variables: indicator.title, region.title

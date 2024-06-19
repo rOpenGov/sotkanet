@@ -22,7 +22,7 @@
 #' @param years vector of years c(2010, 2012, ... )
 #' @param genders vector of genders ('male' | 'female' | 'total')
 #' @param regions filter by selected regions only (default: all regions)
-#' @param region.category filter by one or more of the following 14 valid
+#' @param region.category filter by one or more of the following 15 valid
 #' regions categories (default: all categories)
 #'    \itemize{
 #'      \item "ALUEHALLINTOVIRASTO"
@@ -39,6 +39,7 @@
 #'      \item "SAIRAANHOITOPIIRI (hospital district)
 #'      \item "SEUTUKUNTA"
 #'      \item "SUURALUE"
+#'      \item "YTA"
 #'    }
 #' @param user.agent "User agent" defined by the user. Default is NULL which
 #'    will then use the package identifier "rOpenGov/sotkanet"
