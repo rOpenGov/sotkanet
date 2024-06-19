@@ -15,14 +15,13 @@ knitr::opts_chunk$set(
 ```
 
 
-[Sotkanet](https://github.com/rOpenGov/sotkanet) R-paketti mahdollistaa pääsyn [Sotkanetin avoimen rajapinnan](https://sotkanet.fi/sotkanet/en/index) dataan. [Osallistuminen paketin kehittämiseen](https://ropengov.org/community/) ja [vikailmoitusten tekeminen sekä muu palaute on tervetullutta](https://github.com/rOpenGov/sotkanet).
+[Sotkanet](https://github.com/rOpenGov/sotkanet) -R-paketti mahdollistaa pääsyn [Sotkanetin avoimen rajapinnan](https://sotkanet.fi/sotkanet/en/index) dataan. [Osallistuminen paketin kehittämiseen](https://ropengov.org/community/) ja [vikailmoitusten tekeminen sekä muu palaute on tervetullutta](https://github.com/rOpenGov/sotkanet).
 
 ## Paketin esittely
 
 Sotkanetin avoin rajapinta mahdollistaa pääsyn yli kahteen tuhanteen väestöindikaattoriin Suomesta ja Euroopasta. Palvelua ylläpitää Terveyden ja hyvinvoinnin laitos (THL). Lisätietoa [palvelusta](https://sotkanet.fi/sotkanet/fi/tietoa-palvelusta) ja kuvaus [avoimesta rajapinnasta](https://sotkanet.fi/sotkanet/fi/ohje/74).
 
-Tämän `sotkanet` paketin avulla R pystyy yhdistämään Sotkanetin avoimeen rajapintaan ja käyttämään sen dataa. Paketti on osa [rOpenGov](https://ropengov.org) yhteisöä.
-
+Tämän `sotkanet` paketin avulla R pystyy yhdistämään Sotkanetin avoimeen rajapintaan ja käyttämään sen dataa. Paketti on kehitetty osana [rOpenGov](https://ropengov.org)-kehittäjäyhteisöä.
 
 ## Paketin asennus
 
@@ -32,12 +31,11 @@ Paketin uusimman julkaisuversion voi asentaa komennolla:
 install.packages("sotkanet")
 ```
 
-
 Paketin kehitysversion voi asentaa GitHubista komennolla:
 
 ```{r install2, eval = FALSE}
-library(devtools)
-install_github("ropengov/sotkanet")
+library(remotes)
+remotes::install_github("ropengov/sotkanet")
 ```
 
 Asennuksen onnistumista voi testata lataamalla paketin:
@@ -46,9 +44,7 @@ Asennuksen onnistumista voi testata lataamalla paketin:
 library(sotkanet)
 ```
 
-
 ## Paketin käyttö
-
 
 ### Käytettävissä olevat indikaattorit
 
@@ -60,14 +56,12 @@ library(kableExtra)
 library(ggplot2)
 ```
 
-
-
 Käytettävissä olevat indikaattorit voi listata käyttämällä funktiota `sotkanet_indicators()`:
 
 ```{r sotkanet_indicators, warning = FALSE}
 # Muutama esimerkki indikaattori
 indicators <- sotkanet_indicators(id = c(4, 5, 6, 127, 10012, 10027), type = "table")
-kable(head(indicators))
+kable(indicators)
 ```
 
 Maantieteelliset alueet voi listata käyttämällä funktiota `sotkanet_regions()`:
@@ -93,7 +87,7 @@ kable(head(dat)) %>%
   scroll_box(width = "100%")
 ```
 
-Datan hakemiseen voi myös käyttää interaktiivista `sotkanet_interactive()` funktiota, joka antaa käyttäjälle interaktiivisen vaihtoehdon datan lataamiselle. Funktio voi myös antaa datan viittauksen, `get_sotkanet` funktion kutsun ja datan tarkistussumman.
+Datan hakemiseen voi myös käyttää interaktiivista `sotkanet_interactive()` funktiota, joka tarjoaa käyttäjälle interaktiivisen ja helppokäyttöisen vaihtoehdon datan lataamiselle. Interaktiivisen funktion tarkoituksena on paitsi helpottaa datan hakemista, myös edistää hyviä käytäntöjä, kuten datalähteisiin viittaaminen, datan latausskriptin tallentaminen ja taulukolle lasketun tarkistussumman laskeminen.
 
 Mille tahansa indikaattorille voi tulostaa viitteen käyttämällä `sotkanet_cite()` funktiota. Esimerkiksi BKT datan viitauksen saaminen onnistuu komennolla:
 
@@ -101,6 +95,12 @@ Mille tahansa indikaattorille voi tulostaa viitteen käyttämällä `sotkanet_ci
 sotkanet_cite(10012)
 ```
 
+`sotkanet_cite` funktio mahdollistaa dataviittausten helpon luomisen muillakin myös muilla rajapinnan tukemilla kielillä:
+
+```{r}
+sotkanet_cite(5, lang = "sv")
+sotkanet_cite(5, lang = "en")
+```
 
 ## Esimerkkejä
 
@@ -169,12 +169,11 @@ Viittaa Sotkanettiin ja jaa linkki  [https://sotkanet.fi/sotkanet/fi/index](http
 
 Keskeiset kohdat:
 
- * SOTKAnet REST API on tarkoitettu ei-säännöllisiin tietokyselyihin. Vältä säännöllisia ja toistuvia latauksia.
- * SOTKAnet API:a voidaan käyttää muiden palveluiden pohjana.
- * Alueiden ja indikaattorien metadata on lisenssin [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) alaista.
- * THL:n indikaattorit ovat lisennsin [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) alaisia.
- * Kolmansien osapuolten toimittamia indikaattoreita voidaan käyttää vain erillisellä sopimuksella!
-
+ * Sotkanet REST API on tarkoitettu ei-säännöllisiin tietokyselyihin. Vältä säännöllisia ja toistuvia latauksia.
+ * Sotkanet APIa voidaan käyttää muiden palveluiden pohjana.
+ * Alueiden ja indikaattorien metadata on [CC-BY 4.0 -lisenssin](https://creativecommons.org/licenses/by/4.0/) alaista.
+ * THL:n indikaattorit ovat [CC-BY 4.0 -lisenssin](https://creativecommons.org/licenses/by/4.0/) alaisia.
+ * Kolmansien osapuolten Sotkanetiin toimittamia indikaattoreita voidaan käyttää vain erillisellä sopimuksella!
 
 ### Sotkanet R-paketti
 
@@ -187,7 +186,7 @@ citation("sotkanet")
 
 ## Viat ja parannusehdotukset
 
-Tunnetut viat on listattu [GitHub sivulla](https://github.com/rOpenGov/sotkanet/issues). Sivulla voi myös ilmoittaa uusista vioista ja antaa parannusehdotuksia.
+Tunnistetut ja raportoidut bugit, puutteet ja muut rajoitteet on listattu projektin [GitHub-issueissa](https://github.com/rOpenGov/sotkanet/issues). Sivulla voi myös ilmoittaa uusista vioista ja antaa parannusehdotuksia.
 
 ## Istunnon tiedot
 
