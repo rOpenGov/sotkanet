@@ -60,7 +60,7 @@
 #' @name sotkanet-package
 #' @aliases sotkanet
 #' @docType package
-#' @author Leo Lahti (\email{leo.lahti@@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen
+#' @author Leo Lahti (\email{leo.lahti@@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo, Pyry Kantanen and Aleksi Lahtinen
 #' @references See citation("sotkanet")
 #' @examples library(sotkanet)
 "_PACKAGE"

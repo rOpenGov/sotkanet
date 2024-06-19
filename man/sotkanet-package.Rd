@@ -85,5 +85,5 @@ Useful links:
 
 }
 \author{
-Leo Lahti (\email{leo.lahti@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen
+Leo Lahti (\email{leo.lahti@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo, Pyry Kantanen and Aleksi Lahtinen
 }
