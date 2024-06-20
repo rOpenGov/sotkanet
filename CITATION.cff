@@ -1,14 +1,14 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.1
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# --------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "sotkanet" in publications use:'
 type: software
 license: BSD-2-Clause
 title: 'sotkanet: Sotkanet Open Data Access and Analysis'
-version: 0.9.79
+version: 0.10.0
 abstract: Access statistical information on welfare and health in Finland from the
   Sotkanet open data portal <https://sotkanet.fi/sotkanet/fi/index>.
 authors:
@@ -21,6 +21,9 @@ authors:
 - family-names: Kantanen
   given-names: Pyry
   orcid: https://orcid.org/0000-0003-2853-2765
+- family-names: Lahtinen
+  given-names: Aleksi
+  orcid: https://orcid.org/0009-0009-9640-5187
 preferred-citation:
   type: generic
   title: 'sotkanet: Sotkanet Open Data Access and Analysis'
@@ -42,13 +45,16 @@ preferred-citation:
   - family-names: Kantanen
     given-names: Pyry
     orcid: https://orcid.org/0000-0003-2853-2765
+  - family-names: Lahtinen
+    given-names: Aleksi
+    orcid: https://orcid.org/0009-0009-9640-5187
   url: https://github.com/rOpenGov/sotkanet
-  year: '2022'
-  notes: R package version 0.9.79
+  year: '2024'
+  notes: R package version 0.10.0
 repository: https://CRAN.R-project.org/package=sotkanet
 repository-code: https://github.com/ropengov/sotkanet
 url: https://ropengov.github.io/sotkanet/
-date-released: '2022-02-01'
+date-released: '2024-06-19'
 contact:
 - family-names: Lahti
   given-names: Leo
@@ -65,72 +71,190 @@ references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends
+  url: https://www.R-project.org/
   authors:
   - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2024'
   version: '>= 3.2'
-- type: software
-  title: httr
-  abstract: 'httr: Tools for Working with URLs and HTTP'
-  notes: Imports
-  authors:
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2022'
-  url: https://CRAN.R-project.org/package=httr
 - type: software
   title: curl
   abstract: 'curl: A Modern and Flexible Web Client for R'
   notes: Imports
+  url: https://jeroen.r-universe.dev/curl
+  repository: https://CRAN.R-project.org/package=curl
   authors:
   - family-names: Ooms
     given-names: Jeroen
     email: jeroen@berkeley.edu
     orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2022'
-  url: https://CRAN.R-project.org/package=curl
+  year: '2024'
 - type: software
-  title: jsonlite
-  abstract: 'jsonlite: A Simple and Robust JSON Parser and Generator for R'
+  title: lubridate
+  abstract: 'lubridate: Make Dealing with Dates a Little Easier'
   notes: Imports
+  url: https://lubridate.tidyverse.org
+  repository: https://CRAN.R-project.org/package=lubridate
   authors:
-  - family-names: Ooms
-    given-names: Jeroen
-    email: jeroen@berkeley.edu
-    orcid: https://orcid.org/0000-0002-4035-0289
-  year: '2022'
-  url: https://CRAN.R-project.org/package=jsonlite
-- type: software
-  title: devtools
-  abstract: 'devtools: Tools to Make Developing R Packages Easier'
-  notes: Suggests
-  authors:
+  - family-names: Spinu
+    given-names: Vitalie
+    email: spinuvit@gmail.com
+  - family-names: Grolemund
+    given-names: Garrett
   - family-names: Wickham
     given-names: Hadley
+  year: '2024'
+- type: software
+  title: RefManageR
+  abstract: 'RefManageR: Straightforward ''BibTeX'' and ''BibLaTeX'' Bibliography
+    Management'
+  notes: Imports
+  url: https://github.com/ropensci/RefManageR/
+  repository: https://CRAN.R-project.org/package=RefManageR
+  authors:
+  - family-names: McLean
+    given-names: Mathew W.
+    email: mathew.w.mclean@gmail.com
+    orcid: https://orcid.org/0000-0002-7891-9645
+  year: '2024'
+- type: software
+  title: digest
+  abstract: 'digest: Create Compact Hash Digests of R Objects'
+  notes: Imports
+  url: https://dirk.eddelbuettel.com/code/digest.html
+  repository: https://CRAN.R-project.org/package=digest
+  authors:
+  - family-names: Lucas
+    given-names: Dirk Eddelbuettel with contributions by Antoine
+    email: edd@debian.org
+  - family-names: Tuszynski
+    given-names: Jarek
+  - family-names: Bengtsson
+    given-names: Henrik
+  - family-names: Urbanek
+    given-names: Simon
+  - family-names: Frasca
+    given-names: Mario
+  - family-names: Lewis
+    given-names: Bryan
+  - family-names: Stokely
+    given-names: Murray
+  - family-names: Muehleisen
+    given-names: Hannes
+  - family-names: Murdoch
+    given-names: Duncan
   - family-names: Hester
     given-names: Jim
+  - family-names: Wu
+    given-names: Wush
+  - family-names: Kou
+    given-names: Qiang
+  - family-names: Onkelinx
+    given-names: Thierry
+  - family-names: Lang
+    given-names: Michel
+  - family-names: Simko
+    given-names: Viliam
+  - family-names: Hornik
+    given-names: Kurt
+  - family-names: Neal
+    given-names: Radford
+  - family-names: Bell
+    given-names: Kendon
+  - family-names: Queljoe
+    given-names: Matthew
+    name-particle: de
+  - family-names: Suruceanu
+    given-names: Ion
+  - family-names: Denney
+    given-names: Bill
+  - family-names: Schumacher
+    given-names: Dirk
   - family-names: Chang
     given-names: Winston
-  - family-names: Bryan
-    given-names: Jennifer
-    email: jenny@rstudio.com
-    orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2022'
-  url: https://CRAN.R-project.org/package=devtools
+  - family-names: Attali
+    given-names: Dean
+  - family-names: Chirico.
+    given-names: Michael
+  year: '2024'
 - type: software
-  title: ggplot2
-  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
-  notes: Suggests
+  title: frictionless
+  abstract: 'frictionless: Read and Write Frictionless Data Packages'
+  notes: Imports
+  url: https://docs.ropensci.org/frictionless/
+  repository: https://CRAN.R-project.org/package=frictionless
+  authors:
+  - family-names: Desmet
+    given-names: Peter
+    email: peter.desmet.work@gmail.com
+    orcid: https://orcid.org/0000-0002-8442-8025
+  - family-names: Oldoni
+    given-names: Damiano
+    email: damiano.oldoni@inbo.be
+    orcid: https://orcid.org/0000-0003-3445-7562
+  - family-names: Huybrechts
+    given-names: Pieter
+    email: pieter.huybrechts@inbo.be
+    orcid: https://orcid.org/0000-0002-6658-6062
+  year: '2024'
+- type: software
+  title: httr2
+  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  notes: Imports
+  url: https://httr2.r-lib.org
+  repository: https://CRAN.R-project.org/package=httr2
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
+  year: '2024'
+- type: software
+  title: magrittr
+  abstract: 'magrittr: A Forward-Pipe Operator for R'
+  notes: Imports
+  url: https://magrittr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=magrittr
+  authors:
+  - family-names: Bache
+    given-names: Stefan Milton
+    email: stefan@stefanbache.dk
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2024'
+- type: software
+  title: remotes
+  abstract: 'remotes: R Package Installation from Remote Repositories, Including ''GitHub'''
+  notes: Suggests
+  url: https://remotes.r-lib.org
+  repository: https://CRAN.R-project.org/package=remotes
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Chang
+    given-names: Winston
+  - family-names: Morgan
+    given-names: Martin
+  - family-names: Tenenbaum
+    given-names: Dan
+  year: '2024'
+- type: software
+  title: ggplot2
+  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  notes: Suggests
+  url: https://ggplot2.tidyverse.org
+  repository: https://CRAN.R-project.org/package=ggplot2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Chang
     given-names: Winston
@@ -139,7 +263,7 @@ references:
     given-names: Lionel
   - family-names: Pedersen
     given-names: Thomas Lin
-    email: thomas.pedersen@rstudio.com
+    email: thomas.pedersen@posit.co
     orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Takahashi
     given-names: Kohske
@@ -155,38 +279,45 @@ references:
   - family-names: Dunnington
     given-names: Dewey
     orcid: https://orcid.org/0000-0002-9415-4582
-  year: '2022'
-  url: https://CRAN.R-project.org/package=ggplot2
+  - family-names: Brand
+    given-names: Teun
+    name-particle: van den
+    orcid: https://orcid.org/0000-0002-9335-7468
+  year: '2024'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2022'
-  url: https://CRAN.R-project.org/package=knitr
+  year: '2024'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
   notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2022'
-  url: https://CRAN.R-project.org/package=testthat
+    email: hadley@posit.co
+  year: '2024'
   version: '>= 3.0.0'
 - type: software
   title: roxygen2
   abstract: 'roxygen2: In-Line Documentation for R'
   notes: Suggests
+  url: https://roxygen2.r-lib.org/
+  repository: https://CRAN.R-project.org/package=roxygen2
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Danenberg
     given-names: Peter
@@ -196,108 +327,99 @@ references:
     email: csardi.gabor@gmail.com
   - family-names: Eugster
     given-names: Manuel
-  year: '2022'
-  url: https://CRAN.R-project.org/package=roxygen2
+  year: '2024'
 - type: software
   title: markdown
-  abstract: 'markdown: Render Markdown with the C Library ''Sundown'''
+  abstract: 'markdown: Render Markdown with ''commonmark'''
   notes: Suggests
+  url: https://github.com/rstudio/markdown
+  repository: https://CRAN.R-project.org/package=markdown
   authors:
-  - family-names: Allaire
-    given-names: JJ
-  - family-names: Horner
-    given-names: Jeffrey
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  - family-names: Marti
-    given-names: Vicent
-  - family-names: Porte
-    given-names: Natacha
-  year: '2022'
-  url: https://CRAN.R-project.org/package=markdown
-- type: software
-  title: magrittr
-  abstract: 'magrittr: A Forward-Pipe Operator for R'
-  notes: Suggests
-  authors:
-  - family-names: Bache
-    given-names: Stefan Milton
-    email: stefan@stefanbache.dk
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2022'
-  url: https://CRAN.R-project.org/package=magrittr
+  - family-names: Allaire
+    given-names: JJ
+  - family-names: Horner
+    given-names: Jeffrey
+  year: '2024'
 - type: software
   title: kableExtra
   abstract: 'kableExtra: Construct Complex Table with ''kable'' and Pipe Syntax'
   notes: Suggests
+  url: http://haozhu233.github.io/kableExtra/
+  repository: https://CRAN.R-project.org/package=kableExtra
   authors:
   - family-names: Zhu
     given-names: Hao
     email: haozhu233@gmail.com
     orcid: https://orcid.org/0000-0002-3386-6076
-  year: '2022'
-  url: https://CRAN.R-project.org/package=kableExtra
+  year: '2024'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
   authors:
   - family-names: Allaire
     given-names: JJ
-    email: jj@rstudio.com
+    email: jj@posit.co
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
   - family-names: McPherson
     given-names: Jonathan
-    email: jonathan@rstudio.com
+    email: jonathan@posit.co
   - family-names: Luraschi
     given-names: Javier
-    email: javier@rstudio.com
   - family-names: Ushey
     given-names: Kevin
-    email: kevin@rstudio.com
+    email: kevin@posit.co
   - family-names: Atkins
     given-names: Aron
-    email: aron@rstudio.com
+    email: aron@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Cheng
     given-names: Joe
-    email: joe@rstudio.com
+    email: joe@posit.co
   - family-names: Chang
     given-names: Winston
-    email: winston@rstudio.com
+    email: winston@posit.co
   - family-names: Iannone
     given-names: Richard
-    email: rich@rstudio.com
+    email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2022'
-  url: https://CRAN.R-project.org/package=rmarkdown
+  year: '2024'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
   notes: Suggests
+  url: https://covr.r-lib.org
+  repository: https://CRAN.R-project.org/package=covr
   authors:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2022'
-  url: https://CRAN.R-project.org/package=covr
+  year: '2024'
 - type: software
   title: ggrepel
   abstract: 'ggrepel: Automatically Position Non-Overlapping Text Labels with ''ggplot2'''
   notes: Suggests
+  url: https://ggrepel.slowkow.com/
+  repository: https://CRAN.R-project.org/package=ggrepel
   authors:
   - family-names: Slowikowski
     given-names: Kamil
     email: kslowikowski@gmail.com
     orcid: https://orcid.org/0000-0002-2843-6370
-  year: '2022'
-  url: https://CRAN.R-project.org/package=ggrepel
+  year: '2024'
+
