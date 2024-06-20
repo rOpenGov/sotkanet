@@ -46,8 +46,8 @@ install.packages("sotkanet")
 To install development version from GitHub, use:
 
 ```{r install2, eval = FALSE}
-library(devtools)
-install_github("ropengov/sotkanet")
+library(remotes)
+remotes::install_github("ropengov/sotkanet")
 ```
 
 Test the installation by loading the package:

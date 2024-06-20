@@ -1,5 +1,5 @@
 ---
-title: "Sotkanetin avoimen rajapinnan R työkalut"
+title: "Sotkanetin avoimen rajapinnan R-työkalut"
 editor_options:
   chunk_output_type: inline
 output:
@@ -15,38 +15,51 @@ knitr::opts_chunk$set(
 ```
 
 
-[Sotkanet](https://github.com/rOpenGov/sotkanet) -R-paketti mahdollistaa pääsyn [Sotkanetin avoimen rajapinnan](https://sotkanet.fi/sotkanet/en/index) dataan. [Osallistuminen paketin kehittämiseen](https://ropengov.org/community/) ja [vikailmoitusten tekeminen sekä muu palaute on tervetullutta](https://github.com/rOpenGov/sotkanet).
-
 ## Paketin esittely
 
 Sotkanetin avoin rajapinta mahdollistaa pääsyn yli kahteen tuhanteen väestöindikaattoriin Suomesta ja Euroopasta. Palvelua ylläpitää Terveyden ja hyvinvoinnin laitos (THL). Lisätietoa [palvelusta](https://sotkanet.fi/sotkanet/fi/tietoa-palvelusta) ja kuvaus [avoimesta rajapinnasta](https://sotkanet.fi/sotkanet/fi/ohje/74).
 
-Tämän `sotkanet` paketin avulla R pystyy yhdistämään Sotkanetin avoimeen rajapintaan ja käyttämään sen dataa. Paketti on kehitetty osana [rOpenGov](https://ropengov.org)-kehittäjäyhteisöä.
+Tämän `sotkanet` paketin käyttäjät pystyvät hakemaan Sotkanetin dataa rajapinnasta suoraan R:ään ja hyödyntämään dataa analyyseissa ja visualisoinneissa. Paketti on kehitetty osana [rOpenGov](https://ropengov.org)-kehittäjäyhteisöä.
 
 ## Paketin asennus
 
-Paketin uusimman julkaisuversion voi asentaa komennolla:
+Paketin vakaan, viimeisimmän CRANissa julkaistun version asentaminen on useimmille käyttäjille suositeltavin vaihtoehto. Paketin uusimman CRANissa julkaistun version voi asentaa komennolla:
 
-```{r install, eval = FALSE}
+```{r install_standard, eval = FALSE}
 install.packages("sotkanet")
 ```
 
-Paketin kehitysversion voi asentaa GitHubista komennolla:
+Joissakin tapauksissa voi olla hyödyllistä asentaa paketin vanha versio. CRAN ylläpitää jokaisesta CRANissa julkaistusta paketista arkistoa, johon pääsee esimerkiksi [sotkanet-paketin CRAN-sivulla](https://cran.r-project.org/package=sotkanet) klikkaamalla Old sources: sotkanet archive -linkkiä.
 
-```{r install2, eval = FALSE}
+```{r install_old, eval = FALSE}
+install.packages("https://cran.r-project.org/src/contrib/Archive/sotkanet/sotkanet_0.9.76.tar.gz", repos=NULL, type="source")
+```
+
+Paketin kehitysversion voi asentaa GitHubista seuraavilla tavoilla:
+
+```{r install_devel, eval = FALSE}
 library(remotes)
 remotes::install_github("ropengov/sotkanet")
+
+# Tietyn git branchin, tässä tapauksessa 'v0.10-dev' -nimisen branchin version asentaminen
+remotes::install_github("ropengov/sotkanet@v0.10-dev")
+
+# Tietyn pull requestin, tässä tapauksessa PR 26 "Add check for region.code length" mukaisen version asentaminen
+remotes::install_github("ropengov/sotkanet", ref = remotes::github_pull("26"))
+remotes::install_github("ropengov/sotkanet#26")
 ```
+
+`remotes`-paketin käyttäminen vaatii Githubin Personal Access Tokenin (PAT) määrittelyn. Ohjeita tähän löytyy esimerkiksi `usethis`-paketin [artikkelista](https://usethis.r-lib.org/articles/git-credentials.html#what-about-the-remotes-and-pak-packages).
 
 Asennuksen onnistumista voi testata lataamalla paketin:
 
-```{r load, eval = FALSE}
+```{r load_package, eval = FALSE}
 library(sotkanet)
 ```
 
 ## Paketin käyttö
 
-### Käytettävissä olevat indikaattorit
+### Käytettävissä olevat indikaattorit ja aluejaot
 
 Aloitetaan lataamalla tarvittavat paketit:
 
@@ -59,54 +72,89 @@ library(ggplot2)
 Käytettävissä olevat indikaattorit voi listata käyttämällä funktiota `sotkanet_indicators()`:
 
 ```{r sotkanet_indicators, warning = FALSE}
-# Muutama esimerkki indikaattori
+# Ladataan muutama esimerkki-indikaattori
 indicators <- sotkanet_indicators(id = c(4, 5, 6, 127, 10012, 10027), type = "table")
+# Visualisoidaan taulukkomuodossa
 kable(indicators)
 ```
+
+Kuten listauksesta voidaan huomata, Sotkanet APIsta löytyy THL:n omien indikaattoreiden lisäksi myös monien muiden viranomaisten, esimerkiksi Kansaneläkelaitoksen ja Tilastokeskuksen, tuottamia indikaattoreita. Käyttäjän on syytä olla huolellinen viitatessaan dataan.
 
 Maantieteelliset alueet voi listata käyttämällä funktiota `sotkanet_regions()`:
 
 ```{r sotkanet_regions, warning = FALSE}
-# Kuusi ensimmäistä aluetta
+# Ladataan kaikki sotkanetin käyttämät alueet
 regions <- sotkanet_regions(type = "table")
+# Visualisoidaan kuusi ensimmäistä aluetta taulukkomuodossa
 kable(head(regions))
 ```
 
 ### Sotkanet datan lataaminen
 
-Datan lataamiseksi tarvitaan sen indikaattori. Oikean indikaattorin hakemiseen voi käyttää edellä mainittua `sotkanet_indicators` funktiota. Indikaattorin etsimiseen voi myös käyttää [Sotkanetin nettisivuja](https://sotkanet.fi/sotkanet/fi/index). Esimerkiksi indikaattori 10012 vastaa "(EU) Bruttokansantuote (BKT) asukasta kohden ostovoimapariteetin mukaan" dataa. Datan voi ladata käyttämllä `get_sotkanet()` funktiota. Suomen BKT datan vuosilta 2000-2010 saa komennolla:
+Datan lataamiseksi tarvitaan indikaattorin tunniste. Oikean indikaattorin hakemiseen voi käyttää edellä mainittua `sotkanet_indicators` funktiota, indikaattorin lataamisessa käytetään `indicator`-sarakkeesta löytyvää numeerista tunnistetta. Indikaattorin etsimiseen voi käyttää myös [Sotkanetin nettisivuja](https://sotkanet.fi/sotkanet/fi/index). 
 
-```{r get_sotkanet, warning = FALSE}
+Esimerkiksi indikaattoritunniste 5 vastaa "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä" -datasettiä. Datan voi ladata käyttämllä `get_sotkanet()` funktiota. Datasetin hyvinvointialueittaisen datan vuosilta 2000-2010 saa komennolla:
+
+```{r get_sotkanet_hyvinvointialue, warning = FALSE}
 # Indikaattorin datan hakeminen
-dat <- get_sotkanet(indicators = 10012, years = 2000:2010,
-                    genders = c("total"), regions = "Suomi")
+dat_5 <- get_sotkanet(indicators = 5, years = 2000:2010,
+                    genders = c("total"), region.category = "HYVINVOINTIALUE")
 
 # Datan kuusi ensimmäistä riviä
-kable(head(dat)) %>%
+kable(head(dat_5)) %>%
   kable_styling() %>%
   scroll_box(width = "100%")
 ```
 
+
+Sotkanet APIsta löytyy myös monien muiden viranomaisten, esimerkiksi Kansaneläkelaitoksen ja Tilastokeskuksen, tuottamia indikaattoreita.
+
+```{r get_sotkanet_maakunta, warning = FALSE}
+# Indikaattorin datan hakeminen
+dat_3090 <- get_sotkanet(indicators = 3090, years = 2000:2021,
+                    genders = c("total"), region.category = "MAAKUNTA",
+                    regions = c("Uusimaa", "Varsinais-Suomi", "Satakunta", "Päijät-Häme", "Lappi"))
+
+dat_3090_meta <- sotkanet_indicator_metadata(3090)
+
+# Datan kuusi ensimmäistä riviä
+kable(head(dat_3090)) %>%
+  kable_styling() %>%
+  scroll_box(width = "100%")
+
+ggplot(dat_3090, aes(x = year, y = absolute.value, color = region.title)) +
+     geom_line() +
+     labs(x = "Vuosi", y = "n", title = paste0(dat_3090_meta$title$fi, "\n(absoluuttiset arvot)"), color = "Maakunta",
+          caption = paste0(
+    "Datan lähde: https://sotkanet.fi / ", dat_3090_meta$organization$title$fi, "\n", "Datan päiväys: ", dat_3090_meta$`data-updated`, ", Data ladattu: ", Sys.Date()))
+```
+
 Datan hakemiseen voi myös käyttää interaktiivista `sotkanet_interactive()` funktiota, joka tarjoaa käyttäjälle interaktiivisen ja helppokäyttöisen vaihtoehdon datan lataamiselle. Interaktiivisen funktion tarkoituksena on paitsi helpottaa datan hakemista, myös edistää hyviä käytäntöjä, kuten datalähteisiin viittaaminen, datan latausskriptin tallentaminen ja taulukolle lasketun tarkistussumman laskeminen.
 
-Mille tahansa indikaattorille voi tulostaa viitteen käyttämällä `sotkanet_cite()` funktiota. Esimerkiksi BKT datan viitauksen saaminen onnistuu komennolla:
+## Dataan viittaaminen
 
-```{r, warning = FALSE, message = FALSE}
-sotkanet_cite(10012)
+Mille tahansa indikaattorille voi tulostaa viitteen käyttämällä `sotkanet_cite()` funktiota. Esimerkiksi edellä käytetyn toimeentulotukidatan viitauksen printtaaminen onnistuu helposti komennolla:
+
+```{r sotkanet_cite_fi, warning = FALSE, message = FALSE}
+sotkanet_cite(5)
 ```
 
 `sotkanet_cite` funktio mahdollistaa dataviittausten helpon luomisen muillakin myös muilla rajapinnan tukemilla kielillä:
 
-```{r}
+```{r sotkanet_cite_sv_en}
 sotkanet_cite(5, lang = "sv")
 sotkanet_cite(5, lang = "en")
 ```
 
 ## Esimerkkejä
 
-Käydään seuraavaksi läpi paketin käyttöä kahden esimerkin avulla. Ensimmäisessä esimerkissä verrataan pohjoismaiden välisiä eroja aiemmin mainitussa BKT datassa vuosina 2000-2010.
+Käydään seuraavaksi läpi paketin käyttöä kolmen esimerkin avulla. 
 
-```{r, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
+### Pohjoismaiden väliset erot
+
+Ensimmäisessä esimerkissä verrataan pohjoismaiden välisiä eroja Eurostatin tuottamassa BKT-datassa vuosina 2000-2010.
+
+```{r sotkanet_nordic_gdp, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
 # Indikaattorin datan hakeminen
 dat <- get_sotkanet(indicators = 10012, years = 2000:2010,
                     genders = "total", region.category = "POHJOISMAAT")
@@ -121,9 +169,9 @@ dat_meta <- sotkanet_indicator_metadata(10012)
 library(ggplot2)
 p <- ggplot(dat, aes(x = year, y = primary.value,
                      group = region.title, color = region.title)) + 
-  geom_line() + ggtitle(paste0(indicator_name, " /  \n", indicator_source)) +
-  labs(x = "Vuosi", y = "Arvo", caption = paste0(
-    "Datan lähde: https://sotkanet.fi","\n", "Datan päiväys: ", dat_meta$`data-updated`)) +
+  geom_line() + ggtitle(paste0(indicator_name)) +
+  labs(x = "Vuosi", y = "Arvo", color = "Maa", caption = paste0(
+    "Datan lähde: https://sotkanet.fi / ", indicator_source, "\n", "Datan päiväys: ", dat_meta$`data-updated`, ", Data ladattu: ", Sys.Date())) +
   scale_x_continuous(breaks = seq(2000,2010, by = 2)) +
   theme(title = element_text(size = 10)) +
   theme(axis.title.x = element_text(size = 15)) +
@@ -132,9 +180,17 @@ p <- ggplot(dat, aes(x = year, y = primary.value,
 print(p)
 ```
 
+Dataviittaus indikaattorille 10012:
+
+```{r cite-10012}
+sotkanet_cite(10012)
+```
+
+### Suomen kuntien väkiluvun yhteys koulutustasomittarin arvoon
+
 Toisessa esimerkissä tarkastellaan Suomen kuntien väkiluvun yhteyttä kunnan koulutustasomittarin arvoon.
 
-```{r, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
+```{r sotkanet_pop_educ, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
 # Datan hakeminen indikaattoreille
 dat <- get_sotkanet(indicators = c(127, 180), 
                     years = 2022, genders = c("total"), region.category = c("KUNTA"))
@@ -158,16 +214,68 @@ p <- ggplot(dw, aes(x = log(Population), y = Education_level)) + geom_point(size
 plot(p)
 ```
 
+Dataviittaukset indikaattoreille 127 ja 180:
+
+```{r cite-127-180}
+sotkanet_cite(127)
+
+sotkanet_cite(180)
+```
+
+### Kuppa-infektioiden määrä maakunnittain
+
+```{r}
+library(geofi)
+library(dplyr)
+polygon <- geofi::get_municipality_pop(year = 2021, codes_as_character = TRUE)
+
+# Yhdistetään kunta-polygonit maakunta-polygoneiksi
+regions <- polygon %>% dplyr::group_by(maakunta_name_fi, maakunta_code) %>% 
+  dplyr::summarise(vaesto = sum(vaesto))
+
+# Indikaattorin datan hakeminen
+dat_3165 <- get_sotkanet(indicators = 3165, years = 2000:2021,
+                    genders = c("total"), region.category = "MAAKUNTA")
+
+dat_3165_mean <- dat_3165 %>%
+  dplyr::group_by(region.code) %>%
+  dplyr::summarize(mean_cases_per_annum = mean(primary.value))
+
+dat_3165_meta <- sotkanet_indicator_metadata(3165)
+
+regions_and_dat <- dplyr::left_join(regions, dat_3165_mean, by = c("maakunta_code" = "region.code"))
+
+# Datan kuusi ensimmäistä riviä
+# kable(head(dat_3090)) %>%
+#   kable_styling() %>%
+#   scroll_box(width = "100%")
+
+# Viivakuvaaja
+# ggplot(dat_3090, aes(x = year, y = absolute.value, color = region.title)) +
+#      geom_line() +
+#      labs(x = "Vuosi", y = "n", title = paste0(dat_3090_meta$title$fi, "\n(absoluuttiset arvot)"), color = "Maakunta",
+#           caption = paste0(
+#     "Datan lähde: https://sotkanet.fi / ", dat_3090_meta$organization$title$fi, "\n", "Datan päiväys: ", dat_3090_meta$`data-updated`, ", Data ladattu: ", Sys.Date()))
+
+# Teemakartta
+ggplot(regions_and_dat) +
+  geom_sf(aes(fill = mean_cases_per_annum), color = "white", size = 0.5) + 
+  labs(title = dat_3165_meta$title$fi, subtitle = "Vuosien 2000-2021 keskiarvo", color = "", caption = paste0(
+    "Datan lähde: https://sotkanet.fi / ", dat_3165_meta$organization$title$fi, "\n", "Datan päiväys: ", dat_3165_meta$`data-updated`, ", Data ladattu: ", Sys.Date())) +
+  theme_void() +
+  scale_fill_continuous(name = "")
+```
+
 
 ## Lisensointi ja viittaminen
 
 ### Sotkanetin data
 
-Viittaa Sotkanettiin ja jaa linkki  [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/fi/index). Mainitse myös indikaattorin tarjoaja.
+Viittaa Sotkanetiin ja jaa linkki [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/fi/index). Mainitse myös indikaattorin datan tuottaja (sarakkeesta `indicator.organization.title`).
 
 * [Täysi lisenssi ja käyttöehdot](https://sotkanet.fi/sotkanet/fi/tietoa-palvelusta).
 
-Keskeiset kohdat:
+Keskeiset kohdat tiivistettynä:
 
  * Sotkanet REST API on tarkoitettu ei-säännöllisiin tietokyselyihin. Vältä säännöllisia ja toistuvia latauksia.
  * Sotkanet APIa voidaan käyttää muiden palveluiden pohjana.
@@ -175,22 +283,25 @@ Keskeiset kohdat:
  * THL:n indikaattorit ovat [CC-BY 4.0 -lisenssin](https://creativecommons.org/licenses/by/4.0/) alaisia.
  * Kolmansien osapuolten Sotkanetiin toimittamia indikaattoreita voidaan käyttää vain erillisellä sopimuksella!
 
+Yksittäisiin indikaattoreihin viitatessa suosittelemme käyttämään apuna aiemmin tässä artikkelissa demonstroitua `sotkanet_cite()`-funktiota. Haluamme painottaa datalähteisiin viittaamisen tärkeyttä ja suosittelemme perehtymään Data-asiain kansalliskomitean julkaisemaan kansalliseen dataviittausten tiekarttaan ([Finnish Committee for Research Data, 2018](https://urn.fi/URN:NBN:fi-fe201804106446)), joka taas käyttää pohjana FORCE11 Joint Declaration of Data Citation Principlesiä ([Data Citation Synthesis Group, 2014](https://doi.org/10.25490/a97f-egyk)).
+
 ### Sotkanet R-paketti
 
-Pakettia voi käyttää, muokata ja levittää vapaasti [Two-clause BSD-lisenssin](https://fi.wikipedia.org/wiki/BSD-lisenssi) nojalla.
+Mikäli käytät julkaisussasi dataa jonka olet hakenut sotkanet-pakettia käyttäen, toivomme että viittaat pakettiin FORCE11 Software Citation Principlesin ([Smith et al., 2016](https://doi.org/10.7717/peerj-cs.86)) mukaisesti, tutkimuksessa käytettyjen ohjelmistojen ja algoritmien relevanssin tunnustaen, seuraavalla tavalla:
 
 ```{r citation, message=FALSE, eval=TRUE}
 citation("sotkanet")
 ```
 
+## Paketin kehittäminen, vikojen raportointi ja parannusehdotukset
 
-## Viat ja parannusehdotukset
+Pakettia voi käyttää, muokata ja levittää vapaasti [Two-clause BSD-lisenssin](https://fi.wikipedia.org/wiki/BSD-lisenssi) ehtojen mukaisesti.
 
-Tunnistetut ja raportoidut bugit, puutteet ja muut rajoitteet on listattu projektin [GitHub-issueissa](https://github.com/rOpenGov/sotkanet/issues). Sivulla voi myös ilmoittaa uusista vioista ja antaa parannusehdotuksia.
+Tunnistetut ja raportoidut bugit, puutteet ja muut rajoitteet on listattu projektin [GitHub-issueissa](https://github.com/rOpenGov/sotkanet/issues). Sivulla voi myös ilmoittaa uusista vioista ja antaa parannusehdotuksia. Käyttäjien tekemät koodikontribuutiot ovat myös erittäin tervetulleita.
 
 ## Istunnon tiedot
 
-Tämä vignette luotiin käyttämällä: 
+Tämä artikkeli luotiin seuraavalla laitteisto- ja ohjelmistokokoonpanolla: 
 
 ```{r sessioninfo, warning = FALSE}
 sessionInfo()
