@@ -3,17 +3,18 @@ citHeader("Kindly cite the sotkanet R package as follows:")
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 
-citEntry(
-  entry="misc",
+bibentry(
+  bibtype="misc",
   title = "sotkanet: Sotkanet Open Data Access and Analysis",
-  author = personList(
+  author = c(
     person(given ="Leo", family="Lahti", email = "leo.lahti@iki.fi"),
     person(given ="Einari", family="Happonen"),
     person(given ="Joona", family="Lehtomäki"),    
     person(given ="Juuso", family="Parkkinen"),
     person(given ="Joona", family="Lehtomaki"),
     person(given ="Vesa", family="Saaristo"),
-	  person(given ="Pyry", family="Kantanen")),
+	  person(given ="Pyry", family="Kantanen"),
+	  person(given ="Aleksi", family="Lahtinen")),
   doi = "",
   journal = "",
   URL = "https://github.com/rOpenGov/sotkanet",
@@ -21,7 +22,7 @@ citEntry(
   note = vers,
   textVersion =
     paste(
-    "Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen (rOpenGov ",year,"). ",
+    "Leo Lahti, Einari Happonen, Juuso Parkkinen, Joona Lehtomaki, Vesa Saaristo, Aleksi Lahtinen and Pyry Kantanen (rOpenGov ",year,"). ",
     "sotkanet: Sotkanet Open Data Access and Analysis. ",
     vers,
     " https://github.com/rOpenGov/sotkanet",

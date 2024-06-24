@@ -1,170 +1,181 @@
 ---
 title: "Sotkanet API R tools"
-author: "Leo Lahti"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: TRUE
 vignette: >
   %\VignetteIndexEntry{Sotkanet API R tools}
-  %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
-editor_options: 
-  chunk_output_type: inline
+  %\VignetteEncoding{UTF-8}
 ---
 
-This is the [sotkanet](https://github.com/rOpenGov/sotkanet) R package to access data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index) that provides over 2000 demographic indicators across Finland and Europe, maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). This package is part of [rOpenGov](http://ropengov.org).
-
-```{r, echo = FALSE}
+```{r, include = FALSE}
 NOT_CRAN <- identical(tolower(Sys.getenv("NOT_CRAN")), "true")
+eval_packages <- requireNamespace(c("kableExtra", "ggplot2"))
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   purl = NOT_CRAN,
-  eval = NOT_CRAN
+  eval = NOT_CRAN && eval_packages
 )
 ```
 
+
+```{r eval = !eval_packages, echo = FALSE}
+message("Packages `kableExtra` and `ggplot2` required for building the vignette. Code chunks will not be evaluated.")
+```
+
+
+This [sotkanet](https://github.com/rOpenGov/sotkanet) R package provides access to data from the [Sotkanet portal](https://sotkanet.fi/sotkanet/en/index). Your [contributions](https://ropengov.org/community/) and [bug reports and other feedback](https://github.com/rOpenGov/sotkanet) are welcome.
+
+## Introduction
+
+The Sotkanet portal provides over 2000 demographic indicators across Finland and Europe. It is maintained by the National Institute for Health and Welfare (THL). For more information, see [Information about Sotkanet](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta) and [API description](https://sotkanet.fi/sotkanet/en/ohje/74). 
+
+The `sotkanet` R package enables access to the Sotkanet API using R facilitating the use of the data from the API. This package is part of [rOpenGov](https://ropengov.org).
+
+
 ## Installation
 
-Release version from CRAN:
+To install latest release version from CRAN, use:
 
-```{r install, eval=FALSE}
+```{r install, eval = FALSE}
 install.packages("sotkanet")
 ```
 
-Development version from GitHub:
+To install development version from GitHub, use:
 
-```{r install2, eval=FALSE}
-library(devtools)
-install_github("ropengov/sotkanet")
+```{r install2, eval = FALSE}
+library(remotes)
+remotes::install_github("ropengov/sotkanet")
 ```
+
+Test the installation by loading the package:
+
+```{r load, eval = FALSE}
+library(sotkanet)
+```
+
 
 ## Usage
 
-### Listing available indicators
 
-Load sotkanet and other libraries used in this vignette
+### Listing availabe indicators
 
-```{r loadlib, warning=FALSE, message=FALSE, echo=FALSE}
+Load sotkanet and other packages used in the vignette.
+
+```{r libraries, warning = FALSE, message = FALSE}
 library(sotkanet)
-library(knitr) 
-library(magrittr)
 library(kableExtra)
+library(ggplot2)
 ```
 
-List available Sotkanet indicators:
 
-```{r sotkanetIndicators, warning=FALSE, message=FALSE}
-# Using a pre-defined list of indicators for a smaller download
-sotkanet.indicators <- SotkanetIndicators(id = c(4,5,6,7,46,74), type = "table")
-kable(head(sotkanet.indicators))
+
+List available Sotkanet indicators using `sotkanet_indicators()`:
+
+```{r sotkanet_indicators, warning = FALSE}
+# Using a preset list of indicators to avoid a large download
+indicators <- sotkanet_indicators(id = c(4, 5, 6, 127, 10012, 10027),
+                                  type = "table", lang = "en")
+kable(head(indicators))
 ```
 
-List geographical regions with available indicators:
+List geographical regions with available indicators using `sotkanet_regions()`:
 
-```{r sotkanetRegions, warning=FALSE, message=FALSE}
-# options(width = 60)
-sotkanet.regions <- SotkanetRegions(type = "table")
-kable(head(sotkanet.regions))
+```{r sotkanet_regions, warning = FALSE}
+# List of the first few regions
+regions <- sotkanet_regions(type = "table", lang = "en")
+kable(head(regions))
 ```
 
-### Querying SOTKAnet indicators
+### Querying Sotkanet data
 
-Get the indicator no. 10013 (Unemployment rate of young people aged 16-24 years) from Sotkanet, from Finland (Suomi) for 1990-2012 (Eurostat employment statistics youth unemployment), and plot a graph:
+To download the data, we need to know the indicator for it. You can look for the right indicator using aforementioned `sotkanet_indicators()` or by browsing the [Sotkanet website](https://sotkanet.fi/sotkanet/en/index). For example, the indicator no. 10012 responds to the (EU) GPD per capita in Purchasing Power Standards (PPS) dataset. The data can be downloaded with `get_sotkanet()` function. If we want, for example, the GPD data from Finland for 2000-2010, the function call is:
 
-```{r sotkanetData, warning=FALSE, message=FALSE}
-# Get indicator data
-dat <- GetDataSotkanet(indicators = 10013, years = 1990:2012, 
-       		       genders = c('female', 'male', 'total'), 
-		       region.category = "EUROOPPA", regions = "Suomi")
+```{r get_sotkanet, warning = FALSE}
+# Get the indicator data
+dat <- get_sotkanet(indicators = 10012, years = 2000:2010,
+                    genders = c("total"), lang = "en", regions = "Finland")
 
-# Investigate the first lines in the data
-kable(head(dat)) %>% 
+# The first few lines of the data
+kable(head(dat)) %>%
   kable_styling() %>%
-  kableExtra::scroll_box(width = "100%")
+  scroll_box(width = "100%")
 ```
 
-### Visualization
+The data can also be downloaded by using interactive function `sotkanet_interactive()`. It gives user interactive alternative for downloading the dataset. This function can also print dataset citation, code for the `get_sotkanet()` call and fixity checksum. 
 
-Download and visualize time series:
+Dataset citation can be printed for any indicator using the function `sotkanet_cite()`. The citation for the GPD data is:
 
-```{r sotkanetDataVisu, warning=FALSE, message=FALSE, fig.width=10, figh.height=5, out.width = "100%"}
-# Pick indicator name
-indicator.name <- as.character(unique(dat$indicator.title.fi))
-indicator.source <- as.character(unique(dat$indicator.organization.title.fi))
+```{r, warning = FALSE, message = FALSE}
+sotkanet_cite(10012, lang = "en")
+```
+
+
+## Examples
+
+Let's now demonstrate the use of the package with two examples. For the first example we will use the GPD data from Nordic countries (Pohjoismaat) for 2000-2010 and draw a time series of the data comparing the countries.
+
+```{r, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
+# Get indicator data
+dat <- get_sotkanet(indicators = 10012, years = 2000:2010,
+                    genders = "total", lang = "en", region.category = "POHJOISMAAT")
+
+indicator_name <- as.character(unique(dat$indicator.title))
+indicator_source <- as.character(unique(dat$indicator.organization.title))
+
+# Retrive metadata
+dat_meta <- sotkanet_indicator_metadata(id = 10012)
 
 # Visualize
 library(ggplot2)
-theme_set(theme_bw(20)); 
-p <- ggplot(dat, aes(x = year, y = primary.value, group = gender, color = gender)) 
-p <- p + geom_line() + ggtitle(paste(indicator.name, indicator.source, sep = " / ")) 
-p <- p + labs(x = "Year", y = "Value", caption = "Data source: https://sotkanet.fi")
-p <- p + theme(title = element_text(size = 10))
-p <- p + theme(axis.title.x = element_text(size = 20))
-p <- p + theme(axis.title.y = element_text(size = 20))
-p <- p + theme(legend.title = element_text(size = 15))
+p <- ggplot(dat, aes(x = year, y = primary.value,
+                     group = region.title, color = region.title)) + 
+  geom_line() + ggtitle(paste0(indicator_name, " \n", indicator_source)) +
+  labs(x = "Year", y = "Value",caption = paste0(
+    "Data source: https://sotkanet.fi/sotkanet",  "\n", "Data date: ", dat_meta$`data-updated`)) +
+  scale_x_continuous(breaks = seq(2000,2010, by = 1)) +
+  theme(title = element_text(size = 10)) +
+  theme(axis.title.x = element_text(size = 15)) +
+  theme(axis.title.y = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
 print(p)
 ```
 
-Investigate the effect of municipality size on demographic
-variation. Smaller municipalities show more random variation as
-expected by statistical arguments:
+For the second example we will plot the population of Finnish municipalities against a measure of educational level.
 
-```{r sotkanetVisu3, warning=FALSE, message=FALSE, fig.width=10, fig.height=5, out.width = "100%"}
-selected.inds <- c(127, 178)
-dat <- GetDataSotkanet(indicators = selected.inds, 
-       			years = 2011, genders = c('total'))
-# Pick necessary fields and remove duplicates
-datf <- dat[, c("region.title.fi", "indicator.title.fi", "primary.value")]
+```{r, fig.width = 10, fig.height = 5, out.width = "100%", warning = FALSE}
+# Get the data for the two indicators
+dat <- get_sotkanet(indicators = c(127, 180), 
+                    years = 2022, lang = "en",
+                    genders = c("total"), region.category = c("KUNTA"))
+# Pick the fields of interest and remove duplicates
+datf <- dat[,c("region.title", "indicator.title", "primary.value")]
 datf <- datf[!duplicated(datf),]
-dw <- reshape(datf, idvar = "region.title.fi", 
-      		    timevar = "indicator.title.fi", direction = "wide")
-names(dw) <- c("Municipality", "Population", "Migration")
-p <- ggplot(dw, aes(x = log10(Population), y = Migration)) +
-       geom_point(size = 3)
-       ggtitle("Migration vs. population size") 
-       theme(title = element_text(size = 15))
-       theme(axis.title.x = element_text(size = 20))
-       theme(axis.title.y = element_text(size = 20))
-       theme(legend.title = element_text(size = 15))
-print(p)
+dw <- reshape(datf, idvar = "region.title",
+              timevar = "indicator.title", direction = "wide")
+names(dw) <- c("Municipality", "Population", "Education_level")
+
+# Vizualise
+p <- ggplot(dw, aes(x = log(Population), y = Education_level)) + geom_point(size = 3) +
+  ggtitle("Education level vs. population size") +
+    theme(title = element_text(size = 10)) +
+  labs(y = "Education level", caption = "Data source: https://sotkanet.fi/sotkanet") +
+  theme(axis.title.x = element_text(size = 15)) +
+  theme(axis.title.y = element_text(size = 15)) +
+  theme(legend.title = element_text(size = 15))
+plot(p)
 ```
 
-### Fetch all SOTKAnet indicators
-
-This takes for a long time and is not recommended for regular
-use. Save the data on your local disk for further work.
-
-```{r sotkanetDataAll, warning=FALSE, message=FALSE, eval=FALSE}
-# These indicators have problems with R routines:
-problematic.indicators <- c(1575, 1743, 1826, 1861, 1882, 1924, 1952, 2000, 
-                            2001, 2033, 2050, 3386, 3443)
-
-# Get data for all indicators
-datlist <- list()
-for (ind in setdiff(sotkanet.indicators$indicator, problematic.indicators)) {
-  datlist[[as.character(ind)]] <- GetDataSotkanet(indicators = ind, 
-  		years = 1990:2013, genders = c('female', 'male', 'total'))
-}
-
-# Combine tables (this may require considerable time and memory 
-# for the full data set)
-dat <- do.call("rbind", datlist)
-```
-
-### Further examples
-
-For further usage examples, see
-[rOpenGov-blog](http://ropengov.org), and
-[takomo](https://github.com/louhos/takomo/tree/master/Sotkanet), and 
-[Helsinki Region Infoshare-blog](http://www.hri.fi/fi/ajankohtaista/sotkanet-indikaattoripankki-mukaan-sorvi-tyokalupakkiin/)
 
 ## Licensing and Citations
 
-### SOTKAnet data
+### Sotkanet data
 
-Cite SOTKAnet and link to [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/fi/index). Also mention indicator provider. 
+Cite Sotkanet and link to [https://sotkanet.fi/sotkanet/fi/index](https://sotkanet.fi/sotkanet/). Also mention indicator provider.
 
- * [Full license and terms of use](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta). 
+* [Full license and terms of use](https://sotkanet.fi/sotkanet/en/tietoa-palvelusta).
 
 Central points:
 
@@ -175,19 +186,24 @@ Central points:
  * Indicators provided by third parties can be used only by separate agreement!
 
 
-### SOTKAnet R package
+### Sotkanet R package
 
-This work can be freely used, modified and distributed under the 
-[Two-clause BSD license](https://en.wikipedia.org/wiki/BSD\_licenses).
+This work can be freely used, modified and distributed under the [Two-clause BSD license](https://en.wikipedia.org/wiki/BSD_licenses).
 
 ```{r citation, message=FALSE, eval=TRUE}
 citation("sotkanet")
 ```
 
-### Session info
 
-This vignette was created with
+## Suggestions and bug reports 
 
-```{r sessioninfo, message=FALSE, warning=FALSE}
+You can check the package [GitHub page](https://github.com/rOpenGov/sotkanet/issues) for known issues. You can can also use it to report new bugs and to make suggestions for improving the package.
+
+## Session info
+
+This vignette was created with 
+
+```{r sessioninfo, warning = FALSE}
 sessionInfo()
 ```
+

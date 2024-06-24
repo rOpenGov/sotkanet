@@ -9,10 +9,10 @@ sotkanet.csv_query(url, user.agent = NULL, ...)
 \arguments{
 \item{url}{Sotkanet CSV url}
 
-\item{user.agent}{User agent defined by the user. Default is 
+\item{user.agent}{User agent defined by the user. Default is
 "rOpenGov/sotkanet"}
 
-\item{...}{additional parameters to be passed to test_connection, mainly 
+\item{...}{additional parameters to be passed to test_connection, mainly
 timeout (in seconds, default is 10)}
 }
 \value{

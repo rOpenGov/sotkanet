@@ -1,27 +1,38 @@
-#' @title Sotkanet Regions (old version)
-#' @description Retrieves sotkanet regions data. (This is an older version of the function. 
-#'  It is advised to use the new [sotkanet_regions()] function instead.)
+#' @title Sotkanet Regions
+#' @description Retrieves sotkanet regions data.
 #' @details Data is fetched from \url{https://sotkanet.fi/rest/1.1/regions}.
 #' @param type type output format, either 'table' (default) or 'raw'.
 #'    Default produces a truncated table with strictly defined columns that
 #'    are useful in other functions. 'Raw' produces the full output which might
 #'    be useful for exploratory purposes.
+#' @param lang Language of the output.
 #' @param user.agent "User agent" defined by the user. Default is NULL which
 #'    will then use the package identifier "rOpenGov/sotkanet"
+#' @param cache a logical whether to do caching.
+#' @param cache_dir a path to the cache directory.
 #' @return data.frame
 #' @export
 #' @references See citation("sotkanet")
 #' @author Maintainer: Leo Lahti \email{leo.lahti@@iki.fi}
 #' @examples
 #' \dontrun{
-#' sotkanet.regions <- SotkanetRegions(type = "table")
+#' sotkanet.regions <- sotkanet_regions(type = "table", lang = "fi")
 #' }
+#' @importFrom digest digest
 #' @keywords utilities
-SotkanetRegions <- function(type = "table", user.agent = NULL)
+sotkanet_regions <- function(type = "table", lang = "fi",  user.agent = NULL,
+                             cache = TRUE, cache_dir = NULL)
 {
 
-  message("This is an old version of the function.\nIt is advised to use the new sotkanet_regions function instead.")
-  
+  region_query <- list(type = type, lang = lang)
+  region_hash <- digest::digest(region_query, algo = "md5")
+
+  region_cache <- sotkanet_read_cache(cache = cache, cache_dir = cache_dir, region_hash)
+
+  if (!is.null(region_cache)){
+    return(region_cache)
+  }
+
   sotkanet_url <- "https://sotkanet.fi/rest"
   sotkanet_uri <- "/1.1/regions"
 
@@ -35,8 +46,10 @@ SotkanetRegions <- function(type = "table", user.agent = NULL)
   res <- sotkanet.json_query(final_url, simplifyVector = TRUE)
 
   if (type == "table") {
-    res <- SotkanetCollect(res, "region")
+    res <- sotkanet_collect(res, "region", lang = lang)
   }
+
+  sotkanet_write_cache(cache = cache, cache_dir = cache_dir, region_hash, res)
 
   res
 }

@@ -4,11 +4,11 @@
 \alias{test_connection}
 \title{Test for internet connection, timeout and status}
 \source{
-Gracefully failing HTTP request code (slightly adapted by Pyry 
+Gracefully failing HTTP request code (slightly adapted by Pyry
    Kantanen) from RStudio community member kvasilopoulos. Many thanks!
-   
+
    Source of the original RStudio community discussion:
-   \url{https://community.rstudio.com/t/internet-resources-should-fail-gracefully/49199}
+   \url{https://forum.posit.co/t/internet-resources-should-fail-gracefully/49199}
 }
 \usage{
 test_connection(url = NULL, timeout = 10)

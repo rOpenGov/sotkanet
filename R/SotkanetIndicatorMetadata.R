@@ -1,5 +1,6 @@
-#' @title Sotkanet Indicator Metadata
-#' @description Retrieves sotkanet indicator metadata.
+#' @title Sotkanet Indicator Metadata. (old version)
+#' @description Retrieves sotkanet indicator metadata. (This is an older version of the function. 
+#'  It is advised to use the new [sotkanet_indicator_metadata()] function instead.)
 #' @details Data is fetched from \preformatted{https://sotkanet.fi/rest/1.1/indicators/<id>}
 #' @param id Indicator id
 #' @param type Parameter passed onto \code{\link{SotkanetIndicators}}. Default
@@ -17,11 +18,14 @@
 #' @export
 SotkanetIndicatorMetadata <- function(id = NULL, type = "raw", user.agent = NULL)
 {
+  
+  message("This is an old version of the function.\nIt is advised to use the new sotkanet_indicator_metadata function instead.")
+  
   if (is.null(id)){
     message("Please input a valid indicator id number")
     return(invisible(NULL))
   }
-  SotkanetIndicators(id, type)
+  suppressMessages(SotkanetIndicators(id, type))
 }
 
 
