@@ -168,7 +168,7 @@ sotkanet_interactive <- function(code = NULL){
   }
 
   if (exists("sotkanet_data")){
-    print_code <- switch(
+    print_fixity <- switch(
       menu(choices = c("Yes", "No"),
            title = "Print dataset fixity checksum?") + 1,
       return(invisible()),
@@ -176,7 +176,7 @@ sotkanet_interactive <- function(code = NULL){
       FALSE
     )
 
-    if (print_code){
+    if (print_fixity){
       fixity <- sotkanet_fixity(sotkanet_data, algorithm = "md5")
       capture.output(cat("#### FIXITY CHECKSUM: \n\n"),
                      file = tempfile_for_sink, append = TRUE)
@@ -189,7 +189,9 @@ sotkanet_interactive <- function(code = NULL){
   }
 
   if (exists("sotkanet_data")){
-    cat(readLines(tempfile_for_sink), sep = "\n")
+    if (print_code || print_citation || print_fixity) {
+      cat(readLines(tempfile_for_sink), sep = "\n")
+    }
     return(sotkanet_data)
   }
 
