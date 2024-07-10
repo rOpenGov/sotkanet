@@ -3,7 +3,6 @@
 \docType{package}
 \name{sotkanet-package}
 \alias{sotkanet-package}
-\alias{_PACKAGE}
 \alias{sotkanet}
 \title{sotkanet: Sotkanet Open Data Access and Analysis}
 \description{
@@ -65,7 +64,7 @@ The `sotkanet` R package aims to make retrieval of sotkanet
   Package: \tab sotkanet\cr
   Type: \tab Package\cr
   Version: \tab See sessionInfo() or DESCRIPTION file\cr
-  Date: \tab 2013-2022\cr
+  Date: \tab 2013-2024\cr
   License: \tab BSD 2-clause License\cr
   LazyLoad: \tab yes\cr
 }
@@ -86,5 +85,5 @@ Useful links:
 
 }
 \author{
-Leo Lahti (\email{leo.lahti@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo and Pyry Kantanen
+Leo Lahti (\email{leo.lahti@iki.fi}), Einari Happonen, Juuso Parkkinen Joona Lehtomaki, Vesa Saaristo, Pyry Kantanen and Aleksi Lahtinen
 }

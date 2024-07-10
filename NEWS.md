@@ -1,3 +1,24 @@
+# sotkanet 0.10.0 (2024-06-18)
+
+### NEW FEATURES
+* New functions: `sotkanet_cite()` for citing datasets (issue #16, PR #17 by @Allaht2) and `sotkanet_interactive()` for interactively downloading datasets (issue #20, PR #21 by @Allaht2).
+* New dependencies / imports: move from using `httr` package to `httr2` package (issue #19, PR #24 by @Allaht2). Other new imports are `lubridate`, `RefManageR`, `digest`, `frictionless` and `magrittr`.
+* Added new versions for functions `GetDataSotkanet`, `SotkanetRegions`, `SotkanetIndicators` and `SotkanetIndicatorMetadata`. The new version are called `get_sotkanet`, `sotkanet_regions`, `sotkanet_indicators` and `sotkanet_indicator_metadata`. The old versions of different functions are kept without deprecation messages or warnings, but users are gently encouraged to use the new functions (issue #18, PR #25 by @Allaht2)
+* Functions `get_sotkanet`, `sotkanet_regions`, `sotkanet_indicators` and `sotkanet_indicator_metadata` have support for caching (issue #14, PR #21 by @Allaht2). They also now support English and Swedish in addition to Finnish (issue #9, PR #21 by @Allaht2).
+*`get_sotkanet` can return a frictionless datapackage with metadata added in (issue #15, PR #21 by @Allaht2). 
+
+### DEPRECATED AND DEFUNCT
+* Remove dependencies / imports: `httr` and `jsonlite`
+* Removed function `try_GET`
+
+### MINOR IMPROVEMENTS
+* Updated vignette and README to use new versions of the functions. Old vignette is retained.
+* Added Finnish version of the vignette as an article (issue #10, PR #24 by @Allaht2).
+* Moved from using `PascalCase` naming convention to using `snake_case` for new functions (issue #18). 
+* Function `get_sotkanet()` has default `years` value of `NULL` that gives the data from all the available years for the dataset (issue #12, PR #24 by @Allaht2).
+* The default value for `genders` is now `c("male", "female", "total")` (issue #22, PR #24 by @Allaht2).
+* New `region.category` supported by the API, `YTA` ("yhteistyöalue") now mentioned in relevant function documentation (PR #26 by @Allaht2)
+
 # sotkanet 0.9.79 (2022-02-01)
 
 ### NEW FEATURES

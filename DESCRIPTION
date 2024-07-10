@@ -1,7 +1,8 @@
 Package: sotkanet
 Type: Package
 Title: Sotkanet Open Data Access and Analysis
-Version: 0.9.80
+Version: 0.10.1
+Date: 2024-07-10
 Encoding: UTF-8
 Authors@R: 
     c(person(given = "Leo",
@@ -24,7 +25,12 @@ Authors@R:
       person(given = "Pyry",
              family = "Kantanen",
              role = "aut",
-             comment = c(ORCID = "0000-0003-2853-2765")))
+             comment = c(ORCID = "0000-0003-2853-2765")),
+      person(given = "Aleksi",
+             family = "Lahtinen",
+             role = "aut",
+             comment = c(ORCID = "0009-0009-9640-5187"))
+             )
 Description: Access statistical information on welfare and health in Finland 
     from the Sotkanet open data portal <https://sotkanet.fi/sotkanet/fi/index>.
 License: BSD_2_clause + file LICENSE
@@ -32,25 +38,29 @@ URL: https://ropengov.github.io/sotkanet/
 BugReports: https://github.com/ropengov/sotkanet/issues
 Depends: R (>= 3.2)
 Imports:
-    httr,
     curl,
-    jsonlite
+    lubridate,
+    RefManageR,
+    digest,
+    frictionless,
+    httr2,
+    magrittr
 Suggests: 
-    devtools,
+    remotes,
     ggplot2,
     knitr,
     testthat (>= 3.0.0),
     roxygen2,
     markdown,
-    magrittr,
     kableExtra,
     rmarkdown,
     covr,
     ggrepel
 VignetteBuilder: knitr
+Config/Needs/website: geofi, dplyr
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 X-schema.org-isPartOf: http://ropengov.org/
 X-schema.org-keywords: ropengov
 Config/testthat/edition: 3
