@@ -7,7 +7,7 @@ testthat::test_that("get sotkanet includes year field",{
 
 testthat::test_that("Invalid URLs produce a message",{
   testthat::skip_on_cran()
-  testthat::expect_message(sotkanet:::sotkanet.json_query("httpstat.us/200?sleep=1500", timeout = 1))
+  testthat::expect_error(sotkanet:::sotkanet.json_query("httpstat.us/200?sleep=1500", timeout = 1))
   testthat::expect_message(test_connection("https://httpstat.us/401"))
   testthat::expect_message(test_connection("https://httpstat.us/418"))
   testthat::expect_message(SotkanetIndicatorMetadata())

@@ -4,21 +4,22 @@
 \alias{sotkanet.json_query}
 \title{Retrieve Sotkanet Data (json)}
 \usage{
-sotkanet.json_query(url, user.agent = NULL, flatten = TRUE, ...)
+sotkanet.json_query(url, user.agent = NULL, simplifyVector = TRUE, ...)
 }
 \arguments{
 \item{url}{Sotkanet JSON url}
 
-\item{user.agent}{"User agent" defined by the user. Default is 
+\item{user.agent}{"User agent" defined by the user. Default is
 "rOpenGov/sotkanet"}
 
-\item{flatten}{parameter to be passed to jsonlite::fromJSON. Default is TRUE}
+\item{simplifyVector}{When ´TRUE´ returns a data.frame object and
+when ´False´ returns a list instead.}
 
-\item{...}{additional parameters to be passed to test_connection, mainly 
+\item{...}{additional parameters to be passed to test_connection, mainly
 timeout (in seconds, default is 10)}
 }
 \value{
-a data.frame (flatten = TRUE) or a list (flatten = FALSE)
+a data.frame (simplifyVector = TRUE) or a list (simplifyVector = FALSE)
 }
 \description{
 Retrieve data in json format from given url.

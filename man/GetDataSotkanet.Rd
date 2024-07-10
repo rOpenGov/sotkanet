@@ -2,7 +2,7 @@
 % Please edit documentation in R/GetDataSotkanet.R
 \name{GetDataSotkanet}
 \alias{GetDataSotkanet}
-\title{Retrieve Sotkanet Data}
+\title{Retrieve Sotkanet Data (old version)}
 \usage{
 GetDataSotkanet(
   indicators = NULL,
@@ -22,7 +22,7 @@ GetDataSotkanet(
 
 \item{regions}{filter by selected regions only (default: all regions)}
 
-\item{region.category}{filter by one or more of the following 14 valid 
+\item{region.category}{filter by one or more of the following 15 valid
 regions categories (default: all categories)
    \itemize{
      \item "ALUEHALLINTOVIRASTO"
@@ -39,6 +39,7 @@ regions categories (default: all categories)
      \item "SAIRAANHOITOPIIRI (hospital district)
      \item "SEUTUKUNTA"
      \item "SUURALUE"
+     \item "YTA"
    }}
 
 \item{user.agent}{"User agent" defined by the user. Default is NULL which
@@ -48,23 +49,24 @@ will then use the package identifier "rOpenGov/sotkanet"}
 data.frame
 }
 \description{
-Retrieve selected data and combine into a single table.
+Retrieve selected data and combine into a single table. (This is an older version
+ of the function. It is advised to use the new [get_sotkanet()] function instead.)
 }
 \details{
-THL's open data license and limitation of liability 
+THL's open data license and limitation of liability
 
 \strong{License}
 
-The open data provided by National Institute for Health and Welfare is 
-licensed under CC BY 4.0. This license defines how open data can be utilized. 
+The open data provided by National Institute for Health and Welfare is
+licensed under CC BY 4.0. This license defines how open data can be utilized.
 The licensing is based on a decision made by the Director General.
 
 \strong{Limitation of Liability}
 
-National Institute for Health and Welfare shall not be liable for any loss, 
-legal proceedings, claims, proceedings, demands, costs or damages regardless 
-of their cause or form, which can be directly or indirectly connected to 
-open data or use of open data published by National Institute for Health and 
+National Institute for Health and Welfare shall not be liable for any loss,
+legal proceedings, claims, proceedings, demands, costs or damages regardless
+of their cause or form, which can be directly or indirectly connected to
+open data or use of open data published by National Institute for Health and
 Welfare.
 }
 \examples{
