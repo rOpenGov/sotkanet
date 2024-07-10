@@ -59,7 +59,7 @@ test_connection <- function(url = NULL, timeout = 10) {
   }
   
   resp <- try_GET(url, timeout)
-  if (class(resp) != "response") {
+  if (!inherits(resp,"response")) {
     message(resp)
     return(invisible(NULL))
   }
