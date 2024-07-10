@@ -1,4 +1,4 @@
-# sotkanet 0.10.0 (2024-06-18)
+# sotkanet 0.10.1 (2024-07-10)
 
 ### NEW FEATURES
 * New functions: `sotkanet_cite()` for citing datasets (issue #16, PR #17 by @Allaht2) and `sotkanet_interactive()` for interactively downloading datasets (issue #20, PR #21 by @Allaht2).
