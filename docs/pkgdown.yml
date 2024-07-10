@@ -1,9 +1,11 @@
-pandoc: 2.9.2.1
-pkgdown: 2.0.2
+pandoc: 2.17.1.1
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
+  tutorial_fi: tutorial_fi.html
+  tutorial_old: tutorial_old.html
   tutorial: tutorial.html
-last_built: 2022-02-01T18:25Z
+last_built: 2024-07-10T07:57Z
 urls:
   reference: http://ropengov.github.io/sotkanet/reference
   article: http://ropengov.github.io/sotkanet/articles
