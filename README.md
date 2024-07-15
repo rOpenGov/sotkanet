@@ -7,8 +7,11 @@
 
 [![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](https://ropengov.org/)
 [![R build
-status](https://github.com/rOpenGov/sotkanet/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sotkanet)](https://cran.r-project.org/package=sotkanet)
+status](https://github.com/ropengov/sotkanet/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
+[![R build
+status](https://github.com/ropengov/sotkanet/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rOpenGov/sotkanet/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/sotkanet)](https://CRAN.R-project.org/package=sotkanet)
 [![r-universe](https://ropengov.r-universe.dev/badges/sotkanet)](https://ropengov.r-universe.dev/)
 [![Downloads
 total](http://cranlogs.r-pkg.org/badges/grand-total/sotkanet)](https://cran.r-project.org/package=sotkanet)
@@ -19,7 +22,7 @@ GitHub](https://img.shields.io/github/watchers/ropengov/sotkanet.svg?style=socia
 [![Star on
 GitHub](https://img.shields.io/github/stars/ropengov/sotkanet.svg?style=social)](https://github.com/ropengov/sotkanet/stargazers)
 \[![Follow on
-Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)\]
+Twitter](https://img.shields.io/twitter/follow/ropengov.svg?style=social)
 [![Codecov test
 coverage](https://codecov.io/gh/rOpenGov/sotkanet/branch/master/graph/badge.svg)](https://app.codecov.io/gh/rOpenGov/sotkanet?branch=master)
 <!-- badges: end -->
