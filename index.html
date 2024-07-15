@@ -75,79 +75,85 @@
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
 <p>You can install the stable release version from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"sotkanet"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sotkanet"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install the development version of sotkanet package from GitHub with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"rOpenGov/sotkanet"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"rOpenGov/sotkanet"</span><span class="op">)</span></span></code></pre></div>
 <p>Development version can be also installed using the <a href="https://ropengov.r-universe.dev" class="external-link">r-universe</a>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Enable this universe</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">ropengov =</span> <span class="st">"https://ropengov.r-universe.dev"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>))</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"sotkanet"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  ropengov <span class="op">=</span> <span class="st">"https://ropengov.r-universe.dev"</span>,</span>
+<span>  CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sotkanet"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="using-the-package">Using the package<a class="anchor" aria-label="anchor" href="#using-the-package"></a>
 </h3>
 <p>Load the package in R:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(sotkanet)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/sotkanet/">sotkanet</a></span><span class="op">)</span></span></code></pre></div>
 <p>List available indicators in the Sotkanet data portal:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Pre-defined list of indicators to save bandwidth</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>sotkanet.indicators <span class="ot">&lt;-</span> <span class="fu">sotkanet_indicators</span>(<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">46</span>,<span class="dv">74</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">head</span>(sotkanet.indicators<span class="sc">$</span>indicator.title)</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavan ikäistä"             </span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä"                              </span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; [3] "Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavan ikäistä"</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; [4] "0 - 6-vuotiaat, % väestöstä"                                                                             </span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                         </span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Pre-defined list of indicators to save bandwidth</span></span>
+<span><span class="va">sotkanet.indicators</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sotkanet_indicators.html">sotkanet_indicators</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">46</span>,<span class="fl">74</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sotkanet.indicators</span><span class="op">$</span><span class="va">indicator.title</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavan ikäistä"             </span></span>
+<span><span class="co">#&gt; [2] "Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä"                              </span></span>
+<span><span class="co">#&gt; [3] "Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavan ikäistä"</span></span>
+<span><span class="co">#&gt; [4] "0 - 6-vuotiaat, % väestöstä"                                                                             </span></span>
+<span><span class="co">#&gt; [5] "0 - 6-vuotiaat, % väestöstä, väestöennuste 2060"                                                         </span></span>
+<span><span class="co">#&gt; [6] "Yhden vanhemman perheet, % lapsiperheistä"</span></span></code></pre></div>
 <p>Here is an example of data retrieval and visualization, using indicator describing private dental care use among 0-17 years old in 2015-2022.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>hammashoito <span class="ot">&lt;-</span> <span class="fu">get_sotkanet</span>(<span class="at">indicators =</span> <span class="dv">1075</span>, <span class="at">years =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2022</span>, <span class="at">genders =</span> <span class="st">"total"</span>, <span class="at">region.category =</span> <span class="st">"MAAKUNTA"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># Indicator title tells what this indicator is about</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">unique</span>(hammashoito<span class="sc">$</span>indicator.title)</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavan ikäistä"</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co"># Some data has to be retrieved separately</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>hammashoito_metadata <span class="ot">&lt;-</span> <span class="fu">sotkanet_indicator_metadata</span>(<span class="at">id =</span> <span class="dv">1075</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>plot_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Lähde: https://sotkanet.fi / "</span>, hammashoito_metadata<span class="sc">$</span>organization<span class="sc">$</span>title, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>                       <span class="st">"Datan päiväys "</span>, hammashoito_metadata<span class="sc">$</span><span class="st">`</span><span class="at">data-updated</span><span class="st">`</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(hammashoito, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>primary.value, <span class="at">group=</span>region.title))<span class="sc">+</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>region.title)) <span class="sc">+</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>region.title))</span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>plot <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yksityisen hammashuollon käynnit 2015-2022"</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>            <span class="at">subtitle =</span> <span class="st">"0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>,</span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>            <span class="at">x =</span> <span class="st">"Vuosi"</span>, </span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>            <span class="at">y =</span> <span class="st">"Käyntien lkm"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>            <span class="at">caption =</span> plot_caption,</span>
-<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"Maakunta"</span>) <span class="sc">+</span></span>
-<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
-<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">color =</span> region.title, <span class="at">label =</span> <span class="fu">ifelse</span>(year <span class="sc">==</span> <span class="dv">2022</span>, region.title, <span class="cn">NA_character_</span>)),</span>
-<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">2023</span>, <span class="dv">2025</span>),</span>
-<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a>    <span class="at">direction =</span> <span class="st">"both"</span>,</span>
-<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>    <span class="at">segment.size =</span> .<span class="dv">7</span>,</span>
-<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a>    <span class="at">segment.alpha =</span> .<span class="dv">5</span>,</span>
-<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>    <span class="at">segment.linetype =</span> <span class="st">"dotted"</span>,</span>
-<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a>    <span class="at">box.padding =</span> .<span class="dv">4</span>,</span>
-<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a>    <span class="at">segment.curvature =</span> <span class="sc">-</span><span class="fl">0.1</span>,</span>
-<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a>    <span class="at">segment.ncp =</span> <span class="dv">3</span>,</span>
-<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a>    <span class="at">segment.angle =</span> <span class="dv">20</span>,</span>
-<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"linen"</span>)) <span class="sc">+</span></span>
-<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2025</span>), </span>
-<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2015</span>, <span class="dv">2022</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/" class="external-link">ggrepel</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">hammashoito</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_sotkanet.html">get_sotkanet</a></span><span class="op">(</span>indicators <span class="op">=</span> <span class="fl">1075</span>, years <span class="op">=</span> <span class="fl">2015</span><span class="op">:</span><span class="fl">2022</span>, genders <span class="op">=</span> <span class="st">"total"</span>, region.category <span class="op">=</span> <span class="st">"MAAKUNTA"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Indicator title tells what this indicator is about</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">hammashoito</span><span class="op">$</span><span class="va">indicator.title</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Yksityisen hammashuollon käynnit 0 - 17-vuotiailla / 1 000 vastaavan ikäistä"</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Some data has to be retrieved separately</span></span>
+<span><span class="va">hammashoito_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sotkanet_indicator_metadata.html">sotkanet_indicator_metadata</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1075</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot_caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Lähde: https://sotkanet.fi / "</span>, <span class="va">hammashoito_metadata</span><span class="op">$</span><span class="va">organization</span><span class="op">$</span><span class="va">title</span>, <span class="st">"\n"</span>,</span>
+<span>                       <span class="st">"Datan päiväys "</span>, <span class="va">hammashoito_metadata</span><span class="op">$</span><span class="va">`data-updated`</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">hammashoito</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>, y<span class="op">=</span><span class="va">primary.value</span>, group<span class="op">=</span><span class="va">region.title</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">region.title</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">region.title</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Yksityisen hammashuollon käynnit 2015-2022"</span>,</span>
+<span>            subtitle <span class="op">=</span> <span class="st">"0 - 17-vuotiailla / 1 000 vastaavanikäistä"</span>,</span>
+<span>            x <span class="op">=</span> <span class="st">"Vuosi"</span>, </span>
+<span>            y <span class="op">=</span> <span class="st">"Käyntien lkm"</span>,</span>
+<span>            caption <span class="op">=</span> <span class="va">plot_caption</span>,</span>
+<span>            color <span class="op">=</span> <span class="st">"Maakunta"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">region.title</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2022</span>, <span class="va">region.title</span>, <span class="cn">NA_character_</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2023</span>, <span class="fl">2025</span><span class="op">)</span>,</span>
+<span>    direction <span class="op">=</span> <span class="st">"both"</span>,</span>
+<span>    hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    segment.size <span class="op">=</span> <span class="fl">.7</span>,</span>
+<span>    segment.alpha <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>    segment.linetype <span class="op">=</span> <span class="st">"dotted"</span>,</span>
+<span>    box.padding <span class="op">=</span> <span class="fl">.4</span>,</span>
+<span>    segment.curvature <span class="op">=</span> <span class="op">-</span><span class="fl">0.1</span>,</span>
+<span>    segment.ncp <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    segment.angle <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>        panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"linen"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
+<span>    expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2015</span>, <span class="fl">2025</span><span class="op">)</span>, </span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">2015</span>, <span class="fl">2022</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-sotkanet_example-1.png" width="90%"></p>
 <p>For more in-depth examples, see the package vignette or online <a href="http://ropengov.github.io/sotkanet/articles/tutorial.html" class="external-link">tutorial page</a>.</p>
 </div>
