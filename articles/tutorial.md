@@ -139,9 +139,9 @@ sotkanet_cite(10012, lang = "en")
 #>   url = {https://sotkanet.fi/sotkanet/en/metadata/indicators/10012},
 #>   organization = {Statistical Office of the European Communities (Eurostat)},
 #>   year = {2017},
-#>   urldate = {2026-02-18},
+#>   urldate = {2026-02-26},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-18, dataset last updated 2017-10-24},
+#>   note = {Accessed 2026-02-26, dataset last updated 2017-10-24},
 #> }
 ```
 
@@ -310,5 +310,5 @@ sessionInfo()
 #> [49] glue_1.8.0         Rcpp_1.1.1         systemfonts_1.3.1  tidyselect_1.2.1  
 #> [53] xfun_0.56          tibble_3.3.1       rstudioapi_0.18.0  knitr_1.51        
 #> [57] farver_2.1.2       htmltools_0.5.9    labeling_0.4.3     rmarkdown_2.30    
-#> [61] svglite_2.2.2      readr_2.1.6        compiler_4.5.2     S7_0.2.1
+#> [61] svglite_2.2.2      readr_2.2.0        compiler_4.5.2     S7_0.2.1
 ```
