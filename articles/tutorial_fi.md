@@ -310,9 +310,9 @@ sotkanet_cite(5)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/5},
 #>   organization = {Terveyden ja hyvinvoinnin laitos (THL)},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
 #> }
 ```
 
@@ -326,9 +326,9 @@ sotkanet_cite(5, lang = "sv")
 #>   url = {https://sotkanet.fi/sotkanet/sv/metadata/indicators/5},
 #>   organization = {Institutet för hälsa och välfärd (THL)},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
 #> }
 sotkanet_cite(5, lang = "en")
 #> @Misc{,
@@ -336,9 +336,9 @@ sotkanet_cite(5, lang = "en")
 #>   url = {https://sotkanet.fi/sotkanet/en/metadata/indicators/5},
 #>   organization = {Finnish institute for Health and Welfare (THL)},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
 #> }
 ```
 
@@ -388,9 +388,9 @@ sotkanet_cite(10012)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/10012},
 #>   organization = {Euroopan yhteisöjen tilastotoimisto (Eurostat)},
 #>   year = {2017},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2017-10-24},
+#>   note = {Accessed 2026-03-10, dataset last updated 2017-10-24},
 #> }
 ```
 
@@ -434,9 +434,9 @@ sotkanet_cite(127)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/127},
 #>   organization = {Tilastokeskus},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-04-04},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-04-04},
 #> }
 
 sotkanet_cite(180)
@@ -445,9 +445,9 @@ sotkanet_cite(180)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/180},
 #>   organization = {Tilastokeskus},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-09-18},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-09-18},
 #> }
 ```
 
@@ -544,9 +544,9 @@ sotkanet_cite(3165)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/3165},
 #>   organization = {Terveyden ja hyvinvoinnin laitos (THL)},
 #>   year = {2025},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2025-04-07},
+#>   note = {Accessed 2026-03-10, dataset last updated 2025-04-07},
 #> }
 ```
 
@@ -686,7 +686,7 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] dplyr_1.2.0      geofi_1.1.0      ggplot2_4.0.2    kableExtra_1.4.0
+#> [1] dplyr_1.2.0      geofi_1.2.0      ggplot2_4.0.2    kableExtra_1.4.0
 #> [5] sotkanet_0.10.1 
 #> 
 #> loaded via a namespace (and not attached):
@@ -695,7 +695,7 @@ sessionInfo()
 #>  [9] generics_0.1.4     curl_7.0.0         proxy_0.4-29       tibble_3.3.1      
 #> [13] RefManageR_1.4.0   pkgconfig_2.0.3    KernSmooth_2.23-26 RColorBrewer_1.1-3
 #> [17] S7_0.2.1           desc_1.4.3         lifecycle_1.0.5    compiler_4.5.2    
-#> [21] farver_2.1.2       stringr_1.6.0      textshaping_1.0.4  class_7.3-23      
+#> [21] farver_2.1.2       stringr_1.6.0      textshaping_1.0.5  class_7.3-23      
 #> [25] htmltools_0.5.9    sass_0.4.10        yaml_2.3.12        pillar_1.11.1     
 #> [29] pkgdown_2.2.0      jquerylib_0.1.4    classInt_0.4-11    cachem_1.1.0      
 #> [33] tidyselect_1.2.1   digest_0.6.39      stringi_1.8.7      sf_1.1-0          
@@ -703,10 +703,10 @@ sessionInfo()
 #> [41] grid_4.5.2         cli_3.6.5          magrittr_2.0.4     httpcache_1.2.0   
 #> [45] e1071_1.7-17       readr_2.2.0        withr_3.0.2        scales_1.4.0      
 #> [49] backports_1.5.0    rappdirs_0.3.4     lubridate_1.9.5    timechange_0.4.0  
-#> [53] rmarkdown_2.30     httr_1.4.8         ragg_1.5.0         hms_1.1.4         
+#> [53] rmarkdown_2.30     httr_1.4.8         ragg_1.5.1         hms_1.1.4         
 #> [57] evaluate_1.0.5     knitr_1.51         viridisLite_0.4.3  frictionless_1.2.1
 #> [61] rlang_1.1.7        Rcpp_1.1.1         glue_1.8.0         DBI_1.3.0         
 #> [65] xml2_1.5.2         svglite_2.2.2      rstudioapi_0.18.0  jsonlite_2.0.0    
-#> [69] R6_2.6.1           plyr_1.8.9         units_1.0-0        systemfonts_1.3.1 
-#> [73] fs_1.6.6
+#> [69] R6_2.6.1           plyr_1.8.9         units_1.0-0        systemfonts_1.3.2 
+#> [73] fs_1.6.7
 ```

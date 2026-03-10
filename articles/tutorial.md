@@ -139,9 +139,9 @@ sotkanet_cite(10012, lang = "en")
 #>   url = {https://sotkanet.fi/sotkanet/en/metadata/indicators/10012},
 #>   organization = {Statistical Office of the European Communities (Eurostat)},
 #>   year = {2017},
-#>   urldate = {2026-02-26},
+#>   urldate = {2026-03-10},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-02-26, dataset last updated 2017-10-24},
+#>   note = {Accessed 2026-03-10, dataset last updated 2017-10-24},
 #> }
 ```
 
@@ -300,14 +300,14 @@ sessionInfo()
 #>  [9] grid_4.5.2         evaluate_1.0.5     timechange_0.4.0   RColorBrewer_1.1-3
 #> [13] fastmap_1.2.0      plyr_1.8.9         jsonlite_2.0.0     backports_1.5.0   
 #> [17] httr_1.4.8         viridisLite_0.4.3  scales_1.4.0       httr2_1.2.2       
-#> [21] bibtex_0.5.2       textshaping_1.0.4  jquerylib_0.1.4    cli_3.6.5         
+#> [21] bibtex_0.5.2       textshaping_1.0.5  jquerylib_0.1.4    cli_3.6.5         
 #> [25] rlang_1.1.7        withr_3.0.2        cachem_1.1.0       yaml_2.3.12       
 #> [29] tools_4.5.2        tzdb_0.5.0         dplyr_1.2.0        frictionless_1.2.1
 #> [33] curl_7.0.0         vctrs_0.7.1        R6_2.6.1           lifecycle_1.0.5   
-#> [37] lubridate_1.9.5    RefManageR_1.4.0   stringr_1.6.0      fs_1.6.6          
-#> [41] htmlwidgets_1.6.4  ragg_1.5.0         pkgconfig_2.0.3    desc_1.4.3        
+#> [37] lubridate_1.9.5    RefManageR_1.4.0   stringr_1.6.0      fs_1.6.7          
+#> [41] htmlwidgets_1.6.4  ragg_1.5.1         pkgconfig_2.0.3    desc_1.4.3        
 #> [45] gtable_0.3.6       pkgdown_2.2.0      bslib_0.10.0       pillar_1.11.1     
-#> [49] glue_1.8.0         Rcpp_1.1.1         systemfonts_1.3.1  tidyselect_1.2.1  
+#> [49] glue_1.8.0         Rcpp_1.1.1         systemfonts_1.3.2  tidyselect_1.2.1  
 #> [53] xfun_0.56          tibble_3.3.1       rstudioapi_0.18.0  knitr_1.51        
 #> [57] farver_2.1.2       htmltools_0.5.9    labeling_0.4.3     rmarkdown_2.30    
 #> [61] svglite_2.2.2      readr_2.2.0        compiler_4.5.2     S7_0.2.1
