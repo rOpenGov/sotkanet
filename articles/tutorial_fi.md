@@ -21,6 +21,7 @@ useimmille käyttäjille suositeltavin vaihtoehto. Paketin uusimman
 CRANissa julkaistun version voi asentaa komennolla:
 
 ``` r
+
 install.packages("sotkanet")
 ```
 
@@ -31,12 +32,14 @@ CRAN-sivulla](https://cran.r-project.org/package=sotkanet) klikkaamalla
 Old sources: sotkanet archive -linkkiä.
 
 ``` r
+
 install.packages("https://cran.r-project.org/src/contrib/Archive/sotkanet/sotkanet_0.9.76.tar.gz", repos=NULL, type="source")
 ```
 
 Paketin kehitysversion voi asentaa GitHubista seuraavilla tavoilla:
 
 ``` r
+
 library(remotes)
 remotes::install_github("ropengov/sotkanet")
 
@@ -55,6 +58,7 @@ remotes::install_github("ropengov/sotkanet#26")
 Asennuksen onnistumista voi testata lataamalla paketin:
 
 ``` r
+
 library(sotkanet)
 ```
 
@@ -65,6 +69,7 @@ library(sotkanet)
 Aloitetaan lataamalla tarvittavat paketit:
 
 ``` r
+
 library(sotkanet)
 library(kableExtra)
 library(ggplot2)
@@ -74,20 +79,21 @@ Käytettävissä olevat indikaattorit voi listata käyttämällä funktiota
 [`sotkanet_indicators()`](https://ropengov.github.io/sotkanet/reference/sotkanet_indicators.md):
 
 ``` r
+
 # Ladataan muutama esimerkki-indikaattori
 indicators <- sotkanet_indicators(id = c(4, 5, 6, 127, 10012, 10027), type = "table")
 # Visualisoidaan taulukkomuodossa
 kable(indicators)
 ```
 
-| indicator | indicator.title                                                                                          | indicator.organization | indicator.organization.title                   |
-|----------:|:---------------------------------------------------------------------------------------------------------|-----------------------:|:-----------------------------------------------|
-|         4 | Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavan ikäistä              |                      2 | Terveyden ja hyvinvoinnin laitos (THL)         |
-|         5 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä                               |                      2 | Terveyden ja hyvinvoinnin laitos (THL)         |
-|         6 | Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavan ikäistä |                      2 | Terveyden ja hyvinvoinnin laitos (THL)         |
-|       127 | Väestö 31.12.                                                                                            |                      3 | Tilastokeskus                                  |
-|     10012 | (EU) Bruttokansantuote (BKT) asukasta kohden ostovoimapariteetin mukaan                                  |                     58 | Euroopan yhteisöjen tilastotoimisto (Eurostat) |
-|     10027 | (EU) Vakioitu itsemurhakuolleisuus / 100 000 asukasta                                                    |                     58 | Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+| indicator | indicator.title | indicator.organization | indicator.organization.title |
+|---:|:---|---:|:---|
+| 4 | Mielenterveyden häiriöihin sairaalahoitoa saaneet 0 - 17-vuotiaat / 1 000 vastaavan ikäistä | 2 | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | 2 | Terveyden ja hyvinvoinnin laitos (THL) |
+| 6 | Somaattisen erikoissairaanhoidon vuodeosastohoitopäivät 75 vuotta täyttäneillä / 1 000 vastaavan ikäistä | 2 | Terveyden ja hyvinvoinnin laitos (THL) |
+| 127 | Väestö 31.12. | 3 | Tilastokeskus |
+| 10012 | (EU) Bruttokansantuote (BKT) asukasta kohden ostovoimapariteetin mukaan | 58 | Euroopan yhteisöjen tilastotoimisto (Eurostat) |
+| 10027 | (EU) Vakioitu itsemurhakuolleisuus / 100 000 asukasta | 58 | Euroopan yhteisöjen tilastotoimisto (Eurostat) |
 
 Kuten listauksesta voidaan huomata, Sotkanet APIsta löytyy THL:n omien
 indikaattoreiden lisäksi myös monien muiden viranomaisten, esimerkiksi
@@ -98,20 +104,21 @@ Maantieteelliset alueet voi listata käyttämällä funktiota
 [`sotkanet_regions()`](https://ropengov.github.io/sotkanet/reference/sotkanet_regions.md):
 
 ``` r
+
 # Ladataan kaikki sotkanetin käyttämät alueet
 regions <- sotkanet_regions(type = "table")
 # Visualisoidaan kuusi ensimmäistä aluetta taulukkomuodossa
 kable(head(regions))
 ```
 
-| region | region.title                    | region.code | region.category     | region.uri                           |
-|-------:|:--------------------------------|:------------|:--------------------|:-------------------------------------|
-|    833 | Etelä-Suomen AVIn alue          | 1           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv1> |
-|    834 | Lounais-Suomen AVIn alue        | 2           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv2> |
-|    835 | Itä-Suomen AVIn alue            | 3           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv3> |
-|    836 | Länsi- ja Sisä-Suomen AVIn alue | 4           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv4> |
-|    837 | Pohjois-Suomen AVIn alue        | 5           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv5> |
-|    838 | Lapin AVIn alue                 | 6           | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv6> |
+| region | region.title | region.code | region.category | region.uri |
+|---:|:---|:---|:---|:---|
+| 833 | Etelä-Suomen AVIn alue | 1 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv1> |
+| 834 | Lounais-Suomen AVIn alue | 2 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv2> |
+| 835 | Itä-Suomen AVIn alue | 3 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv3> |
+| 836 | Länsi- ja Sisä-Suomen AVIn alue | 4 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv4> |
+| 837 | Pohjois-Suomen AVIn alue | 5 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv5> |
+| 838 | Lapin AVIn alue | 6 | ALUEHALLINTOVIRASTO | <http://www.yso.fi/onto/kunnat/ahv6> |
 
 ### Sotkanet datan lataaminen
 
@@ -130,6 +137,7 @@ funktiota. Datasetin hyvinvointialueittaisen datan vuosilta 2000-2010
 saa komennolla:
 
 ``` r
+
 # Indikaattorin datan hakeminen
 dat_5 <- get_sotkanet(indicators = 5, years = 2000:2010,
                     genders = c("total"), region.category = "HYVINVOINTIALUE")
@@ -140,19 +148,20 @@ kable(head(dat_5)) %>%
   scroll_box(width = "100%")
 ```
 
-| indicator | region | year | gender | primary.value | absolute.value | indicator.title                                                            | region.title                       | region.code | region.category | indicator.organization.title           |
-|----------:|-------:|-----:|:-------|--------------:|---------------:|:---------------------------------------------------------------------------|:-----------------------------------|:------------|:----------------|:---------------------------------------|
-|         5 |    966 | 2003 | total  |           5.8 |           5636 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Keski-Uudenmaan hyvinvointialue    | 02          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
-|         5 |    975 | 2007 | total  |           6.6 |           7434 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Päijät-Hämeen hyvinvointialue      | 09          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
-|         5 |    964 | 2008 | total  |           4.8 |           1674 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Keski-Pohjanmaan hyvinvointialue   | 18          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
-|         5 |    977 | 2002 | total  |           8.7 |          10789 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Vantaan ja Keravan hyvinvointialue | 04          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
-|         5 |    963 | 2010 | total  |           6.1 |           5598 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Kanta-Hämeen hyvinvointialue       | 07          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
-|         5 |    972 | 2005 | total  |           9.1 |           8330 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Pohjois-Karjalan hyvinvointialue   | 14          | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| indicator | region | year | gender | primary.value | absolute.value | indicator.title | region.title | region.code | region.category | indicator.organization.title |
+|---:|---:|---:|:---|---:|---:|:---|:---|:---|:---|:---|
+| 5 | 966 | 2003 | total | 5.8 | 5636 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Keski-Uudenmaan hyvinvointialue | 02 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | 975 | 2007 | total | 6.6 | 7434 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Päijät-Hämeen hyvinvointialue | 09 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | 964 | 2008 | total | 4.8 | 1674 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Keski-Pohjanmaan hyvinvointialue | 18 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | 977 | 2002 | total | 8.7 | 10789 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Vantaan ja Keravan hyvinvointialue | 04 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | 963 | 2010 | total | 6.1 | 5598 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Kanta-Hämeen hyvinvointialue | 07 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
+| 5 | 972 | 2005 | total | 9.1 | 8330 | Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä | Pohjois-Karjalan hyvinvointialue | 14 | HYVINVOINTIALUE | Terveyden ja hyvinvoinnin laitos (THL) |
 
 Sotkanet APIsta löytyy myös monien muiden viranomaisten, esimerkiksi
 Kansaneläkelaitoksen ja Tilastokeskuksen, tuottamia indikaattoreita.
 
 ``` r
+
 # Indikaattorin datan hakeminen
 dat_3090 <- get_sotkanet(indicators = 3090, years = 2000:2021,
                     genders = c("total"), region.category = "MAAKUNTA",
@@ -166,16 +175,17 @@ kable(head(dat_3090)) %>%
   scroll_box(width = "100%")
 ```
 
-| indicator | region | year | gender | primary.value | absolute.value | indicator.title                                                       | region.title | region.code | region.category | indicator.organization.title |
-|----------:|-------:|-----:|:-------|--------------:|---------------:|:----------------------------------------------------------------------|:-------------|:------------|:----------------|:-----------------------------|
-|      3090 |    493 | 2005 | total  |           0.1 |             16 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Päijät-Häme  | 07          | MAAKUNTA        | Tilastokeskus                |
-|      3090 |    490 | 2012 | total  |           0.1 |             28 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Satakunta    | 04          | MAAKUNTA        | Tilastokeskus                |
-|      3090 |    505 | 2021 | total  |           0.2 |             29 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Lappi        | 19          | MAAKUNTA        | Tilastokeskus                |
-|      3090 |    490 | 2021 | total  |           0.1 |             15 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Satakunta    | 04          | MAAKUNTA        | Tilastokeskus                |
-|      3090 |    488 | 2006 | total  |           0.2 |            330 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Uusimaa      | 01          | MAAKUNTA        | Tilastokeskus                |
-|      3090 |    488 | 2020 | total  |           0.5 |            782 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Uusimaa      | 01          | MAAKUNTA        | Tilastokeskus                |
+| indicator | region | year | gender | primary.value | absolute.value | indicator.title | region.title | region.code | region.category | indicator.organization.title |
+|---:|---:|---:|:---|---:|---:|:---|:---|:---|:---|:---|
+| 3090 | 493 | 2005 | total | 0.1 | 16 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Päijät-Häme | 07 | MAAKUNTA | Tilastokeskus |
+| 3090 | 490 | 2012 | total | 0.1 | 28 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Satakunta | 04 | MAAKUNTA | Tilastokeskus |
+| 3090 | 505 | 2021 | total | 0.2 | 29 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Lappi | 19 | MAAKUNTA | Tilastokeskus |
+| 3090 | 490 | 2021 | total | 0.1 | 15 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Satakunta | 04 | MAAKUNTA | Tilastokeskus |
+| 3090 | 488 | 2006 | total | 0.2 | 330 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Uusimaa | 01 | MAAKUNTA | Tilastokeskus |
+| 3090 | 488 | 2020 | total | 0.5 | 782 | Poliisin tietoon tulleet törkeät huumausainerikokset / 1 000 asukasta | Uusimaa | 01 | MAAKUNTA | Tilastokeskus |
 
 ``` r
+
 
 ggplot(dat_3090, aes(x = year, y = absolute.value, color = region.title)) +
      geom_line() +
@@ -304,15 +314,16 @@ funktiota. Esimerkiksi edellä käytetyn toimeentulotukidatan viitauksen
 printtaaminen onnistuu helposti komennolla:
 
 ``` r
+
 sotkanet_cite(5)
 #> @Misc{,
 #>   title = {Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä},
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/5},
 #>   organization = {Terveyden ja hyvinvoinnin laitos (THL)},
-#>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   year = {2026},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},
 #> }
 ```
 
@@ -320,25 +331,26 @@ sotkanet_cite(5)
 muillakin myös muilla rajapinnan tukemilla kielillä:
 
 ``` r
+
 sotkanet_cite(5, lang = "sv")
 #> @Misc{,
 #>   title = {25 - 64-åriga mottagare av utkomststöd, % av befolkningen i samma ålder},
 #>   url = {https://sotkanet.fi/sotkanet/sv/metadata/indicators/5},
 #>   organization = {Institutet för hälsa och välfärd (THL)},
-#>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   year = {2026},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},
 #> }
 sotkanet_cite(5, lang = "en")
 #> @Misc{,
 #>   title = {Social assistance recipients aged 25-64, as % of total population of same age},
 #>   url = {https://sotkanet.fi/sotkanet/en/metadata/indicators/5},
 #>   organization = {Finnish institute for Health and Welfare (THL)},
-#>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   year = {2026},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},
+#>   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},
 #> }
 ```
 
@@ -352,6 +364,7 @@ Ensimmäisessä esimerkissä verrataan pohjoismaiden välisiä eroja
 Eurostatin tuottamassa BKT-datassa vuosina 2000-2010.
 
 ``` r
+
 # Indikaattorin datan hakeminen
 dat <- get_sotkanet(indicators = 10012, years = 2000:2010,
                     genders = "total", region.category = "POHJOISMAAT")
@@ -382,15 +395,16 @@ print(p)
 Dataviittaus indikaattorille 10012:
 
 ``` r
+
 sotkanet_cite(10012)
 #> @Misc{,
 #>   title = {(EU) Bruttokansantuote (BKT) asukasta kohden ostovoimapariteetin mukaan},
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/10012},
 #>   organization = {Euroopan yhteisöjen tilastotoimisto (Eurostat)},
 #>   year = {2017},
-#>   urldate = {2026-03-10},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2017-10-24},
+#>   note = {Accessed 2026-07-17, dataset last updated 2017-10-24},
 #> }
 ```
 
@@ -400,6 +414,7 @@ Toisessa esimerkissä tarkastellaan Suomen kuntien väkiluvun yhteyttä
 kunnan koulutustasomittarin arvoon.
 
 ``` r
+
 # Datan hakeminen indikaattoreille
 dat <- get_sotkanet(indicators = c(127, 180), 
                     years = 2022, genders = c("total"), region.category = c("KUNTA"))
@@ -428,15 +443,16 @@ plot(p)
 Dataviittaukset indikaattoreille 127 ja 180:
 
 ``` r
+
 sotkanet_cite(127)
 #> @Misc{,
 #>   title = {Väestö 31.12.},
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/127},
 #>   organization = {Tilastokeskus},
-#>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   year = {2026},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-04-04},
+#>   note = {Accessed 2026-07-17, dataset last updated 2026-04-01},
 #> }
 
 sotkanet_cite(180)
@@ -445,9 +461,9 @@ sotkanet_cite(180)
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/180},
 #>   organization = {Tilastokeskus},
 #>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-09-18},
+#>   note = {Accessed 2026-07-17, dataset last updated 2025-09-18},
 #> }
 ```
 
@@ -469,16 +485,12 @@ hyvät puolensa, kuten niiden luomisen helppous ja kohtalaisen helppo
 tulkittavuus, joten niitä ei tule myöskään väheksyä.
 
 ``` r
+
 library(geofi)
 #> 
 #> geofi R package: tools for open GIS data for Finland.
 #> Part of rOpenGov <ropengov.org>.
-#> 
-#> **************
-#> Changes in version 1.1.0:
-#> - Object `municipality_central_localities` is depracated and replaced with function `municipality_central_localities()`. More at https://github.com/rOpenGov/geofi/blob/master/NEWS.md
-#> - New functions for interacting with both National Land Survey and Statistics Finland OCG API-services. See three new vignettes for examples.
-#> **************
+#> Version 1.2.1
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
@@ -494,7 +506,7 @@ library(dplyr)
 # codes_as_characters = TRUE tarvitaan jotta aluekoodit palautetaan
 # tekstimuodossa (esim. "01") eikä kokonaislukuina (esim. 1)
 polygon <- geofi::get_municipality_pop(year = 2021, codes_as_character = TRUE)
-#> Requesting response from: http://geo.stat.fi/geoserver/wfs?service=WFS&version=1.0.0&request=getFeature&typename=vaestoalue%3Akunta_vaki2021
+#> Requesting response from: https://geo.stat.fi/geoserver/wfs?service=WFS&version=1.0.0&request=getFeature&typename=vaestoalue%3Akunta_vaki2021
 #> Warning: Coercing CRS to epsg:3067 (ETRS89 / TM35FIN)
 #> Data is licensed under: Attribution 4.0 International (CC BY 4.0)
 
@@ -538,15 +550,16 @@ ggplot(regions_and_dat) +
 Lähdeviite alkuperäiseen, Sotkanet API:sta ladattuun dataan:
 
 ``` r
+
 sotkanet_cite(3165)
 #> @Misc{,
 #>   title = {Kuppa-infektioita (syphilis) / 100 000 asukasta},
 #>   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/3165},
 #>   organization = {Terveyden ja hyvinvoinnin laitos (THL)},
 #>   year = {2025},
-#>   urldate = {2026-03-10},
+#>   urldate = {2026-07-17},
 #>   type = {Dataset},
-#>   note = {Accessed 2026-03-10, dataset last updated 2025-04-07},
+#>   note = {Accessed 2026-07-17, dataset last updated 2025-04-07},
 #> }
 ```
 
@@ -620,6 +633,7 @@ Mikäli käytät julkaisussasi dataa jonka olet hakenut sotkanet-pakettia
 käyttäen, toivomme että viittaat pakettiin seuraavalla tavalla:
 
 ``` r
+
 citation("sotkanet")
 #> Kindly cite the sotkanet R package as follows:
 #> 
@@ -664,10 +678,11 @@ Tämä artikkeli luotiin seuraavalla laitteisto- ja
 ohjelmistokokoonpanolla:
 
 ``` r
+
 sessionInfo()
-#> R version 4.5.2 (2025-10-31)
+#> R version 4.6.1 (2026-06-24)
 #> Platform: x86_64-pc-linux-gnu
-#> Running under: Ubuntu 24.04.3 LTS
+#> Running under: Ubuntu 24.04.4 LTS
 #> 
 #> Matrix products: default
 #> BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
@@ -686,27 +701,27 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] dplyr_1.2.0      geofi_1.2.0      ggplot2_4.0.2    kableExtra_1.4.0
+#> [1] dplyr_1.2.1      geofi_1.2.1      ggplot2_4.0.3    kableExtra_1.4.1
 #> [5] sotkanet_0.10.1 
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] gtable_0.3.6       xfun_0.56          bslib_0.10.0       httr2_1.2.2       
-#>  [5] htmlwidgets_1.6.4  tzdb_0.5.0         vctrs_0.7.1        tools_4.5.2       
-#>  [9] generics_0.1.4     curl_7.0.0         proxy_0.4-29       tibble_3.3.1      
+#>  [1] gtable_0.3.6       xfun_0.60          bslib_0.11.0       httr2_1.3.0       
+#>  [5] htmlwidgets_1.6.4  tzdb_0.5.0         vctrs_0.7.3        tools_4.6.1       
+#>  [9] generics_0.1.4     curl_7.1.0         proxy_0.4-29       tibble_3.3.1      
 #> [13] RefManageR_1.4.0   pkgconfig_2.0.3    KernSmooth_2.23-26 RColorBrewer_1.1-3
-#> [17] S7_0.2.1           desc_1.4.3         lifecycle_1.0.5    compiler_4.5.2    
+#> [17] S7_0.2.2           desc_1.4.3         lifecycle_1.0.5    compiler_4.6.1    
 #> [21] farver_2.1.2       stringr_1.6.0      textshaping_1.0.5  class_7.3-23      
 #> [25] htmltools_0.5.9    sass_0.4.10        yaml_2.3.12        pillar_1.11.1     
-#> [29] pkgdown_2.2.0      jquerylib_0.1.4    classInt_0.4-11    cachem_1.1.0      
-#> [33] tidyselect_1.2.1   digest_0.6.39      stringi_1.8.7      sf_1.1-0          
-#> [37] purrr_1.2.1        labeling_0.4.3     bibtex_0.5.2       fastmap_1.2.0     
-#> [41] grid_4.5.2         cli_3.6.5          magrittr_2.0.4     httpcache_1.2.0   
-#> [45] e1071_1.7-17       readr_2.2.0        withr_3.0.2        scales_1.4.0      
-#> [49] backports_1.5.0    rappdirs_0.3.4     lubridate_1.9.5    timechange_0.4.0  
-#> [53] rmarkdown_2.30     httr_1.4.8         ragg_1.5.1         hms_1.1.4         
+#> [29] pkgdown_2.2.1      jquerylib_0.1.4    classInt_0.4-11    cachem_1.1.0      
+#> [33] tidyselect_1.2.1   digest_0.6.39      stringi_1.8.7      sf_1.1-1          
+#> [37] purrr_1.2.2        labeling_0.4.3     bibtex_0.5.2       fastmap_1.2.0     
+#> [41] grid_4.6.1         cli_3.6.6          magrittr_2.0.5     httpcache_1.2.0   
+#> [45] e1071_1.7-17       readr_2.2.0        withr_3.0.3        scales_1.4.0      
+#> [49] backports_1.5.1    lubridate_1.9.5    timechange_0.4.0   rmarkdown_2.31    
+#> [53] httr_1.4.8         otel_0.2.0         ragg_1.5.2         hms_1.1.4         
 #> [57] evaluate_1.0.5     knitr_1.51         viridisLite_0.4.3  frictionless_1.2.1
-#> [61] rlang_1.1.7        Rcpp_1.1.1         glue_1.8.0         DBI_1.3.0         
-#> [65] xml2_1.5.2         svglite_2.2.2      rstudioapi_0.18.0  jsonlite_2.0.0    
-#> [69] R6_2.6.1           plyr_1.8.9         units_1.0-0        systemfonts_1.3.2 
-#> [73] fs_1.6.7
+#> [61] rlang_1.3.0        Rcpp_1.1.2         glue_1.8.1         DBI_1.3.0         
+#> [65] xml2_1.6.0         svglite_2.2.2      rstudioapi_0.19.0  jsonlite_2.0.0    
+#> [69] R6_2.6.1           plyr_1.8.9         units_1.0-1        systemfonts_1.3.2 
+#> [73] fs_2.1.0
 ```

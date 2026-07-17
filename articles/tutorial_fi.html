@@ -8,8 +8,8 @@
 <title>Sotkanetin avoimen rajapinnan R-työkalut • sotkanet</title>
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Sotkanetin avoimen rajapinnan R-työkalut">
 <!-- rogtemplate style sheet --><link href="../BS5/rogtemplate.min.css" rel="stylesheet">
@@ -130,7 +130,7 @@ Access Tokenin (PAT) määrittelyn. Ohjeita tähän löytyy esimerkiksi
 <p>Aloitetaan lataamalla tarvittavat paketit:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/sotkanet/">sotkanet</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <p>Käytettävissä olevat indikaattorit voi listata käyttämällä funktiota
 <code><a href="../reference/sotkanet_indicators.html">sotkanet_indicators()</a></code>:</p>
@@ -940,10 +940,10 @@ komennolla:</p>
 <span><span class="co">#&gt;   title = {Toimeentulotukea saaneet 25 - 64-vuotiaat, % vastaavan ikäisestä väestöstä},</span></span>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/5},</span></span>
 <span><span class="co">#&gt;   organization = {Terveyden ja hyvinvoinnin laitos (THL)},</span></span>
-<span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   year = {2026},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 <p><code>sotkanet_cite</code> funktio mahdollistaa dataviittausten
 helpon luomisen muillakin myös muilla rajapinnan tukemilla kielillä:</p>
@@ -953,20 +953,20 @@ helpon luomisen muillakin myös muilla rajapinnan tukemilla kielillä:</p>
 <span><span class="co">#&gt;   title = {25 - 64-åriga mottagare av utkomststöd, % av befolkningen i samma ålder},</span></span>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/sv/metadata/indicators/5},</span></span>
 <span><span class="co">#&gt;   organization = {Institutet för hälsa och välfärd (THL)},</span></span>
-<span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   year = {2026},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},</span></span>
 <span><span class="co">#&gt; }</span></span>
 <span><span class="fu"><a href="../reference/sotkanet_cite.html">sotkanet_cite</a></span><span class="op">(</span><span class="fl">5</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; @Misc{,</span></span>
 <span><span class="co">#&gt;   title = {Social assistance recipients aged 25-64, as % of total population of same age},</span></span>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/en/metadata/indicators/5},</span></span>
 <span><span class="co">#&gt;   organization = {Finnish institute for Health and Welfare (THL)},</span></span>
-<span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   year = {2026},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-05-09},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2026-05-29},</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -1011,9 +1011,9 @@ Eurostatin tuottamassa BKT-datassa vuosina 2000-2010.</p>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/10012},</span></span>
 <span><span class="co">#&gt;   organization = {Euroopan yhteisöjen tilastotoimisto (Eurostat)},</span></span>
 <span><span class="co">#&gt;   year = {2017},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2017-10-24},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2017-10-24},</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -1051,10 +1051,10 @@ kunnan koulutustasomittarin arvoon.</p>
 <span><span class="co">#&gt;   title = {Väestö 31.12.},</span></span>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/127},</span></span>
 <span><span class="co">#&gt;   organization = {Tilastokeskus},</span></span>
-<span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   year = {2026},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-04-04},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2026-04-01},</span></span>
 <span><span class="co">#&gt; }</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/sotkanet_cite.html">sotkanet_cite</a></span><span class="op">(</span><span class="fl">180</span><span class="op">)</span></span>
@@ -1063,9 +1063,9 @@ kunnan koulutustasomittarin arvoon.</p>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/180},</span></span>
 <span><span class="co">#&gt;   organization = {Tilastokeskus},</span></span>
 <span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-09-18},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2025-09-18},</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -1089,12 +1089,7 @@ tulkittavuus, joten niitä ei tule myöskään väheksyä.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; geofi R package: tools for open GIS data for Finland.</span></span>
 <span><span class="co">#&gt; Part of rOpenGov &lt;ropengov.org&gt;.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; **************</span></span>
-<span><span class="co">#&gt; Changes in version 1.1.0:</span></span>
-<span><span class="co">#&gt; - Object `municipality_central_localities` is depracated and replaced with function `municipality_central_localities()`. More at https://github.com/rOpenGov/geofi/blob/master/NEWS.md</span></span>
-<span><span class="co">#&gt; - New functions for interacting with both National Land Survey and Statistics Finland OCG API-services. See three new vignettes for examples.</span></span>
-<span><span class="co">#&gt; **************</span></span>
+<span><span class="co">#&gt; Version 1.2.1</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -1110,7 +1105,7 @@ tulkittavuus, joten niitä ei tule myöskään väheksyä.</p>
 <span><span class="co"># codes_as_characters = TRUE tarvitaan jotta aluekoodit palautetaan</span></span>
 <span><span class="co"># tekstimuodossa (esim. "01") eikä kokonaislukuina (esim. 1)</span></span>
 <span><span class="va">polygon</span> <span class="op">&lt;-</span> <span class="fu">geofi</span><span class="fu">::</span><span class="fu"><a href="https://ropengov.github.io/geofi/reference/get_municipality_pop.html" class="external-link">get_municipality_pop</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2021</span>, codes_as_character <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Requesting response from: http://geo.stat.fi/geoserver/wfs?service=WFS&amp;version=1.0.0&amp;request=getFeature&amp;typename=vaestoalue%3Akunta_vaki2021</span></span>
+<span><span class="co">#&gt; Requesting response from: https://geo.stat.fi/geoserver/wfs?service=WFS&amp;version=1.0.0&amp;request=getFeature&amp;typename=vaestoalue%3Akunta_vaki2021</span></span>
 <span><span class="co">#&gt; Warning: Coercing CRS to epsg:3067 (ETRS89 / TM35FIN)</span></span>
 <span><span class="co">#&gt; Data is licensed under: Attribution 4.0 International (CC BY 4.0)</span></span>
 <span></span>
@@ -1156,9 +1151,9 @@ tulkittavuus, joten niitä ei tule myöskään väheksyä.</p>
 <span><span class="co">#&gt;   url = {https://sotkanet.fi/sotkanet/fi/metadata/indicators/3165},</span></span>
 <span><span class="co">#&gt;   organization = {Terveyden ja hyvinvoinnin laitos (THL)},</span></span>
 <span><span class="co">#&gt;   year = {2025},</span></span>
-<span><span class="co">#&gt;   urldate = {2026-03-10},</span></span>
+<span><span class="co">#&gt;   urldate = {2026-07-17},</span></span>
 <span><span class="co">#&gt;   type = {Dataset},</span></span>
-<span><span class="co">#&gt;   note = {Accessed 2026-03-10, dataset last updated 2025-04-07},</span></span>
+<span><span class="co">#&gt;   note = {Accessed 2026-07-17, dataset last updated 2025-04-07},</span></span>
 <span><span class="co">#&gt; }</span></span></code></pre></div>
 <p>THL:n CC BY 4.0 -lisenssin mukaisesti on myös hyvä mainita, että
 datan perusteella laskettiin uusi, tapausten keskiarvoa kuvaava muuttuja
@@ -1271,9 +1266,9 @@ tervetulleita.</p>
 ohjelmistokokoonpanolla:</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; R version 4.5.2 (2025-10-31)</span></span>
+<span><span class="co">#&gt; R version 4.6.1 (2026-06-24)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu</span></span>
-<span><span class="co">#&gt; Running under: Ubuntu 24.04.3 LTS</span></span>
+<span><span class="co">#&gt; Running under: Ubuntu 24.04.4 LTS</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Matrix products: default</span></span>
 <span><span class="co">#&gt; BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 </span></span>
@@ -1292,29 +1287,29 @@ ohjelmistokokoonpanolla:</p>
 <span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
-<span><span class="co">#&gt; [1] dplyr_1.2.0      geofi_1.2.0      ggplot2_4.0.2    kableExtra_1.4.0</span></span>
+<span><span class="co">#&gt; [1] dplyr_1.2.1      geofi_1.2.1      ggplot2_4.0.3    kableExtra_1.4.1</span></span>
 <span><span class="co">#&gt; [5] sotkanet_0.10.1 </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] gtable_0.3.6       xfun_0.56          bslib_0.10.0       httr2_1.2.2       </span></span>
-<span><span class="co">#&gt;  [5] htmlwidgets_1.6.4  tzdb_0.5.0         vctrs_0.7.1        tools_4.5.2       </span></span>
-<span><span class="co">#&gt;  [9] generics_0.1.4     curl_7.0.0         proxy_0.4-29       tibble_3.3.1      </span></span>
+<span><span class="co">#&gt;  [1] gtable_0.3.6       xfun_0.60          bslib_0.11.0       httr2_1.3.0       </span></span>
+<span><span class="co">#&gt;  [5] htmlwidgets_1.6.4  tzdb_0.5.0         vctrs_0.7.3        tools_4.6.1       </span></span>
+<span><span class="co">#&gt;  [9] generics_0.1.4     curl_7.1.0         proxy_0.4-29       tibble_3.3.1      </span></span>
 <span><span class="co">#&gt; [13] RefManageR_1.4.0   pkgconfig_2.0.3    KernSmooth_2.23-26 RColorBrewer_1.1-3</span></span>
-<span><span class="co">#&gt; [17] S7_0.2.1           desc_1.4.3         lifecycle_1.0.5    compiler_4.5.2    </span></span>
+<span><span class="co">#&gt; [17] S7_0.2.2           desc_1.4.3         lifecycle_1.0.5    compiler_4.6.1    </span></span>
 <span><span class="co">#&gt; [21] farver_2.1.2       stringr_1.6.0      textshaping_1.0.5  class_7.3-23      </span></span>
 <span><span class="co">#&gt; [25] htmltools_0.5.9    sass_0.4.10        yaml_2.3.12        pillar_1.11.1     </span></span>
-<span><span class="co">#&gt; [29] pkgdown_2.2.0      jquerylib_0.1.4    classInt_0.4-11    cachem_1.1.0      </span></span>
-<span><span class="co">#&gt; [33] tidyselect_1.2.1   digest_0.6.39      stringi_1.8.7      sf_1.1-0          </span></span>
-<span><span class="co">#&gt; [37] purrr_1.2.1        labeling_0.4.3     bibtex_0.5.2       fastmap_1.2.0     </span></span>
-<span><span class="co">#&gt; [41] grid_4.5.2         cli_3.6.5          magrittr_2.0.4     httpcache_1.2.0   </span></span>
-<span><span class="co">#&gt; [45] e1071_1.7-17       readr_2.2.0        withr_3.0.2        scales_1.4.0      </span></span>
-<span><span class="co">#&gt; [49] backports_1.5.0    rappdirs_0.3.4     lubridate_1.9.5    timechange_0.4.0  </span></span>
-<span><span class="co">#&gt; [53] rmarkdown_2.30     httr_1.4.8         ragg_1.5.1         hms_1.1.4         </span></span>
+<span><span class="co">#&gt; [29] pkgdown_2.2.1      jquerylib_0.1.4    classInt_0.4-11    cachem_1.1.0      </span></span>
+<span><span class="co">#&gt; [33] tidyselect_1.2.1   digest_0.6.39      stringi_1.8.7      sf_1.1-1          </span></span>
+<span><span class="co">#&gt; [37] purrr_1.2.2        labeling_0.4.3     bibtex_0.5.2       fastmap_1.2.0     </span></span>
+<span><span class="co">#&gt; [41] grid_4.6.1         cli_3.6.6          magrittr_2.0.5     httpcache_1.2.0   </span></span>
+<span><span class="co">#&gt; [45] e1071_1.7-17       readr_2.2.0        withr_3.0.3        scales_1.4.0      </span></span>
+<span><span class="co">#&gt; [49] backports_1.5.1    lubridate_1.9.5    timechange_0.4.0   rmarkdown_2.31    </span></span>
+<span><span class="co">#&gt; [53] httr_1.4.8         otel_0.2.0         ragg_1.5.2         hms_1.1.4         </span></span>
 <span><span class="co">#&gt; [57] evaluate_1.0.5     knitr_1.51         viridisLite_0.4.3  frictionless_1.2.1</span></span>
-<span><span class="co">#&gt; [61] rlang_1.1.7        Rcpp_1.1.1         glue_1.8.0         DBI_1.3.0         </span></span>
-<span><span class="co">#&gt; [65] xml2_1.5.2         svglite_2.2.2      rstudioapi_0.18.0  jsonlite_2.0.0    </span></span>
-<span><span class="co">#&gt; [69] R6_2.6.1           plyr_1.8.9         units_1.0-0        systemfonts_1.3.2 </span></span>
-<span><span class="co">#&gt; [73] fs_1.6.7</span></span></code></pre></div>
+<span><span class="co">#&gt; [61] rlang_1.3.0        Rcpp_1.1.2         glue_1.8.1         DBI_1.3.0         </span></span>
+<span><span class="co">#&gt; [65] xml2_1.6.0         svglite_2.2.2      rstudioapi_0.19.0  jsonlite_2.0.0    </span></span>
+<span><span class="co">#&gt; [69] R6_2.6.1           plyr_1.8.9         units_1.0-1        systemfonts_1.3.2 </span></span>
+<span><span class="co">#&gt; [73] fs_2.1.0</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -1327,7 +1322,7 @@ ohjelmistokokoonpanolla:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

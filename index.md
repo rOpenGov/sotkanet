@@ -13,6 +13,7 @@ description](https://sotkanet.fi/sotkanet/en/data).
 You can install the stable release version from CRAN:
 
 ``` r
+
 install.packages("sotkanet")
 ```
 
@@ -20,6 +21,7 @@ Alternatively, you can install the development version of sotkanet
 package from GitHub with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rOpenGov/sotkanet")
 ```
@@ -28,6 +30,7 @@ Development version can be also installed using the
 [r-universe](https://ropengov.r-universe.dev):
 
 ``` r
+
 # Enable this universe
 options(repos = c(
   ropengov = "https://ropengov.r-universe.dev",
@@ -41,12 +44,14 @@ install.packages("sotkanet")
 Load the package in R:
 
 ``` r
+
 library(sotkanet)
 ```
 
 List available indicators in the Sotkanet data portal:
 
 ``` r
+
 # Pre-defined list of indicators to save bandwidth
 sotkanet.indicators <- sotkanet_indicators(c(4,5,6,7,46,74))
 head(sotkanet.indicators$indicator.title)
@@ -62,6 +67,7 @@ Here is an example of data retrieval and visualization, using indicator
 describing private dental care use among 0-17 years old in 2015-2022.
 
 ``` r
+
 library(ggplot2)
 library(ggrepel)
 
@@ -73,6 +79,7 @@ unique(hammashoito$indicator.title)
 ```
 
 ``` r
+
 
 # Some data has to be retrieved separately
 hammashoito_metadata <- sotkanet_indicator_metadata(id = 1075)
