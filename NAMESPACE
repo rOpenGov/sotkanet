@@ -21,24 +21,32 @@ export(write_frictionless_metadata)
 importFrom(RefManageR,toBiblatex)
 importFrom(curl,has_internet)
 importFrom(digest,digest)
-importFrom(frictionless,add_resource)
-importFrom(frictionless,create_package)
-importFrom(httr2,req_perform)
-importFrom(httr2,req_timeout)
-importFrom(httr2,req_user_agent)
-importFrom(httr2,request)
-importFrom(httr2,resp_body_json)
-importFrom(httr2,resp_body_string)
-importFrom(httr2,resp_is_error)
-importFrom(httr2,resp_status)
-importFrom(httr2,resp_status_desc)
-importFrom(httr2,url_build)
-importFrom(httr2,url_parse)
-importFrom(lubridate,year)
-importFrom(lubridate,ymd)
+importFrom(frictionless,
+  add_resource,
+  create_package
+)
+importFrom(httr2,
+  req_perform,
+  req_timeout,
+  req_user_agent,
+  request,
+  resp_body_json,
+  resp_body_string,
+  resp_is_error,
+  resp_status,
+  resp_status_desc,
+  url_build,
+  url_parse
+)
+importFrom(lubridate,
+  year,
+  ymd
+)
 importFrom(magrittr,"%>%")
-importFrom(utils,capture.output)
-importFrom(utils,menu)
-importFrom(utils,person)
-importFrom(utils,read.csv2)
-importFrom(utils,toBibtex)
+importFrom(utils,
+  capture.output,
+  menu,
+  person,
+  read.csv2,
+  toBibtex
+)
