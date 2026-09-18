@@ -10,7 +10,10 @@
 #'
 #' @references See citation("sotkanet")
 #' @importFrom frictionless create_package add_resource
-#' @keywords internal
+#' @examples \dontrun{
+#' dat <- get_sotkanet(indicators = 165)
+#' datapackage <- write_frictionless_metadata(indicators = 165, data = dat)
+#' }
 #' @export
 write_frictionless_metadata <- function(indicators, data){
 
